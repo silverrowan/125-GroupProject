@@ -316,7 +316,7 @@ public class DestinationsGUI extends javax.swing.JFrame {
         lblNights.setText("nights");
 
         lblNumDays.setText("# days");
-        lblNumDays.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblNumDays.setBorder(null);
         lblNumDays.addActionListener(this::lblNumDaysActionPerformed);
 
         lblNumNights.setText("# nights");
