@@ -28,9 +28,9 @@ public class AddEmployeeGUI extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        inputJobTitle = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        inputHireDate = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -40,17 +40,17 @@ public class AddEmployeeGUI extends javax.swing.JFrame {
 
         jLabel3.setText("Job Title");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        inputJobTitle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                inputJobTitleActionPerformed(evt);
             }
         });
 
         jLabel7.setText("Hire Date");
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        inputHireDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                inputHireDateActionPerformed(evt);
             }
         });
 
@@ -83,7 +83,7 @@ public class AddEmployeeGUI extends javax.swing.JFrame {
                         .addComponent(jButton3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1))
-                    .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(inputHireDate, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
@@ -93,7 +93,7 @@ public class AddEmployeeGUI extends javax.swing.JFrame {
                                     .addComponent(jLabel8))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(69, 69, 69))
-                    .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(inputJobTitle, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(0, 58, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -102,11 +102,11 @@ public class AddEmployeeGUI extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inputJobTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inputHireDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addGap(89, 89, 89)
@@ -135,13 +135,13 @@ public class AddEmployeeGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void inputHireDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputHireDateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_inputHireDateActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void inputJobTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputJobTitleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_inputJobTitleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,6 +186,8 @@ public class AddEmployeeGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField inputHireDate;
+    private javax.swing.JTextField inputJobTitle;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -193,7 +195,5 @@ public class AddEmployeeGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }

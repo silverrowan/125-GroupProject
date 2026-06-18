@@ -8,12 +8,12 @@ package view;
  *
  * @author c0541856
  */
-public class AddUserGUIPage2 extends javax.swing.JFrame {
+public class EditEmployeeGUIPage2 extends javax.swing.JFrame {
 
     /**
      * Creates new form AddUserGUI
      */
-    public AddUserGUIPage2() {
+    public EditEmployeeGUIPage2() {
         initComponents();
     }
 
@@ -43,14 +43,14 @@ public class AddUserGUIPage2 extends javax.swing.JFrame {
         inputPost = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         inputCountry = new javax.swing.JTextField();
-        btnNext = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         btnPrevious = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        selectionRole = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        inputJobTitle = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        inputHireDate = new javax.swing.JTextField();
+        radioStatus = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -118,11 +118,10 @@ public class AddUserGUIPage2 extends javax.swing.JFrame {
             }
         });
 
-        btnNext.setText("Next");
-        btnNext.setActionCommand("Next");
-        btnNext.addActionListener(new java.awt.event.ActionListener() {
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNextActionPerformed(evt);
+                btnSaveActionPerformed(evt);
             }
         });
 
@@ -135,33 +134,39 @@ public class AddUserGUIPage2 extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Role");
+        jLabel8.setText("Job Title");
 
-        selectionRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All roles", "Admin", "Employee", "Tour guide", "Customer" }));
+        inputJobTitle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputJobTitleActionPerformed(evt);
+            }
+        });
 
-        jLabel2.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel2.setText("*");
+        jLabel13.setText("Hire Date");
 
-        jLabel15.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel15.setText("*");
+        inputHireDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputHireDateActionPerformed(evt);
+            }
+        });
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jLabel16.setText("required");
+        radioStatus.setSelected(true);
+        radioStatus.setText("Active");
+        radioStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioStatusActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(selectionRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addGap(117, 117, 117)
@@ -199,17 +204,21 @@ public class AddUserGUIPage2 extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel15)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel16))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnPrevious)
-                                .addGap(49, 49, 49)
-                                .addComponent(btnCancel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnNext)))))
-                .addGap(0, 58, Short.MAX_VALUE))
+                            .addComponent(jLabel13)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(btnPrevious)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnCancel)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(btnSave))
+                                .addComponent(inputHireDate, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGap(69, 69, 69))
+                                .addComponent(inputJobTitle, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(radioStatus))))
+                .addGap(0, 54, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,21 +253,21 @@ public class AddUserGUIPage2 extends javax.swing.JFrame {
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(inputCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(selectionRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inputJobTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(inputHireDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(radioStatus)
                 .addGap(46, 46, 46)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel15))
-                .addGap(69, 69, 69)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPrevious)
                     .addComponent(btnCancel)
-                    .addComponent(btnNext))
+                    .addComponent(btnSave))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
@@ -304,9 +313,21 @@ public class AddUserGUIPage2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelActionPerformed
 
-    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnNextActionPerformed
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void inputJobTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputJobTitleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputJobTitleActionPerformed
+
+    private void inputHireDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputHireDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputHireDateActionPerformed
+
+    private void radioStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioStatusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radioStatusActionPerformed
 
     /**
      * @param args the command line arguments
@@ -325,14 +346,18 @@ public class AddUserGUIPage2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddUserGUIPage2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditEmployeeGUIPage2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddUserGUIPage2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditEmployeeGUIPage2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddUserGUIPage2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditEmployeeGUIPage2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddUserGUIPage2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditEmployeeGUIPage2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -341,36 +366,36 @@ public class AddUserGUIPage2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddUserGUIPage2().setVisible(true);
+                new EditEmployeeGUIPage2().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
-    private javax.swing.JButton btnNext;
     private javax.swing.JButton btnPrevious;
+    private javax.swing.JButton btnSave;
     private javax.swing.JTextField inputCity;
     private javax.swing.JTextField inputCountry;
+    private javax.swing.JTextField inputHireDate;
+    private javax.swing.JTextField inputJobTitle;
     private javax.swing.JTextField inputPost;
     private javax.swing.JTextField inputProvince;
     private javax.swing.JTextField inputStreet;
     private javax.swing.JTextField inputStreetNumber;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JComboBox<String> selectionRole;
+    private javax.swing.JCheckBox radioStatus;
     // End of variables declaration//GEN-END:variables
 }
