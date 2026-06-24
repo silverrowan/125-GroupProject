@@ -28,6 +28,8 @@ public class Destinations {
     private float activityFees;
     private float totalEstimatedCost;
     private String destinationStatus;
+    
+    private String fullAddress;
 
     //CONSTRUCTORS
     public Destinations(String DestinationName, String countryRegion, 
@@ -236,6 +238,16 @@ public class Destinations {
     public String getDestinationStatus() {
         return destinationStatus;
     }
+    
+    /**
+     * @return the fullAddress (of hotel at destination)
+     */
+        public String getFullAddress() {
+        String addressLine1 = getHotelStreetNumber() + " " + getHotelStreetName();
+        String addressLine2 = getHotelCity()+ " " + getHotelProvinceRegion() + " " + getHotelPostalCode();
+        String addressLine3 = getHotelCountry();
+        return addressLine1 + "\n" + addressLine2 + "\n" + addressLine3;
+    }
 
     //SETTERS
     /**
@@ -397,5 +409,12 @@ public class Destinations {
      */
     public void setDestinationStatus(String destinationStatus) {
         this.destinationStatus = destinationStatus;
+    }
+    
+    /**
+     * @param fullAddress the fullAddress to set
+     */
+    public void setFullAddress(String fullAddress) {
+        this.fullAddress = fullAddress;
     }
 }
