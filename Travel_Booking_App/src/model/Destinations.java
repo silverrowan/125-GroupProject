@@ -5,8 +5,8 @@ package model;
  * @author Mariah Malczewska
  */
 public class Destinations {
-    private int DestinationID;
-    private String DestinationName;
+    private int destinationID;
+    private String destinationName;
     private String countryRegion;
     private String notes;
     private String hotelName;
@@ -28,9 +28,11 @@ public class Destinations {
     private float activityFees;
     private float totalEstimatedCost;
     private String destinationStatus;
+    
+    private String fullAddress;
 
     //CONSTRUCTORS
-    public Destinations(String DestinationName, String countryRegion, 
+    public Destinations(String destinationName, String countryRegion, 
             String notes, String hotelName, float hotel_rating, 
             String hotelStreetNumber, String hotelStreetName, String hotelCity, 
             String hotelProvinceRegion, String hotelPostalCode, 
@@ -38,7 +40,7 @@ public class Destinations {
             String transferDetails, String includedActivities, 
             String optionalActivities, int durationDays, int durationNights, 
             float basePrice, float activityFees, String destinationStatus) {
-        this.DestinationName = DestinationName;
+        this.destinationName = destinationName;
         this.countryRegion = countryRegion;
         this.notes = notes;
         this.hotelName = hotelName;
@@ -65,7 +67,7 @@ public class Destinations {
     public Destinations(String DestinationName, String countryRegion, 
             int durationDays, int durationNights, float basePrice, 
             String destinationStatus) {
-        this.DestinationName = DestinationName;
+        this.destinationName = DestinationName;
         this.countryRegion = countryRegion;
         this.durationDays = durationDays;
         this.durationNights = durationNights;
@@ -80,14 +82,14 @@ public class Destinations {
      * @return the DestinationID
      */
     public int getDestinationID() {
-        return DestinationID;
+        return destinationID;
     }
 
     /**
      * @return the DestinationName
      */
     public String getDestinationName() {
-        return DestinationName;
+        return destinationName;
     }
 
     /**
@@ -159,7 +161,33 @@ public class Destinations {
     public String getHotelCountry() {
         return hotelCountry;
     }
+    
+//    public void loadDestinationByID(int destinationID) {
+//        String query = "SELECT destinationID FROM destinations WHERE destinationID = ?";
+        //assume database connection con is established (it is not this name)
+        //this is ALSO not the actual code to use, suggested code for a user profile load, need to alter
+//        try(PreparedStatement stmt = conn.prepareStatement(query)) {
+//            stmt.setInt(1,id);
+//            try (ResultSet rs = stmt.executeQuery()) {
+//                if rs.next()) {
+//                    this.name = rs.getString("name")
+//                }
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
+    public String getFullAddress() {
+        String addressLine1 = getHotelStreetNumber() + " " + getHotelStreetName();
+        String addressLine2 = getHotelCity()+ " " + getHotelProvinceRegion() + " " + getHotelPostalCode();
+        String addressLine3 = getHotelCountry();
+        return addressLine1 + "\n" + addressLine2 + "\n" + addressLine3;
+    }
 
+    public void setFullAddress(String fullAddress) {
+        this.fullAddress = fullAddress;
+    }
+    
     /**
      * @return the flightInfo
      */
@@ -242,14 +270,14 @@ public class Destinations {
      * @param DestinationID the DestinationID to set
      */
     public void setDestinationID(int DestinationID) {
-        this.DestinationID = DestinationID;
+        this.destinationID = DestinationID;
     }
 
     /**
      * @param DestinationName the DestinationName to set
      */
     public void setDestinationName(String DestinationName) {
-        this.DestinationName = DestinationName;
+        this.destinationName = DestinationName;
     }
 
     /**
