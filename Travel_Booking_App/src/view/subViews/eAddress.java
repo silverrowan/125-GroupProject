@@ -51,30 +51,36 @@ public class eAddress extends javax.swing.JPanel {
         lblAddress.setText("Address");
         lblAddress.setToolTipText("");
 
+        lblStNum.setLabelFor(txtStNum);
         lblStNum.setText("Street number");
 
         txtStNum.setMaximumSize(new java.awt.Dimension(88, 22));
         txtStNum.setMinimumSize(new java.awt.Dimension(88, 22));
         txtStNum.setPreferredSize(new java.awt.Dimension(88, 22));
 
+        lblStreet.setLabelFor(txtStreetAddress);
         lblStreet.setText("Street");
 
+        lblCity.setLabelFor(txtCity);
         lblCity.setText("City");
 
         txtCity.setMaximumSize(new java.awt.Dimension(2147483647, 22));
         txtCity.setPreferredSize(new java.awt.Dimension(180, 22));
 
+        lblRegion.setLabelFor(txtRegion);
         lblRegion.setText("Province");
 
         txtRegion.setToolTipText("");
         txtRegion.setMaximumSize(new java.awt.Dimension(150, 22));
         txtRegion.setPreferredSize(new java.awt.Dimension(120, 22));
 
+        lblPostalCode.setLabelFor(txtPostalCode);
         lblPostalCode.setText("Postal code");
 
         txtPostalCode.setMaximumSize(new java.awt.Dimension(150, 22));
         txtPostalCode.setPreferredSize(new java.awt.Dimension(120, 22));
 
+        lblCountry.setLabelFor(txtCountry);
         lblCountry.setText("Country");
 
         btnSaveEdits.setText("Save Edits");

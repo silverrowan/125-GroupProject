@@ -152,6 +152,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblStNum">
           <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtStNum"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Street number"/>
           </Properties>
         </Component>
@@ -170,6 +173,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblStreet">
           <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtStreetAddress"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Street"/>
           </Properties>
         </Component>
@@ -177,6 +183,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblCity">
           <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCity"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="City"/>
           </Properties>
         </Component>
@@ -192,6 +201,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblRegion">
           <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtRegion"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Province"/>
           </Properties>
         </Component>
@@ -208,6 +220,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblPostalCode">
           <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtPostalCode"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Postal code"/>
           </Properties>
         </Component>
@@ -223,6 +238,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblCountry">
           <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCountry"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Country"/>
           </Properties>
         </Component>

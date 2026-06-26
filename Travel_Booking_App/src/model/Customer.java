@@ -11,6 +11,7 @@ public class Customer {
     private String emergencyContactName;
     private String emergencyContactPhone;
     private String customerNotes;
+    private String emergencyBlock;
 
     // full constructor
     public Customer(int customerID, int userID, String emergencyContactName, String emergencyContactPhone, String customerNotes) {
@@ -57,6 +58,14 @@ public class Customer {
 
     public void setEmergencyContactPhone(String emergencyContactPhone) {
         this.emergencyContactPhone = emergencyContactPhone;
+    }
+    
+    public void setEmergencyContactBlock(){
+        this.emergencyBlock = this.emergencyContactName + ": " + this.emergencyContactPhone;
+    }
+    
+    public String getEmergencyContactBlack(){
+        return emergencyBlock;
     }
 
     public String getCustomerNotes() {

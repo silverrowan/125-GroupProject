@@ -26,24 +26,35 @@ public class vAddress extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlHotel = new javax.swing.JPanel();
+        pnlAddressBlock = new javax.swing.JPanel();
         txtFullAddress = new javax.swing.JTextField();
+        lblAddress = new javax.swing.JLabel();
 
-        pnlHotel.setBackground(new java.awt.Color(255, 204, 153));
+        pnlAddressBlock.setBackground(new java.awt.Color(255, 204, 153));
 
-        javax.swing.GroupLayout pnlHotelLayout = new javax.swing.GroupLayout(pnlHotel);
-        pnlHotel.setLayout(pnlHotelLayout);
-        pnlHotelLayout.setHorizontalGroup(
-            pnlHotelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlHotelLayout.createSequentialGroup()
+        lblAddress.setFont(new java.awt.Font("Noto Sans", 3, 14)); // NOI18N
+        lblAddress.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblAddress.setLabelFor(txtFullAddress);
+        lblAddress.setText("Address");
+        lblAddress.setToolTipText("");
+
+        javax.swing.GroupLayout pnlAddressBlockLayout = new javax.swing.GroupLayout(pnlAddressBlock);
+        pnlAddressBlock.setLayout(pnlAddressBlockLayout);
+        pnlAddressBlockLayout.setHorizontalGroup(
+            pnlAddressBlockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddressBlockLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtFullAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
+                .addGroup(pnlAddressBlockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtFullAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
+                    .addComponent(lblAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        pnlHotelLayout.setVerticalGroup(
-            pnlHotelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlHotelLayout.createSequentialGroup()
+        pnlAddressBlockLayout.setVerticalGroup(
+            pnlAddressBlockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddressBlockLayout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(lblAddress)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtFullAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -52,17 +63,18 @@ public class vAddress extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlHotel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlAddressBlock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlHotel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(pnlAddressBlock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel pnlHotel;
+    private javax.swing.JLabel lblAddress;
+    private javax.swing.JPanel pnlAddressBlock;
     private javax.swing.JTextField txtFullAddress;
     // End of variables declaration//GEN-END:variables
 }

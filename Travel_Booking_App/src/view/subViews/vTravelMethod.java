@@ -31,7 +31,11 @@ public class vTravelMethod extends javax.swing.JPanel {
         txtTravelMethd = new javax.swing.JTextField();
         scTravelInfo = new javax.swing.JScrollPane();
         txtTravelInfo = new javax.swing.JTextArea();
-        txtTransfer = new javax.swing.JTextField();
+        lblTravelMethod = new javax.swing.JLabel();
+        lblTravelInfo = new javax.swing.JLabel();
+        lblTransferInfo = new javax.swing.JLabel();
+        scTransfer = new javax.swing.JScrollPane();
+        txtTransfer = new javax.swing.JTextArea();
 
         pnlTravel.setBackground(new java.awt.Color(255, 204, 153));
 
@@ -47,10 +51,19 @@ public class vTravelMethod extends javax.swing.JPanel {
 
         txtTravelInfo.setColumns(20);
         txtTravelInfo.setRows(5);
-        txtTravelInfo.setText("travel info");
         scTravelInfo.setViewportView(txtTravelInfo);
 
-        txtTransfer.setText("transfer details");
+        lblTravelMethod.setText("By");
+
+        lblTravelInfo.setLabelFor(txtTravelInfo);
+        lblTravelInfo.setText("Travel Information");
+
+        lblTransferInfo.setLabelFor(txtTransfer);
+        lblTransferInfo.setText("Transfer Details");
+
+        txtTransfer.setColumns(20);
+        txtTransfer.setRows(5);
+        scTransfer.setViewportView(txtTransfer);
 
         javax.swing.GroupLayout pnlTravelLayout = new javax.swing.GroupLayout(pnlTravel);
         pnlTravel.setLayout(pnlTravelLayout);
@@ -62,9 +75,13 @@ public class vTravelMethod extends javax.swing.JPanel {
                     .addComponent(scTravelInfo)
                     .addGroup(pnlTravelLayout.createSequentialGroup()
                         .addComponent(lblTravel)
-                        .addGap(191, 191, 191)
-                        .addComponent(txtTravelMethd))
-                    .addComponent(txtTransfer))
+                        .addGap(153, 153, 153)
+                        .addComponent(lblTravelMethod)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTravelMethd, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE))
+                    .addComponent(scTransfer)
+                    .addComponent(lblTransferInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblTravelInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnlTravelLayout.setVerticalGroup(
@@ -73,11 +90,16 @@ public class vTravelMethod extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(pnlTravelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTravel)
-                    .addComponent(txtTravelMethd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTravelMethd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTravelMethod))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblTravelInfo)
+                .addGap(5, 5, 5)
+                .addComponent(scTravelInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scTravelInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtTransfer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblTransferInfo)
+                .addGap(2, 2, 2)
+                .addComponent(scTransfer, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -99,10 +121,14 @@ public class vTravelMethod extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lblTransferInfo;
     private javax.swing.JLabel lblTravel;
+    private javax.swing.JLabel lblTravelInfo;
+    private javax.swing.JLabel lblTravelMethod;
     private javax.swing.JPanel pnlTravel;
+    private javax.swing.JScrollPane scTransfer;
     private javax.swing.JScrollPane scTravelInfo;
-    private javax.swing.JTextField txtTransfer;
+    private javax.swing.JTextArea txtTransfer;
     private javax.swing.JTextArea txtTravelInfo;
     private javax.swing.JTextField txtTravelMethd;
     // End of variables declaration//GEN-END:variables

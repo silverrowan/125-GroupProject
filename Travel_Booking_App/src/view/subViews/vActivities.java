@@ -27,17 +27,22 @@ public class vActivities extends javax.swing.JPanel {
     private void initComponents() {
 
         pnlActivities = new javax.swing.JPanel();
-        lblActivities = new javax.swing.JLabel();
+        lblActivitiesIncl = new javax.swing.JLabel();
         txtActivitiesIncl = new javax.swing.JTextField();
         txtActivitiesOption = new javax.swing.JTextField();
+        lblActivitiesOption = new javax.swing.JLabel();
 
         pnlActivities.setBackground(new java.awt.Color(255, 204, 153));
 
-        lblActivities.setText("Activities");
+        lblActivitiesIncl.setLabelFor(txtActivitiesIncl);
+        lblActivitiesIncl.setText("Included Activities");
 
         txtActivitiesIncl.setText("included activities");
 
         txtActivitiesOption.setText("optional activities");
+
+        lblActivitiesOption.setLabelFor(txtActivitiesOption);
+        lblActivitiesOption.setText("Optional Activities");
 
         javax.swing.GroupLayout pnlActivitiesLayout = new javax.swing.GroupLayout(pnlActivities);
         pnlActivities.setLayout(pnlActivitiesLayout);
@@ -47,19 +52,23 @@ public class vActivities extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(pnlActivitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtActivitiesIncl)
+                    .addComponent(txtActivitiesOption)
                     .addGroup(pnlActivitiesLayout.createSequentialGroup()
-                        .addComponent(lblActivities)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(txtActivitiesOption))
+                        .addGroup(pnlActivitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblActivitiesIncl)
+                            .addComponent(lblActivitiesOption))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlActivitiesLayout.setVerticalGroup(
             pnlActivitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlActivitiesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblActivities)
+                .addComponent(lblActivitiesIncl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtActivitiesIncl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblActivitiesOption)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtActivitiesOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -79,7 +88,8 @@ public class vActivities extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblActivities;
+    private javax.swing.JLabel lblActivitiesIncl;
+    private javax.swing.JLabel lblActivitiesOption;
     private javax.swing.JPanel pnlActivities;
     private javax.swing.JTextField txtActivitiesIncl;
     private javax.swing.JTextField txtActivitiesOption;
