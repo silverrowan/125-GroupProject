@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="pnlDestRedo" alignment="0" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="pnlDestRedo" alignment="0" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="pnlDestRedo">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="cc" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" alignment="2" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="pnlDestinationDays" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <Component id="pnlPrices" max="32767" attributes="0"/>
+                      </Group>
+                      <Component id="pnlDestinationInfo" alignment="1" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Component id="pnlDestinationInfo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="pnlPrices" alignment="1" max="32767" attributes="0"/>
+                      <Component id="pnlDestinationDays" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="pnlDestinationInfo">
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtDestinationNotes" alignment="1" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblDestinationCountry1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblDestinationCountry2" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtHotelName" max="32767" attributes="0"/>
+                                          <Component id="txtRating" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblDestinationName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblDestinationCountry" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtDestinationName" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtDestinationCountry" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblDestinationNotes" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtDestinationName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblDestinationName" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtDestinationCountry" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblDestinationCountry" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtHotelName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblDestinationCountry1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtRating" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblDestinationCountry2" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                      <Component id="lblDestinationNotes" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtDestinationNotes" min="-2" pref="75" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="lblDestinationName">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Destination Name"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtDestinationName">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblDestinationCountry">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Country or Region"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtDestinationCountry">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtHotelName">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Noto Sans" size="12" style="2"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtHotelNameActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtRating">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblDestinationNotes">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Notes"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextArea" name="txtDestinationNotes">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+                <Property name="text" type="java.lang.String" value="Destination Notes"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblDestinationCountry1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Hotel Name"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblDestinationCountry2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Hotel Rating"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="pnlDestinationDays">
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblStay" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblDays" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNights" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lblNumDays" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblNumNights" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="23" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblStay" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="2" attributes="0">
+                          <Component id="lblDays" alignment="2" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNumDays" alignment="2" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="2" attributes="0">
+                          <Component id="lblNights" alignment="2" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNumNights" alignment="2" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="lblStay">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Stay duration: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblDays">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="days"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="lblNumDays">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblNights">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="nights"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="lblNumNights">
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="pnlPrices">
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblPrice" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblActivityPrice" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblTotalPrice" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="txtTotalPrice" alignment="1" pref="120" max="32767" attributes="0"/>
+                          <Component id="txtActivityPrice" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtBasePrice" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="2" attributes="0">
+                          <Component id="txtBasePrice" alignment="2" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblPrice" alignment="2" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="2" attributes="0">
+                          <Component id="txtActivityPrice" alignment="2" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblActivityPrice" alignment="2" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="2" attributes="0">
+                          <Component id="txtTotalPrice" alignment="2" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblTotalPrice" alignment="2" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="lblPrice">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="base price:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtBasePrice">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblActivityPrice">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="activity fees:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtActivityPrice">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblTotalPrice">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Total Estimated Cost:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtTotalPrice">
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
