@@ -6,11 +6,13 @@ package model;
  * @author Max Zhang
  */
 public class Customer {
+    //Database Fields
     private int customerID;
     private int userID;
     private String emergencyContactName;
     private String emergencyContactPhone;
     private String customerNotes;
+    //Composite Fields (not passed to database)
     private String emergencyBlock;
 
     // full constructor

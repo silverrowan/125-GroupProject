@@ -89,7 +89,7 @@ public class eDestinationSummary extends javax.swing.JPanel {
                 .addGroup(pnlDestinationInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtDestinationNotes, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlDestinationInfoLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
+                        .addGap(0, 0, 0)
                         .addGroup(pnlDestinationInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlDestinationInfoLayout.createSequentialGroup()
                                 .addGroup(pnlDestinationInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
