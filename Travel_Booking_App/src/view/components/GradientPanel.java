@@ -14,46 +14,34 @@ import java.awt.RenderingHints;
  * @author rowan
  */
 public class GradientPanel extends JPanel {
-    private String gradientTop; //
-    private String gradientBottom; //
+    private Color gradientTop; //
+    private Color gradientBottom; //
     private int roundCorners;
     
     /**
      * Constructors:
      */
     public GradientPanel() {
-        this( new FlowLayout(), 0 );
-    }
-
-    public GradientPanel(int roundCorners) {
-        this( new FlowLayout(), roundCorners );
+        this( new FlowLayout(), new Color( 204,255,204 ), new Color( 255,150,46 ), 0 );
     }
     
-    public GradientPanel(LayoutManager layout) {
-        //def colors: top: Bright ocean green/teal color, bottom: Bold orange     
-        this( layout, "#ccffcc", "#ff962e", 0 );                                   
+    public GradientPanel( Color top, Color bottom, int roundCorners ) {
+        this( new FlowLayout(), top, bottom, roundCorners);
     }
 
-    public GradientPanel(LayoutManager layout, int roundCorners) {
-        //def colors: top: Bright ocean green/teal color, bottom: Bold orange     
-        this( layout, "#ccffcc", "#ff962e", roundCorners );                                   
-    }
     
-    public GradientPanel(String Top, String Bottom) {
-        this( new FlowLayout(), Top, Bottom, 0 );
-    }
-
-    public GradientPanel(String Top, String Bottom, int roundCorners) {
-        this( new FlowLayout(), Top, Bottom, roundCorners );
-    }
-    
-    public GradientPanel(LayoutManager layout, String Top, String Bottom, int roundCorners) {
+    public GradientPanel(LayoutManager layout, Color top, Color bottom, int roundCorners) {
         super(layout, true); //use "double buffering" - takes more mem, smoother rendering
-        initComponents();
-        setOpaque(false); //Sets the background *BEHIND* the gradient to transparent
-        this.gradientTop = Top;
-        this.gradientBottom = Bottom;
+
+        this.gradientTop = top;
+        this.gradientBottom = bottom;
         this.roundCorners = roundCorners;
+        
+//        setOpaque(false); 
+//Doesn't seem to do anything anymore; when this was in paint child set ugly grey bg to clear
+
+
+//        no initComponents()?        
     }
 
     /**
@@ -78,30 +66,49 @@ public class GradientPanel extends JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     @Override
-    protected void paintChildren(Graphics grphcs){
-        Graphics2D g2 = (Graphics2D)grphcs;
-        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        GradientPaint g=new GradientPaint(0, 0, Color.decode(gradientTop), 0, getHeight(), Color.decode(gradientBottom));
-        g2.setPaint(g);
-        g2.fillRoundRect(0, 0, getWidth(), getHeight(), roundCorners, roundCorners);
+    protected void paintComponent(Graphics grphcs){ //paintChildren is for stuff that could change
+        super.paintComponent(grphcs);
         
-        super.paintChildren(grphcs);
+//    'Graphics' objects are reused, so direct modification can lead to odd bugs. 
+//    This creates a copy
+        Graphics2D g2 = (Graphics2D) grphcs.create(); 
+        
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, 
+                RenderingHints.VALUE_ANTIALIAS_ON);
+        
+        GradientPaint g = new GradientPaint(0, 0, gradientTop, 0, getHeight(), gradientBottom);
+        
+        g2.setPaint(g);
+        
+//        roundRect is more mem intense than Rect, so if not needed, use simpler 
+//        donno how significant this is.
+        if (roundCorners == 0) {
+            g2.fillRect(0, 0, getWidth(), getHeight());
+        } else {
+            g2.fillRoundRect(0, 0, getWidth(), getHeight(), roundCorners, roundCorners);            
+        }
+
+//        release mem used for graphics object background as no longer needed. 
+//        cant be used in future
+        g2.dispose(); 
     }
 
-    public String getGradientTop() {
+    public Color getGradientTop() {
         return gradientTop;
     }
 
-    public void setGradientTop(String gradientTop) {
+    public void setGradientTop(Color gradientTop) {
         this.gradientTop = gradientTop;
+        repaint(); //once change color need to show it
     }
 
-    public String getGradientBottom() {
+    public Color getGradientBottom() {
         return gradientBottom;
     }
 
-    public void setGradientBottom(String gradientBottom) {
+    public void setGradientBottom(Color gradientBottom) {
         this.gradientBottom = gradientBottom;
+        repaint();
     }
 
     public int getRoundCorners() {
@@ -110,17 +117,20 @@ public class GradientPanel extends JPanel {
 
     public void setRoundCorners(int roundCorners) {
         this.roundCorners = roundCorners;
+        repaint();
     }
     
-    public void setGradient(String gradientTop, String gradientBottom) {
+    public void setGradient(Color gradientTop, Color gradientBottom) {
         this.gradientTop = gradientTop;
         this.gradientBottom = gradientBottom;
+        repaint();
     }
 
-    public void setGradientCorners(String gradientTop, String gradientBottom, int roundCorners) {
+    public void setGradientCorners(Color gradientTop, Color gradientBottom, int roundCorners) {
         this.gradientTop = gradientTop;
         this.gradientBottom = gradientBottom;
         this.roundCorners = roundCorners;
+        repaint();
     }
     
     /**

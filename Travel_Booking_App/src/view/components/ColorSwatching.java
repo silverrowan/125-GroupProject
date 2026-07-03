@@ -13,12 +13,21 @@ public class ColorSwatching extends javax.swing.JFrame {
     public ColorSwatching() {
         initComponents();
         gradientPanel.setRoundCorners(20);
-        gradientPanel2.setGradientCorners( "#CCFFCC", "#BDEEEF", 20 );
-        gradientPanel3.setGradientCorners( "#CCFFCC", "#7CDEDF", 20 );
-        gradientPanel4.setGradientCorners( "#CCFFCC", "#32CBCD", 20 );
-        gradientPanel6.setGradientCorners( "#CCFFCC", "#29A6A8", 20 );
-        gradientPanel7.setGradientCorners( "#BDEEEF", "#29A6A8", 20 );
-        gradientPanel8.setGradientCorners( "#f4bd18", "#df2049", 20 );
+        Color brightOceanGreen = new Color(204,255,204); // #ccffcc
+        Color xLightTeal = new Color(189,238,239); // #BDEEEF; close to robin egg blue
+        Color lightTeal = new Color(161, 231, 232); // #A1E7E8
+        Color medLightTeal = new Color(124, 222, 223); // #7CDEDF
+        Color medTeal = new Color(50, 203, 205); //#32CBCD
+        Color darkTeal = new Color(41, 166, 168); //#29A6A8
+        Color mustard = new Color(244,189,24); //#f4bd18
+        Color boldRose = new Color(223,32,73); //#df2049
+        
+        gradientPanel2.setGradientCorners( brightOceanGreen, xLightTeal, 20 );
+        gradientPanel3.setGradientCorners( brightOceanGreen, medLightTeal, 20 );
+        gradientPanel4.setGradientCorners( brightOceanGreen, medTeal, 20 );
+        gradientPanel6.setGradientCorners( brightOceanGreen, darkTeal, 20 );
+        gradientPanel7.setGradientCorners( xLightTeal, darkTeal, 20 );
+        gradientPanel8.setGradientCorners( mustard, boldRose, 20 );
 //        setBackground( new Color(0, 0, 0, 0) ); //only works with undecorated frame
     }
 

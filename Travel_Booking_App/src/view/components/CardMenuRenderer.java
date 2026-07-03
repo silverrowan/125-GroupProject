@@ -50,9 +50,7 @@ public class CardMenuRenderer extends JPanel implements ListCellRenderer<Model_M
         
         lblTitle.setText( value.getName() );
         lblIcon.setIcon( value.toRoImageIcon() );
-        
-
-        
+               
         //Styling (Card)
         if (isSelected) {
             setBackground( new Color(220, 235, 255) );
@@ -96,16 +94,16 @@ public class CardMenuRenderer extends JPanel implements ListCellRenderer<Model_M
     
     @Override
     protected void paintComponent(Graphics grphcs) {
+        Graphics2D g2 = (Graphics2D) grphcs.create();
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-            Graphics2D g2 = (Graphics2D) grphcs.create();
-            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-         if (selected) {            
+        if (selected) {            
             g2.setColor(new Color(255,255,255,80) );
             g2.fillRoundRect(8, 0, getWidth()-16, getHeight(), 8, 8);
-         }
-            g2.dispose();
-
-            super.paintComponent(grphcs);
+        }
+        
+        g2.dispose();
+        super.paintComponent(grphcs);
          
     }
 }
