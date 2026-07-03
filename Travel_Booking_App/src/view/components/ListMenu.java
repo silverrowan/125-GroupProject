@@ -22,7 +22,6 @@ public class ListMenu<E extends Object> extends JList<E> {
             
             renderer.setData(data);
             renderer.setSelected(isSelected, list);
-            
             return renderer;
         });
     }

@@ -11,30 +11,26 @@ import model.gui.Model_MenuItem;
  *
  * @author rowan
  */
-public class Menu_Orange extends javax.swing.JPanel {
-    String gradientTop; //Hex code color
-    String gradientBottom; //Hex code color
+public class MenuCustomer extends GradientPanel {
 
     /**
      * Creates new form MenuCustomer
      */
-    public Menu_Orange() {
+    public MenuCustomer() {
         initComponents();
         setOpaque(false);
         listMenuCustomer.setOpaque(false);
-        this.gradientTop = "#ccffcc";
-        this.gradientBottom = "#ff962e";
         init();
     }
-    
-    private void init(){
-        listMenuCustomer.addItem( new Model_MenuItem( "travelBug70", "Profile", Model_MenuItem.MenuType.MENU ) );
-        listMenuCustomer.addItem( new Model_MenuItem( "travelBug70", "Destinations", Model_MenuItem.MenuType.MENU ) );
-        listMenuCustomer.addItem( new Model_MenuItem( "travelBug70", "Latest", Model_MenuItem.MenuType.MENU ) );
-        listMenuCustomer.addItem( new Model_MenuItem( "travelBug70", "Plans", Model_MenuItem.MenuType.MENU ) );
-        listMenuCustomer.addItem( new Model_MenuItem( "travelBug70", "History", Model_MenuItem.MenuType.MENU ) );
-        listMenuCustomer.addItem( new Model_MenuItem( "travelBug70", "Logout", Model_MenuItem.MenuType.MENU ) );
-        
+
+    private void init() {
+        listMenuCustomer.addItem(new Model_MenuItem("travelBug70", "Profile", Model_MenuItem.MenuType.MENU));
+        listMenuCustomer.addItem(new Model_MenuItem("travelBug70", "Destinations", Model_MenuItem.MenuType.MENU));
+        listMenuCustomer.addItem(new Model_MenuItem("travelBug70", "Latest", Model_MenuItem.MenuType.MENU));
+        listMenuCustomer.addItem(new Model_MenuItem("travelBug70", "Plans", Model_MenuItem.MenuType.MENU));
+        listMenuCustomer.addItem(new Model_MenuItem("travelBug70", "History", Model_MenuItem.MenuType.MENU));
+        listMenuCustomer.addItem(new Model_MenuItem("travelBug70", "Logout", Model_MenuItem.MenuType.MENU));
+
     }
 
     /**
@@ -95,17 +91,17 @@ public class Menu_Orange extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    @Override
-    protected void paintChildren(Graphics grphcs){
-        Graphics2D g2 = (Graphics2D)grphcs;
-        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        GradientPaint g=new GradientPaint(0, 0, Color.decode(gradientTop), 0, getHeight(), Color.decode(gradientBottom));
-        g2.setPaint(g);
-//        g2.fillRoundRect(0, 0, getWidth(), getHeight(), 15, 15);
-        g2.fillRect(0, 0, getWidth(), getHeight());
-        
-        super.paintChildren(grphcs);
-    }
+//    @Override
+//    protected void paintChildren(Graphics grphcs){
+//        Graphics2D g2 = (Graphics2D)grphcs;
+//        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+//        GradientPaint g=new GradientPaint(0, 0, Color.decode(gradientTop), 0, getHeight(), Color.decode(gradientBottom));
+//        g2.setPaint(g);
+    ////        g2.fillRoundRect(0, 0, getWidth(), getHeight(), 15, 15);
+//        g2.fillRect(0, 0, getWidth(), getHeight());
+//        
+//        super.paintChildren(grphcs);
+//    }
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
