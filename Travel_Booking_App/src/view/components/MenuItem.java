@@ -8,7 +8,9 @@ import static java.awt.Font.ITALIC;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
-import model.Model_MenuItem;
+import javax.swing.Icon;
+import model.gui.Model_MenuItem;
+import model.gui.RoImageIcon;
 
 /**
  *
@@ -22,8 +24,9 @@ public class MenuItem extends javax.swing.JPanel {
         initComponents();
         setOpaque(false);
         if ( data.getType() == Model_MenuItem.MenuType.MENU ) {
-            lblIcon.setIcon(data.toIcon());
-            lblMenu.setText(data.getName());
+            RoImageIcon icon = (RoImageIcon) data.toRoImageIcon();
+             lblMenu.setText(data.getName());
+            lblIcon.setIcon( icon.scaleIconYFontY( lblMenu ) );
         } else if (data.getType() == Model_MenuItem.MenuType.TITLE) {
             lblIcon.setText(data.getName());
             lblIcon.setFont(new Font( null , 1, 16));
@@ -55,25 +58,19 @@ public class MenuItem extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(32767, 35));
         setMinimumSize(new java.awt.Dimension(0, 35));
         setPreferredSize(new java.awt.Dimension(400, 35));
+        setLayout(new java.awt.BorderLayout());
 
+        lblIcon.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblIcon.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblIcon.setMaximumSize(new java.awt.Dimension(1000, 1000));
+        add(lblIcon, java.awt.BorderLayout.LINE_START);
+
+        lblMenu.setFont(new java.awt.Font("URW Gothic", 1, 24)); // NOI18N
+        lblMenu.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblMenu.setText("Menu Item");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(lblIcon)
-                .addGap(18, 18, 18)
-                .addComponent(lblMenu)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(lblMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-        );
+        lblMenu.setToolTipText("");
+        lblMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        add(lblMenu, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     @Override

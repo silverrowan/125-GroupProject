@@ -1,8 +1,9 @@
 
-package model;
+package model.gui;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import model.gui.RoImageIcon;
 
 /**
  *
@@ -60,6 +61,10 @@ public class Model_MenuItem {
     
     public Icon toIcon() {
         return new ImageIcon(getClass().getResource("/view/graphics/" + icon + ".png"));
+    }    
+
+    public Icon toRoImageIcon() {
+        return new RoImageIcon( getClass().getResource("/view/graphics/" + icon + ".png") );
     }    
     
 }
