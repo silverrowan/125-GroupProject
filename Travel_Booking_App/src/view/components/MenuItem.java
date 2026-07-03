@@ -2,12 +2,14 @@
 package view.components;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import static java.awt.Font.BOLD;
 import static java.awt.Font.ITALIC;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import javax.swing.BorderFactory;
 import model.Model_MenuItem;
 
 /**
@@ -20,17 +22,24 @@ public class MenuItem extends javax.swing.JPanel {
 
     public MenuItem(Model_MenuItem data) {
         initComponents();
+        setBorder( javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10) );
+        lblMenu.setBorder( BorderFactory.createEmptyBorder(0, 10, 0, 0));
         setOpaque(false);
+
         if ( data.getType() == Model_MenuItem.MenuType.MENU ) {
-            lblIcon.setIcon(data.toIcon());
             lblMenu.setText(data.getName());
+            lblMenu.setFont(new Font( null , 1, 24));
+            lblIcon.setIcon(data.scaleIconByText(lblMenu, "travelBug70") );
         } else if (data.getType() == Model_MenuItem.MenuType.TITLE) {
             lblIcon.setText(data.getName());
-            lblIcon.setFont(new Font( null , 1, 16));
+            lblIcon.setFont(new Font( null , 1, 24));
             lblMenu.setVisible(false);
         } else {
             lblMenu.setText(" ");
         }
+
+        lblMenu.setPreferredSize(null);
+        lblMenu.revalidate();
     }
 
     public void setSelected(boolean selected) {
@@ -52,28 +61,17 @@ public class MenuItem extends javax.swing.JPanel {
         lblIcon = new javax.swing.JLabel();
         lblMenu = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(32767, 35));
+        setMaximumSize(new java.awt.Dimension(32767, 200));
         setMinimumSize(new java.awt.Dimension(0, 35));
-        setPreferredSize(new java.awt.Dimension(400, 35));
+        setPreferredSize(null);
+        setLayout(new java.awt.BorderLayout());
+        add(lblIcon, java.awt.BorderLayout.LINE_START);
 
         lblMenu.setText("Menu Item");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(lblIcon)
-                .addGap(18, 18, 18)
-                .addComponent(lblMenu)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(lblMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-        );
+        lblMenu.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        lblMenu.setMaximumSize(new java.awt.Dimension(150, 1600));
+        lblMenu.setPreferredSize(new java.awt.Dimension(150, 16));
+        add(lblMenu, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     @Override

@@ -39,7 +39,7 @@ public class ListMenu<E extends Object> extends JList<E> {
                     data = new Model_MenuItem("", o + "",Model_MenuItem.MenuType.EMPTY);
                 }
                 MenuItem item = new MenuItem(data);
-                
+                item.setSelected(isSelected); //chat recomendation - about renderer not respectinc selection state, not sure exactly what it does gifure it out
                 return item;
             }
         };
