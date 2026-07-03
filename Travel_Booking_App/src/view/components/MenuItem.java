@@ -10,7 +10,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import javax.swing.BorderFactory;
-import model.Model_MenuItem;
+import model.gui.Model_MenuItem;
 
 /**
  *

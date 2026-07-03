@@ -1,5 +1,5 @@
 
-package model;
+package model.gui;
 
 import javax.swing.Icon;
 

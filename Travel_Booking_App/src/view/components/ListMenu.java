@@ -9,7 +9,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 import javax.swing.SwingUtilities;
-import model.Model_MenuItem;
+import model.gui.Model_MenuItem;
 
 /**
  *

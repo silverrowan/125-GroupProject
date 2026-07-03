@@ -5,7 +5,7 @@ import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
-import model.Model_MenuItem;
+import model.gui.Model_MenuItem;
 
 /**
  *
@@ -28,10 +28,10 @@ public class Menu_Orange extends javax.swing.JPanel {
     }
     
     private void init(){
-        listMenuCustomer.addItem( new Model_MenuItem( "travelBug70", "travelBug70", Model_MenuItem.MenuType.MENU ) );
-        listMenuCustomer.addItem( new Model_MenuItem( "travelBug70", "travelBug70", Model_MenuItem.MenuType.MENU ) );
-        listMenuCustomer.addItem( new Model_MenuItem( "travelBug70", "travelBug70", Model_MenuItem.MenuType.MENU ) );
-        listMenuCustomer.addItem( new Model_MenuItem( "travelBug70", "travelBug70", Model_MenuItem.MenuType.MENU ) );
+        listMenuCustomer.addItem( new Model_MenuItem( "travelBug70", "Profile", Model_MenuItem.MenuType.MENU ) );
+        listMenuCustomer.addItem( new Model_MenuItem( "travelBug70", "Destinations", Model_MenuItem.MenuType.MENU ) );
+        listMenuCustomer.addItem( new Model_MenuItem( "travelBug70", "Bookings", Model_MenuItem.MenuType.MENU ) );
+        listMenuCustomer.addItem( new Model_MenuItem( "travelBug70", "Coming Up", Model_MenuItem.MenuType.MENU ) );
         
     }
 
