@@ -28,10 +28,12 @@ public class Menu_Orange extends javax.swing.JPanel {
     }
     
     private void init(){
-        listMenuCustomer.addItem( new Model_MenuItem( "travelBug70", "travelBug70", Model_MenuItem.MenuType.MENU ) );
-        listMenuCustomer.addItem( new Model_MenuItem( "travelBug70", "travelBug70", Model_MenuItem.MenuType.MENU ) );
-        listMenuCustomer.addItem( new Model_MenuItem( "travelBug70", "travelBug70", Model_MenuItem.MenuType.MENU ) );
-        listMenuCustomer.addItem( new Model_MenuItem( "travelBug70", "travelBug70", Model_MenuItem.MenuType.MENU ) );
+        listMenuCustomer.addItem( new Model_MenuItem( "travelBug70", "Profile", Model_MenuItem.MenuType.MENU ) );
+        listMenuCustomer.addItem( new Model_MenuItem( "travelBug70", "Destinations", Model_MenuItem.MenuType.MENU ) );
+        listMenuCustomer.addItem( new Model_MenuItem( "travelBug70", "Latest", Model_MenuItem.MenuType.MENU ) );
+        listMenuCustomer.addItem( new Model_MenuItem( "travelBug70", "Plans", Model_MenuItem.MenuType.MENU ) );
+        listMenuCustomer.addItem( new Model_MenuItem( "travelBug70", "History", Model_MenuItem.MenuType.MENU ) );
+        listMenuCustomer.addItem( new Model_MenuItem( "travelBug70", "Logout", Model_MenuItem.MenuType.MENU ) );
         
     }
 
