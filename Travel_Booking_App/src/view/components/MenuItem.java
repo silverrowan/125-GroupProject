@@ -22,7 +22,7 @@ public class MenuItem extends JPanel {
 //    private boolean selected;
 
     public MenuItem() {
-        setLayout( new BorderLayout(10, 0) );
+        setLayout( new BorderLayout(20, 0) );
         
         add(lblIcon, BorderLayout.WEST);
         add(lblMenu, BorderLayout.CENTER);

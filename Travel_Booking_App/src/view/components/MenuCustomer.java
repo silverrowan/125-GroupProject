@@ -18,7 +18,7 @@ public class MenuCustomer extends GradientPanel {
      */
     public MenuCustomer() {
         initComponents();
-        setOpaque(false);
+//        setOpaque(false);
         listMenuCustomer.setOpaque(false);
         init();
     }

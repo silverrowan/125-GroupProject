@@ -31,7 +31,7 @@ public class CardMenuRenderer extends JPanel implements ListCellRenderer<Model_M
     
     public CardMenuRenderer() {
         setLayout( new BorderLayout( 10,0 ));
-        setBorder(BorderFactory.createEmptyBorder(10, 12, 10, 12));
+        setBorder(BorderFactory.createEmptyBorder(10, 22, 10, 12));
         setOpaque(false);
         
         lblTitle.setVerticalAlignment(SwingConstants.CENTER);
