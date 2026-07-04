@@ -22,7 +22,7 @@ public class ColorSwatching extends javax.swing.JFrame {
         Color mustard = new Color(244,189,24); //#f4bd18
         Color boldRose = new Color(223,32,73); //#df2049
         
-        Color orange = new Color( 255,150,46 ); //
+        Color orange = new Color( 255,150,46 ); //#ff962e
         
         gradientPanel2.setGradientCorners( brightOceanGreen, xLightTeal, 20 );
         gradientPanel3.setGradientCorners( brightOceanGreen, medLightTeal, 20 );
