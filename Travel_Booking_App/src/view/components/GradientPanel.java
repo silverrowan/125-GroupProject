@@ -21,28 +21,42 @@ public class GradientPanel extends JPanel {
     /**
      * Constructors:
      */
-    public GradientPanel() {
-        this( new FlowLayout(), new Color( 204,255,204 ), new Color( 255,150,46 ), 0 );
+    
+    // ----- Gradient Color Constructors -----
+    public GradientPanel( Color top, Color bottom ) {
+        this( new FlowLayout(), top, bottom, 0);
     }
     
     public GradientPanel( Color top, Color bottom, int roundCorners ) {
         this( new FlowLayout(), top, bottom, roundCorners);
     }
 
-    
     public GradientPanel(LayoutManager layout, Color top, Color bottom, int roundCorners) {
         super(layout, true); //use "double buffering" - takes more mem, smoother rendering
 
         this.gradientTop = top;
         this.gradientBottom = bottom;
-        this.roundCorners = roundCorners;
-        
-//        setOpaque(false); 
-//Doesn't seem to do anything anymore; when this was in paint child set ugly grey bg to clear
-
-
-//        no initComponents()?        
+        this.roundCorners = roundCorners;   
     }
+    
+    // ---- Flat Color Constructors -----
+    public GradientPanel() {
+        this( 0 );
+    }
+    
+    public GradientPanel( int roundCorners ) {
+        this( new FlowLayout(), new Color( 255,255,255 ), null, roundCorners);
+    }
+
+    public GradientPanel( Color bgColor) {
+        this( new FlowLayout(), bgColor, null, 0);
+    }
+
+    public GradientPanel( Color bgColor, int roundCorners ) {
+        this( new FlowLayout(), bgColor, null, roundCorners);
+    }
+    
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -76,9 +90,12 @@ public class GradientPanel extends JPanel {
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, 
                 RenderingHints.VALUE_ANTIALIAS_ON);
         
-        GradientPaint g = new GradientPaint(0, 0, gradientTop, 0, getHeight(), gradientBottom);
-        
-        g2.setPaint(g);
+        if (gradientBottom == null) { //'flat mode'
+            g2.setColor( gradientTop );
+        } else { // 'gradient mode'
+            GradientPaint g = new GradientPaint(0, 0, gradientTop, 0, getHeight(), gradientBottom);
+            g2.setPaint(g);
+        }
         
 //        roundRect is more mem intense than Rect, so if not needed, use simpler 
 //        donno how significant this is.
@@ -109,6 +126,21 @@ public class GradientPanel extends JPanel {
     public void setGradientBottom(Color gradientBottom) {
         this.gradientBottom = gradientBottom;
         repaint();
+    }
+    
+    public void setBackgroundColor(Color backgroundColor) {
+        this.gradientTop = backgroundColor;
+        this.gradientBottom = null;
+    }
+    
+    public Color getBackgroundColor() throws Exception {
+//        try {
+            if (gradientBottom == null) { return gradientTop; }
+            else { throw new Exception(" The background is not a flat color "); }
+//        } catch ( Exception e ) {
+//            System.out.println("getBackgroundColor Error: " + e );
+//        }
+//        return gradientTop;
     }
 
     public int getRoundCorners() {
