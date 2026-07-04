@@ -12,19 +12,20 @@ public class Card extends GradientPanel {
     String contents;
     int padding;
     
-    public Card(Color topColor, Color bottomColor, int roundCorners ) {
+    public Card(Color topColor, Color bottomColor, int roundCorners ) { //gradient background
         super(topColor, bottomColor, roundCorners);
 //        initComponents(); - done by parent - don't need?
 //        setOpaque(false); - done by parent - don't need?
     }
     
+    public Card(Color bgColor, int roundCorners ) { //flat background
+        super(bgColor, roundCorners);
+    }        
+
     public Card() {
-        this( new Color(255,255,255), new Color(255,255,255), 0 ); //white background
+        this( new Color(255,255,255), 0 ); //white background
     }
 
-    public Card(Color BGColor, int roundCorners ) {
-        this(BGColor, BGColor, roundCorners);
-    }        
      
     /**
      * This method is called from within the constructor to initialize the form.
