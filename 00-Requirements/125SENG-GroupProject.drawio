@@ -1455,7 +1455,7 @@
         <mxCell id="aRFzKNb1T4KrQqU3Ctx0-194" parent="aRFzKNb1T4KrQqU3Ctx0-185" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" value="Trip Dates" vertex="1">
           <mxGeometry height="30" width="160" x="100" y="47" as="geometry" />
         </mxCell>
-        <mxCell id="aRFzKNb1T4KrQqU3Ctx0-404" parent="1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" value="?????????&lt;div&gt;the itineraries just looks like&amp;nbsp;&lt;/div&gt;&lt;div&gt;a bunch of note boxes?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;What is supposed to be going on here&lt;/div&gt;" vertex="1">
+        <mxCell id="aRFzKNb1T4KrQqU3Ctx0-404" parent="1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=default;fillColor=#fa6800;strokeColor=#C73500;fontColor=#000000;" value="?????????&lt;div&gt;the itineraries just looks like&amp;nbsp;&lt;/div&gt;&lt;div&gt;a bunch of note boxes?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;What is supposed to be going on here&lt;/div&gt;" vertex="1">
           <mxGeometry height="179" width="250" x="1510" y="1749.5" as="geometry" />
         </mxCell>
         <mxCell id="aRFzKNb1T4KrQqU3Ctx0-405" edge="1" parent="1" source="aRFzKNb1T4KrQqU3Ctx0-306" style="endArrow=classic;html=1;rounded=0;strokeColor=default;strokeWidth=3;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;startSize=18;endSize=18;sourcePerimeterSpacing=0;entryX=0.25;entryY=0.25;entryDx=0;entryDy=0;entryPerimeter=0;" target="aRFzKNb1T4KrQqU3Ctx0-404" value="">
