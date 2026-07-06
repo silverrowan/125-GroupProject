@@ -1,12 +1,13 @@
 
 package model.gui;
 
-import java.awt.Dimension;
+import view.models.RoImageIcon;
 import java.awt.FontMetrics;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
 
 /**
  *
@@ -62,6 +63,25 @@ public class Model_MenuItem {
         TITLE, MENU, EMPTY
     }
     
+    public Icon toIcon() {
+        return new ImageIcon(getClass().getResource("/view/graphics/" + icon + ".png"));
+    }    
+
+    public Icon toRoImageIcon() {
+        return new RoImageIcon( getClass().getResource("/view/graphics/" + icon + ".png") );
+    }
+    
+    public int getContentsHeight(JLabel label) {
+        FontMetrics cFont = label.getFontMetrics( label.getFont() );
+        int cFontHeight = cFont.getHeight();
+        
+        Icon cIcon = label.getIcon();
+        int cIconHeight = cIcon.getIconHeight();
+        
+        int tallest = Math.max(cIconHeight, cFontHeight);
+
+        return tallest;
+    }
     public Icon toIcon(String icon) {
         return new ImageIcon(getClass().getResource("/view/graphics/" + icon + ".png"));
     }

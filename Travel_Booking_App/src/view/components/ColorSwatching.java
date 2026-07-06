@@ -12,6 +12,24 @@ public class ColorSwatching extends javax.swing.JFrame {
 
     public ColorSwatching() {
         initComponents();
+        gradientPanel.setRoundCorners(20);
+        Color brightOceanGreen = new Color(204,255,204); // #ccffcc
+        Color xLightTeal = new Color(189,238,239); // #BDEEEF; close to robin egg blue
+        Color lightTeal = new Color(161, 231, 232); // #A1E7E8
+        Color medLightTeal = new Color(124, 222, 223); // #7CDEDF
+        Color medTeal = new Color(50, 203, 205); //#32CBCD
+        Color darkTeal = new Color(41, 166, 168); //#29A6A8
+        Color mustard = new Color(244,189,24); //#f4bd18
+        Color boldRose = new Color(223,32,73); //#df2049
+        
+        Color orange = new Color( 255,150,46 ); //#ff962e
+        
+        gradientPanel2.setGradientCorners( brightOceanGreen, xLightTeal, 20 );
+        gradientPanel3.setGradientCorners( brightOceanGreen, medLightTeal, 20 );
+        gradientPanel4.setGradientCorners( brightOceanGreen, medTeal, 20 );
+        gradientPanel6.setGradientCorners( brightOceanGreen, darkTeal, 20 );
+        gradientPanel7.setGradientCorners( xLightTeal, darkTeal, 20 );
+        gradientPanel8.setGradientCorners( mustard, boldRose, 20 );
 //        setBackground( new Color(0, 0, 0, 0) ); //only works with undecorated frame
     }
 
@@ -25,11 +43,13 @@ public class ColorSwatching extends javax.swing.JFrame {
     private void initComponents() {
 
         panelBorder1 = new view.components.PanelBorder();
-        menu_Teal1 = new view.components.Menu_Teal();
-        menu_Orange1 = new view.components.Menu_Orange();
-        menu_Teal21 = new view.components.Menu_Teal2();
-        menu_Teal31 = new view.components.Menu_Teal3();
-        menu_Teal41 = new view.components.Menu_Teal4();
+        gradientPanel = new view.components.GradientPanel();
+        gradientPanel2 = new view.components.GradientPanel();
+        gradientPanel3 = new view.components.GradientPanel();
+        gradientPanel4 = new view.components.GradientPanel();
+        gradientPanel6 = new view.components.GradientPanel();
+        gradientPanel7 = new view.components.GradientPanel();
+        gradientPanel8 = new view.components.GradientPanel();
         pnlSwatches = new javax.swing.JPanel();
         jButton5 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
@@ -50,58 +70,80 @@ public class ColorSwatching extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        javax.swing.GroupLayout menu_Teal1Layout = new javax.swing.GroupLayout(menu_Teal1);
-        menu_Teal1.setLayout(menu_Teal1Layout);
-        menu_Teal1Layout.setHorizontalGroup(
-            menu_Teal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
+        javax.swing.GroupLayout gradientPanelLayout = new javax.swing.GroupLayout(gradientPanel);
+        gradientPanel.setLayout(gradientPanelLayout);
+        gradientPanelLayout.setHorizontalGroup(
+            gradientPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 236, Short.MAX_VALUE)
         );
-        menu_Teal1Layout.setVerticalGroup(
-            menu_Teal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 642, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout menu_Orange1Layout = new javax.swing.GroupLayout(menu_Orange1);
-        menu_Orange1.setLayout(menu_Orange1Layout);
-        menu_Orange1Layout.setHorizontalGroup(
-            menu_Orange1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 144, Short.MAX_VALUE)
-        );
-        menu_Orange1Layout.setVerticalGroup(
-            menu_Orange1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 642, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout menu_Teal21Layout = new javax.swing.GroupLayout(menu_Teal21);
-        menu_Teal21.setLayout(menu_Teal21Layout);
-        menu_Teal21Layout.setHorizontalGroup(
-            menu_Teal21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 126, Short.MAX_VALUE)
-        );
-        menu_Teal21Layout.setVerticalGroup(
-            menu_Teal21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        gradientPanelLayout.setVerticalGroup(
+            gradientPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout menu_Teal31Layout = new javax.swing.GroupLayout(menu_Teal31);
-        menu_Teal31.setLayout(menu_Teal31Layout);
-        menu_Teal31Layout.setHorizontalGroup(
-            menu_Teal31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 152, Short.MAX_VALUE)
+        javax.swing.GroupLayout gradientPanel2Layout = new javax.swing.GroupLayout(gradientPanel2);
+        gradientPanel2.setLayout(gradientPanel2Layout);
+        gradientPanel2Layout.setHorizontalGroup(
+            gradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 236, Short.MAX_VALUE)
         );
-        menu_Teal31Layout.setVerticalGroup(
-            menu_Teal31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        gradientPanel2Layout.setVerticalGroup(
+            gradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 644, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout menu_Teal41Layout = new javax.swing.GroupLayout(menu_Teal41);
-        menu_Teal41.setLayout(menu_Teal41Layout);
-        menu_Teal41Layout.setHorizontalGroup(
-            menu_Teal41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        javax.swing.GroupLayout gradientPanel3Layout = new javax.swing.GroupLayout(gradientPanel3);
+        gradientPanel3.setLayout(gradientPanel3Layout);
+        gradientPanel3Layout.setHorizontalGroup(
+            gradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 236, Short.MAX_VALUE)
         );
-        menu_Teal41Layout.setVerticalGroup(
-            menu_Teal41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        gradientPanel3Layout.setVerticalGroup(
+            gradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 644, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout gradientPanel4Layout = new javax.swing.GroupLayout(gradientPanel4);
+        gradientPanel4.setLayout(gradientPanel4Layout);
+        gradientPanel4Layout.setHorizontalGroup(
+            gradientPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 236, Short.MAX_VALUE)
+        );
+        gradientPanel4Layout.setVerticalGroup(
+            gradientPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 644, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout gradientPanel6Layout = new javax.swing.GroupLayout(gradientPanel6);
+        gradientPanel6.setLayout(gradientPanel6Layout);
+        gradientPanel6Layout.setHorizontalGroup(
+            gradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 236, Short.MAX_VALUE)
+        );
+        gradientPanel6Layout.setVerticalGroup(
+            gradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 644, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout gradientPanel7Layout = new javax.swing.GroupLayout(gradientPanel7);
+        gradientPanel7.setLayout(gradientPanel7Layout);
+        gradientPanel7Layout.setHorizontalGroup(
+            gradientPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 236, Short.MAX_VALUE)
+        );
+        gradientPanel7Layout.setVerticalGroup(
+            gradientPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 644, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout gradientPanel8Layout = new javax.swing.GroupLayout(gradientPanel8);
+        gradientPanel8.setLayout(gradientPanel8Layout);
+        gradientPanel8Layout.setHorizontalGroup(
+            gradientPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 224, Short.MAX_VALUE)
+        );
+        gradientPanel8Layout.setVerticalGroup(
+            gradientPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
@@ -110,27 +152,31 @@ public class ColorSwatching extends javax.swing.JFrame {
         panelBorder1Layout.setHorizontalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBorder1Layout.createSequentialGroup()
-                .addComponent(menu_Teal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(menu_Orange1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(menu_Teal41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(menu_Teal21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(menu_Teal31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addGap(10, 10, 10)
+                .addComponent(gradientPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(gradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(gradientPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(gradientPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(gradientPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(gradientPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(gradientPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         panelBorder1Layout.setVerticalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelBorder1Layout.createSequentialGroup()
-                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(menu_Teal31, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(menu_Teal1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(menu_Teal21, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(menu_Orange1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(menu_Teal41, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(gradientPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(gradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(gradientPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(gradientPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(gradientPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(gradientPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(gradientPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jButton5.setBackground(new java.awt.Color(189, 238, 239));
@@ -211,7 +257,7 @@ public class ColorSwatching extends javax.swing.JFrame {
                             .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlSwatchesLayout.setVerticalGroup(
             pnlSwatchesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,7 +295,7 @@ public class ColorSwatching extends javax.swing.JFrame {
                 .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -325,6 +371,14 @@ public class ColorSwatching extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private view.components.GradientPanel gradientPanel;
+    private view.components.GradientPanel gradientPanel2;
+    private view.components.GradientPanel gradientPanel3;
+    private view.components.GradientPanel gradientPanel4;
+    private view.components.GradientPanel gradientPanel5;
+    private view.components.GradientPanel gradientPanel6;
+    private view.components.GradientPanel gradientPanel7;
+    private view.components.GradientPanel gradientPanel8;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -339,12 +393,8 @@ public class ColorSwatching extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private view.components.Menu_Orange menu_Orange1;
-    private view.components.Menu_Teal menu_Teal1;
-    private view.components.Menu_Teal2 menu_Teal21;
-    private view.components.Menu_Teal3 menu_Teal31;
-    private view.components.Menu_Teal4 menu_Teal41;
     private view.components.PanelBorder panelBorder1;
     private javax.swing.JPanel pnlSwatches;
     // End of variables declaration//GEN-END:variables
+
 }

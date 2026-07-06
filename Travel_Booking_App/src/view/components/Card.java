@@ -1,16 +1,32 @@
 package view.components;
 
+import java.awt.Color;
+
 /**
  *
  * @author rowan
  */
-public class Card extends javax.swing.JPanel {
+public class Card extends GradientPanel {
+    //Check if theres a significant preformance hit to doing things this way for plain background items
+    String title;
+    String contents;
+    int padding;
+    
+    public Card(Color topColor, Color bottomColor, int roundCorners ) { //gradient background
+        super(topColor, bottomColor, roundCorners);
+//        initComponents(); - done by parent - don't need?
+//        setOpaque(false); - done by parent - don't need?
+    }
+    
+    public Card(Color bgColor, int roundCorners ) { //flat background
+        super(bgColor, roundCorners);
+    }        
 
     public Card() {
-        initComponents();
-        setOpaque(false);
+        this( new Color(255,255,255), 0 ); //white background
     }
 
+     
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
