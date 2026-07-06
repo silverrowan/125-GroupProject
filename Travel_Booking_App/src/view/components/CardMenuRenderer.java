@@ -28,6 +28,7 @@ public class CardMenuRenderer extends JPanel implements ListCellRenderer<Model_M
     private JLabel lblIcon = new JLabel();
     private JLabel lblTitle = new JLabel();
     private boolean selected;
+    private Color selectColor;
     
     public CardMenuRenderer() {
         setLayout( new BorderLayout( 10,0 ));
@@ -48,15 +49,9 @@ public class CardMenuRenderer extends JPanel implements ListCellRenderer<Model_M
             JList<? extends Model_MenuItem> list, Model_MenuItem value, int index, 
             boolean isSelected, boolean cellHasFocus) {
         
+        //Card contents
         lblTitle.setText( value.getName() );
-        lblIcon.setIcon( value.toRoImageIcon() );
-               
-        //Styling (Card)
-        if (isSelected) {
-            setBackground( new Color(220, 235, 255) );
-        } else {
-            setBackground( Color.WHITE );
-        }
+        lblIcon.setIcon( value.toRoImageIcon() ); //need to remind myself why i didnt set the size here
         
         //card spacing
         setBorder( BorderFactory.createCompoundBorder( 
@@ -64,17 +59,15 @@ public class CardMenuRenderer extends JPanel implements ListCellRenderer<Model_M
                 BorderFactory.createLineBorder( new Color(230, 230, 230) )
         ) );
         
-        //row height
-        list.setFixedCellHeight( 70 );
+        list.setFixedCellHeight( 70 ); //row height
         
-        //hover
-        // ... maybe later. fair bit here
+        //hover        // ... maybe later. fair bit here
         
         return this;
     }    
 
     public void setData( Model_MenuItem data ) {
-        lblTitle.setFont(new Font( null , 1, 32));
+        lblTitle.setFont(new Font( "URW Bookman" , 1, 32));
         
         lblTitle.setText(data.getName());
         RoImageIcon icon = (RoImageIcon) data.toRoImageIcon();
@@ -97,8 +90,12 @@ public class CardMenuRenderer extends JPanel implements ListCellRenderer<Model_M
         Graphics2D g2 = (Graphics2D) grphcs.create();
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        if (selected) {            
-            g2.setColor(new Color(255,255,255,80) );
+        if (selected) {
+            if ( selectColor == null ) {
+                g2.setColor(new Color(189,238,239,80) );
+            } else {
+                g2.setColor( selectColor );
+            }
             g2.fillRoundRect(8, 0, getWidth()-16, getHeight(), 8, 8);
         }
         
