@@ -44,9 +44,13 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblAddress" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lblCity" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -66,7 +70,7 @@
                               <Component id="lblPostalCode" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="txtStNum" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -81,13 +85,10 @@
                               <Component id="txtStreetAddress" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblCountry" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblAddress" alignment="0" min="-2" pref="298" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="lblCountry" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="473" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
@@ -152,6 +153,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblStNum">
           <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtStNum"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Street number"/>
           </Properties>
         </Component>
@@ -170,6 +174,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblStreet">
           <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtStreetAddress"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Street"/>
           </Properties>
         </Component>
@@ -177,6 +184,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblCity">
           <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCity"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="City"/>
           </Properties>
         </Component>
@@ -192,6 +202,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblRegion">
           <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtRegion"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Province"/>
           </Properties>
         </Component>
@@ -208,6 +221,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblPostalCode">
           <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtPostalCode"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Postal code"/>
           </Properties>
         </Component>
@@ -223,6 +239,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblCountry">
           <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCountry"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Country"/>
           </Properties>
         </Component>

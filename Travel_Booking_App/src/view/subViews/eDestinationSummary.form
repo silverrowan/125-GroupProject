@@ -75,36 +75,31 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="txtDestinationNotes" alignment="1" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblDestinationCountry1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblDestinationCountry2" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtHotelName" max="32767" attributes="0"/>
-                                          <Component id="txtRating" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblDestinationName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblDestinationCountry" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtDestinationName" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtDestinationCountry" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblDestinationNotes" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="lblHotelName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblHotelRating" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtHotelName" max="32767" attributes="0"/>
+                                  <Component id="txtHotelRating" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblDestinationName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblDestinationCountry" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtDestinationName" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtDestinationCountry" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="lblDestinationNotes" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -127,12 +122,12 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtHotelName" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblDestinationCountry1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblHotelName" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtRating" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblDestinationCountry2" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtHotelRating" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblHotelRating" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                       <Component id="lblDestinationNotes" min="-2" max="-2" attributes="0"/>
@@ -146,6 +141,9 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="lblDestinationName">
               <Properties>
+                <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="txtDestinationName"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Destination Name"/>
               </Properties>
             </Component>
@@ -153,6 +151,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblDestinationCountry">
               <Properties>
+                <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="txtDestinationCountry"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Country or Region"/>
               </Properties>
             </Component>
@@ -168,10 +169,13 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtHotelNameActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtRating">
+            <Component class="javax.swing.JTextField" name="txtHotelRating">
             </Component>
             <Component class="javax.swing.JLabel" name="lblDestinationNotes">
               <Properties>
+                <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="txtDestinationNotes"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Notes"/>
               </Properties>
             </Component>
@@ -182,13 +186,19 @@
                 <Property name="text" type="java.lang.String" value="Destination Notes"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblDestinationCountry1">
+            <Component class="javax.swing.JLabel" name="lblHotelName">
               <Properties>
+                <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="txtHotelName"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Hotel Name"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblDestinationCountry2">
+            <Component class="javax.swing.JLabel" name="lblHotelRating">
               <Properties>
+                <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="txtHotelRating"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Hotel Rating"/>
               </Properties>
             </Component>
@@ -210,8 +220,8 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="lblNumDays" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblNumNights" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
+                                  <Component id="txtNumDays" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtNumNights" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -227,12 +237,12 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="2" attributes="0">
                           <Component id="lblDays" alignment="2" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblNumDays" alignment="2" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtNumDays" alignment="2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="2" attributes="0">
                           <Component id="lblNights" alignment="2" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblNumNights" alignment="2" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtNumNights" alignment="2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -247,17 +257,23 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblDays">
               <Properties>
+                <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="txtNumDays"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="days"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="lblNumDays">
+            <Component class="javax.swing.JTextField" name="txtNumDays">
             </Component>
             <Component class="javax.swing.JLabel" name="lblNights">
               <Properties>
+                <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="txtNumNights"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="nights"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="lblNumNights">
+            <Component class="javax.swing.JTextField" name="txtNumNights">
             </Component>
           </SubComponents>
         </Container>
@@ -309,6 +325,9 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="lblPrice">
               <Properties>
+                <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="txtBasePrice"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="base price:"/>
               </Properties>
             </Component>
@@ -316,6 +335,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblActivityPrice">
               <Properties>
+                <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="txtActivityPrice"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="activity fees:"/>
               </Properties>
             </Component>
@@ -323,6 +345,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblTotalPrice">
               <Properties>
+                <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="txtTotalPrice"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Total Estimated Cost:"/>
               </Properties>
             </Component>

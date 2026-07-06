@@ -6,11 +6,14 @@ package model;
  * @author Max Zhang
  */
 public class Customer {
+    //Database Fields
     private int customerID;
     private int userID;
     private String emergencyContactName;
     private String emergencyContactPhone;
     private String customerNotes;
+    //Composite Fields (not passed to database)
+    private String emergencyBlock;
 
     // full constructor
     public Customer(int customerID, int userID, String emergencyContactName, String emergencyContactPhone, String customerNotes) {
@@ -57,6 +60,14 @@ public class Customer {
 
     public void setEmergencyContactPhone(String emergencyContactPhone) {
         this.emergencyContactPhone = emergencyContactPhone;
+    }
+    
+    public void setEmergencyContactBlock(){
+        this.emergencyBlock = this.emergencyContactName + ": " + this.emergencyContactPhone;
+    }
+    
+    public String getEmergencyContactBlack(){
+        return emergencyBlock;
     }
 
     public String getCustomerNotes() {

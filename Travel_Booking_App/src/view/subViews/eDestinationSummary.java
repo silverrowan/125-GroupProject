@@ -33,17 +33,17 @@ public class eDestinationSummary extends javax.swing.JPanel {
         lblDestinationCountry = new javax.swing.JLabel();
         txtDestinationCountry = new javax.swing.JTextField();
         txtHotelName = new javax.swing.JTextField();
-        txtRating = new javax.swing.JTextField();
+        txtHotelRating = new javax.swing.JTextField();
         lblDestinationNotes = new javax.swing.JLabel();
         txtDestinationNotes = new javax.swing.JTextArea();
-        lblDestinationCountry1 = new javax.swing.JLabel();
-        lblDestinationCountry2 = new javax.swing.JLabel();
+        lblHotelName = new javax.swing.JLabel();
+        lblHotelRating = new javax.swing.JLabel();
         pnlDestinationDays = new javax.swing.JPanel();
         lblStay = new javax.swing.JLabel();
         lblDays = new javax.swing.JLabel();
-        lblNumDays = new javax.swing.JTextField();
+        txtNumDays = new javax.swing.JTextField();
         lblNights = new javax.swing.JLabel();
-        lblNumNights = new javax.swing.JTextField();
+        txtNumNights = new javax.swing.JTextField();
         pnlPrices = new javax.swing.JPanel();
         lblPrice = new javax.swing.JLabel();
         txtBasePrice = new javax.swing.JTextField();
@@ -54,8 +54,10 @@ public class eDestinationSummary extends javax.swing.JPanel {
 
         pnlDestRedo.setBackground(new java.awt.Color(255, 204, 153));
 
+        lblDestinationName.setLabelFor(txtDestinationName);
         lblDestinationName.setText("Destination Name");
 
+        lblDestinationCountry.setLabelFor(txtDestinationCountry);
         lblDestinationCountry.setText("Country or Region");
 
         txtHotelName.setFont(new java.awt.Font("Noto Sans", 2, 12)); // NOI18N
@@ -65,15 +67,18 @@ public class eDestinationSummary extends javax.swing.JPanel {
             }
         });
 
+        lblDestinationNotes.setLabelFor(txtDestinationNotes);
         lblDestinationNotes.setText("Notes");
 
         txtDestinationNotes.setColumns(20);
         txtDestinationNotes.setRows(5);
         txtDestinationNotes.setText("Destination Notes");
 
-        lblDestinationCountry1.setText("Hotel Name");
+        lblHotelName.setLabelFor(txtHotelName);
+        lblHotelName.setText("Hotel Name");
 
-        lblDestinationCountry2.setText("Hotel Rating");
+        lblHotelRating.setLabelFor(txtHotelRating);
+        lblHotelRating.setText("Hotel Rating");
 
         javax.swing.GroupLayout pnlDestinationInfoLayout = new javax.swing.GroupLayout(pnlDestinationInfo);
         pnlDestinationInfo.setLayout(pnlDestinationInfoLayout);
@@ -84,27 +89,24 @@ public class eDestinationSummary extends javax.swing.JPanel {
                 .addGroup(pnlDestinationInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtDestinationNotes, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlDestinationInfoLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
                         .addGroup(pnlDestinationInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlDestinationInfoLayout.createSequentialGroup()
-                                .addGroup(pnlDestinationInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDestinationCountry1)
-                                    .addComponent(lblDestinationCountry2))
-                                .addGap(43, 43, 43)
-                                .addGroup(pnlDestinationInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtHotelName)
-                                    .addComponent(txtRating)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDestinationInfoLayout.createSequentialGroup()
-                                .addGroup(pnlDestinationInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDestinationName)
-                                    .addComponent(lblDestinationCountry))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(pnlDestinationInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtDestinationName)
-                                    .addComponent(txtDestinationCountry)))
-                            .addGroup(pnlDestinationInfoLayout.createSequentialGroup()
-                                .addComponent(lblDestinationNotes)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                            .addComponent(lblHotelName)
+                            .addComponent(lblHotelRating))
+                        .addGap(43, 43, 43)
+                        .addGroup(pnlDestinationInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtHotelName)
+                            .addComponent(txtHotelRating)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDestinationInfoLayout.createSequentialGroup()
+                        .addGroup(pnlDestinationInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDestinationName)
+                            .addComponent(lblDestinationCountry))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pnlDestinationInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDestinationName)
+                            .addComponent(txtDestinationCountry)))
+                    .addGroup(pnlDestinationInfoLayout.createSequentialGroup()
+                        .addComponent(lblDestinationNotes)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlDestinationInfoLayout.setVerticalGroup(
@@ -121,11 +123,11 @@ public class eDestinationSummary extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlDestinationInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtHotelName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDestinationCountry1))
+                    .addComponent(lblHotelName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlDestinationInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDestinationCountry2))
+                    .addComponent(txtHotelRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblHotelRating))
                 .addGap(13, 13, 13)
                 .addComponent(lblDestinationNotes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -135,8 +137,10 @@ public class eDestinationSummary extends javax.swing.JPanel {
 
         lblStay.setText("Stay duration: ");
 
+        lblDays.setLabelFor(txtNumDays);
         lblDays.setText("days");
 
+        lblNights.setLabelFor(txtNumNights);
         lblNights.setText("nights");
 
         javax.swing.GroupLayout pnlDestinationDaysLayout = new javax.swing.GroupLayout(pnlDestinationDays);
@@ -153,8 +157,8 @@ public class eDestinationSummary extends javax.swing.JPanel {
                             .addComponent(lblNights, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlDestinationDaysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblNumDays)
-                            .addComponent(lblNumNights, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtNumDays)
+                            .addComponent(txtNumNights, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         pnlDestinationDaysLayout.setVerticalGroup(
@@ -165,18 +169,21 @@ public class eDestinationSummary extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlDestinationDaysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(lblDays)
-                    .addComponent(lblNumDays, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNumDays, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlDestinationDaysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(lblNights)
-                    .addComponent(lblNumNights, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNumNights, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        lblPrice.setLabelFor(txtBasePrice);
         lblPrice.setText("base price:");
 
+        lblActivityPrice.setLabelFor(txtActivityPrice);
         lblActivityPrice.setText("activity fees:");
 
+        lblTotalPrice.setLabelFor(txtTotalPrice);
         lblTotalPrice.setText("Total Estimated Cost:");
 
         javax.swing.GroupLayout pnlPricesLayout = new javax.swing.GroupLayout(pnlPrices);
@@ -261,13 +268,11 @@ public class eDestinationSummary extends javax.swing.JPanel {
     private javax.swing.JLabel lblActivityPrice;
     private javax.swing.JLabel lblDays;
     private javax.swing.JLabel lblDestinationCountry;
-    private javax.swing.JLabel lblDestinationCountry1;
-    private javax.swing.JLabel lblDestinationCountry2;
     private javax.swing.JLabel lblDestinationName;
     private javax.swing.JLabel lblDestinationNotes;
+    private javax.swing.JLabel lblHotelName;
+    private javax.swing.JLabel lblHotelRating;
     private javax.swing.JLabel lblNights;
-    private javax.swing.JTextField lblNumDays;
-    private javax.swing.JTextField lblNumNights;
     private javax.swing.JLabel lblPrice;
     private javax.swing.JLabel lblStay;
     private javax.swing.JLabel lblTotalPrice;
@@ -281,7 +286,9 @@ public class eDestinationSummary extends javax.swing.JPanel {
     private javax.swing.JTextField txtDestinationName;
     private javax.swing.JTextArea txtDestinationNotes;
     private javax.swing.JTextField txtHotelName;
-    private javax.swing.JTextField txtRating;
+    private javax.swing.JTextField txtHotelRating;
+    private javax.swing.JTextField txtNumDays;
+    private javax.swing.JTextField txtNumNights;
     private javax.swing.JTextField txtTotalPrice;
     // End of variables declaration//GEN-END:variables
 }

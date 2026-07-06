@@ -36,16 +36,20 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="scTravelInfo" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lblTravel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="191" max="-2" attributes="0"/>
-                          <Component id="txtTravelMethd" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
+                          <Component id="lblTravelMethod" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="txtTravelMethd" pref="108" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="txtTransfer" alignment="0" max="32767" attributes="0"/>
+                      <Component id="scTransfer" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblTransferInfo" max="32767" attributes="0"/>
+                      <Component id="lblTravelInfo" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -58,11 +62,16 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblTravel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtTravelMethd" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTravelMethod" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Component id="scTravelInfo" pref="47" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Component id="txtTransfer" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="lblTravelInfo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                  <Component id="scTravelInfo" min="-2" pref="46" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lblTransferInfo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                  <Component id="scTransfer" min="-2" pref="57" max="-2" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -94,16 +103,46 @@
               <Properties>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="travel info"/>
               </Properties>
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JTextField" name="txtTransfer">
+        <Component class="javax.swing.JLabel" name="lblTravelMethod">
           <Properties>
-            <Property name="text" type="java.lang.String" value="transfer details"/>
+            <Property name="text" type="java.lang.String" value="By"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JLabel" name="lblTravelInfo">
+          <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtTravelInfo"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Travel Information"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblTransferInfo">
+          <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtTransfer"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Transfer Details"/>
+          </Properties>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="scTransfer">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="txtTransfer">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
   </SubComponents>

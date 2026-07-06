@@ -51,30 +51,36 @@ public class eAddress extends javax.swing.JPanel {
         lblAddress.setText("Address");
         lblAddress.setToolTipText("");
 
+        lblStNum.setLabelFor(txtStNum);
         lblStNum.setText("Street number");
 
         txtStNum.setMaximumSize(new java.awt.Dimension(88, 22));
         txtStNum.setMinimumSize(new java.awt.Dimension(88, 22));
         txtStNum.setPreferredSize(new java.awt.Dimension(88, 22));
 
+        lblStreet.setLabelFor(txtStreetAddress);
         lblStreet.setText("Street");
 
+        lblCity.setLabelFor(txtCity);
         lblCity.setText("City");
 
         txtCity.setMaximumSize(new java.awt.Dimension(2147483647, 22));
         txtCity.setPreferredSize(new java.awt.Dimension(180, 22));
 
+        lblRegion.setLabelFor(txtRegion);
         lblRegion.setText("Province");
 
         txtRegion.setToolTipText("");
         txtRegion.setMaximumSize(new java.awt.Dimension(150, 22));
         txtRegion.setPreferredSize(new java.awt.Dimension(120, 22));
 
+        lblPostalCode.setLabelFor(txtPostalCode);
         lblPostalCode.setText("Postal code");
 
         txtPostalCode.setMaximumSize(new java.awt.Dimension(150, 22));
         txtPostalCode.setPreferredSize(new java.awt.Dimension(120, 22));
 
+        lblCountry.setLabelFor(txtCountry);
         lblCountry.setText("Country");
 
         btnSaveEdits.setText("Save Edits");
@@ -89,9 +95,12 @@ public class eAddress extends javax.swing.JPanel {
         pnlHotel.setLayout(pnlHotelLayout);
         pnlHotelLayout.setHorizontalGroup(
             pnlHotelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlHotelLayout.createSequentialGroup()
-                .addGroup(pnlHotelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHotelLayout.createSequentialGroup()
+                .addGroup(pnlHotelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlHotelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlHotelLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(pnlHotelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCity)
@@ -106,7 +115,7 @@ public class eAddress extends javax.swing.JPanel {
                         .addGroup(pnlHotelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtPostalCode, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblPostalCode)))
-                    .addGroup(pnlHotelLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlHotelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(pnlHotelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtStNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -117,13 +126,11 @@ public class eAddress extends javax.swing.JPanel {
                                 .addComponent(lblStreet)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(txtStreetAddress)))
-                    .addGroup(pnlHotelLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlHotelLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addGroup(pnlHotelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCountry)
-                            .addComponent(lblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pnlHotelLayout.createSequentialGroup()
+                        .addComponent(lblCountry)
+                        .addGap(0, 473, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlHotelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(txtCountry, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)

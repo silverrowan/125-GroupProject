@@ -28,30 +28,33 @@ public class eEmergencyContact extends javax.swing.JPanel {
 
         pnlEmergencyContact = new javax.swing.JPanel();
         lblEmergName = new javax.swing.JLabel();
-        inputEmergencyContactName = new javax.swing.JTextField();
+        txtEmergencyContactName = new javax.swing.JTextField();
         lblEmergPhone = new javax.swing.JLabel();
-        inputEmergencyContactPhone = new javax.swing.JTextField();
+        txtEmergencyContactPhone = new javax.swing.JTextField();
         lblPhoneClue = new javax.swing.JLabel();
         btnSaveEdits = new javax.swing.JButton();
 
+        lblEmergName.setLabelFor(txtEmergencyContactName);
         lblEmergName.setText("Emergency Contact Name");
 
-        inputEmergencyContactName.addActionListener(new java.awt.event.ActionListener() {
+        txtEmergencyContactName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputEmergencyContactNameActionPerformed(evt);
+                txtEmergencyContactNameActionPerformed(evt);
             }
         });
 
+        lblEmergPhone.setLabelFor(txtEmergencyContactPhone);
         lblEmergPhone.setText("Emergency Contact Phone");
 
-        inputEmergencyContactPhone.addActionListener(new java.awt.event.ActionListener() {
+        txtEmergencyContactPhone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputEmergencyContactPhoneActionPerformed(evt);
+                txtEmergencyContactPhoneActionPerformed(evt);
             }
         });
 
         lblPhoneClue.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         lblPhoneClue.setForeground(new java.awt.Color(102, 102, 102));
+        lblPhoneClue.setLabelFor(lblEmergPhone);
         lblPhoneClue.setText("(778) 999-8888");
 
         btnSaveEdits.setText("Save Edits");
@@ -77,11 +80,11 @@ public class eEmergencyContact extends javax.swing.JPanel {
                         .addGroup(pnlEmergencyContactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblEmergPhone)
                             .addGroup(pnlEmergencyContactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(inputEmergencyContactPhone, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtEmergencyContactPhone, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlEmergencyContactLayout.createSequentialGroup()
                                     .addComponent(lblEmergName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGap(69, 69, 69))
-                                .addComponent(inputEmergencyContactName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtEmergencyContactName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -91,11 +94,11 @@ public class eEmergencyContact extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(lblEmergName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inputEmergencyContactName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtEmergencyContactName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblEmergPhone)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inputEmergencyContactPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtEmergencyContactPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(pnlEmergencyContactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlEmergencyContactLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -118,13 +121,13 @@ public class eEmergencyContact extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void inputEmergencyContactNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEmergencyContactNameActionPerformed
+    private void txtEmergencyContactNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmergencyContactNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inputEmergencyContactNameActionPerformed
+    }//GEN-LAST:event_txtEmergencyContactNameActionPerformed
 
-    private void inputEmergencyContactPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEmergencyContactPhoneActionPerformed
+    private void txtEmergencyContactPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmergencyContactPhoneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inputEmergencyContactPhoneActionPerformed
+    }//GEN-LAST:event_txtEmergencyContactPhoneActionPerformed
 
     private void btnSaveEditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveEditsActionPerformed
         // TODO add your handling code here:
@@ -133,11 +136,11 @@ public class eEmergencyContact extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSaveEdits;
-    private javax.swing.JTextField inputEmergencyContactName;
-    private javax.swing.JTextField inputEmergencyContactPhone;
     private javax.swing.JLabel lblEmergName;
     private javax.swing.JLabel lblEmergPhone;
     private javax.swing.JLabel lblPhoneClue;
     private javax.swing.JPanel pnlEmergencyContact;
+    private javax.swing.JTextField txtEmergencyContactName;
+    private javax.swing.JTextField txtEmergencyContactPhone;
     // End of variables declaration//GEN-END:variables
 }
