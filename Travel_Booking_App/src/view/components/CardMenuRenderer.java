@@ -49,19 +49,9 @@ public class CardMenuRenderer extends JPanel implements ListCellRenderer<Model_M
             JList<? extends Model_MenuItem> list, Model_MenuItem value, int index, 
             boolean isSelected, boolean cellHasFocus) {
         
+        //Card contents
         lblTitle.setText( value.getName() );
-        lblIcon.setIcon( value.toRoImageIcon() );
-               
-        //Styling (Card)
-//        if (isSelected) {
-//            if ( selectColor == null ) {
-//                setBackground( new Color(220, 235, 255) );
-//            } else {
-//                setBackground( selectColor );
-//            }
-//        } else {
-//            setBackground( Color.WHITE );
-//        }
+        lblIcon.setIcon( value.toRoImageIcon() ); //need to remind myself why i didnt set the size here
         
         //card spacing
         setBorder( BorderFactory.createCompoundBorder( 
@@ -69,17 +59,15 @@ public class CardMenuRenderer extends JPanel implements ListCellRenderer<Model_M
                 BorderFactory.createLineBorder( new Color(230, 230, 230) )
         ) );
         
-        //row height
-        list.setFixedCellHeight( 70 );
+        list.setFixedCellHeight( 70 ); //row height
         
-        //hover
-        // ... maybe later. fair bit here
+        //hover        // ... maybe later. fair bit here
         
         return this;
     }    
 
     public void setData( Model_MenuItem data ) {
-        lblTitle.setFont(new Font( null , 1, 32));
+        lblTitle.setFont(new Font( "URW Bookman" , 1, 32));
         
         lblTitle.setText(data.getName());
         RoImageIcon icon = (RoImageIcon) data.toRoImageIcon();
