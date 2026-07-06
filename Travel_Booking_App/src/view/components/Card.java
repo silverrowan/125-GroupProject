@@ -10,7 +10,13 @@ public class Card extends GradientPanel {
     //Check if theres a significant preformance hit to doing things this way for plain background items
     String title;
     String contents;
+    String imgName;
     int padding;
+    ImgLocation imgLocation;
+    
+    public static enum ImgLocation {
+        TOP, LEFT, BOTTOM, RIGHT, EMPTY
+    } 
     
     public Card(Color topColor, Color bottomColor, int roundCorners ) { //gradient background
         super(topColor, bottomColor, roundCorners);
@@ -25,6 +31,8 @@ public class Card extends GradientPanel {
     public Card() {
         this( new Color(255,255,255), 0 ); //white background
     }
+    
+
 
      
     /**
@@ -48,6 +56,47 @@ public class Card extends GradientPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getContents() {
+        return contents;
+    }
+
+    public void setContents(String contents) {
+        this.contents = contents;
+    }
+
+    public String getImgName() {
+        return imgName;
+    }
+
+    public void setImgName(String imgName) {
+        this.imgName = imgName;
+    }
+
+    public int getPadding() {
+        return padding;
+    }
+
+    public void setPadding(int padding) {
+        this.padding = padding;
+    }
+
+    public ImgLocation getImgLocation() {
+        return imgLocation;
+    }
+
+    public void setImgLocation(ImgLocation imgLocation) {
+        this.imgLocation = imgLocation;
+    }
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

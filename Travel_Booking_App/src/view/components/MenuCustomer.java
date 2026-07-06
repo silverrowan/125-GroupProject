@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.LayoutManager;
 import java.awt.RenderingHints;
 import model.gui.Model_MenuItem;
 
@@ -12,24 +13,27 @@ import model.gui.Model_MenuItem;
  * @author rowan
  */
 public class MenuCustomer extends GradientPanel {
+        Color topColor;
+        Color bottomColor;
+        Color selectColor;
 
     /**
      * Creates new form MenuCustomer
      */
     public MenuCustomer() {
+        super(new Color(204,255,204), new Color( 255,150,46 ), 0);
         initComponents();
-//        setOpaque(false);
         listMenuCustomer.setOpaque(false);
         init();
     }
 
     private void init() {
-        listMenuCustomer.addItem(new Model_MenuItem("travelBug70", "Profile", Model_MenuItem.MenuType.MENU));
-        listMenuCustomer.addItem(new Model_MenuItem("travelBug70", "Destinations", Model_MenuItem.MenuType.MENU));
-        listMenuCustomer.addItem(new Model_MenuItem("travelBug70", "Latest", Model_MenuItem.MenuType.MENU));
-        listMenuCustomer.addItem(new Model_MenuItem("travelBug70", "Plans", Model_MenuItem.MenuType.MENU));
-        listMenuCustomer.addItem(new Model_MenuItem("travelBug70", "History", Model_MenuItem.MenuType.MENU));
-        listMenuCustomer.addItem(new Model_MenuItem("travelBug70", "Logout", Model_MenuItem.MenuType.MENU));
+        listMenuCustomer.addItem(new Model_MenuItem("id-card", "Profile", Model_MenuItem.MenuType.MENU));
+        listMenuCustomer.addItem(new Model_MenuItem("world-search", "Destinations", Model_MenuItem.MenuType.MENU));
+        listMenuCustomer.addItem(new Model_MenuItem("calendar_plus", "Latest", Model_MenuItem.MenuType.MENU));
+        listMenuCustomer.addItem(new Model_MenuItem("plans", "Plans", Model_MenuItem.MenuType.MENU));
+        listMenuCustomer.addItem(new Model_MenuItem("calendar_clock", "History", Model_MenuItem.MenuType.MENU));
+        listMenuCustomer.addItem(new Model_MenuItem("logout-box", "Logout", Model_MenuItem.MenuType.MENU));
 
     }
 

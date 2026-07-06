@@ -1,6 +1,7 @@
 
 package view.components;
 
+import java.awt.Color;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import model.gui.Model_MenuItem;
@@ -10,6 +11,7 @@ import model.gui.Model_MenuItem;
  * @author rowan
  */
 public class ListMenu<E extends Object> extends JList<E> {
+    private Color selectColor;
     
     private final DefaultListModel<E> model = new DefaultListModel<>();
     private final CardMenuRenderer renderer = new CardMenuRenderer();

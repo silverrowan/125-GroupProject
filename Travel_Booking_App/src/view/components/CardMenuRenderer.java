@@ -28,6 +28,7 @@ public class CardMenuRenderer extends JPanel implements ListCellRenderer<Model_M
     private JLabel lblIcon = new JLabel();
     private JLabel lblTitle = new JLabel();
     private boolean selected;
+    private Color selectColor;
     
     public CardMenuRenderer() {
         setLayout( new BorderLayout( 10,0 ));
@@ -52,11 +53,15 @@ public class CardMenuRenderer extends JPanel implements ListCellRenderer<Model_M
         lblIcon.setIcon( value.toRoImageIcon() );
                
         //Styling (Card)
-        if (isSelected) {
-            setBackground( new Color(220, 235, 255) );
-        } else {
-            setBackground( Color.WHITE );
-        }
+//        if (isSelected) {
+//            if ( selectColor == null ) {
+//                setBackground( new Color(220, 235, 255) );
+//            } else {
+//                setBackground( selectColor );
+//            }
+//        } else {
+//            setBackground( Color.WHITE );
+//        }
         
         //card spacing
         setBorder( BorderFactory.createCompoundBorder( 
@@ -97,8 +102,12 @@ public class CardMenuRenderer extends JPanel implements ListCellRenderer<Model_M
         Graphics2D g2 = (Graphics2D) grphcs.create();
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        if (selected) {            
-            g2.setColor(new Color(255,255,255,80) );
+        if (selected) {
+            if ( selectColor == null ) {
+                g2.setColor(new Color(189,238,239,80) );
+            } else {
+                g2.setColor( selectColor );
+            }
             g2.fillRoundRect(8, 0, getWidth()-16, getHeight(), 8, 8);
         }
         
