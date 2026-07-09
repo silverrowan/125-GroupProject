@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
 import javax.swing.SwingConstants;
 import model.gui.Model_MenuItem;
-import model.gui.RoImageIcon;
+import view.models.RoImageIcon;
 
 /**
  *
