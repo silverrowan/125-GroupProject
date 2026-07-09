@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.LayoutManager;
 import java.awt.RenderingHints;
+import javax.management.InvalidAttributeValueException;
 import model.gui.Model_MenuItem;
 
 /**
@@ -26,15 +27,40 @@ public class MenuCustomer extends GradientPanel {
         listMenuCustomer.setOpaque(false);
         init();
     }
+    
+    
+    
+//    public static enum MenuBarCust {
+//        Profile, Destinations, Latest, Plans, History, Logout
+//    }
+//    
+//    public static enum MenuBarAgent {
+//        Search Customers, Active Customer
+//    }
+//    public static enum MenuBarAdmin {
+//    
+//    }
+//    public static enum MenuBarGuide {
+//        Profile, Trips, Travellers, Logout
+//    }
 
     private void init() {
+//        switch (activeUser.role) {
+//            case "Admin":
+//            case "Agent":
+//            case "Customer":
+       
         listMenuCustomer.addItem(new Model_MenuItem("id-card", "Profile", Model_MenuItem.MenuType.MENU));
         listMenuCustomer.addItem(new Model_MenuItem("world-search", "Destinations", Model_MenuItem.MenuType.MENU));
         listMenuCustomer.addItem(new Model_MenuItem("calendar_plus", "Latest", Model_MenuItem.MenuType.MENU));
         listMenuCustomer.addItem(new Model_MenuItem("plans", "Plans", Model_MenuItem.MenuType.MENU));
         listMenuCustomer.addItem(new Model_MenuItem("calendar_clock", "History", Model_MenuItem.MenuType.MENU));
         listMenuCustomer.addItem(new Model_MenuItem("logout-box", "Logout", Model_MenuItem.MenuType.MENU));
-
+//            case "Guide":
+//                
+//            case default:
+//                throw new InvalidAttributeValueException("there is a problem with the user role");
+//        }
     }
 
     /**
