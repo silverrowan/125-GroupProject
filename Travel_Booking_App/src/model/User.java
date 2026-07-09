@@ -20,11 +20,11 @@ public class User {
     private String province;
     private String postalCode;
     private String country;
-    private String role;
-    private String accountStatus;
+    private roleType role;
+    private statusType accountStatus;
 
     // full constructor
-    public User(int userID, String username, String password, String firstName, String lastName, String email, String phone, String streetNumber, String streetName, String city, String province, String postalCode, String country, String role, String accountStatus) {
+    public User(int userID, String username, String password, String firstName, String lastName, String email, String phone, String streetNumber, String streetName, String city, String province, String postalCode, String country, roleType role, statusType accountStatus) {
         this(userID, username, password, firstName, lastName, email, role, accountStatus);
         this.phone = phone;
         this.streetNumber = streetNumber;
@@ -36,7 +36,7 @@ public class User {
     }
 
     // constructor with requred fields only
-    public User(int userID, String username, String password, String firstName, String lastName, String email, String role, String accountStatus) {
+    public User(int userID, String username, String password, String firstName, String lastName, String email, roleType role, statusType accountStatus) {
         this.userID = userID;
         this.username = username;
         this.password = password;
@@ -47,6 +47,10 @@ public class User {
         this.accountStatus = accountStatus;
     }
 
+    //emum field options
+    public static enum roleType { CUSTOMER, ADMIN, AGENT, GUIDE }// NOTE do not match database names exactly
+    public static enum statusType { Active, Inactive }    
+    
     // getters and setters
     public int getUserID() {
         return userID;
@@ -152,19 +156,19 @@ public class User {
         this.country = country;
     }
 
-    public String getRole() {
+    public roleType getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(roleType role) {
         this.role = role;
     }
 
-    public String getAccountStatus() {
+    public statusType getAccountStatus() {
         return accountStatus;
     }
 
-    public void setAccountStatus(String accountStatus) {
+    public void setAccountStatus(statusType accountStatus) {
         this.accountStatus = accountStatus;
     }
 }

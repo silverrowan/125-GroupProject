@@ -28,7 +28,7 @@ public class Destinations {
     private float basePrice;
     private float activityFees;
     private float totalEstimatedCost;
-    private String destinationStatus;
+    private statusType destinationStatus;
     //Composite Fields (not passed to database)
     private String fullAddress;
 
@@ -40,7 +40,7 @@ public class Destinations {
             String hotelCountry, String flightInfo, String busTrainInfo, 
             String transferDetails, String includedActivities, 
             String optionalActivities, int durationDays, int durationNights, 
-            float basePrice, float activityFees, String destinationStatus) {
+            float basePrice, float activityFees, statusType destinationStatus) {
         this.DestinationName = DestinationName;
         this.countryRegion = countryRegion;
         this.notes = notes;
@@ -66,8 +66,7 @@ public class Destinations {
     }
 
     public Destinations(String DestinationName, String countryRegion, 
-            int durationDays, int durationNights, float basePrice, 
-            String destinationStatus) {
+            int durationDays, int durationNights, float basePrice) {
         this.DestinationName = DestinationName;
         this.countryRegion = countryRegion;
         this.durationDays = durationDays;
@@ -75,9 +74,11 @@ public class Destinations {
         this.basePrice = basePrice;
         this.activityFees = 0;
         this.totalEstimatedCost = basePrice + activityFees;
-        this.destinationStatus = destinationStatus;
     }
 
+    //emum field options
+    public static enum statusType { Active, Inactive } 
+    
     //GETTERS     
     /**
      * @return the DestinationID
@@ -236,7 +237,7 @@ public class Destinations {
     /**
      * @return the destinationStatus
      */
-    public String getDestinationStatus() {
+    public statusType getDestinationStatus() {
         return destinationStatus;
     }
     
@@ -408,7 +409,7 @@ public class Destinations {
     /**
      * @param destinationStatus the destinationStatus to set
      */
-    public void setDestinationStatus(String destinationStatus) {
+    public void setDestinationStatus(statusType destinationStatus) {
         this.destinationStatus = destinationStatus;
     }
     
