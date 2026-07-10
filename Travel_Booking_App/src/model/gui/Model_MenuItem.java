@@ -4,6 +4,7 @@ package model.gui;
 import view.models.RoImageIcon;
 import java.awt.FontMetrics;
 import java.awt.Image;
+import java.net.URL;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -17,6 +18,7 @@ public class Model_MenuItem {
     String icon;
     String name;
     MenuType type;
+    String linkPage;
     
 
     
@@ -55,6 +57,14 @@ public class Model_MenuItem {
 
     public void setType(MenuType type) {
         this.type = type;
+    }
+    
+    public String getLinkPage() {
+        return linkPage;
+    }
+    
+    public void setLinkPage(String linkPage) {
+        this.linkPage = linkPage;
     }
 
     // Utility    
