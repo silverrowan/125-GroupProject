@@ -525,7 +525,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="view.subViews.vAddress" name="vAddress1">
+        <Component class="view.subViews.VAddress" name="vAddress1">
         </Component>
         <Component class="javax.swing.JButton" name="btnEditAddr">
           <Properties>
@@ -545,7 +545,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditEmergActionPerformed"/>
           </Events>
         </Component>
-        <Component class="view.subViews.vEmergencyContact" name="vEmergencyContact1">
+        <Component class="view.subViews.VEmergencyContact" name="vEmergencyContact1">
         </Component>
       </SubComponents>
     </Container>

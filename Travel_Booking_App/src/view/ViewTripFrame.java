@@ -29,7 +29,7 @@ public class ViewTripFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        vTripRow1 = new view.subViews.vTripRow();
+        vTripRow1 = new view.subViews.VTripRow();
         lblTripTitle = new javax.swing.JLabel();
         lblTripStatus = new javax.swing.JLabel();
         lblTripDeparture = new javax.swing.JLabel();
@@ -208,6 +208,6 @@ public class ViewTripFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblTripSeatsRemain;
     private javax.swing.JLabel lblTripStatus;
     private javax.swing.JLabel lblTripTitle;
-    private view.subViews.vTripRow vTripRow1;
+    private view.subViews.VTripRow vTripRow1;
     // End of variables declaration//GEN-END:variables
 }
