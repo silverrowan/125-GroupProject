@@ -31,6 +31,7 @@ public class MenuCustomer extends GradientPanel {
     }
 
     private void init() {
+        
         listMenuCustomer.addItem(new Model_MenuItem("id-card", "Profile", Model_MenuItem.MenuType.MENU, "ViewCustomerGUI"));
         listMenuCustomer.addItem(new Model_MenuItem("world-search", "Destinations", Model_MenuItem.MenuType.MENU, "ViewDestinationsGUI"));
         listMenuCustomer.addItem(new Model_MenuItem("calendar_plus", "Latest", Model_MenuItem.MenuType.MENU, "ViewTripFrame"));
