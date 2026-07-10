@@ -1,6 +1,10 @@
 package view.components;
 
+import controller.UserControl;
+import dao.UserDAO;
 import java.awt.Color;
+import view.AddUserGUIPage1;
+import view.EditUserGUIPage1;
 import view.components.CardMenuRenderer;
 
 /**
@@ -83,6 +87,11 @@ public class AppWindow extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new AppWindow().setVisible(true));
+        AddUserGUIPage1 view = new AddUserGUIPage1();
+        UserDAO userDao = new UserDAO();
+//        UserService userService = new UserService();
+        UserControl userControl = new UserControl( userDao, view );
+        view.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

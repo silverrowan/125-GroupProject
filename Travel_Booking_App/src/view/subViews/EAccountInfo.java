@@ -8,12 +8,12 @@ package view.subViews;
  *
  * @author C0350261
  */
-public class eAccountInfo extends javax.swing.JPanel {
+public class EAccountInfo extends javax.swing.JPanel {
 
     /**
      * Creates new form eAccountInfo
      */
-    public eAccountInfo() {
+    public EAccountInfo() {
         initComponents();
     }
 

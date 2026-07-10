@@ -8,12 +8,12 @@ package view.subViews;
  *
  * @author C0350261
  */
-public class eDestinationSummary extends javax.swing.JPanel {
+public class EDestinationSummary extends javax.swing.JPanel {
 
     /**
      * Creates new form eDestinationSummary
      */
-    public eDestinationSummary() {
+    public EDestinationSummary() {
         initComponents();
     }
 

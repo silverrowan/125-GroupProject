@@ -8,12 +8,12 @@ package view.subViews;
  *
  * @author C0350261
  */
-public class vActivities extends javax.swing.JPanel {
+public class VActivities extends javax.swing.JPanel {
 
     /**
      * Creates new form vActivities
      */
-    public vActivities() {
+    public VActivities() {
         initComponents();
     }
 

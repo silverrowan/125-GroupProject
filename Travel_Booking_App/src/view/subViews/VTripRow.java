@@ -8,12 +8,12 @@ package view.subViews;
  *
  * @author rowan
  */
-public class vTripRow extends javax.swing.JPanel {
+public class VTripRow extends javax.swing.JPanel {
 
     /**
      * Creates new form vTripRow
      */
-    public vTripRow() {
+    public VTripRow() {
         initComponents();
     }
 

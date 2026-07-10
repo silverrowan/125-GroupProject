@@ -8,12 +8,12 @@ package view.subViews;
  *
  * @author C0350261
  */
-public class vUserRow extends javax.swing.JPanel {
+public class VUserRow extends javax.swing.JPanel {
 
     /**
      * Creates new form vUserRow
      */
-    public vUserRow() {
+    public VUserRow() {
         initComponents();
     }
 

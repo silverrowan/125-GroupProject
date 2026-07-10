@@ -8,12 +8,12 @@ package view.subViews;
  *
  * @author C0350261
  */
-public class vAddress extends javax.swing.JPanel {
+public class VAddress extends javax.swing.JPanel {
 
     /**
      * Creates new form vHotelInfo
      */
-    public vAddress() {
+    public VAddress() {
         initComponents();
     }
 

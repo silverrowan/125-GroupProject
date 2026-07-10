@@ -8,12 +8,12 @@ package view.subViews;
  *
  * @author C0350261
  */
-public class vEmergencyContact extends javax.swing.JPanel {
+public class VEmergencyContact extends javax.swing.JPanel {
 
     /**
      * Creates new form eEmergencyContact
      */
-    public vEmergencyContact() {
+    public VEmergencyContact() {
         initComponents();
     }
 
