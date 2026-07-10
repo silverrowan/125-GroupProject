@@ -25,80 +25,33 @@ public class AddUserGUIPage1 extends javax.swing.JFrame {
     
     //Setters & getters
 
-    public JButton getBtnCancel() {
-        return btnCancel;
-    }
+    public JButton getBtnCancel() { return btnCancel; }
+    public void setBtnCancel(JButton btnCancel) { this.btnCancel = btnCancel; }
 
-    public void setBtnCancel(JButton btnCancel) {
-        this.btnCancel = btnCancel;
-    }
+    public JButton getBtnNext() { return btnNext; }
+    public void setBtnNext(JButton btnNext) { this.btnNext = btnNext; }
 
-    public JButton getBtnNext() {
-        return btnNext;
-    }
+    public JComboBox<String> getComboRole() { return comboRole; }
+    public void setComboRole(JComboBox<String> comboRole) { this.comboRole = comboRole; }
 
-    public void setBtnNext(JButton btnNext) {
-        this.btnNext = btnNext;
-    }
+    public JTextField getTxtEmail() { return txtEmail; }
+    public void setTxtEmail(JTextField txtEmail) { this.txtEmail = txtEmail; }
 
-    public JComboBox<String> getComboRole() {
-        return comboRole;
-    }
+    public JTextField getTxtFirstName() { return txtFirstName; }
+    public void setTxtFirstName(JTextField txtFirstName) { this.txtFirstName = txtFirstName; }
 
-    public void setComboRole(JComboBox<String> comboRole) {
-        this.comboRole = comboRole;
-    }
+    public JTextField getTxtLastName() { return txtLastName; }
+    public void setTxtLastName(JTextField txtLastName) { this.txtLastName = txtLastName; }
 
-    public JTextField getTxtEmail() {
-        return txtEmail;
-    }
+    public JTextField getTxtPassword() { return txtPassword; }
+    public void setTxtPassword(JTextField txtPassword) { this.txtPassword = txtPassword; }
 
-    public void setTxtEmail(JTextField txtEmail) {
-        this.txtEmail = txtEmail;
-    }
+    public JTextField getTxtPhone() { return txtPhone; }
+    public void setTxtPhone(JTextField txtPhone) { this.txtPhone = txtPhone; }
 
-    public JTextField getTxtFirstName() {
-        return txtFirstName;
-    }
-
-    public void setTxtFirstName(JTextField txtFirstName) {
-        this.txtFirstName = txtFirstName;
-    }
-
-    public JTextField getTxtLastName() {
-        return txtLastName;
-    }
-
-    public void setTxtLastName(JTextField txtLastName) {
-        this.txtLastName = txtLastName;
-    }
-
-    public JTextField getTxtPassword() {
-        return txtPassword;
-    }
-
-    public void setTxtPassword(JTextField txtPassword) {
-        this.txtPassword = txtPassword;
-    }
-
-    public JTextField getTxtPhone() {
-        return txtPhone;
-    }
-
-    public void setTxtPhone(JTextField txtPhone) {
-        this.txtPhone = txtPhone;
-    }
-
-    public JTextField getTxtUsername() {
-        return txtUsername;
-    }
-
-    public void setTxtUsername(JTextField txtUsername) {
-        this.txtUsername = txtUsername;
-    }
-    
-    
-    
+    public JTextField getTxtUsername() { return txtUsername; }
+    public void setTxtUsername(JTextField txtUsername) { this.txtUsername = txtUsername; }
+     
     //Listeners
     public void addCancelBtnListener(ActionListener cancelListener) {
         btnCancel.addActionListener(cancelListener);
