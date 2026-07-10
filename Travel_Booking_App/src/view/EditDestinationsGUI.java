@@ -33,10 +33,10 @@ public class EditDestinationsGUI extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jTextField1 = new javax.swing.JTextField();
         pnlDestinationCombined = new javax.swing.JPanel();
-        vActivities1 = new view.subViews.vActivities();
-        vTravelMethod1 = new view.subViews.vTravelMethod();
-        eDestinationSummary1 = new view.subViews.eDestinationSummary();
-        eAddress1 = new view.subViews.eAddress();
+        vActivities1 = new view.subViews.VActivities();
+        vTravelMethod1 = new view.subViews.VTravelMethod();
+        eDestinationSummary1 = new view.subViews.EDestinationSummary();
+        eAddress1 = new view.subViews.EAddress();
         btnSaveEdits = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
@@ -126,13 +126,13 @@ public class EditDestinationsGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSaveEdits;
-    private view.subViews.eAddress eAddress1;
-    private view.subViews.eDestinationSummary eDestinationSummary1;
+    private view.subViews.EAddress eAddress1;
+    private view.subViews.EDestinationSummary eDestinationSummary1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel pnlDestinationCombined;
-    private view.subViews.vActivities vActivities1;
-    private view.subViews.vTravelMethod vTravelMethod1;
+    private view.subViews.VActivities vActivities1;
+    private view.subViews.VTravelMethod vTravelMethod1;
     // End of variables declaration//GEN-END:variables
 }

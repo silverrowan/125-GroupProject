@@ -33,11 +33,11 @@ public class ViewDestinationsGUI extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jTextField1 = new javax.swing.JTextField();
         pnlDestinationCombined = new javax.swing.JPanel();
-        btnBookNow = new javax.swing.JButton();
-        vHotelInfo1 = new view.subViews.vAddress();
-        vTravelMethod1 = new view.subViews.vTravelMethod();
-        vActivities1 = new view.subViews.vActivities();
-        eDestinationSummary1 = new view.subViews.eDestinationSummary();
+        btnFindTrips = new javax.swing.JButton();
+        vHotelInfo1 = new view.subViews.VAddress();
+        vTravelMethod1 = new view.subViews.VTravelMethod();
+        vActivities1 = new view.subViews.VActivities();
+        eDestinationSummary1 = new view.subViews.EDestinationSummary();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -48,15 +48,16 @@ public class ViewDestinationsGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("frameDestination"); // NOI18N
 
-        btnBookNow.setBackground(new java.awt.Color(204, 255, 204));
-        btnBookNow.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
-        btnBookNow.setText("Book!");
+        btnFindTrips.setBackground(new java.awt.Color(204, 255, 204));
+        btnFindTrips.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
+        btnFindTrips.setText("See Available Trips");
+        btnFindTrips.addActionListener(this::btnFindTripsActionPerformed);
 
         javax.swing.GroupLayout pnlDestinationCombinedLayout = new javax.swing.GroupLayout(pnlDestinationCombined);
         pnlDestinationCombined.setLayout(pnlDestinationCombinedLayout);
         pnlDestinationCombinedLayout.setHorizontalGroup(
             pnlDestinationCombinedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnBookNow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnFindTrips, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(vHotelInfo1, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
             .addComponent(vTravelMethod1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(vActivities1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -67,7 +68,7 @@ public class ViewDestinationsGUI extends javax.swing.JFrame {
             .addGroup(pnlDestinationCombinedLayout.createSequentialGroup()
                 .addComponent(eDestinationSummary1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnBookNow)
+                .addComponent(btnFindTrips)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(vHotelInfo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -91,6 +92,10 @@ public class ViewDestinationsGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnFindTripsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindTripsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFindTripsActionPerformed
 
     
     
@@ -120,14 +125,14 @@ public class ViewDestinationsGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBookNow;
-    private view.subViews.eDestinationSummary eDestinationSummary1;
+    private javax.swing.JButton btnFindTrips;
+    private view.subViews.EDestinationSummary eDestinationSummary1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel pnlDestinationCombined;
-    private view.subViews.vActivities vActivities1;
-    private view.subViews.vAddress vHotelInfo1;
-    private view.subViews.vTravelMethod vTravelMethod1;
+    private view.subViews.VActivities vActivities1;
+    private view.subViews.VAddress vHotelInfo1;
+    private view.subViews.VTravelMethod vTravelMethod1;
     // End of variables declaration//GEN-END:variables
 }

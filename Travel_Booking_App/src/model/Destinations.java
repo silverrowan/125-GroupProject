@@ -5,6 +5,7 @@ package model;
  * @author Mariah Malczewska
  */
 public class Destinations {
+    //Database Fields
     private int DestinationID;
     private String DestinationName;
     private String countryRegion;
@@ -28,7 +29,7 @@ public class Destinations {
     private float activityFees;
     private float totalEstimatedCost;
     private String destinationStatus;
-    
+    //Composite Fields (not passed to database)
     private String fullAddress;
 
     //CONSTRUCTORS
