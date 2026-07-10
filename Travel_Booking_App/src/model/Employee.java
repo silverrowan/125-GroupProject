@@ -13,14 +13,19 @@ public class Employee {
     private int userID;
     private String jobTitle;
     private Date hireDate;
-    private statusType employeeStatus;
+    private String employeeStatus;
 
     // full constructor
-    public Employee(int employeeID, int userID, String jobTitle, Date hireDate, statusType employeeStatus) {
-        this(employeeID, userID);
+    public Employee(int userID, String jobTitle, Date hireDate, String employeeStatus) {
+        this(userID);
         this.jobTitle = jobTitle;
         this.hireDate = hireDate;
         this.employeeStatus = employeeStatus;
+    }
+
+    // required constructor
+    public Employee(int userID) {
+        this.userID = userID;
     }
 
     // required constructor
@@ -65,11 +70,11 @@ public class Employee {
         this.hireDate = hireDate;
     }
 
-    public statusType getEmployeeStatus() {
+    public String getEmployeeStatus() {
         return employeeStatus;
     }
 
-    public void setEmployeeStatus(statusType employeeStatus) {
+    public void setEmployeeStatus(String employeeStatus) {
         this.employeeStatus = employeeStatus;
     }
 }

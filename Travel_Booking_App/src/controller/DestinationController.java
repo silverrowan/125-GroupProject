@@ -16,7 +16,7 @@ public class DestinationController {
         this.dao = dao;
         this.view = view;
         
-        this.view.
-        })
+//        this.view.
+//        })
     }
 }

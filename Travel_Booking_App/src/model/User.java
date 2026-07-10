@@ -20,12 +20,12 @@ public class User {
     private String province;
     private String postalCode;
     private String country;
-    private roleType role;
-    private statusType accountStatus;
+    private String role;
+    private String accountStatus;
 
     // full constructor
-    public User(int userID, String username, String password, String firstName, String lastName, String email, String phone, String streetNumber, String streetName, String city, String province, String postalCode, String country, roleType role, statusType accountStatus) {
-        this(userID, username, password, firstName, lastName, email, role, accountStatus);
+    public User(String username, String password, String firstName, String lastName, String email, String phone, String streetNumber, String streetName, String city, String province, String postalCode, String country, String role, String accountStatus) {
+        this(username, password, firstName, lastName, email, role);
         this.phone = phone;
         this.streetNumber = streetNumber;
         this.streetName = streetName;
@@ -33,30 +33,29 @@ public class User {
         this.province = province;
         this.postalCode = postalCode;
         this.country = country;
+        this.accountStatus = accountStatus;
     }
 
     // constructor with requred fields only
-    public User(int userID, String username, String password, String firstName, String lastName, String email, roleType role, statusType accountStatus) {
-        this.userID = userID;
+    public User(String username, String password, String firstName, String lastName, String email, String role) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.role = role;        
-        this.accountStatus = accountStatus;
     }
 
-    //emum field options
-    public static enum roleType { CUSTOMER, ADMIN, AGENT, GUIDE }// NOTE do not match database names exactly
-    public static enum statusType { Active, Inactive }    
-    
+    public User(String username, String password, String firstName, String lastName, String email, String role, String phone) {
+        this(username, password, firstName, lastName, email, role);
+        this.phone = phone;
+    }
     // getters and setters
     public int getUserID() {
         return userID;
     }
-
-    public void setUserID(int userID) {
+    
+    public void setuserID(int userID) {
         this.userID = userID;
     }
 
@@ -156,19 +155,19 @@ public class User {
         this.country = country;
     }
 
-    public roleType getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(roleType role) {
+    public void setRole(String role) {
         this.role = role;
     }
 
-    public statusType getAccountStatus() {
+    public String getAccountStatus() {
         return accountStatus;
     }
 
-    public void setAccountStatus(statusType accountStatus) {
+    public void setAccountStatus(String accountStatus) {
         this.accountStatus = accountStatus;
     }
 }

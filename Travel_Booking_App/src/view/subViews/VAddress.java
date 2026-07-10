@@ -21,7 +21,6 @@ public class VAddress extends javax.swing.JPanel {
     
     public String getAddressText() { return txtFullAddress.getText(); } // get current content?
     public void onSubmit(ActionListener listener) {
-        submitButton.addActionListener(listener);
     }
     public void updateAddressText(String text) {
         txtFullAddress.setText( text );
