@@ -8,12 +8,12 @@ package view.subViews;
  *
  * @author C0350261
  */
-public class EAddress extends javax.swing.JPanel {
+public class VAddress extends javax.swing.JPanel {
 
     /**
-     * Creates new form eHotelAddress
+     * Creates new form vHotelInfo
      */
-    public EAddress() {
+    public VAddress() {
         initComponents();
     }
 
@@ -26,183 +26,55 @@ public class EAddress extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlHotel = new javax.swing.JPanel();
+        pnlAddressBlock = new javax.swing.JPanel();
+        txtFullAddress = new javax.swing.JTextField();
         lblAddress = new javax.swing.JLabel();
-        lblStNum = new javax.swing.JLabel();
-        txtStNum = new javax.swing.JTextField();
-        lblStreet = new javax.swing.JLabel();
-        txtStreetAddress = new javax.swing.JTextField();
-        lblCity = new javax.swing.JLabel();
-        txtCity = new javax.swing.JTextField();
-        lblRegion = new javax.swing.JLabel();
-        txtRegion = new javax.swing.JTextField();
-        lblPostalCode = new javax.swing.JLabel();
-        txtPostalCode = new javax.swing.JTextField();
-        lblCountry = new javax.swing.JLabel();
-        txtCountry = new javax.swing.JTextField();
-        btnSaveEdits = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 204, 153));
-
-        pnlHotel.setBackground(new java.awt.Color(255, 204, 153));
+        pnlAddressBlock.setBackground(new java.awt.Color(255, 204, 153));
 
         lblAddress.setFont(new java.awt.Font("Noto Sans", 3, 14)); // NOI18N
         lblAddress.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblAddress.setLabelFor(txtFullAddress);
         lblAddress.setText("Address");
         lblAddress.setToolTipText("");
 
-        lblStNum.setLabelFor(txtStNum);
-        lblStNum.setText("Street number");
-
-        txtStNum.setMaximumSize(new java.awt.Dimension(88, 22));
-        txtStNum.setMinimumSize(new java.awt.Dimension(88, 22));
-        txtStNum.setPreferredSize(new java.awt.Dimension(88, 22));
-
-        lblStreet.setLabelFor(txtStreetAddress);
-        lblStreet.setText("Street");
-
-        lblCity.setLabelFor(txtCity);
-        lblCity.setText("City");
-
-        txtCity.setMaximumSize(new java.awt.Dimension(2147483647, 22));
-        txtCity.setPreferredSize(new java.awt.Dimension(180, 22));
-
-        lblRegion.setLabelFor(txtRegion);
-        lblRegion.setText("Province");
-
-        txtRegion.setToolTipText("");
-        txtRegion.setMaximumSize(new java.awt.Dimension(150, 22));
-        txtRegion.setPreferredSize(new java.awt.Dimension(120, 22));
-
-        lblPostalCode.setLabelFor(txtPostalCode);
-        lblPostalCode.setText("Postal code");
-
-        txtPostalCode.setMaximumSize(new java.awt.Dimension(150, 22));
-        txtPostalCode.setPreferredSize(new java.awt.Dimension(120, 22));
-
-        lblCountry.setLabelFor(txtCountry);
-        lblCountry.setText("Country");
-
-        btnSaveEdits.setText("Save Edits");
-        btnSaveEdits.setToolTipText("");
-        btnSaveEdits.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveEditsActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pnlHotelLayout = new javax.swing.GroupLayout(pnlHotel);
-        pnlHotel.setLayout(pnlHotelLayout);
-        pnlHotelLayout.setHorizontalGroup(
-            pnlHotelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHotelLayout.createSequentialGroup()
-                .addGroup(pnlHotelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlHotelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlHotelLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(pnlHotelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCity)
-                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlHotelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtRegion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(pnlHotelLayout.createSequentialGroup()
-                                .addComponent(lblRegion)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlHotelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPostalCode, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPostalCode)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlHotelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(pnlHotelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtStNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblStNum))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlHotelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlHotelLayout.createSequentialGroup()
-                                .addComponent(lblStreet)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(txtStreetAddress)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlHotelLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lblCountry)
-                        .addGap(0, 473, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlHotelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(txtCountry, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                        .addComponent(btnSaveEdits, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        javax.swing.GroupLayout pnlAddressBlockLayout = new javax.swing.GroupLayout(pnlAddressBlock);
+        pnlAddressBlock.setLayout(pnlAddressBlockLayout);
+        pnlAddressBlockLayout.setHorizontalGroup(
+            pnlAddressBlockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddressBlockLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlAddressBlockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtFullAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
+                    .addComponent(lblAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        pnlHotelLayout.setVerticalGroup(
-            pnlHotelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlHotelLayout.createSequentialGroup()
+        pnlAddressBlockLayout.setVerticalGroup(
+            pnlAddressBlockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddressBlockLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblAddress)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlHotelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblStNum)
-                    .addComponent(lblStreet))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlHotelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtStNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtStreetAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlHotelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCity)
-                    .addComponent(lblPostalCode)
-                    .addComponent(lblRegion))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlHotelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRegion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPostalCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCountry)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlHotelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSaveEdits))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(txtFullAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlHotel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlAddressBlock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pnlHotel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(pnlAddressBlock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSaveEditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveEditsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSaveEditsActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSaveEdits;
     private javax.swing.JLabel lblAddress;
-    private javax.swing.JLabel lblCity;
-    private javax.swing.JLabel lblCountry;
-    private javax.swing.JLabel lblPostalCode;
-    private javax.swing.JLabel lblRegion;
-    private javax.swing.JLabel lblStNum;
-    private javax.swing.JLabel lblStreet;
-    private javax.swing.JPanel pnlHotel;
-    private javax.swing.JTextField txtCity;
-    private javax.swing.JTextField txtCountry;
-    private javax.swing.JTextField txtPostalCode;
-    private javax.swing.JTextField txtRegion;
-    private javax.swing.JTextField txtStNum;
-    private javax.swing.JTextField txtStreetAddress;
+    private javax.swing.JPanel pnlAddressBlock;
+    private javax.swing.JTextField txtFullAddress;
     // End of variables declaration//GEN-END:variables
 }
