@@ -66,5 +66,5 @@ public class UserService {
         return !(password == null || password.isEmpty() || password.length() < 8);
     }
     
-    public static boolean validatePhone(String phone) { return false; }
+    public static boolean validatePhone(String phone) { return true; }
 }

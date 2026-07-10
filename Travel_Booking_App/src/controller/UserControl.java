@@ -25,6 +25,14 @@ public class UserControl {
         
         this.userView.addNextBtnListener( new AddUserRecord() );
     }
+
+    public UserControl( AddUserGUIPage1 userView ) {
+//        this.userDao = userDao;
+        this.userView = userView;
+//        this.userService = userService;
+        
+        this.userView.addNextBtnListener( new AddUserRecord() );
+    }
     
     class AddUserRecord implements ActionListener {
 
