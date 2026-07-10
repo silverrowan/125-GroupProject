@@ -7,27 +7,9 @@ import model.User;
  * @author Mariah Malczewska
  */
 public class ActiveUser {
-    private Object activeUser;
-    private Object activeCustomer;
     private int activeUserID;
     private int activeCustomerID;
 
-    
-//    need:
-//    User.java:
-//        user id
-//        username
-//        firstname
-//        lastname
-//        role
-//        status
-//    Customer.java:
-//        customer id
-//    Employee.java:
-//        employee id
-//        employeeStatus
-                                                    
-                                                    
     public ActiveUser() {
     }
 
