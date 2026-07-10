@@ -24,8 +24,8 @@ public class User {
     private String accountStatus;
 
     // full constructor
-    public User(int userID, String username, String password, String firstName, String lastName, String email, String phone, String streetNumber, String streetName, String city, String province, String postalCode, String country, String role, String accountStatus) {
-        this(userID, username, password, firstName, lastName, email, role, accountStatus);
+    public User(String username, String password, String firstName, String lastName, String email, String phone, String streetNumber, String streetName, String city, String province, String postalCode, String country, String role, String accountStatus) {
+        this(username, password, firstName, lastName, email, role, accountStatus);
         this.phone = phone;
         this.streetNumber = streetNumber;
         this.streetName = streetName;
@@ -36,8 +36,7 @@ public class User {
     }
 
     // constructor with requred fields only
-    public User(int userID, String username, String password, String firstName, String lastName, String email, String role, String accountStatus) {
-        this.userID = userID;
+    public User(String username, String password, String firstName, String lastName, String email, String role, String accountStatus) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
@@ -50,10 +49,6 @@ public class User {
     // getters and setters
     public int getUserID() {
         return userID;
-    }
-
-    public void setUserID(int userID) {
-        this.userID = userID;
     }
 
     public String getUsername() {
