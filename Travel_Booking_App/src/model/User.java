@@ -54,6 +54,10 @@ public class User {
     public int getUserID() {
         return userID;
     }
+    
+    public void setuserID(int userID) {
+        this.userID = userID;
+    }
 
     public String getUsername() {
         return username;

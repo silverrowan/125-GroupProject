@@ -1,7 +1,6 @@
 package controller;
 
 import dao.UserDAO;
-import service.UserService;
 import view.AddUserGUIPage1;
 import model.User;
 
@@ -10,13 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import model.Customer;
 import model.Employee;
-import static service.UserService.validateEmail;
-import static service.UserService.validateFirstName;
-import static service.UserService.validateLastName;
-import static service.UserService.validatePassword;
-import static service.UserService.validatePhone;
-import static service.UserService.validateRole;
-import static service.UserService.validateUsername;
+
 
 /**
  *
@@ -64,11 +57,16 @@ public class UserControl {
             
             String role = roleObj.toString();
             User user = new User(username, password, firstName, lastName, email, role, phone);
-//            if ( role == "Customer") { Customer cust = new Customer(); }
-//            else { Employee emp = new Employee(); }
-            boolean isSuccess = UserDAO.addNewUser(user);
-    
-            if (isSuccess) { JOptionPane.showMessageDialog(null, "User created successfully"); }
+//            if ( role == "Customer") { 
+//                Customer cust = new Customer(user, getID(user)); 
+//            }
+//            else { 
+//                Employee emp = new Employee(user, getID(user)); 
+//            }
+//            boolean isSuccess = UserDAO.addNewUser(user);
+            user = UserDAO.addNewUser(user);
+
+            if ( !(user == null) ) { JOptionPane.showMessageDialog(null, "User created successfully"); }
             else { JOptionPane.showMessageDialog(null, "User was not created"); }
         }
     }

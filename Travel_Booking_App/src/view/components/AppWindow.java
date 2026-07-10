@@ -3,7 +3,6 @@ package view.components;
 import controller.UserControl;
 import dao.UserDAO;
 import java.awt.Color;
-import service.UserService;
 import view.AddUserGUIPage1;
 import view.EditUserGUIPage1;
 import view.components.CardMenuRenderer;
@@ -90,7 +89,7 @@ public class AppWindow extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> new AppWindow().setVisible(true));
         AddUserGUIPage1 view = new AddUserGUIPage1();
         UserDAO userDao = new UserDAO();
-        UserService userService = new UserService();
+//        UserService userService = new UserService();
         UserControl userControl = new UserControl( userDao, view );
         view.setVisible(true);
     }
