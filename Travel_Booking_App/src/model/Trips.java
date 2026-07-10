@@ -14,7 +14,7 @@ public class Trips {
     private Date departureDate;
     private Date returnDate;
     private int maxTravelers;
-    private String tripStatus;
+    private tripStatusType tripStatus;
 
     //CONSTRUCTORS
 
@@ -25,12 +25,12 @@ public class Trips {
         this.departureDate = departureDate;
         this.returnDate = returnDate;
         this.maxTravelers = maxTravelers;
-        this.tripStatus = "Upcoming";
+        this.tripStatus = tripStatusType.Upcoming;
     }
 
     public Trips(int destinationID, int assignedGuideEmployeeID, 
             String tripTitle, Date departureDate, Date returnDate, 
-            int maxTravelers, String tripStatus) {
+            int maxTravelers, tripStatusType tripStatus) {
         this.destinationID = destinationID;
         this.assignedGuideEmployeeID = assignedGuideEmployeeID;
         this.tripTitle = tripTitle;
@@ -39,6 +39,9 @@ public class Trips {
         this.maxTravelers = maxTravelers;
         this.tripStatus = tripStatus;
     }
+    
+    //emum field options
+    public static enum tripStatusType { Upcoming, Active, Completed, Cancelled }
     
     //GETTERS 
     /**
@@ -93,7 +96,7 @@ public class Trips {
     /**
      * @return the tripStatus
      */
-    public String getTripStatus() {
+    public tripStatusType getTripStatus() {
         return tripStatus;
     }
 
@@ -143,7 +146,7 @@ public class Trips {
     /**
      * @param tripStatus the tripStatus to set
      */
-    public void setTripStatus(String tripStatus) {
+    public void setTripStatus(tripStatusType tripStatus) {
         this.tripStatus = tripStatus;
     }
 }
