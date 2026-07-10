@@ -8,12 +8,12 @@ package view.subViews;
  *
  * @author C0350261
  */
-public class xARCHIVEvDestinationSummary extends javax.swing.JPanel {
+public class XARCHIVEvDestinationSummary extends javax.swing.JPanel {
 
     /**
      * Creates new form vDestinationSummary
      */
-    public xARCHIVEvDestinationSummary() {
+    public XARCHIVEvDestinationSummary() {
         initComponents();
     }
 

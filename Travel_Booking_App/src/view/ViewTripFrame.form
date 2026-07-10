@@ -129,7 +129,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="view.subViews.vTripRow" name="vTripRow1">
+        <Component class="view.subViews.VTripRow" name="vTripRow1">
         </Component>
         <Component class="javax.swing.JLabel" name="lblTripTitle">
           <Properties>

@@ -16,16 +16,15 @@ public class Customer {
     private String emergencyBlock;
 
     // full constructor
-    public Customer(int customerID, int userID, String emergencyContactName, String emergencyContactPhone, String customerNotes) {
-        this(customerID, userID);
+    public Customer(int userID, String emergencyContactName, String emergencyContactPhone, String customerNotes) {
+        this(userID);
         this.emergencyContactName = emergencyContactName;
         this.emergencyContactPhone = emergencyContactPhone;
         this.customerNotes = customerNotes;
     }
 
     // required constructor
-    public Customer(int customerID, int userID) {
-        this.customerID = customerID;
+    public Customer(int userID) {
         this.userID = userID;
     }
     
