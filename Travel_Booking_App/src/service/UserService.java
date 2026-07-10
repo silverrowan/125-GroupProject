@@ -24,7 +24,7 @@ public class UserService {
         if ( email == null | email.isEmpty() ) { throw new IllegalArgumentException("an email is required"); }
         if ( role == null | role.isEmpty() ) { throw new IllegalArgumentException("a role is required"); }
         
-        if ( password.length() < 6 ) { throw new IllegalArgumentException("Password must be at least 6 characters"); }
+        if ( password.length() < 8 ) { throw new IllegalArgumentException("Password must be at least 6 characters"); }
         boolean validRole = false;
         if (role.equals("Admin") || role.equals("Travel Agent") || 
                 role.equals("Tour Guide") || role.equals("Customer") ) { 
