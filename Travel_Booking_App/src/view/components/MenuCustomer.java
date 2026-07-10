@@ -7,6 +7,9 @@ import java.awt.Graphics2D;
 import java.awt.LayoutManager;
 import java.awt.RenderingHints;
 import model.gui.Model_MenuItem;
+import view.ViewCustomerGUI;
+import view.ViewDestinationsGUI;
+import view.ViewTripFrame;
 
 /**
  *
@@ -28,12 +31,12 @@ public class MenuCustomer extends GradientPanel {
     }
 
     private void init() {
-        listMenuCustomer.addItem(new Model_MenuItem("id-card", "Profile", Model_MenuItem.MenuType.MENU));
-        listMenuCustomer.addItem(new Model_MenuItem("world-search", "Destinations", Model_MenuItem.MenuType.MENU));
-        listMenuCustomer.addItem(new Model_MenuItem("calendar_plus", "Latest", Model_MenuItem.MenuType.MENU));
-        listMenuCustomer.addItem(new Model_MenuItem("plans", "Plans", Model_MenuItem.MenuType.MENU));
-        listMenuCustomer.addItem(new Model_MenuItem("calendar_clock", "History", Model_MenuItem.MenuType.MENU));
-        listMenuCustomer.addItem(new Model_MenuItem("logout-box", "Logout", Model_MenuItem.MenuType.MENU));
+        listMenuCustomer.addItem(new Model_MenuItem("id-card", "Profile", Model_MenuItem.MenuType.MENU, "ViewCustomerGUI"));
+        listMenuCustomer.addItem(new Model_MenuItem("world-search", "Destinations", Model_MenuItem.MenuType.MENU, "ViewDestinationsGUI"));
+        listMenuCustomer.addItem(new Model_MenuItem("calendar_plus", "Latest", Model_MenuItem.MenuType.MENU, "ViewTripFrame"));
+        listMenuCustomer.addItem(new Model_MenuItem("plans", "Plans", Model_MenuItem.MenuType.MENU, "ViewTripFrame"));
+        listMenuCustomer.addItem(new Model_MenuItem("calendar_clock", "History", Model_MenuItem.MenuType.MENU, "ViewTripFrame"));
+        listMenuCustomer.addItem(new Model_MenuItem("logout-box", "Logout", Model_MenuItem.MenuType.MENU, "ViewLogin"));
 
     }
 
