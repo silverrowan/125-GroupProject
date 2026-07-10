@@ -10,31 +10,61 @@ import model.User;
  * where do these go?
  */
 public class UserService {
-    private final UserDAO userDAO;
+//    private static final UserDAO userDAO;
+//    private final User user;
     
-    public UserService(UserDAO userDAO) {
-        this.userDAO = userDAO;
-    }
+//    public UserService(UserDAO userDAO) {
+////        this.userDAO = userDAO;
+//    }
     
-    public boolean addNewUser(String username, String password, String firstName, String lastName, String email, String role){
-        if ( username == null | username.isEmpty() ) { throw new IllegalArgumentException("a username is required"); }
-        if ( password == null | password.isEmpty() ) { throw new IllegalArgumentException("a password is required"); }
-        if ( firstName == null | firstName.isEmpty() ) { throw new IllegalArgumentException("a first name is required"); }
-        if ( lastName == null | lastName.isEmpty() ) { throw new IllegalArgumentException("a last name is required"); }
-        if ( email == null | email.isEmpty() ) { throw new IllegalArgumentException("an email is required"); }
-        if ( role == null | role.isEmpty() ) { throw new IllegalArgumentException("a role is required"); }
+    public static boolean addNewUser(String username, String password, String firstName, String lastName, String email, Object roleObj, String phone) throws IllegalArgumentException {
+        if ( !validateUsername(username) ) { throw new IllegalArgumentException("a username is required"); }
+        if ( !validatePassword(password) ) { throw new IllegalArgumentException("Password must be at least 8 characters"); }
+        if ( !validateFirstName(firstName) ) { throw new IllegalArgumentException("a first name is required"); }
+        if ( !validateLastName(lastName) ) { throw new IllegalArgumentException("a last name is required"); }
+        if ( !validateEmail(email) ) { throw new IllegalArgumentException("Please provide a valid email number"); }
+        if ( !validatePhone(phone) ) { throw new IllegalArgumentException("Please provide a valid phone number"); }
         
-        if ( password.length() < 8 ) { throw new IllegalArgumentException("Password must be at least 6 characters"); }
-        boolean validRole = false;
-        if (role.equals("Admin") || role.equals("Travel Agent") || 
-                role.equals("Tour Guide") || role.equals("Customer") ) { 
-            validRole = true; 
-        }
-        if ( !validRole ) { throw new IllegalArgumentException("Role must be one of Admin, Travel Agent, Tour Guide, or Customer"); }
+        if ( !validateRole(roleObj) ) { throw new IllegalArgumentException("Role must be one of Admin, Travel Agent, Tour Guide, or Customer"); }
 //        if ( !"Active".equals(__) && !"Inactive".equals(__) ) { throw new IllegalArgumentException("Status must be Active or Inactive"); }
 //        if ( email == LETTERS@LETTERS.LETTERS -- note where 'letters' incl _-.) { throw new IllegalArgumentException("Please enter a valid email"); }
 
-        User user = new User(username, password, firstName, lastName, email, role);
-        return userDAO.createNewUser(user);
+        User user = new User(username, password, firstName, lastName, email, roleObj.toString(), phone);
+        boolean isSuccess = UserDAO.createNewUser(user);
+        return isSuccess;
+//        return userDAO.createNewUser(user);
     }
+    
+    public static boolean validateRole(Object roleObj) {
+        String role = null;
+        boolean validRole = false;
+
+        if ( roleObj == null ) { return false; }
+        else { role = roleObj.toString(); }
+        
+        if ( role == null | role.isEmpty() ) { return false; }
+        else if (role.equals("Admin") || role.equals("Travel Agent") || 
+                role.equals("Tour Guide") || role.equals("Customer") ) { 
+            return true; 
+        } else { return false; }
+    }
+    
+    public static boolean validateUsername(String username) { 
+        return !( username == null || username.isEmpty() ); 
+    }
+    public static boolean validateFirstName(String firstName) { 
+        return !( firstName == null || firstName.isEmpty() );
+    }
+    public static boolean validateLastName(String lastName) { 
+        return !( lastName == null || lastName.isEmpty() ); 
+    }
+    public static boolean validateEmail(String email) { 
+        return !( email == null || email.isEmpty() ); 
+    }
+
+    public static boolean validatePassword(String password) { 
+        return !(password == null || password.isEmpty() || password.length() < 8);
+    }
+    
+    public static boolean validatePhone(String phone) { return false; }
 }

@@ -46,6 +46,10 @@ public class User {
         this.role = role;        
     }
 
+    public User(String username, String password, String firstName, String lastName, String email, String role, String phone) {
+        this(username, password, firstName, lastName, email, role);
+        this.phone = phone;
+    }
     // getters and setters
     public int getUserID() {
         return userID;
