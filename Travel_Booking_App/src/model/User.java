@@ -50,6 +50,11 @@ public class User {
         this(username, password, firstName, lastName, email, role);
         this.phone = phone;
     }
+    
+    public User(){
+       this("placeholder", "placeholder", "placeholder", "placeholder", "placeholder", "placeholder");
+    }
+    
     // getters and setters
     public int getUserID() {
         return userID;
@@ -170,4 +175,14 @@ public class User {
     public void setAccountStatus(String accountStatus) {
         this.accountStatus = accountStatus;
     }
+    
+    public void setUserAddress( String streetNumber, String streetName, String 
+            city, String province, String postalCode, String country) {
+        this.streetNumber = streetNumber;
+        this.streetName = streetName;
+        this.city = city;
+        this.province = province;
+        this.postalCode = postalCode;
+        this.country = country;
+    }            
 }
