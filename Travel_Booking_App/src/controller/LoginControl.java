@@ -13,16 +13,13 @@ import view.components.AppWindow;
 /**
  *
  * @author Mariah Malczewska
+ * Handles the Logic and Validation for the Login Screen
  */
-public class ActiveUserControl {
-//    private ActiveDAO activeDao; (if needed...)
-    private UserDAO userDao;
-    private ViewLogin loginView;
-    
-//    private int activeUserID;
-//    private int activeCustomerID;
+public class LoginControl {
+    private final UserDAO userDao;
+    private final ViewLogin loginView;
 
-    public ActiveUserControl( UserDAO userDao, ViewLogin loginView ) {
+    public LoginControl( UserDAO userDao, ViewLogin loginView ) {
         this.userDao = userDao;
         this.loginView = loginView;
         
@@ -53,12 +50,12 @@ public class ActiveUserControl {
             if ( activeUser == null ) { JOptionPane.showMessageDialog(null, "Username or password do not match, try again"); }
             else { 
                 System.out.println("Successful Login");
-                //open appropriate dashboard, assign user as activeUser }
-                AppWindow view = new AppWindow();
-                view.setVisible(true);
+                
+                AppWindow view = new AppWindow(); //make target window/dashboard
+                view.setVisible(true); // make it visible
+//                TO DO 
                 //close login window
                 //set active user
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
             }
         }
     }
@@ -71,33 +68,6 @@ public class ActiveUserControl {
 
             throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         }
-    }
-
-//    public int getActiveUserID() {
-//        return activeUserID;
-//    }
-//
-//    public void setActiveUserID(int activeUserID) {
-//        this.activeUserID = activeUserID;
-//    }
-//
-//    public int getActiveCustomerID() {
-//        return activeCustomerID;
-//    }
-//
-//    public void setActiveCustomerID(int activeCustomerID) {
-//        this.activeCustomerID = activeCustomerID;
-//    }
-    
-    // get related values from user by 100
-    public String getActiveUserRole() {
-//        return ( where userID == activeUserID) getRole();
-        return "";
-    }
-    
-    public String getActiveCustomerName(int activeCustomerID) {
-//        return ( where userID == activeCustomerID ) getFirstName() + " " getLastName();
-        return "";
     }
  
     public static void clearPassArray(char[] pass) {
@@ -114,6 +84,3 @@ public class ActiveUserControl {
         return !(password == null || password.isEmpty() || password.length() < 8);
     }
 }
-
-
-

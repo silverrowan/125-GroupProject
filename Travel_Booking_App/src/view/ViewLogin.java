@@ -1,7 +1,7 @@
 
 package view;
 
-import controller.ActiveUserControl;
+import controller.LoginControl;
 import dao.UserDAO;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -22,7 +22,7 @@ public class ViewLogin extends javax.swing.JFrame {
         initComponents();
         
         UserDAO userDao = new UserDAO();
-        ActiveUserControl activeControl = new ActiveUserControl(userDao, this);
+        LoginControl activeControl = new LoginControl(userDao, this);
         this.setSize(679,422);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
