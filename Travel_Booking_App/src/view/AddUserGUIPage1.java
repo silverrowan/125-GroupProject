@@ -181,7 +181,7 @@ public class AddUserGUIPage1 extends javax.swing.JFrame {
         lblStarRole.setForeground(new java.awt.Color(255, 0, 0));
         lblStarRole.setText("*");
 
-        comboRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Customer", "Admin", "Employee", "Tour guide" }));
+        comboRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Customer", "Admin", "Travel Agent", "Tour Guide" }));
 
         lblStar.setForeground(new java.awt.Color(255, 0, 0));
         lblStar.setText("*");
