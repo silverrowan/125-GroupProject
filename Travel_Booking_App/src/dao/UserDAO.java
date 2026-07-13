@@ -15,6 +15,9 @@ import java.sql.Statement;
  * @author rowan
  */
 public class UserDAO {
+//    private User user;
+    
+    public UserDAO(){}
 
     public static User addNewUser(User user) {
         String query = "INSERT INTO users (username, password, first_name, last_name, email, role, phone) VALUES (?,?,?,?,?,?,?);";
@@ -35,7 +38,7 @@ public class UserDAO {
             if ( row > 0 ) { 
                 ResultSet rs = p.getGeneratedKeys();
                 if (rs.next()) {
-                    int idGen = rs.getInt(1); //get int in column 1
+                    int idGen = rs.getInt(1); //get int in column 1 of DB table
                     user.setuserID(idGen);
                     return user; 
                 }
