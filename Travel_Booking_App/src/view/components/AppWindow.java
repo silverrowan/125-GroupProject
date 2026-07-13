@@ -94,9 +94,12 @@ public class AppWindow extends javax.swing.JFrame {
             Session session = new Session();
             AppWindow app = new AppWindow( session );
             app.setVisible(true);
+            
+            /*temporary while working on things - add user GUI */
             AddUserGUIPage1 view = new AddUserGUIPage1();
             UserDAO userDao = new UserDAO();
             UserControl userControl = new UserControl( userDao, view );
+            
             view.setVisible(true);
         });
     }
