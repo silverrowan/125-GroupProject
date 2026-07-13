@@ -48,14 +48,16 @@ public class LoginControl {
             activeUser = UserDAO.getUserFromUsername(username, password);
             
             if ( activeUser == null ) { JOptionPane.showMessageDialog(null, "Username or password do not match, try again"); }
-            else { 
+            else {
+                Session currentSession = new Session( activeUser );
                 System.out.println("Successful Login");
                 
-                AppWindow view = new AppWindow(); //make target window/dashboard
-                view.setVisible(true); // make it visible
+                AppWindow view = new AppWindow( currentSession ); //make target window/dashboard
+                view.setVisible(true);
+                loginView.dispose();
+    // make it visible
 //                TO DO 
                 //close login window
-                //set active user
             }
         }
     }
