@@ -49,5 +49,52 @@ public class UserDAO {
         return null;
     }
     
-//    public boolean getUserID()
+//    activeUser = UserDAO.getUserFromUsername(username, password);
+    public static User getUserFromUsername(String username, String password){
+        String query = "SELECT user_id, password, username, first_name, last_name," + 
+                "role, email, phone, street_number, street_name, city, province," +
+                "postal_code, country, account_status FROM users " +
+                "WHERE username = ? AND password = BINARY ? ;" ;
+        
+        try ( Connection link = DBConnection.getConnnection(); 
+            PreparedStatement p = link.prepareStatement(query); ) 
+        {
+            p.setString(1, username);
+            p.setString(2, password);
+            
+            ResultSet rs = p.executeQuery();
+            if (rs.next()) {
+                User user = makeUserObj(rs);
+                return user;
+            }
+        }
+        catch ( SQLException e ) { e.printStackTrace(); }
+        catch ( Exception e ) { e.printStackTrace(); }
+        return null; 
+    }
+    
+    public static User makeUserObj(ResultSet rs) throws SQLException{
+        User user = new User();
+        user.setuserID( rs.getInt("user_id" ));
+        user.setUsername( rs.getString("username") );
+        user.setPassword( rs.getString("password") );
+        user.setFirstName( rs.getString("first_name") );
+        user.setFirstName( rs.getString("last_name") );
+        user.setRole( rs.getString("role") );
+        user.setEmail( rs.getString("email") );
+        user.setPhone( rs.getString("phone") );
+        user.setAccountStatus( rs.getString( "account_status") );
+
+        user.setStreetNumber( rs.getString("street_number") );
+        user.setStreetName( rs.getString("street_name") );
+        user.setCity( rs.getString("city") );
+        user.setProvince( rs.getString("province") );
+        user.setPostalCode( rs.getString("postal_code") );
+        user.setCountry( rs.getString("country") );
+        return user;
+    }
 }
+
+
+
+     

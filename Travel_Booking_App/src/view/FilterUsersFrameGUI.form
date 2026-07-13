@@ -70,7 +70,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
         </Container>
-        <Component class="view.subViews.vSearchBarUsers" name="vSearchBarUsers1">
+        <Component class="view.subViews.VSearchBarUsers" name="vSearchBarUsers1">
         </Component>
       </SubComponents>
     </Container>

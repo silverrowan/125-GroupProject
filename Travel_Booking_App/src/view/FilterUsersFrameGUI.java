@@ -28,7 +28,7 @@ public class FilterUsersFrameGUI extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        vSearchBarUsers1 = new view.subViews.vSearchBarUsers();
+        vSearchBarUsers1 = new view.subViews.VSearchBarUsers();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,6 +110,6 @@ public class FilterUsersFrameGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private view.subViews.vSearchBarUsers vSearchBarUsers1;
+    private view.subViews.VSearchBarUsers vSearchBarUsers1;
     // End of variables declaration//GEN-END:variables
 }

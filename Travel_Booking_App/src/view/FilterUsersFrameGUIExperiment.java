@@ -29,7 +29,7 @@ public class FilterUsersFrameGUIExperiment extends javax.swing.JFrame {
         pnlFilterUsers = new javax.swing.JPanel();
         tblUsers = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        vSearchBarUsers1 = new view.subViews.vSearchBarUsers();
+        vSearchBarUsers1 = new view.subViews.VSearchBarUsers();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -144,6 +144,6 @@ public class FilterUsersFrameGUIExperiment extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JPanel pnlFilterUsers;
     private javax.swing.JScrollPane tblUsers;
-    private view.subViews.vSearchBarUsers vSearchBarUsers1;
+    private view.subViews.VSearchBarUsers vSearchBarUsers1;
     // End of variables declaration//GEN-END:variables
 }

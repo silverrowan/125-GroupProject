@@ -8,12 +8,12 @@ package view.subViews;
  *
  * @author C0350261
  */
-public class eAddress extends javax.swing.JPanel {
+public class EAddress extends javax.swing.JPanel {
 
     /**
      * Creates new form eHotelAddress
      */
-    public eAddress() {
+    public EAddress() {
         initComponents();
     }
 

@@ -8,12 +8,12 @@ package view.subViews;
  *
  * @author rowan
  */
-public class vSearchBarUsers extends javax.swing.JPanel {
+public class VSearchBarUsers extends javax.swing.JPanel {
 
     /**
      * Creates new form vSearchBar
      */
-    public vSearchBarUsers() {
+    public VSearchBarUsers() {
         initComponents();
     }
 

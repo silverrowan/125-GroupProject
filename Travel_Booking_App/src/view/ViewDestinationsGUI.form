@@ -102,13 +102,13 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFindTripsActionPerformed"/>
           </Events>
         </Component>
-        <Component class="view.subViews.vAddress" name="vHotelInfo1">
+        <Component class="view.subViews.VAddress" name="vHotelInfo1">
         </Component>
-        <Component class="view.subViews.vTravelMethod" name="vTravelMethod1">
+        <Component class="view.subViews.VTravelMethod" name="vTravelMethod1">
         </Component>
-        <Component class="view.subViews.vActivities" name="vActivities1">
+        <Component class="view.subViews.VActivities" name="vActivities1">
         </Component>
-        <Component class="view.subViews.eDestinationSummary" name="eDestinationSummary1">
+        <Component class="view.subViews.EDestinationSummary" name="eDestinationSummary1">
         </Component>
       </SubComponents>
     </Container>

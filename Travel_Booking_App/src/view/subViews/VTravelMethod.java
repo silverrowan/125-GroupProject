@@ -8,12 +8,12 @@ package view.subViews;
  *
  * @author C0350261
  */
-public class vTravelMethod extends javax.swing.JPanel {
+public class VTravelMethod extends javax.swing.JPanel {
 
     /**
      * Creates new form vTravelMethod
      */
-    public vTravelMethod() {
+    public VTravelMethod() {
         initComponents();
     }
 

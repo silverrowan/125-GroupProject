@@ -61,10 +61,10 @@ public class ViewCustomerGUIalt extends javax.swing.JFrame {
         btnSave = new javax.swing.JButton();
         btnPrevious = new javax.swing.JButton();
         btnCancel1 = new javax.swing.JButton();
-        vAddress1 = new view.subViews.vAddress();
+        vAddress1 = new view.subViews.VAddress();
         btnEditAddr = new javax.swing.JButton();
         btnEditEmerg = new javax.swing.JButton();
-        vEmergencyContact1 = new view.subViews.vEmergencyContact();
+        vEmergencyContact1 = new view.subViews.VEmergencyContact();
 
         lblDestinationCountry.setFont(new java.awt.Font("Noto Sans", 2, 12)); // NOI18N
         lblDestinationCountry.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -555,7 +555,7 @@ public class ViewCustomerGUIalt extends javax.swing.JFrame {
     private javax.swing.JPanel pnlPersInfo;
     private javax.swing.JCheckBox radioStatus;
     private javax.swing.JComboBox<String> selectionRole;
-    private view.subViews.vAddress vAddress1;
-    private view.subViews.vEmergencyContact vEmergencyContact1;
+    private view.subViews.VAddress vAddress1;
+    private view.subViews.VEmergencyContact vEmergencyContact1;
     // End of variables declaration//GEN-END:variables
 }

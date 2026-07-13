@@ -88,7 +88,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="view.subViews.vSearchBarUsers" name="vSearchBarUsers1">
+        <Component class="view.subViews.VSearchBarUsers" name="vSearchBarUsers1">
         </Component>
       </SubComponents>
     </Container>
