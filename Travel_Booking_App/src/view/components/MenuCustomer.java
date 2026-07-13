@@ -4,6 +4,9 @@ import controller.AppContext;
 import java.awt.Color;
 import model.User;
 import model.gui.Model_MenuItem;
+import view.ViewCustomerGUI;
+import view.ViewDestinationsGUI;
+import view.ViewTripFrame;
 
 /**
  *
@@ -71,31 +74,31 @@ public class MenuCustomer extends GradientPanel {
         User currentUser = context.getCurrentSession().getCurrentUser();
         switch ( currentUser.getRole() ) {
             case "Admin":
-                listMenuCustomer.addItem(new Model_MenuItem("id-card", "Customer Profile", Model_MenuItem.MenuType.MENU));
+                listMenuCustomer.addItem(new Model_MenuItem("id-card", "Customer Profile", Model_MenuItem.MenuType.MENU, "ViewCustomerGUI"));
                 buildSharedMenu();
                 break;
             case "Travel Agent":
         //        Agent Name Header
-                listMenuCustomer.addItem(new Model_MenuItem("id-card", "Profile", Model_MenuItem.MenuType.MENU));
-                listMenuCustomer.addItem(new Model_MenuItem("user-search-line", "Search Customers", Model_MenuItem.MenuType.MENU));
+                listMenuCustomer.addItem(new Model_MenuItem("id-card", "Profile", Model_MenuItem.MenuType.MENU, "ViewEmployee"));
+                listMenuCustomer.addItem(new Model_MenuItem("user-search-line", "Search Customers", Model_MenuItem.MenuType.MENU, "SearchForCustomer"));
         //        Active Customer Name Header
-                listMenuCustomer.addItem(new Model_MenuItem("id-card", "Customer Profile", Model_MenuItem.MenuType.MENU));
+                listMenuCustomer.addItem(new Model_MenuItem("id-card", "Customer Profile", Model_MenuItem.MenuType.MENU, "ViewCustomerGUI"));
                 buildSharedMenu();
                 break;
 //            case "Tour Guide":                
             case "Customer":
-                listMenuCustomer.addItem(new Model_MenuItem("id-card", "Profile", Model_MenuItem.MenuType.MENU));
+                listMenuCustomer.addItem(new Model_MenuItem("id-card", "Profile", Model_MenuItem.MenuType.MENU, "ViewCustomerGUI"));
                 buildSharedMenu();
                 break;        
     }
     }
     
     private void buildSharedMenu(){
-        listMenuCustomer.addItem(new Model_MenuItem("world-search", "Destinations", Model_MenuItem.MenuType.MENU));
-        listMenuCustomer.addItem(new Model_MenuItem("calendar_plus", "Latest", Model_MenuItem.MenuType.MENU));
-        listMenuCustomer.addItem(new Model_MenuItem("plans", "Plans", Model_MenuItem.MenuType.MENU));
-        listMenuCustomer.addItem(new Model_MenuItem("calendar_clock", "History", Model_MenuItem.MenuType.MENU));
-        listMenuCustomer.addItem(new Model_MenuItem("logout-box", "Logout", Model_MenuItem.MenuType.MENU));
+        listMenuCustomer.addItem(new Model_MenuItem("world-search", "Destinations", Model_MenuItem.MenuType.MENU, "SearchDestinations/Products"));
+        listMenuCustomer.addItem(new Model_MenuItem("calendar_plus", "Latest", Model_MenuItem.MenuType.MENU, "ViewMostRecentBooking"));
+        listMenuCustomer.addItem(new Model_MenuItem("plans", "Plans", Model_MenuItem.MenuType.MENU, "ViewFutureBookingsOrItinerary"));
+        listMenuCustomer.addItem(new Model_MenuItem("calendar_clock", "History", Model_MenuItem.MenuType.MENU, "ViewBookings"));
+        listMenuCustomer.addItem(new Model_MenuItem("logout-box", "Logout", Model_MenuItem.MenuType.MENU, "LoginFunction"));
     }
     
 
@@ -110,7 +113,7 @@ public class MenuCustomer extends GradientPanel {
 
         pnlLogo = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
-        listMenuCustomer = new view.components.ListMenu<>();
+        listMenuCustomer = new view.components.ListMenu();
 
         pnlLogo.setOpaque(false);
 
@@ -172,7 +175,7 @@ public class MenuCustomer extends GradientPanel {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lblLogo;
-    private view.components.ListMenu<String> listMenuCustomer;
+    private view.components.ListMenu listMenuCustomer;
     private javax.swing.JPanel pnlLogo;
     // End of variables declaration//GEN-END:variables
 }

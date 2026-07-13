@@ -4,6 +4,7 @@ package model.gui;
 import view.models.RoImageIcon;
 import java.awt.FontMetrics;
 import java.awt.Image;
+import java.net.URL;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -17,51 +18,35 @@ public class Model_MenuItem {
     String icon;
     String name;
     MenuType type;
-    
-
-    
+    String linkPage;
+      
     //Constructors
+    public Model_MenuItem() { }
 
-    public Model_MenuItem() {
-    }
-
-    public Model_MenuItem(String icon, String name, MenuType type) {
+    public Model_MenuItem(String icon, String name, MenuType type, String linkPage) {
         this.icon = icon;
         this.name = name;
         this.type = type;
+        this.linkPage = linkPage;
     }
     
     //Getters & Setters
 
-    public String getIcon() {
-        return icon;
-    }
+    public String getIcon() { return icon; }
+    public void setIcon(String icon) { this.icon = icon; }
 
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public MenuType getType() {
-        return type;
-    }
-
-    public void setType(MenuType type) {
-        this.type = type;
-    }
+    public MenuType getType() { return type; }
+    public void setType(MenuType type) { this.type = type; }
+    
+    public String getLinkPage() { return linkPage; }  
+    public void setLinkPage(String linkPage) { this.linkPage = linkPage; }
 
     // Utility    
     
-    public static enum MenuType {
-        TITLE, MENU, EMPTY
-    }
+    public static enum MenuType { TITLE, MENU, EMPTY }
     
     public Icon toIcon() {
         return new ImageIcon(getClass().getResource("/view/graphics/" + icon + ".png"));
