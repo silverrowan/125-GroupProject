@@ -19,7 +19,7 @@ public class UserDAO {
     
     public UserDAO(){}
 
-    public static User addNewUser(User user) {
+    public User addNewUser(User user) {
         String query = "INSERT INTO users (username, password, first_name, last_name, email, role, phone) VALUES (?,?,?,?,?,?,?);";
         
         try ( Connection link = DBConnection.getConnnection(); 
@@ -50,7 +50,7 @@ public class UserDAO {
     }
     
 //    activeUser = UserDAO.getUserFromUsername(username, password);
-    public static User getUserFromUsername(String username, String password){
+    public User getUserFromUsername(String username, String password){
         String query = "SELECT user_id, password, username, first_name, last_name," + 
                 "role, email, phone, street_number, street_name, city, province," +
                 "postal_code, country, account_status FROM users " +
@@ -73,7 +73,7 @@ public class UserDAO {
         return null; 
     }
     
-    public static User makeUserObj(ResultSet rs) throws SQLException{
+    public User makeUserObj(ResultSet rs) throws SQLException{
         User user = new User();
         user.setuserID( rs.getInt("user_id" ));
         user.setUsername( rs.getString("username") );

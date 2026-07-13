@@ -20,7 +20,7 @@ public class CustomerDAO {
     public CustomerDAO(){}
     
     public static Customer addNewCustomer(User user) {
-        user = UserDAO.addNewUser(user);
+//        user = userDAO.addNewUser(user);
 
         String query = "INSERT INTO customers ( user_id ) VALUES (?,?);";
         

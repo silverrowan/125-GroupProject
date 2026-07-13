@@ -1,13 +1,9 @@
 package view.components;
 
-import controller.Session;
+import controller.AppContext;
 import controller.UserControl;
 import dao.UserDAO;
-import java.awt.Color;
-import model.User;
 import view.AddUserGUIPage1;
-import view.EditUserGUIPage1;
-import view.components.CardMenuRenderer;
 
 /**
  *
@@ -15,11 +11,13 @@ import view.components.CardMenuRenderer;
  */
 public class AppWindow extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AppWindow.class.getName());
-    private Session session;
+    private AppContext context;
     
-    public AppWindow( Session session ) {
+    public AppWindow( AppContext context ) {
         initComponents();
-        this.session = session;
+        this.context = context;
+        listMenuCustomer.setBasics(this, context);
+//        this.session = session;
 //        setBackground( new Color(0, 0, 0, 0) ); //only works with undecorated frame
     }
 
@@ -33,7 +31,7 @@ public class AppWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         panelBorder1 = new view.components.PanelBorder();
-        menuCustomer1 = new view.components.MenuCustomer();
+        listMenuCustomer = new view.components.MenuCustomer();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -44,12 +42,12 @@ public class AppWindow extends javax.swing.JFrame {
         panelBorder1Layout.setHorizontalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBorder1Layout.createSequentialGroup()
-                .addComponent(menuCustomer1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(listMenuCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 603, Short.MAX_VALUE))
         );
         panelBorder1Layout.setVerticalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menuCustomer1, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
+            .addComponent(listMenuCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -70,42 +68,42 @@ public class AppWindow extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+//            logger.log(java.util.logging.Level.SEVERE, null, ex);
+//        }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            
-            Session session = new Session();
-            AppWindow app = new AppWindow( session );
-            app.setVisible(true);
-            
-            /*temporary while working on things - add user GUI */
-            AddUserGUIPage1 view = new AddUserGUIPage1();
-            UserDAO userDao = new UserDAO();
-            UserControl userControl = new UserControl( userDao, view );
-            
-            view.setVisible(true);
-        });
-    }
+//        java.awt.EventQueue.invokeLater(() -> {
+//            
+//            AppContext session = new AppContext();
+//            AppWindow app = new AppWindow( session );
+//            app.setVisible(true);
+//            
+//            /*temporary while working on things - add user GUI */
+//            AddUserGUIPage1 view = new AddUserGUIPage1();
+//            UserDAO userDao = new UserDAO();
+//            UserControl userControl = new UserControl( userDao, view );
+//            
+//            view.setVisible(true);
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private view.components.MenuCustomer menuCustomer1;
+    private view.components.MenuCustomer listMenuCustomer;
     private view.components.PanelBorder panelBorder1;
     // End of variables declaration//GEN-END:variables
 }

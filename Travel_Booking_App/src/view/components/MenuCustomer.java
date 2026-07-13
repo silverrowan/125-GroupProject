@@ -1,12 +1,8 @@
 package view.components;
 
+import controller.AppContext;
 import java.awt.Color;
-import java.awt.GradientPaint;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.LayoutManager;
-import java.awt.RenderingHints;
-import javax.management.InvalidAttributeValueException;
+import model.User;
 import model.gui.Model_MenuItem;
 
 /**
@@ -17,51 +13,91 @@ public class MenuCustomer extends GradientPanel {
         Color topColor;
         Color bottomColor;
         Color selectColor;
+        private AppContext context;
+        private AppWindow topView;
 
     /**
      * Creates new form MenuCustomer
      */
-    public MenuCustomer() {
+    public MenuCustomer( ) {}
+    
+    public MenuCustomer( AppContext context ) {
         super(new Color(204,255,204), new Color( 255,150,46 ), 0);
         initComponents();
         listMenuCustomer.setOpaque(false);
-        init();
+        init( );
     }
     
-    
-    
-//    public static enum MenuBarCust {
-//        Profile, Destinations, Latest, Plans, History, Logout
-//    }
-//    
-//    public static enum MenuBarAgent {
-//        Search Customers, Active Customer
-//    }
-//    public static enum MenuBarAdmin {
-//    
-//    }
-//    public static enum MenuBarGuide {
-//        Profile, Trips, Travellers, Logout
-//    }
+    //getters and setters
 
-    private void init() {
-//        switch (activeUser.role) {
-//            case "Admin":
-//            case "Agent":
-//            case "Customer":
-       
-        listMenuCustomer.addItem(new Model_MenuItem("id-card", "Profile", Model_MenuItem.MenuType.MENU));
+    public AppContext getContext() { return context; }
+    public void setContext(AppContext context) { 
+        this.context = context;
+        buildMenu();
+//        refreshView();
+    }
+
+    public AppWindow getTopView() { return topView; }
+    public void setTopView(AppWindow topView) { 
+        this.topView = topView; 
+    buildMenu();
+    }
+    
+    public void setBasics(AppWindow topView, AppContext context) {
+        this.topView = topView;
+        this.context = context;
+        buildMenu();
+    }
+
+//    public ListMenu<String> getListMenuCustomer() {
+//        return listMenuCustomer;
+//    }
+//
+//    public void setListMenuCustomer(ListMenu<String> listMenuCustomer) {
+//        this.listMenuCustomer = listMenuCustomer;
+//    }
+    
+
+// FUNCTIONAL
+    private void init() {}
+
+//                
+//            case default:
+//                throw new InvalidAttributeValueException("there is a problem with the user role");
+
+
+
+    private void buildMenu(){
+        User currentUser = context.getCurrentSession().getCurrentUser();
+        switch ( currentUser.getRole() ) {
+            case "Admin":
+                listMenuCustomer.addItem(new Model_MenuItem("id-card", "Customer Profile", Model_MenuItem.MenuType.MENU));
+                buildSharedMenu();
+                break;
+            case "Travel Agent":
+        //        Agent Name Header
+                listMenuCustomer.addItem(new Model_MenuItem("id-card", "Profile", Model_MenuItem.MenuType.MENU));
+                listMenuCustomer.addItem(new Model_MenuItem("user-search-line", "Search Customers", Model_MenuItem.MenuType.MENU));
+        //        Active Customer Name Header
+                listMenuCustomer.addItem(new Model_MenuItem("id-card", "Customer Profile", Model_MenuItem.MenuType.MENU));
+                buildSharedMenu();
+                break;
+//            case "Tour Guide":                
+            case "Customer":
+                listMenuCustomer.addItem(new Model_MenuItem("id-card", "Profile", Model_MenuItem.MenuType.MENU));
+                buildSharedMenu();
+                break;        
+    }
+    }
+    
+    private void buildSharedMenu(){
         listMenuCustomer.addItem(new Model_MenuItem("world-search", "Destinations", Model_MenuItem.MenuType.MENU));
         listMenuCustomer.addItem(new Model_MenuItem("calendar_plus", "Latest", Model_MenuItem.MenuType.MENU));
         listMenuCustomer.addItem(new Model_MenuItem("plans", "Plans", Model_MenuItem.MenuType.MENU));
         listMenuCustomer.addItem(new Model_MenuItem("calendar_clock", "History", Model_MenuItem.MenuType.MENU));
         listMenuCustomer.addItem(new Model_MenuItem("logout-box", "Logout", Model_MenuItem.MenuType.MENU));
-//            case "Guide":
-//                
-//            case default:
-//                throw new InvalidAttributeValueException("there is a problem with the user role");
-//        }
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

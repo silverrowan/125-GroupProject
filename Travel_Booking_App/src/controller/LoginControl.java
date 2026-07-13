@@ -1,7 +1,5 @@
 package controller;
 
-import static controller.UserControl.validatePassword;
-import static controller.UserControl.validateUsername;
 import dao.UserDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,11 +14,11 @@ import view.components.AppWindow;
  * Handles the Logic and Validation for the Login Screen
  */
 public class LoginControl {
-    private final UserDAO userDao;
+    private final AppContext context;
     private final ViewLogin loginView;
 
-    public LoginControl( UserDAO userDao, ViewLogin loginView ) {
-        this.userDao = userDao;
+    public LoginControl( AppContext context, ViewLogin loginView ) {
+        this.context = context;
         this.loginView = loginView;
         
         this.loginView.addLoginBtnListener( new LogInUser() );
@@ -29,6 +27,7 @@ public class LoginControl {
     
     class LogInUser implements ActionListener {
         private User activeUser;
+        private User loginUser;
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -45,14 +44,17 @@ public class LoginControl {
                 JOptionPane.showMessageDialog(null, "a password is required, and must be at least 8 characters");
                 throw new IllegalArgumentException("Password must be at least 8 characters"); }
 
-            activeUser = UserDAO.getUserFromUsername(username, password);
+            loginUser = context.getUserDao().getUserFromUsername(username, password);
+
             
-            if ( activeUser == null ) { JOptionPane.showMessageDialog(null, "Username or password do not match, try again"); }
+            if ( loginUser == null ) { JOptionPane.showMessageDialog(null, "Username or password do not match, try again"); }
             else {
-                Session currentSession = new Session( activeUser );
+                activeUser = loginUser;
+                loginUser = null;
+                context.getCurrentSession().setCurrentUser(activeUser);
                 System.out.println("Successful Login");
                 
-                AppWindow view = new AppWindow( currentSession ); //make target window/dashboard
+                AppWindow view = new AppWindow( context ); //make target window/dashboard
                 view.setVisible(true);
                 loginView.dispose();
     // make it visible
@@ -72,17 +74,17 @@ public class LoginControl {
         }
     }
  
-    public static void clearPassArray(char[] pass) {
+    public void clearPassArray(char[] pass) {
         for (int i = pass.length -1 ; i >= 0 ; i--) {
             pass[i] = 0;
         }
     }
     
-    public static boolean validateUsername(String username) { 
+    public boolean validateUsername(String username) { 
         return !( username == null || username.isEmpty() ); 
     }
     
-    public static boolean validatePassword(String password) { 
+    public boolean validatePassword(String password) { 
         return !(password == null || password.isEmpty() || password.length() < 8);
     }
 }
