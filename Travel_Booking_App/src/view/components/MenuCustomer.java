@@ -8,6 +8,9 @@ import java.awt.LayoutManager;
 import java.awt.RenderingHints;
 import javax.management.InvalidAttributeValueException;
 import model.gui.Model_MenuItem;
+import view.ViewCustomerGUI;
+import view.ViewDestinationsGUI;
+import view.ViewTripFrame;
 
 /**
  *
@@ -74,7 +77,7 @@ public class MenuCustomer extends GradientPanel {
 
         pnlLogo = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
-        listMenuCustomer = new view.components.ListMenu<>();
+        listMenuCustomer = new view.components.ListMenu();
 
         pnlLogo.setOpaque(false);
 
@@ -136,7 +139,7 @@ public class MenuCustomer extends GradientPanel {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lblLogo;
-    private view.components.ListMenu<String> listMenuCustomer;
+    private view.components.ListMenu listMenuCustomer;
     private javax.swing.JPanel pnlLogo;
     // End of variables declaration//GEN-END:variables
 }

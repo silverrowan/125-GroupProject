@@ -12,10 +12,10 @@ import model.gui.Model_MenuItem;
  *
  * @author rowan
  */
-public class ListMenu<E extends Object> extends JList<E> {
+public class ListMenu extends JList<Model_MenuItem> {
     private Color selectColor;
     
-    private final DefaultListModel<E> model = new DefaultListModel<>();
+    private final DefaultListModel model = new DefaultListModel<>();
     private final CardMenuRenderer renderer = new CardMenuRenderer();
        
     public ListMenu() {
@@ -31,6 +31,6 @@ public class ListMenu<E extends Object> extends JList<E> {
     }
     
     public void addItem(Model_MenuItem data) {
-        model.addElement( (E) data);
+        model.addElement( data );
     }
 }
