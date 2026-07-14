@@ -13,7 +13,7 @@ public class Bookings {
     private int createdByUserID;
     private Date bookingDate;
     private int numberOfTravelers;
-    private String bookingStatus;
+    private bookingStatusType bookingStatus;
     private String specialRequests;
     private String bookingNotes;
 
@@ -24,11 +24,11 @@ public class Bookings {
         this.tripID = tripID;
         this.bookingDate = bookingDate;
         this.numberOfTravelers = numberOfTravelers;
-        this.bookingStatus = "Upcoming";
+        this.bookingStatus = bookingStatusType.Upcoming;
     }
 
     public Bookings(int customerID, int tripID, int createdByUserID, 
-            Date bookingDate, int numberOfTravelers, String bookingStatus, 
+            Date bookingDate, int numberOfTravelers, bookingStatusType bookingStatus, 
             String specialRequests, String bookingNotes) {
         this.customerID = customerID;
         this.tripID = tripID;
@@ -39,6 +39,9 @@ public class Bookings {
         this.specialRequests = specialRequests;
         this.bookingNotes = bookingNotes;
     }  
+    
+    //emum field options
+    public static enum bookingStatusType { Upcoming, Completed, Cancelled }
     
     //GETTERS
     /**
@@ -86,7 +89,7 @@ public class Bookings {
     /**
      * @return the bookingStatus
      */
-    public String getBookingStatus() {
+    public bookingStatusType getBookingStatus() {
         return bookingStatus;
     }
 
@@ -143,7 +146,7 @@ public class Bookings {
     /**
      * @param bookingStatus the bookingStatus to set
      */
-    public void setBookingStatus(String bookingStatus) {
+    public void setBookingStatus(bookingStatusType bookingStatus) {
         this.bookingStatus = bookingStatus;
     }
 
