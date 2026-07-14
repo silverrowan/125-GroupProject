@@ -2,6 +2,8 @@ package view.components;
 
 import controller.AppContext;
 import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import model.User;
 import model.gui.Model_MenuItem;
 import view.ViewCustomerGUI;
@@ -16,7 +18,7 @@ public class MenuCustomer extends GradientPanel {
         Color topColor;
         Color bottomColor;
         Color selectColor;
-        private AppContext context;
+//        private AppContext context;
         private AppWindow topView;
 
     /**
@@ -33,24 +35,38 @@ public class MenuCustomer extends GradientPanel {
     
     //getters and setters
 
-    public AppContext getContext() { return context; }
-    public void setContext(AppContext context) { 
-        this.context = context;
-        buildMenu();
+//    public AppContext getContext() { return context; }
+//    public void setContext(AppContext context) { 
+//        this.context = context;
 //        refreshView();
-    }
+//    }
 
     public AppWindow getTopView() { return topView; }
     public void setTopView(AppWindow topView) { 
         this.topView = topView; 
-    buildMenu();
+    }
+
+    public JLabel getLblLogo() { return lblLogo; }
+    public void setLblLogo(JLabel lblLogo) {
+        this.lblLogo = lblLogo;
+    }
+
+    public ListMenu getListMenuCustomer() { return listMenuCustomer; }
+    public void setListMenuCustomer(ListMenu listMenuCustomer) {
+        this.listMenuCustomer = listMenuCustomer;
+    }
+
+    public JPanel getPnlLogo() { return pnlLogo; }
+    public void setPnlLogo(JPanel pnlLogo) {
+        this.pnlLogo = pnlLogo;
     }
     
-    public void setBasics(AppWindow topView, AppContext context) {
-        this.topView = topView;
-        this.context = context;
-        buildMenu();
-    }
+    
+    
+//    public void setBasics(AppWindow topView, AppContext context) {
+//        this.topView = topView;
+//        this.context = context;
+//    }
 
 //    public ListMenu<String> getListMenuCustomer() {
 //        return listMenuCustomer;
@@ -63,43 +79,13 @@ public class MenuCustomer extends GradientPanel {
 
 // FUNCTIONAL
     private void init() {}
-
 //                
 //            case default:
 //                throw new InvalidAttributeValueException("there is a problem with the user role");
 
 
 
-    private void buildMenu(){
-        User currentUser = context.getCurrentSession().getCurrentUser();
-        switch ( currentUser.getRole() ) {
-            case "Admin":
-                listMenuCustomer.addItem(new Model_MenuItem("id-card", "Customer Profile", Model_MenuItem.MenuType.MENU, "ViewCustomerGUI"));
-                buildSharedMenu();
-                break;
-            case "Travel Agent":
-        //        Agent Name Header
-                listMenuCustomer.addItem(new Model_MenuItem("id-card", "Profile", Model_MenuItem.MenuType.MENU, "ViewEmployee"));
-                listMenuCustomer.addItem(new Model_MenuItem("user-search-line", "Search Customers", Model_MenuItem.MenuType.MENU, "SearchForCustomer"));
-        //        Active Customer Name Header
-                listMenuCustomer.addItem(new Model_MenuItem("id-card", "Customer Profile", Model_MenuItem.MenuType.MENU, "ViewCustomerGUI"));
-                buildSharedMenu();
-                break;
-//            case "Tour Guide":                
-            case "Customer":
-                listMenuCustomer.addItem(new Model_MenuItem("id-card", "Profile", Model_MenuItem.MenuType.MENU, "ViewCustomerGUI"));
-                buildSharedMenu();
-                break;        
-    }
-    }
-    
-    private void buildSharedMenu(){
-        listMenuCustomer.addItem(new Model_MenuItem("world-search", "Destinations", Model_MenuItem.MenuType.MENU, "SearchDestinations/Products"));
-        listMenuCustomer.addItem(new Model_MenuItem("calendar_plus", "Latest", Model_MenuItem.MenuType.MENU, "ViewMostRecentBooking"));
-        listMenuCustomer.addItem(new Model_MenuItem("plans", "Plans", Model_MenuItem.MenuType.MENU, "ViewFutureBookingsOrItinerary"));
-        listMenuCustomer.addItem(new Model_MenuItem("calendar_clock", "History", Model_MenuItem.MenuType.MENU, "ViewBookings"));
-        listMenuCustomer.addItem(new Model_MenuItem("logout-box", "Logout", Model_MenuItem.MenuType.MENU, "LoginFunction"));
-    }
+
     
 
     /**

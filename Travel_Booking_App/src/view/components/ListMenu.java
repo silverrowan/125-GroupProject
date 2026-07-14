@@ -32,4 +32,8 @@ public class ListMenu extends JList<Model_MenuItem> {
     public void addItem(Model_MenuItem data) {
         model.addElement( data );
     }
+    
+    public void refresh() {
+        repaint();
+    }
 }

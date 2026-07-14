@@ -16,7 +16,8 @@ public class AppWindow extends javax.swing.JFrame {
     public AppWindow( AppContext context ) {
         initComponents();
         this.context = context;
-        listMenuCustomer.setBasics(this, context);
+//        listMenuCustomer.setBasics(this, context);
+        
 //        this.session = session;
 //        setBackground( new Color(0, 0, 0, 0) ); //only works with undecorated frame
     }
