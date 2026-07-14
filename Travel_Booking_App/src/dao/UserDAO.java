@@ -35,11 +35,17 @@ public class UserDAO {
             
             int row = p.executeUpdate();
             
+            System.out.println("Rows inserted: " + row);
+            System.out.println(link.getMetaData().getURL());
+            System.out.println("Database: " + link.getCatalog());
+            
             if ( row > 0 ) { 
                 ResultSet rs = p.getGeneratedKeys();
                 if (rs.next()) {
                     int idGen = rs.getInt(1); //get int in column 1 of DB table
                     user.setuserID(idGen);
+                    
+                    System.out.println("Generated ID: " + user.getUserID() );
                     return user; 
                 }
             }
@@ -51,39 +57,17 @@ public class UserDAO {
     
 //    activeUser = UserDAO.getUserFromUsername(username, password);\
     
-//    public User getUserFromUsername(String username, String password){ //rename to CHECK LOGIN 
-//        String query = "SELECT user_id, password, username, first_name, last_name," + 
-//                "role, email, phone, street_number, street_name, city, province," +
-//                "postal_code, country, account_status FROM users " +
-//                "WHERE username = ? AND password = BINARY ? ;" ;
-//        
-//        try ( Connection link = DBConnection.getConnnection(); 
-//            PreparedStatement p = link.prepareStatement(query); ) 
-//        {
-//            p.setString(1, username);
-//            p.setString(2, password);
-//            
-//            ResultSet rs = p.executeQuery();
-//            if (rs.next()) {
-//                User user = makeUserObj(rs);
-//                return user;
-//            }
-//        }
-//        catch ( SQLException e ) { e.printStackTrace(); }
-//        catch ( Exception e ) { e.printStackTrace(); }
-//        return null; 
-//    }
-    
-        public User getUserFromUsername(String username){
+    public User getUserFromUsername(String username, String password){ //rename to CHECK LOGIN 
         String query = "SELECT user_id, password, username, first_name, last_name," + 
                 "role, email, phone, street_number, street_name, city, province," +
                 "postal_code, country, account_status FROM users " +
-                "WHERE username = ? ;";
+                "WHERE username = ? AND password = BINARY ? ;" ;
         
         try ( Connection link = DBConnection.getConnnection(); 
             PreparedStatement p = link.prepareStatement(query); ) 
         {
             p.setString(1, username);
+            p.setString(2, password);
             
             ResultSet rs = p.executeQuery();
             if (rs.next()) {
@@ -96,13 +80,35 @@ public class UserDAO {
         return null; 
     }
     
+//        public User getUserFromUsername(String username){
+//        String query = "SELECT user_id, password, username, first_name, last_name," + 
+//                "role, email, phone, street_number, street_name, city, province," +
+//                "postal_code, country, account_status FROM users " +
+//                "WHERE username = ? ;";
+//        
+//        try ( Connection link = DBConnection.getConnnection(); 
+//            PreparedStatement p = link.prepareStatement(query); ) 
+//        {
+//            p.setString(1, username);
+//            
+//            ResultSet rs = p.executeQuery();
+//            if (rs.next()) {
+//                User user = makeUserObj(rs);
+//                return user;
+//            }
+//        }
+//        catch ( SQLException e ) { e.printStackTrace(); }
+//        catch ( Exception e ) { e.printStackTrace(); }
+//        return null; 
+//    }
+    
     public User makeUserObj(ResultSet rs) throws SQLException{
         User user = new User();
         user.setuserID( rs.getInt("user_id" ));
         user.setUsername( rs.getString("username") );
         user.setPassword( rs.getString("password") );
         user.setFirstName( rs.getString("first_name") );
-        user.setFirstName( rs.getString("last_name") );
+        user.setLastName( rs.getString("last_name") );
         user.setRole( rs.getString("role") );
         user.setEmail( rs.getString("email") );
         user.setPhone( rs.getString("phone") );

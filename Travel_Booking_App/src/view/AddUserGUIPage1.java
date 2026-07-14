@@ -18,7 +18,7 @@ public class AddUserGUIPage1 extends javax.swing.JFrame {
     /**
      * Creates new form AddUserGUI
      */
-    public AddUserGUIPage1() {
+    public AddUserGUIPage1(  ) {
         initComponents();
     }
     

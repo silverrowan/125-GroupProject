@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import model.Customer;
 import model.Employee;
+import dao.UserDAO;
 
 
 /**
@@ -16,7 +17,8 @@ import model.Employee;
  * @author rowan
  */
 public class UserControl {
-    private AppContext userDao;
+    private AppContext context;
+    private UserDAO userDAO;
     private AddUserGUIPage1 userView;
 //    private UserService userService;
     
@@ -28,9 +30,10 @@ public class UserControl {
 //        this.userView.addNextBtnListener( new AddUserRecord() );
 //    }
    
-    public UserControl( AppContext userDao, AddUserGUIPage1 userView ) {
-        this.userDao = userDao;
+    public UserControl( AppContext context, AddUserGUIPage1 userView ) {
+        this.context = context;
         this.userView = userView;
+        userDAO = context.getUserDao();
         
         this.userView.addNextBtnListener( new AddUserRecord() );
     }
@@ -64,7 +67,7 @@ public class UserControl {
 //                Employee emp = new Employee(user, getID(user)); 
 //            }
 //            boolean isSuccess = UserDAO.addNewUser(user);
-//            user = userDao.addNewUser(user);
+            user = userDAO.addNewUser(user);
 
             if ( !(user == null) ) { JOptionPane.showMessageDialog(null, "User created successfully"); }
             else { JOptionPane.showMessageDialog(null, "User was not created"); }

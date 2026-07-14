@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import model.User;
+import view.AddUserGUIPage1;
 import view.Login;
 import view.components.AppWindow;
 import view.components.DashboardMenu;
@@ -60,6 +61,11 @@ public class LoginControl {
                 DashboardControl dash = new DashboardControl( context, view );
                 dash.initialize();
                 view.setVisible(true);
+                
+                AddUserGUIPage1 view2 = new AddUserGUIPage1( ); //make target window/dashboard: This is Menu AND beside contents.
+                UserControl userControl = new UserControl( context, view2 );
+//                userControl.initialize();
+                view2.setVisible(true);
 //                DashboardMenu dashboard = new DashboardMenu(); // can't use this one - MENU is an x of gradient which is of JPanel not Frame
 //                dashboard.setVisible(true);
                 loginView.dispose();
