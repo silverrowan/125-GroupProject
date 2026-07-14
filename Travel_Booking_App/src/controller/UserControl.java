@@ -16,7 +16,7 @@ import model.Employee;
  * @author rowan
  */
 public class UserControl {
-    private UserDAO userDao;
+    private AppContext userDao;
     private AddUserGUIPage1 userView;
 //    private UserService userService;
     
@@ -28,7 +28,7 @@ public class UserControl {
 //        this.userView.addNextBtnListener( new AddUserRecord() );
 //    }
    
-    public UserControl( UserDAO userDao, AddUserGUIPage1 userView ) {
+    public UserControl( AppContext userDao, AddUserGUIPage1 userView ) {
         this.userDao = userDao;
         this.userView = userView;
         
@@ -64,7 +64,7 @@ public class UserControl {
 //                Employee emp = new Employee(user, getID(user)); 
 //            }
 //            boolean isSuccess = UserDAO.addNewUser(user);
-            user = userDao.addNewUser(user);
+//            user = userDao.addNewUser(user);
 
             if ( !(user == null) ) { JOptionPane.showMessageDialog(null, "User created successfully"); }
             else { JOptionPane.showMessageDialog(null, "User was not created"); }

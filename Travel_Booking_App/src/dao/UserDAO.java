@@ -49,18 +49,41 @@ public class UserDAO {
         return null;
     }
     
-//    activeUser = UserDAO.getUserFromUsername(username, password);
-    public User getUserFromUsername(String username, String password){
+//    activeUser = UserDAO.getUserFromUsername(username, password);\
+    
+//    public User getUserFromUsername(String username, String password){ //rename to CHECK LOGIN 
+//        String query = "SELECT user_id, password, username, first_name, last_name," + 
+//                "role, email, phone, street_number, street_name, city, province," +
+//                "postal_code, country, account_status FROM users " +
+//                "WHERE username = ? AND password = BINARY ? ;" ;
+//        
+//        try ( Connection link = DBConnection.getConnnection(); 
+//            PreparedStatement p = link.prepareStatement(query); ) 
+//        {
+//            p.setString(1, username);
+//            p.setString(2, password);
+//            
+//            ResultSet rs = p.executeQuery();
+//            if (rs.next()) {
+//                User user = makeUserObj(rs);
+//                return user;
+//            }
+//        }
+//        catch ( SQLException e ) { e.printStackTrace(); }
+//        catch ( Exception e ) { e.printStackTrace(); }
+//        return null; 
+//    }
+    
+        public User getUserFromUsername(String username){
         String query = "SELECT user_id, password, username, first_name, last_name," + 
                 "role, email, phone, street_number, street_name, city, province," +
                 "postal_code, country, account_status FROM users " +
-                "WHERE username = ? AND password = BINARY ? ;" ;
+                "WHERE username = ? ;";
         
         try ( Connection link = DBConnection.getConnnection(); 
             PreparedStatement p = link.prepareStatement(query); ) 
         {
             p.setString(1, username);
-            p.setString(2, password);
             
             ResultSet rs = p.executeQuery();
             if (rs.next()) {
