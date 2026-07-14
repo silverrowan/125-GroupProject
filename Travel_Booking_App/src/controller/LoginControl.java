@@ -1,12 +1,14 @@
 package controller;
 
+import controller.AppContext;
 import dao.UserDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import model.User;
-import view.ViewLogin;
+import view.Login;
 import view.components.AppWindow;
+import view.components.DashboardMenu;
 
 /**
  *
@@ -15,9 +17,9 @@ import view.components.AppWindow;
  */
 public class LoginControl {
     private final AppContext context;
-    private final ViewLogin loginView;
+    private final Login loginView;
 
-    public LoginControl( AppContext context, ViewLogin loginView ) {
+    public LoginControl( AppContext context, Login loginView ) {
         this.context = context;
         this.loginView = loginView;
         
@@ -54,8 +56,12 @@ public class LoginControl {
                 context.getCurrentSession().setCurrentUser(activeUser);
                 System.out.println("Successful Login");
                 
-                AppWindow view = new AppWindow( context ); //make target window/dashboard
+                AppWindow view = new AppWindow( context ); //make target window/dashboard: This is Menu AND beside contents.
+                DashboardControl dash = new DashboardControl( context, view );
+                dash.initialize();
                 view.setVisible(true);
+//                DashboardMenu dashboard = new DashboardMenu(); // can't use this one - MENU is an x of gradient which is of JPanel not Frame
+//                dashboard.setVisible(true);
                 loginView.dispose();
     // make it visible
 //                TO DO 

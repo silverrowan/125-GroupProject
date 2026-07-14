@@ -34,6 +34,7 @@ public class ListMenu extends JList<Model_MenuItem> {
     }
     
     public void refresh() {
+        revalidate();
         repaint();
     }
 }

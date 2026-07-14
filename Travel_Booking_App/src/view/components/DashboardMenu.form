@@ -19,7 +19,7 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="pnlLogo" max="32767" attributes="0"/>
-                  <Component id="listMenuCustomer" max="32767" attributes="0"/>
+                  <Component id="menuList" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
@@ -30,7 +30,7 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="pnlLogo" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="listMenuCustomer" pref="431" max="32767" attributes="0"/>
+              <Component id="menuList" pref="431" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -76,7 +76,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="view.components.ListMenu" name="listMenuCustomer">
+    <Component class="view.components.ListMenu" name="menuList">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f2" green="f2" red="f2" type="rgb"/>

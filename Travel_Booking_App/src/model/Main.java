@@ -4,7 +4,7 @@ package model;
 import controller.AppContext;
 import controller.LoginControl;
 import controller.Session;
-import view.ViewLogin;
+import view.Login;
 import view.components.AppWindow;
 
 /**
@@ -19,7 +19,7 @@ public class Main {
     public static void main(String[] args) {
         
         AppContext context = new AppContext();
-        ViewLogin loginView = new ViewLogin();
+        Login loginView = new Login();
         Session currentSession = new Session();
         
         LoginControl loginControl = new LoginControl(context, loginView);

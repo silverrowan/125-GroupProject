@@ -14,11 +14,11 @@ import javax.swing.SwingUtilities;
  *
  * @author C0350261
  */
-public class ViewLogin extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame {
     /**
      * Creates new form LoginRedo
      */
-    public ViewLogin() {
+    public Login() {
         initComponents();
         
         this.setSize(679,422);
