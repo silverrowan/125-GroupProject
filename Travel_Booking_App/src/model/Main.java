@@ -3,7 +3,7 @@ package model;
 
 import controller.AppContext;
 import controller.LoginControl;
-import controller.Session;
+import model.gui.Session;
 import view.Login;
 import view.components.AppWindow;
 
