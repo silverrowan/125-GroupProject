@@ -5,6 +5,9 @@ import model.gui.Session;
 import dao.CustomerDAO;
 import dao.EmployeeDAO;
 import dao.UserDAO;
+import model.User;
+import view.ViewCustomerGUI;
+import view.components.AppWindow;
 
 /**
  *
@@ -12,11 +15,19 @@ import dao.UserDAO;
  * Database states
  */
 public class AppContext {
+    // Current User and Customer inside
     Session currentSession = new Session();
     
+    // DAOs
     UserDAO userDao = new UserDAO();
     EmployeeDAO employeeDao = new EmployeeDAO();
     CustomerDAO customerDao = new CustomerDAO();
+    
+    //Open Windows
+    private AppWindow appWindow;
+    private ViewCustomerGUI customerView;
+//    private ViewBookingsGUI bookingsView;
+//    private SearchProductsGUI searchView; 
 
 
 //Constructor    
@@ -27,12 +38,23 @@ public class AppContext {
         this.customerDao = new CustomerDAO();
     }
     
-    //Getters & Setters
+    // Session Getter & Setter
+    //========================================================================    
     public Session getCurrentSession() { return currentSession; }
     public void setCurrentSession(Session currentSession) {
         this.currentSession = currentSession;
     }
+    
+    public User getCurrentUser() { //make the string shorter helpers :) they're got more than set
+        return getCurrentSession().getCurrentUser();
+    }
+    
+    public User getCurrentCustomerUser() { //make the string shorter helpers
+        return getCurrentSession().getCurrentCustomer();
+    }
 
+    // DAO Getters & Setters
+    //========================================================================    
     public UserDAO getUserDao() { return userDao; }
     public void setUserDao(UserDAO userDao) {
         this.userDao = userDao;
@@ -47,6 +69,4 @@ public class AppContext {
     public void setCustomerDao(CustomerDAO customerDao) {
         this.customerDao = customerDao;
     }
-    
-    
 }

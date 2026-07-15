@@ -58,7 +58,8 @@ public class LoginControl {
                 System.out.println("Successful Login");
                 
                 AppWindow view = new AppWindow( context ); //make target window/dashboard: This is Menu AND beside contents.
-                DashboardControl dash = new DashboardControl( context, view );
+                // if exists a dashboard regenerate, else make new
+                DashboardControl dash = new DashboardControl( context, view ); 
                 dash.initialize();
                 view.setVisible(true);
                 

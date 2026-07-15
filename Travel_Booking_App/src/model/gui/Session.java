@@ -3,6 +3,8 @@ package model.gui;
 
 import model.Customer;
 import model.User;
+import view.ViewCustomerGUI;
+import view.components.AppWindow;
 
 /**
  *
@@ -34,7 +36,14 @@ public class Session {
     public void setCurrentCustomer(User currentCustomer) {
         this.currentCustomer = currentCustomer;
         currentCustomer.setPassword( null );
-    }    
+    }
+    
+    public void clearCurrentUser() { this.currentUser = null; }
+    public void clearCurrentCustomer() { this.currentCustomer = null; }
+    public void clearCurrentUserAndCustomer() { 
+        this.clearCurrentUser();
+        this.clearCurrentCustomer();
+    }
 }
 
 /* 
