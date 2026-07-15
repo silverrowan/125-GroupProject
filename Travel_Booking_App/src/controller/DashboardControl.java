@@ -9,6 +9,7 @@ import model.User;
 import model.gui.Model_MenuItem;
 import view.AddUserGUIPage1;
 import view.Login;
+import view.ProductsGUI;
 import view.ViewCustomerGUI;
 import view.components.AppWindow;
 import view.components.ListMenu;
@@ -68,7 +69,7 @@ public class DashboardControl<T> {
     }
     
     private void buildSharedMenu(){
-        menu.getMenuList().addItem(new Model_MenuItem("world-search", "Destinations", Model_MenuItem.MenuType.MENU, "SearchProducts"));
+        menu.getMenuList().addItem(new Model_MenuItem("world-search", "Packages", Model_MenuItem.MenuType.MENU, "SearchPackages"));
         menu.getMenuList().addItem(new Model_MenuItem("calendar_plus", "Latest", Model_MenuItem.MenuType.MENU, "LastBooking"));
 //        menu.getMenuList().addItem(new Model_MenuItem("plans", "Plans", Model_MenuItem.MenuType.MENU, "ViewFutureBookingsOrItinerary"));
         menu.getMenuList().addItem(new Model_MenuItem("calendar_clock", "History", Model_MenuItem.MenuType.MENU, "ViewBookings"));
@@ -97,8 +98,8 @@ public class DashboardControl<T> {
                 case "LastBooking":
                     makeViewCustomerLastBooking( context );
                     break;
-                case "SearchProducts":
-                    makeViewProductSearch( context );
+                case "SearchPackages":
+                    makeViewPackageSearch( context );
                     break;
                 case "ViewCustomerProfile":
                     makeViewProfile( context, false ); 
@@ -160,9 +161,15 @@ public class DashboardControl<T> {
         // open/create single-booking view for current customer's last booking
     }
     
-    private void makeViewProductSearch( AppContext context ) {
+    private void makeViewPackageSearch( AppContext context ) {
         System.out.println("search products");
-        // open/create product search page
+        //get the data & apply it? not sure if before or after creating the view/control
+        ProductsGUI view = new ProductsGUI(); //new view
+        view.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
+
+        //associated controller
+//        DestinationsController packageControl = new DestinationsController( context, view ); 
+        view.setVisible(true); //make it visible
     }
 
         
