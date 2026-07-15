@@ -1,8 +1,10 @@
 package view.components;
 
+import controller.Session;
 import controller.UserControl;
 import dao.UserDAO;
 import java.awt.Color;
+import model.User;
 import view.AddUserGUIPage1;
 import view.EditUserGUIPage1;
 import view.components.CardMenuRenderer;
@@ -12,11 +14,12 @@ import view.components.CardMenuRenderer;
  * @author rowan
  */
 public class AppWindow extends javax.swing.JFrame {
-    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AppWindow.class.getName());
-
-    public AppWindow() {
+    private Session session;
+    
+    public AppWindow( Session session ) {
         initComponents();
+        this.session = session;
 //        setBackground( new Color(0, 0, 0, 0) ); //only works with undecorated frame
     }
     
@@ -88,12 +91,16 @@ public class AppWindow extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new AppWindow().setVisible(true));
-        AddUserGUIPage1 view = new AddUserGUIPage1();
-        UserDAO userDao = new UserDAO();
-//        UserService userService = new UserService();
-        UserControl userControl = new UserControl( userDao, view );
-        view.setVisible(true);
+        java.awt.EventQueue.invokeLater(() -> {
+            
+            Session session = new Session();
+            AppWindow app = new AppWindow( session );
+            app.setVisible(true);
+            AddUserGUIPage1 view = new AddUserGUIPage1();
+            UserDAO userDao = new UserDAO();
+            UserControl userControl = new UserControl( userDao, view );
+            view.setVisible(true);
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
