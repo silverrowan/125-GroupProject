@@ -1,18 +1,54 @@
 
 package view;
 
+import controller.LoginControl;
+import dao.UserDAO;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author C0350261
  */
 public class ViewLogin extends javax.swing.JFrame {
-
     /**
      * Creates new form LoginRedo
      */
     public ViewLogin() {
         initComponents();
+        
+        UserDAO userDao = new UserDAO();
+        LoginControl activeControl = new LoginControl(userDao, this);
+        this.setSize(679,422);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
+    
+    //setters & getters
+    public JButton getBtnLogin() { return btnLogin; }
+    public void setBtnLogin(JButton btnLogin) { this.btnLogin = btnLogin; }
+
+    public JButton getBtnNewCustomer() { return btnNewCustomer; }
+    public void setBtnNewCustomer(JButton btnNewCustomer) { this.btnNewCustomer = btnNewCustomer; }
+
+    public JPasswordField getTxtPassword() { return txtPassword; }
+    public void setTxtPassword(JPasswordField txtPassword) { this.txtPassword = txtPassword; }
+
+    public JTextField getTxtUserName() { return txtUserName; }
+    public void setTxtUserName(JTextField txtUserName) { this.txtUserName = txtUserName; }
+    
+    
+    //Listeners
+    public void addLoginBtnListener(ActionListener loginListener){
+        btnLogin.addActionListener(loginListener);
+    }
+    public void addNewCustomerBtnListener(ActionListener newCustomerListener){
+        btnNewCustomer.addActionListener(newCustomerListener);
+    }       
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -24,7 +60,7 @@ public class ViewLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        pnlLoginFrame = new javax.swing.JPanel();
         pnlLogin = new javax.swing.JPanel();
         txtUserName = new javax.swing.JTextField();
         lblUserName = new javax.swing.JLabel();
@@ -46,8 +82,8 @@ public class ViewLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(189, 238, 239));
-        jPanel2.setPreferredSize(new java.awt.Dimension(700, 400));
+        pnlLoginFrame.setBackground(new java.awt.Color(189, 238, 239));
+        pnlLoginFrame.setPreferredSize(new java.awt.Dimension(700, 400));
 
         pnlLogin.setBackground(new java.awt.Color(189, 238, 239));
 
@@ -119,21 +155,21 @@ public class ViewLogin extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(224, 224, 224)
-                .addComponent(pnlLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(224, 224, 224))
+        javax.swing.GroupLayout pnlLoginFrameLayout = new javax.swing.GroupLayout(pnlLoginFrame);
+        pnlLoginFrame.setLayout(pnlLoginFrameLayout);
+        pnlLoginFrameLayout.setHorizontalGroup(
+            pnlLoginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlLoginFrameLayout.createSequentialGroup()
+                .addContainerGap(224, Short.MAX_VALUE)
+                .addComponent(pnlLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(230, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(135, 135, 135)
-                .addComponent(pnlLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(135, 135, 135))
+        pnlLoginFrameLayout.setVerticalGroup(
+            pnlLoginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlLoginFrameLayout.createSequentialGroup()
+                .addContainerGap(135, Short.MAX_VALUE)
+                .addComponent(pnlLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -141,26 +177,21 @@ public class ViewLogin extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 679, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlLoginFrame, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addComponent(pnlLoginFrame, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        System.out.println("You clicked the login button");
-        String userName = txtUserName.getText();
-        String password = txtPassword.getText();
-        System.out.println("Your User Name is: " + userName);
-        System.out.println("Your Password is: " + password);
+
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnNewCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewCustomerActionPerformed
@@ -205,20 +236,18 @@ public class ViewLogin extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ViewLogin().setVisible(true);
-            }
+            public void run() { new ViewLogin().setVisible(true); }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnNewCustomer;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblUserName;
     private javax.swing.JPanel pnlLogin;
+    private javax.swing.JPanel pnlLoginFrame;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
