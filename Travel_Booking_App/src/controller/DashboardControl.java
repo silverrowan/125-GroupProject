@@ -13,7 +13,7 @@ import view.ProductsGUI;
 import view.ViewCustomerGUI;
 import view.components.AppWindow;
 import view.components.ListMenu;
-import view.components.DashboardMenu;
+import view.DashboardMenu;
 
 /**
  *
@@ -43,7 +43,7 @@ public class DashboardControl<T> {
         User currentUser = context.getCurrentSession().getCurrentUser();
         switch ( currentUser.getRole() ) {
             case "Admin":
-                menu.getMenuList().addItem(new Model_MenuItem("id-card", "Profile", Model_MenuItem.MenuType.MENU, "ViewEmployeeProfile"));
+                menu.getMenuList().addItem(new Model_MenuItem("id-card", "My Profile", Model_MenuItem.MenuType.MENU, "ViewEmployeeProfile"));
                 menu.getMenuList().addItem(new Model_MenuItem("user-search-line", "Search Customers", Model_MenuItem.MenuType.MENU, "SearchForCustomer"));
                 //        Active Customer Name Header
                 menu.getMenuList().addItem(new Model_MenuItem("id-card", "Customer Profile", Model_MenuItem.MenuType.MENU, "ViewCustomerProfile"));

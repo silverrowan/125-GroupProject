@@ -1,5 +1,6 @@
 package view.components;
 
+import view.DashboardMenu;
 import controller.AppContext;
 import controller.UserControl;
 import dao.UserDAO;
@@ -23,9 +24,7 @@ public class AppWindow extends javax.swing.JFrame {
 //        setBackground( new Color(0, 0, 0, 0) ); //only works with undecorated frame
     }
     
-    public Object getDashboardList() { return null; } // just to stop the template from complaining, delete later
-
-    //Getter and Setters
+     //Getter and Setters
 
     public DashboardMenu getDashboardList() {
         return dashboardList;
@@ -64,7 +63,7 @@ public class AppWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlAppWindow = new view.components.PanelBorder();
-        dashboardList = new view.components.DashboardMenu();
+        dashboardList = new view.DashboardMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -136,7 +135,7 @@ public class AppWindow extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private view.components.DashboardMenu dashboardList;
+    private view.DashboardMenu dashboardList;
     private view.components.PanelBorder pnlAppWindow;
     // End of variables declaration//GEN-END:variables
 }

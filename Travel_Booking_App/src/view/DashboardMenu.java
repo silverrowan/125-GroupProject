@@ -1,4 +1,4 @@
-package view.components;
+package view;
 
 import controller.AppContext;
 import java.awt.Color;
@@ -9,6 +9,9 @@ import model.gui.Model_MenuItem;
 import view.ViewCustomerGUI;
 import view.ViewDestinationsGUI;
 import view.ViewTripFrame;
+import view.components.AppWindow;
+import view.components.GradientPanel;
+import view.components.ListMenu;
 
 /**
  *

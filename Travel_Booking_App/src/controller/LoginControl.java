@@ -9,7 +9,7 @@ import model.User;
 import view.AddUserGUIPage1;
 import view.Login;
 import view.components.AppWindow;
-import view.components.DashboardMenu;
+import view.DashboardMenu;
 
 /**
  *
