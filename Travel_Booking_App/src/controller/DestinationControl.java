@@ -1,6 +1,6 @@
 package controller;
 
-import dao.DestinationsDAO;
+import dao.DestinationsTEMP;
 import model.Destinations;
 import view.ViewDestinationsGUI;
 
@@ -9,10 +9,10 @@ import view.ViewDestinationsGUI;
  * @author Mariah Malczewska
  */
 public class DestinationControl {
-    private final DestinationsDAO dao;
+    private final DestinationsTEMP dao;
     private final ViewDestinationsGUI view;
     
-    public DestinationControl( DestinationsDAO dao, ViewDestinationsGUI view ) {
+    public DestinationControl( DestinationsTEMP dao, ViewDestinationsGUI view ) {
         this.dao = dao;
         this.view = view;
         

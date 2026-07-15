@@ -9,6 +9,6 @@ package dao;
  *
  * @author Mariah Malczewska
  */
-public class DestinationsDao {
+public class DestinationsTEMP {
 
 }
