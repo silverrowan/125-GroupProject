@@ -11,17 +11,26 @@ package controller;
  * @author kalei
  */
 
+// Added and commented out the variables from DestinationControl, 
+// so can remove duplicate file, but keep note that they're going to likely be needed
+
 import dao.DestinationsDAO;
 import model.Destinations;
 
 import java.util.List;
 
+//import view.ViewDestinationsGUI;
+
 public class DestinationsController {
+//    private final ViewDestinationsGUI view;
+//    private final AppContext context;
 
     private final DestinationsDAO destinationsDAO;
 
     public DestinationsController() {
         this.destinationsDAO = new DestinationsDAO();
+//        this.view = view;
+//        this.context = context;
     }
 
     public DestinationsController(DestinationsDAO destinationsDAO) {
