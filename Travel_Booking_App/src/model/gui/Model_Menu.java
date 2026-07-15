@@ -1,52 +1,69 @@
 
 package model.gui;
 
-import view.models.RoImageIcon;
 import java.awt.FontMetrics;
 import java.awt.Image;
-import java.net.URL;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import view.models.RoImageIcon;
 
 
 /**
  *
  * @author rowan
  */
-public class Model_MenuItem {
+public class Model_Menu {
     String icon;
     String name;
     MenuType type;
-    String linkPage;
-      
-    //Constructors
-    public Model_MenuItem() { }
+    String targetPage;
+    
 
-    public Model_MenuItem(String icon, String name, MenuType type, String linkPage) {
+    
+    //Constructors
+
+    public Model_Menu() {
+    }
+
+    public Model_Menu(String icon, String name, MenuType type, String targetPage) {
         this.icon = icon;
         this.name = name;
         this.type = type;
-        this.linkPage = linkPage;
+        this.targetPage = targetPage;
     }
     
     //Getters & Setters
 
-    public String getIcon() { return icon; }
-    public void setIcon(String icon) { this.icon = icon; }
+    public String getIcon() {
+        return icon;
+    }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
 
-    public MenuType getType() { return type; }
-    public void setType(MenuType type) { this.type = type; }
-    
-    public String getLinkPage() { return linkPage; }  
-    public void setLinkPage(String linkPage) { this.linkPage = linkPage; }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public MenuType getType() {
+        return type;
+    }
+
+    public void setType(MenuType type) {
+        this.type = type;
+    }
 
     // Utility    
     
-    public static enum MenuType { TITLE, MENU, EMPTY }
+    public static enum MenuType {
+        TITLE, MENU, EMPTY
+    } 
     
     public Icon toIcon() {
         return new ImageIcon(getClass().getResource("/view/graphics/" + icon + ".png"));
