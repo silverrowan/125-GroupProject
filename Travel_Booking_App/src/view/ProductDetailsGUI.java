@@ -17,6 +17,13 @@ public class ProductDetailsGUI extends javax.swing.JFrame {
      */
     public ProductDetailsGUI() {
         initComponents();
+        
+    }
+
+    ProductDetailsGUI(int destinationID) {
+        initComponents();
+        destinationsController = new DestinationsController();
+        loadDestinationDetails(destinationID);
     }
 
     /**
@@ -337,6 +344,9 @@ public class ProductDetailsGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void loadDestinationDetails(int destinationID) {
+    
+}
     private void ratingTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ratingTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ratingTxtActionPerformed
