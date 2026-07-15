@@ -43,18 +43,18 @@
                           <Component id="destinationLbl" min="-2" max="-2" attributes="0"/>
                           <Component id="tripNameLbl" min="-2" max="-2" attributes="0"/>
                           <Component id="tourguideLbl" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="durationLbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="departureLbl" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel7" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel8" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="returnLbl" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="tripNameTxt" alignment="0" max="32767" attributes="0"/>
                           <Component id="destinationTxt" alignment="0" max="32767" attributes="0"/>
                           <Component id="tourguideTxt" alignment="0" max="32767" attributes="0"/>
-                          <Component id="durationTxt" alignment="0" max="32767" attributes="0"/>
+                          <Component id="departureTxt" alignment="0" max="32767" attributes="0"/>
                           <Component id="maxtravelerTxt" alignment="0" max="32767" attributes="0"/>
-                          <Component id="statusTxt" alignment="0" pref="174" max="32767" attributes="0"/>
+                          <Component id="retrunTxt" alignment="0" pref="174" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -110,20 +110,20 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="durationLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="durationTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="departureLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="departureTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="returnLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="retrunTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="maxtravelerTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="statusTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="scheduleLbl" min="-2" max="-2" attributes="0"/>
@@ -133,7 +133,7 @@
               <Component id="guideNotesLbl" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="78" max="-2" attributes="0"/>
-              <EmptySpace pref="58" max="32767" attributes="0"/>
+              <EmptySpace pref="63" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="backBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="saveUpdatesBtn" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -164,9 +164,9 @@
         <Property name="text" type="java.lang.String" value="Tour Guide:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="durationLbl">
+    <Component class="javax.swing.JLabel" name="departureLbl">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Duration:"/>
+        <Property name="text" type="java.lang.String" value="Departure:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
@@ -174,7 +174,7 @@
         <Property name="text" type="java.lang.String" value="Max Traveler:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel8">
+    <Component class="javax.swing.JLabel" name="returnLbl">
       <Properties>
         <Property name="text" type="java.lang.String" value="Status:"/>
       </Properties>
@@ -185,11 +185,11 @@
     </Component>
     <Component class="javax.swing.JTextField" name="tourguideTxt">
     </Component>
-    <Component class="javax.swing.JTextField" name="durationTxt">
+    <Component class="javax.swing.JTextField" name="departureTxt">
     </Component>
     <Component class="javax.swing.JTextField" name="maxtravelerTxt">
     </Component>
-    <Component class="javax.swing.JTextField" name="statusTxt">
+    <Component class="javax.swing.JTextField" name="retrunTxt">
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
     </Component>
