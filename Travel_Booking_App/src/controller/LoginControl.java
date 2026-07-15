@@ -63,12 +63,8 @@ public class LoginControl {
                 dash.initialize();
                 view.setVisible(true);
                 
-                AddUserGUIPage1 view2 = new AddUserGUIPage1( ); //make target window/dashboard: This is Menu AND beside contents.
-                UserControl userControl = new UserControl( context, view2 );
-//                userControl.initialize();
-                view2.setVisible(true);
 //                DashboardMenu dashboard = new DashboardMenu(); // can't use this one - MENU is an x of gradient which is of JPanel not Frame
-//                dashboard.setVisible(true);
+                    // left for now so i dont re-discover this repeatedly
                 loginView.dispose();
     // make it visible
 //                TO DO 
