@@ -22,6 +22,8 @@ public class AppWindow extends javax.swing.JFrame {
 //        this.session = session;
 //        setBackground( new Color(0, 0, 0, 0) ); //only works with undecorated frame
     }
+    
+    public Object getDashboardList() { return null; } // just to stop the template from complaining, delete later
 
     //Getter and Setters
 
