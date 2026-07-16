@@ -34,15 +34,15 @@ public class AddTripGUI extends javax.swing.JFrame {
         destinationLbl = new javax.swing.JLabel();
         tourguideCB = new javax.swing.JComboBox<>();
         tourguideLbl = new javax.swing.JLabel();
-        departureTxt = new javax.swing.JTextField();
+        durationTxt = new javax.swing.JTextField();
         maxTravelerTxt = new javax.swing.JTextField();
-        returnTxt = new javax.swing.JTextField();
+        priceTxt = new javax.swing.JTextField();
         statusTxt = new javax.swing.JTextField();
         backBtn = new javax.swing.JButton();
         addBtn = new javax.swing.JButton();
-        departureLbl = new javax.swing.JLabel();
+        durationLbl = new javax.swing.JLabel();
         maxTravelerLbl = new javax.swing.JLabel();
-        returnLbl = new javax.swing.JLabel();
+        priceLbl = new javax.swing.JLabel();
         statusLbl = new javax.swing.JLabel();
         addTripLbl = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -62,17 +62,17 @@ public class AddTripGUI extends javax.swing.JFrame {
 
         tourguideLbl.setText("Tour Guide:");
 
-        departureTxt.addActionListener(this::departureTxtActionPerformed);
+        durationTxt.addActionListener(this::durationTxtActionPerformed);
 
         backBtn.setText("Cancel");
 
         addBtn.setText("Add Trip");
 
-        departureLbl.setText("Departure:");
+        durationLbl.setText("Duration:");
 
         maxTravelerLbl.setText("Max Travelers:");
 
-        returnLbl.setText("Return:");
+        priceLbl.setText("Price:");
 
         statusLbl.setText("Status:");
 
@@ -93,27 +93,23 @@ public class AddTripGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(departureLbl)
-                                    .addComponent(tourguideLbl)
-                                    .addComponent(destinationLbl)
-                                    .addComponent(tripnameLbl)
-                                    .addComponent(maxTravelerLbl)
-                                    .addComponent(statusLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(18, 18, 18))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(returnLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(70, 70, 70)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(durationLbl)
+                            .addComponent(tourguideLbl)
+                            .addComponent(destinationLbl)
+                            .addComponent(tripnameLbl)
+                            .addComponent(priceLbl)
+                            .addComponent(statusLbl)
+                            .addComponent(maxTravelerLbl))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(tourguideCB, 0, 167, Short.MAX_VALUE)
                             .addComponent(destinationCb, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(tripnameTxt, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(departureTxt)
+                            .addComponent(durationTxt)
                             .addComponent(maxTravelerTxt)
                             .addComponent(statusTxt)
-                            .addComponent(returnTxt))))
+                            .addComponent(priceTxt))))
                 .addGap(52, 52, 52))
             .addGroup(layout.createSequentialGroup()
                 .addGap(167, 167, 167)
@@ -141,13 +137,9 @@ public class AddTripGUI extends javax.swing.JFrame {
                     .addComponent(tourguideLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(departureTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(departureLbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(returnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(returnLbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(durationTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(durationLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(maxTravelerTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(maxTravelerLbl))
@@ -155,7 +147,11 @@ public class AddTripGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(statusTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(statusLbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(priceTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(priceLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backBtn)
                     .addComponent(addBtn))
@@ -169,9 +165,9 @@ public class AddTripGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tripnameTxtActionPerformed
 
-    private void departureTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_departureTxtActionPerformed
+    private void durationTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_durationTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_departureTxtActionPerformed
+    }//GEN-LAST:event_durationTxtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,15 +198,15 @@ public class AddTripGUI extends javax.swing.JFrame {
     private javax.swing.JButton addBtn;
     private javax.swing.JLabel addTripLbl;
     private javax.swing.JButton backBtn;
-    private javax.swing.JLabel departureLbl;
-    private javax.swing.JTextField departureTxt;
     private javax.swing.JComboBox<String> destinationCb;
     private javax.swing.JLabel destinationLbl;
+    private javax.swing.JLabel durationLbl;
+    private javax.swing.JTextField durationTxt;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel maxTravelerLbl;
     private javax.swing.JTextField maxTravelerTxt;
-    private javax.swing.JLabel returnLbl;
-    private javax.swing.JTextField returnTxt;
+    private javax.swing.JLabel priceLbl;
+    private javax.swing.JTextField priceTxt;
     private javax.swing.JLabel statusLbl;
     private javax.swing.JTextField statusTxt;
     private javax.swing.JComboBox<String> tourguideCB;

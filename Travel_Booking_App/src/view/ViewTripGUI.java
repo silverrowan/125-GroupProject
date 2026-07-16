@@ -32,15 +32,15 @@ public class ViewTripGUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         destinationLbl = new javax.swing.JLabel();
         tourguideLbl = new javax.swing.JLabel();
-        departureLbl = new javax.swing.JLabel();
+        durationLbl = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        returnLbl = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         tripNameTxt = new javax.swing.JTextField();
         destinationTxt = new javax.swing.JTextField();
         tourguideTxt = new javax.swing.JTextField();
-        departureTxt = new javax.swing.JTextField();
+        durationTxt = new javax.swing.JTextField();
         maxtravelerTxt = new javax.swing.JTextField();
-        retrunTxt = new javax.swing.JTextField();
+        statusTxt = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         scheduleLbl = new javax.swing.JLabel();
@@ -62,11 +62,11 @@ public class ViewTripGUI extends javax.swing.JFrame {
 
         tourguideLbl.setText("Tour Guide:");
 
-        departureLbl.setText("Departure:");
+        durationLbl.setText("Duration:");
 
         jLabel7.setText("Max Traveler:");
 
-        returnLbl.setText("Status:");
+        jLabel8.setText("Status:");
 
         scheduleLbl.setText("Itinerary/ Activity Schedule:");
 
@@ -107,17 +107,17 @@ public class ViewTripGUI extends javax.swing.JFrame {
                             .addComponent(destinationLbl)
                             .addComponent(tripNameLbl)
                             .addComponent(tourguideLbl)
-                            .addComponent(departureLbl)
+                            .addComponent(durationLbl)
                             .addComponent(jLabel7)
-                            .addComponent(returnLbl))
+                            .addComponent(jLabel8))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(tripNameTxt)
                             .addComponent(destinationTxt)
                             .addComponent(tourguideTxt)
-                            .addComponent(departureTxt)
+                            .addComponent(durationTxt)
                             .addComponent(maxtravelerTxt)
-                            .addComponent(retrunTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))
+                            .addComponent(statusTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,17 +159,17 @@ public class ViewTripGUI extends javax.swing.JFrame {
                     .addComponent(tourguideTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(departureLbl)
-                    .addComponent(departureTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(returnLbl)
-                    .addComponent(retrunTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(durationLbl)
+                    .addComponent(durationTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(maxtravelerTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(statusTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scheduleLbl)
@@ -179,7 +179,7 @@ public class ViewTripGUI extends javax.swing.JFrame {
                 .addComponent(guideNotesLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backBtn)
                     .addComponent(saveUpdatesBtn))
@@ -224,24 +224,24 @@ public class ViewTripGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
-    private javax.swing.JLabel departureLbl;
-    private javax.swing.JTextField departureTxt;
     private javax.swing.JLabel destinationLbl;
     private javax.swing.JTextField destinationTxt;
+    private javax.swing.JLabel durationLbl;
+    private javax.swing.JTextField durationTxt;
     private javax.swing.JLabel guideNotesLbl;
     private javax.swing.JTextArea guideNotesTxt;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField maxtravelerTxt;
-    private javax.swing.JTextField retrunTxt;
-    private javax.swing.JLabel returnLbl;
     private javax.swing.JButton saveUpdatesBtn;
     private javax.swing.JLabel scheduleLbl;
     private javax.swing.JTextArea scheduleTxt;
+    private javax.swing.JTextField statusTxt;
     private javax.swing.JLabel tourguideLbl;
     private javax.swing.JTextField tourguideTxt;
     private javax.swing.JLabel tripNameLbl;

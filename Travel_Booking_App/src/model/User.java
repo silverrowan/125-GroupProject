@@ -24,8 +24,8 @@ public class User {
     private String accountStatus;
 
     // full constructor
-    public User(int userID, String username, String password, String firstName, String lastName, String email, String phone, String streetNumber, String streetName, String city, String province, String postalCode, String country, String role, String accountStatus) {
-        this(userID, username, password, firstName, lastName, email, role, accountStatus);
+    public User(String username, String password, String firstName, String lastName, String email, String phone, String streetNumber, String streetName, String city, String province, String postalCode, String country, String role, String accountStatus) {
+        this(username, password, firstName, lastName, email, role);
         this.phone = phone;
         this.streetNumber = streetNumber;
         this.streetName = streetName;
@@ -33,26 +33,34 @@ public class User {
         this.province = province;
         this.postalCode = postalCode;
         this.country = country;
+        this.accountStatus = accountStatus;
     }
 
     // constructor with requred fields only
-    public User(int userID, String username, String password, String firstName, String lastName, String email, String role, String accountStatus) {
-        this.userID = userID;
+    public User(String username, String password, String firstName, String lastName, String email, String role) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.role = role;        
-        this.accountStatus = accountStatus;
     }
 
+    public User(String username, String password, String firstName, String lastName, String email, String role, String phone) {
+        this(username, password, firstName, lastName, email, role);
+        this.phone = phone;
+    }
+    
+    public User(){
+       this("placeholder", "placeholder", "placeholder", "placeholder", "placeholder", "placeholder");
+    }
+    
     // getters and setters
     public int getUserID() {
         return userID;
     }
-
-    public void setUserID(int userID) {
+    
+    public void setuserID(int userID) {
         this.userID = userID;
     }
 
@@ -167,4 +175,14 @@ public class User {
     public void setAccountStatus(String accountStatus) {
         this.accountStatus = accountStatus;
     }
+    
+    public void setUserAddress( String streetNumber, String streetName, String 
+            city, String province, String postalCode, String country) {
+        this.streetNumber = streetNumber;
+        this.streetName = streetName;
+        this.city = city;
+        this.province = province;
+        this.postalCode = postalCode;
+        this.country = country;
+    }            
 }

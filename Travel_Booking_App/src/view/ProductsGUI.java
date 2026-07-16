@@ -3,12 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-import controller.DestinationsController;
-import model.Destinations;
-
-import java.util.List;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,16 +12,11 @@ public class ProductsGUI extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ProductsGUI.class.getName());
 
-    private DestinationsController destinationsController;
     /**
      * Creates new form ProductsGUI
      */
     public ProductsGUI() {
         initComponents();
-        destinationsController = new DestinationsController();
-
-        configureTable();
-        loadProducts();
     }
 
     /**
@@ -39,13 +28,28 @@ public class ProductsGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        searchTxt = new javax.swing.JTextField();
+        searchLbl = new javax.swing.JLabel();
+        countryLbl = new javax.swing.JLabel();
+        searchBtn = new javax.swing.JButton();
+        countryCB = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         packagesTbl = new javax.swing.JTable();
         backBtn = new javax.swing.JButton();
         detailsBtn = new javax.swing.JButton();
+        resetBtn = new javax.swing.JButton();
         titleLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        searchLbl.setText("Search:");
+
+        countryLbl.setText("Country:");
+
+        searchBtn.setText("Search");
+
+        countryCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        countryCB.addActionListener(this::countryCBActionPerformed);
 
         packagesTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -83,6 +87,8 @@ public class ProductsGUI extends javax.swing.JFrame {
         detailsBtn.setText("View Details");
         detailsBtn.addActionListener(this::detailsBtnActionPerformed);
 
+        resetBtn.setText("Reset");
+
         titleLbl.setText("Travel Packages ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -93,12 +99,25 @@ public class ProductsGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(countryLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(countryCB, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(backBtn)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(detailsBtn)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(backBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(detailsBtn))))
+                                .addComponent(searchLbl)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(searchBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(resetBtn))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(237, 237, 237)
                         .addComponent(titleLbl)))
@@ -109,9 +128,21 @@ public class ProductsGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(titleLbl)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(searchLbl)
+                            .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(searchBtn)
+                            .addComponent(resetBtn))
+                        .addGap(34, 34, 34))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(countryCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(countryLbl)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backBtn)
                     .addComponent(detailsBtn))
@@ -122,33 +153,16 @@ public class ProductsGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        // TODO add your handling code here: this will go back to main screen
+        // TODO add your handling code here:
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void detailsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detailsBtnActionPerformed
         // TODO add your handling code here:
-            int selectedRow = packagesTbl.getSelectedRow();
-
-            if (selectedRow == -1) {
-                JOptionPane.showMessageDialog(
-                        this,
-                        "Please select a travel package first.",
-                        "No Package Selected",
-                        JOptionPane.WARNING_MESSAGE
-                );
-                return;
-            }
-
-            int destinationID =
-                    ((Number) packagesTbl.getValueAt(selectedRow, 0))
-                            .intValue();
-
-            ProductDetailsGUI detailsGUI =
-                    new ProductDetailsGUI(destinationID);
-
-            detailsGUI.setVisible(true);
-            this.dispose();
     }//GEN-LAST:event_detailsBtnActionPerformed
+
+    private void countryCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countryCBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_countryCBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,64 +191,15 @@ public class ProductsGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
+    private javax.swing.JComboBox<String> countryCB;
+    private javax.swing.JLabel countryLbl;
     private javax.swing.JButton detailsBtn;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable packagesTbl;
+    private javax.swing.JButton resetBtn;
+    private javax.swing.JButton searchBtn;
+    private javax.swing.JLabel searchLbl;
+    private javax.swing.JTextField searchTxt;
     private javax.swing.JLabel titleLbl;
     // End of variables declaration//GEN-END:variables
-
-    private void configureTable() {
-            packagesTbl.setModel(new javax.swing.table.DefaultTableModel(
-        new Object[][] {},
-        new String[] {
-            "ID",
-            "Destination",
-            "Country",
-            "Days",
-            "Price"
-        }
-    ) {
-        @Override
-        public boolean isCellEditable(int row, int column) {
-            return false;
-        }
-    });
-
-    packagesTbl.setRowSelectionAllowed(true);
-    packagesTbl.setColumnSelectionAllowed(false);
-    packagesTbl.setSelectionMode(
-        javax.swing.ListSelectionModel.SINGLE_SELECTION
-    );
-    }
-
-    private void loadProducts() {
-        DefaultTableModel tableModel =(DefaultTableModel) packagesTbl.getModel();
-
-        tableModel.setRowCount(0);
-
-        try {
-            List<Destinations> destinations =
-                    destinationsController.getAvailableDestinations();
-
-            for (Destinations destination : destinations) {
-                tableModel.addRow(new Object[] {
-                    destination.getDestinationID(),
-                    destination.getDestinationName(),
-                    destination.getCountryRegion(),
-                    destination.getDurationDays(),
-                    destination.getTotalEstimatedCost()
-                });
-            }
-
-        } catch (RuntimeException exception) {
-            exception.printStackTrace();
-            JOptionPane.showMessageDialog(
-                    this,
-                    "Could not load travel packages.\n"
-                            + exception.getMessage(),
-                    "Database Error",
-                    JOptionPane.ERROR_MESSAGE
-            );
-        }
-    }
 }
