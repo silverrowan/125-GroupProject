@@ -4,7 +4,7 @@ package model.gui;
 import model.Customer;
 import model.User;
 import view.ViewCustomerGUI;
-import view.components.AppWindow;
+import utility.AppWindow;
 
 /**
  *

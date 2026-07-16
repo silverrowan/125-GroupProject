@@ -7,7 +7,7 @@ import dao.EmployeeDAO;
 import dao.UserDAO;
 import model.User;
 import view.ViewCustomerGUI;
-import view.components.AppWindow;
+import utility.AppWindow;
 
 /**
  *

@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 import model.User;
 import view.AddUserGUIPage1;
 import view.Login;
-import view.components.AppWindow;
+import utility.AppWindow;
 import view.DashboardMenu;
 
 /**

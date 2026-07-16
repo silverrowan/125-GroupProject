@@ -9,7 +9,7 @@ import model.gui.Model_MenuItem;
 import view.ViewCustomerGUI;
 import view.ViewDestinationsGUI;
 import view.ViewTripFrame;
-import view.components.AppWindow;
+import utility.AppWindow;
 import view.components.GradientPanel;
 import view.components.ListMenu;
 

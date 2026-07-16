@@ -11,7 +11,7 @@ import view.AddUserGUIPage1;
 import view.Login;
 import view.ProductsGUI;
 import view.ViewCustomerGUI;
-import view.components.AppWindow;
+import utility.AppWindow;
 import view.components.ListMenu;
 import view.DashboardMenu;
 

@@ -8,7 +8,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import model.gui.Model_MenuItem;
 import view.ProductsGUI;
-import view.components.AppWindow;
+import utility.AppWindow;
 
 /**
  *
