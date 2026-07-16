@@ -34,7 +34,12 @@ public class ListMenu extends JList<Model_MenuItem> {
     }
     
     public void refresh() {
+        updateSize();
         revalidate();
         repaint();
+    }    
+    public void updateSize() {
+        int width = 0;
+        //more goes here
     }
 }
