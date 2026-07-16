@@ -1,6 +1,7 @@
 package controller;
 
 import java.awt.Window;
+import java.util.LinkedList;
 import javax.naming.InvalidNameException;
 import javax.swing.JFrame;
 import javax.swing.event.ListSelectionEvent;
@@ -23,7 +24,10 @@ public class DashboardControl<T> {
 //    private menuDAO menuDao;
 //    private ListMenu listMenu;
     private AppContext context;
-    private DashboardMenu menu;
+//    private DashboardMenu menu;
+    private ListMenu menuA;
+    private ListMenu menuB;
+    private LinkedList<Model_MenuItem> menuList = new LinkedList<Model_MenuItem>();
     private AppWindow dashWindow;
     
 //    public DashboardControl(){}
@@ -31,51 +35,80 @@ public class DashboardControl<T> {
     public DashboardControl( AppContext context, AppWindow dashWindow ){
         this.context = context;
         this.dashWindow = dashWindow;
-        this.menu = dashWindow.getDashboardList();
+        this.menuA = dashWindow.getDashboardList().getMenuListA();
+        this.menuB = dashWindow.getDashboardList().getMenuListB();
 }
     
     public void initialize() { 
+        menuA.addListSelectionListener( new MenuSelect() ); //menu listener
+        menuB.addListSelectionListener( new MenuSelect() ); //menu listener
         buildMenu(); 
-        menu.getMenuList().addListSelectionListener( new MenuSelect() ); //menu listener
     }
         
     private void buildMenu(){
         User currentUser = context.getCurrentSession().getCurrentUser();
         switch ( currentUser.getRole() ) {
             case "Admin":
-                menu.getMenuList().addItem(new Model_MenuItem("id-card", "My Profile", Model_MenuItem.MenuType.MENU, "ViewEmployeeProfile"));
-                menu.getMenuList().addItem(new Model_MenuItem("user-search-line", "Search Customers", Model_MenuItem.MenuType.MENU, "SearchForCustomer"));
+                addToMenuList(new Model_MenuItem("id-card", "My Profile", Model_MenuItem.MenuType.MENU, "ViewEmployeeProfile"));
+                
+                addToMenuList(new Model_MenuItem("user-search-line", "Search Users", Model_MenuItem.MenuType.MENU, "SearchForUser"));
                 //        Active Customer Name Header
-                menu.getMenuList().addItem(new Model_MenuItem("id-card", "Customer Profile", Model_MenuItem.MenuType.MENU, "ViewCustomerProfile"));
+                addToMenuList(new Model_MenuItem("id-card", "Customer Profile", Model_MenuItem.MenuType.MENU, "ViewCustomerProfile"));
                 buildSharedMenu();
                 break;
             case "Travel Agent":
         //        Agent Name Header
-                menu.getMenuList().addItem(new Model_MenuItem("id-card", "Profile", Model_MenuItem.MenuType.MENU, "ViewEmployeeProfile"));
-                menu.getMenuList().addItem(new Model_MenuItem("user-search-line", "Search Customers", Model_MenuItem.MenuType.MENU, "SearchForCustomer"));
+                addToMenuList(new Model_MenuItem("id-card", "Profile", Model_MenuItem.MenuType.MENU, "ViewEmployeeProfile"));
+                addToMenuList(new Model_MenuItem("user-search-line", "Search Customers", Model_MenuItem.MenuType.MENU, "SearchForCustomer"));
         //        Active Customer Name Header
-                menu.getMenuList().addItem(new Model_MenuItem("id-card", "Customer Profile", Model_MenuItem.MenuType.MENU, "ViewCustomerProfile"));
-//                menu.getMenuList().addItem(new Model_MenuItem("id-card", "Customer Profile", Model_MenuItem.MenuType.MENU, "ViewCustomerProfile"));
+                addToMenuList(new Model_MenuItem("id-card", "Customer Profile", Model_MenuItem.MenuType.MENU, "ViewCustomerProfile"));
+//                addToMenuList(new Model_MenuItem("id-card", "Customer Profile", Model_MenuItem.MenuType.MENU, "ViewCustomerProfile"));
                 buildSharedMenu();
                 break;
 //            case "Tour Guide":                
             case "Customer":
-                menu.getMenuList().addItem(new Model_MenuItem("id-card", "Profile", Model_MenuItem.MenuType.MENU, "ViewCustomerProfile"));
+                addToMenuList(new Model_MenuItem("id-card", "Profile", Model_MenuItem.MenuType.MENU, "ViewCustomerProfile"));
                 buildSharedMenu();
                 break;
-        
+            }
+            System.out.println("menulist" + menuList.getFirst().getName() );
+            System.out.println("menulist" + menuList.getFirst().getName() );
+            
+            splitMenuLists();
+            
         //refresh menu
     }
+    
+    private void addToMenuList( Model_MenuItem item ){ menuList.addLast( item ); }
+
+    private void addToMenuList( String icon, String title, Model_MenuItem.MenuType type, String action ){
+        menuList.addLast( new Model_MenuItem(icon, title, type, action) );
+    }
+    
+    private void splitMenuLists() {
+        
+        int listLength = menuList.size();
+        int midpoint = ( listLength + 1) / 2 ;
+               
+        for ( int i = 0 ; i < midpoint ; i++ ) {
+            menuA.addItem( menuList.removeFirst() );
+        }
+        for ( int i = midpoint ; i < listLength ; i++) {
+            if ( menuList.size() == 0 ) { break; }
+            menuB.addItem( menuList.removeFirst() );
+        }
+        menuA.repaint();
+        menuB.repaint();
     }
     
     private void buildSharedMenu(){
-        menu.getMenuList().addItem(new Model_MenuItem("world-search", "Packages", Model_MenuItem.MenuType.MENU, "SearchPackages"));
-        menu.getMenuList().addItem(new Model_MenuItem("calendar_plus", "Latest", Model_MenuItem.MenuType.MENU, "LastBooking"));
-//        menu.getMenuList().addItem(new Model_MenuItem("plans", "Plans", Model_MenuItem.MenuType.MENU, "ViewFutureBookingsOrItinerary"));
-        menu.getMenuList().addItem(new Model_MenuItem("calendar_clock", "History", Model_MenuItem.MenuType.MENU, "ViewBookings"));
-        menu.getMenuList().addItem(new Model_MenuItem("logout-box", "Logout", Model_MenuItem.MenuType.MENU, "Logout"));
+        addToMenuList(new Model_MenuItem("world-search", "Packages", Model_MenuItem.MenuType.MENU, "SearchPackages"));
+        addToMenuList(new Model_MenuItem("calendar_plus", "Latest", Model_MenuItem.MenuType.MENU, "LastBooking"));
+//        addToMenuList(new Model_MenuItem("plans", "Plans", Model_MenuItem.MenuType.MENU, "ViewFutureBookingsOrItinerary"));
+        addToMenuList(new Model_MenuItem("calendar_clock", "History", Model_MenuItem.MenuType.MENU, "ViewBookings"));
+        addToMenuList(new Model_MenuItem("logout-box", "Logout", Model_MenuItem.MenuType.MENU, "Logout"));
         
-        menu.repaint();
+
     }
     
     class MenuSelect implements ListSelectionListener {
@@ -84,9 +117,13 @@ public class DashboardControl<T> {
         public void valueChanged(ListSelectionEvent e) {
             if (e.getValueIsAdjusting()) { return; }                
             
-            Model_MenuItem item = menu.getMenuList().getSelectedValue();
+            Model_MenuItem itemA = menuA.getSelectedValue();
+            Model_MenuItem itemB = menuB.getSelectedValue();
+            Model_MenuItem item;
             
-            if (item == null) { return; }
+            if (itemA == null && itemB == null) { return; }
+            else if ( itemA != null ) { item = itemA; }
+            else { item = itemB; }
 
             switch ( item.getLinkAction() ) {
                 case "Logout":
@@ -111,8 +148,8 @@ public class DashboardControl<T> {
                     System.out.println("Selection " + item.getLinkAction() + " has no valid target");
                     break;
             }
-            
-            menu.getMenuList().clearSelection(); // clears selection after completing - makes act like a button instead of a selection list
+            menuA.clearSelection(); // clears selection after completing - makes act like a button instead of a selection list
+            menuB.clearSelection(); // clears selection after completing - makes act like a button instead of a selection list
         }
     }
     
@@ -143,6 +180,7 @@ public class DashboardControl<T> {
     private void logoutUser( AppContext context ) {
         System.out.println("logout");
         context.getCurrentSession().clearCurrentUserAndCustomer();
+        
         for ( Window window : Window.getWindows() ) {
             window.dispose();
         }

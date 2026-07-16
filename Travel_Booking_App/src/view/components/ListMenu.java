@@ -19,14 +19,14 @@ public class ListMenu extends JList<Model_MenuItem> {
        
     public ListMenu() {
         setModel(model);
-        
-        setCellRenderer(( list, value, index, isSelected, cellHasFocus) -> {
-            Model_MenuItem data = (Model_MenuItem) value;
-            
-            renderer.setData(data);
-            renderer.setSelected(isSelected, list);
-            return renderer;
-        });
+        setCellRenderer( renderer );
+//        setCellRenderer(( list, value, index, isSelected, cellHasFocus) -> {
+//            Model_MenuItem data = (Model_MenuItem) value;
+//            
+//            renderer.setData(data);
+//            renderer.setSelected(isSelected, list);
+//            return renderer;
+//        });
     }
     
     public void addItem(Model_MenuItem data) {

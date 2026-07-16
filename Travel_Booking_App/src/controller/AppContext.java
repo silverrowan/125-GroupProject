@@ -20,7 +20,7 @@ public class AppContext {
     
     // DAOs
     UserDAO userDao = new UserDAO();
-    EmployeeDAO employeeDao = new EmployeeDAO();
+    EmployeeDAO employeeDao = new EmployeeDAO(); 
     CustomerDAO customerDao = new CustomerDAO();
     
     //Open Windows

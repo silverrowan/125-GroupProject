@@ -34,35 +34,16 @@ public class DashboardMenu extends GradientPanel {
         super(new Color(204,255,204), new Color( 255,150,46 ), 0);
         initComponents();
         
-        menuList.setOpaque(false);
-        menuList.refresh();
-        menuList.setVisible(true);
-        init( );
+        menuListA.setOpaque(false);
+        menuListA.refresh();
+        menuListA.setVisible(true);
+        
+        menuListB.setOpaque(false);
+        menuListB.refresh();
+        menuListB.setVisible(true);
     }
-    
-//    public DashboardMenu() {
-//    System.out.println("DashboardMenu: " + this);
-//
-//    initComponents();
-//}
-    
-    
-//    public DashboardMenu( AppContext context ) {
-//        super(new Color(204,255,204), new Color( 255,150,46 ), 0);
-//        initComponents();
-//        menuList.setOpaque(false);
-//        menuList.refresh();
-//        menuList.setVisible(true);
-//        init( );
-//    }
-    
+        
     //getters and setters
-
-//    public AppContext getContext() { return context; }
-//    public void setContext(AppContext context) { 
-//        this.context = context;
-//        refreshView();
-//    }
 
     public AppWindow getTopView() { return topView; }
     public void setTopView(AppWindow topView) { 
@@ -74,9 +55,13 @@ public class DashboardMenu extends GradientPanel {
         this.lblLogo = lblLogo;
     }
 
-    public ListMenu getMenuList() { return menuList; }
-    public void setMenuList(ListMenu menuList) {
-        this.menuList = menuList;
+    public ListMenu getMenuListA() { return menuListA; }
+    public void setMenuListA(ListMenu menuList) {
+        this.menuListA = menuList;
+    }
+    public ListMenu getMenuListB() { return menuListB; }
+    public void setMenuListB(ListMenu menuList) {
+        this.menuListB = menuList;
     }
 
     public JPanel getPnlLogo() { return pnlLogo; }
@@ -101,15 +86,6 @@ public class DashboardMenu extends GradientPanel {
     
 
 // FUNCTIONAL
-    private void init() {}
-//                
-//            case default:
-//                throw new InvalidAttributeValueException("there is a problem with the user role");
-
-
-
-
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -122,7 +98,8 @@ public class DashboardMenu extends GradientPanel {
 
         pnlLogo = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
-        menuList = new view.components.ListMenu();
+        menuListA = new view.components.ListMenu();
+        menuListB = new view.components.ListMenu();
 
         pnlLogo.setOpaque(false);
 
@@ -148,24 +125,30 @@ public class DashboardMenu extends GradientPanel {
                 .addGap(6, 6, 6))
         );
 
-        menuList.setBackground(new java.awt.Color(242, 242, 242));
+        menuListA.setBackground(new java.awt.Color(242, 242, 242));
+
+        menuListB.setBackground(new java.awt.Color(242, 242, 242));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pnlLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(menuList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(pnlLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 312, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(menuListB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(menuListA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(menuList, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(menuListA, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
+                    .addComponent(menuListB, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -184,7 +167,8 @@ public class DashboardMenu extends GradientPanel {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lblLogo;
-    private view.components.ListMenu menuList;
+    private view.components.ListMenu menuListA;
+    private view.components.ListMenu menuListB;
     private javax.swing.JPanel pnlLogo;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,6 +7,7 @@ package view.components;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -17,6 +18,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
 import javax.swing.SwingConstants;
+import javax.swing.JSeparator;
 import model.gui.Model_MenuItem;
 import view.models.RoImageIcon;
 
@@ -27,6 +29,7 @@ import view.models.RoImageIcon;
 public class CardMenuRenderer extends JPanel implements ListCellRenderer<Model_MenuItem> {
     private JLabel lblIcon = new JLabel();
     private JLabel lblTitle = new JLabel();
+    private JSeparator separator = new JSeparator();
     private boolean selected;
     private Color selectColor;
     
@@ -41,7 +44,10 @@ public class CardMenuRenderer extends JPanel implements ListCellRenderer<Model_M
         add(lblTitle, BorderLayout.CENTER);
 
         lblIcon.setOpaque(false);
-        lblTitle.setOpaque(false);     
+        lblTitle.setOpaque(false);   
+        
+        separator.setOpaque(false);
+        separator.setBorder(BorderFactory.createEmptyBorder(0, 20, 0, 20));
     }
 
     @Override
@@ -49,29 +55,37 @@ public class CardMenuRenderer extends JPanel implements ListCellRenderer<Model_M
             JList<? extends Model_MenuItem> list, Model_MenuItem value, int index, 
             boolean isSelected, boolean cellHasFocus) {
         
-        //Card contents
-        lblTitle.setText( value.getName() );
-        lblIcon.setIcon( value.toRoImageIcon() ); //need to remind myself why i didnt set the size here
+        //----------Separator--------------
+    if (value.getType() == Model_MenuItem.MenuType.SEPARATOR) {
+        separator.setPreferredSize(new Dimension(1, 10));   // adjust height here
+        return separator;
+    }        
         
-        //card spacing
-        setBorder( BorderFactory.createCompoundBorder( 
-                BorderFactory.createEmptyBorder(6,8,6,8),
-                BorderFactory.createLineBorder( new Color(230, 230, 230) )
-        ) );
-        
-        list.setFixedCellHeight( 70 ); //row height
-        
-        //hover        // ... maybe later. fair bit here
-        
-        return this;
-    }    
+    //Card contents
+    setData( value );
+    setSelected( isSelected , list);
 
-    public void setData( Model_MenuItem data ) {
-        lblTitle.setFont(new Font( "URW Bookman" , 1, 32));
-        
-        lblTitle.setText(data.getName());
-        RoImageIcon icon = (RoImageIcon) data.toRoImageIcon();
-        lblIcon.setIcon( icon.scaleIconYFontY( lblTitle ));
+    //card spacing
+    setBorder( BorderFactory.createCompoundBorder( 
+            BorderFactory.createEmptyBorder(6,8,6,8),
+            BorderFactory.createLineBorder( new Color(230, 230, 230) )
+    ) );
+//        list.setFixedCellHeight( 70 ); //row height
+        //hover        // ... maybe later. fair bit here
+        setPreferredSize( new Dimension(1, 70) );
+        return this;
+} 
+
+    public void setData( Model_MenuItem value ) {
+        lblTitle.setFont(new Font("URW Bookman", Font.BOLD, 32));
+        lblTitle.setText(value.getName());
+
+        if (value.getIcon() == null) {
+            lblIcon.setIcon(null);
+        } else {
+            RoImageIcon icon = (RoImageIcon) value.toRoImageIcon();
+            lblIcon.setIcon(icon.scaleIconYFontY(lblTitle));
+        }
     }
     
     public void setSelected(boolean selected, JList<?> list) {

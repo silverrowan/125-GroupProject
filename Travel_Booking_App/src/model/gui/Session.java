@@ -18,6 +18,7 @@ import utility.AppWindow;
 public class Session {
     private User currentUser;
     private User currentCustomer; 
+    private User currentEmployee; // only used by Admin 
 
     public Session() { }
     
@@ -34,7 +35,15 @@ public class Session {
 
     public User getCurrentCustomer() { return currentCustomer; }
     public void setCurrentCustomer(User currentCustomer) {
+        this.currentEmployee = null;
         this.currentCustomer = currentCustomer;
+        currentCustomer.setPassword( null );
+    }
+    
+    public User getCurrentEmployee() { return currentEmployee; }
+    public void setCurrentEmployee(User currentEmployee) {
+        this.currentCustomer = null;
+        this.currentEmployee = currentEmployee;
         currentCustomer.setPassword( null );
     }
     

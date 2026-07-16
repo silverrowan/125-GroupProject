@@ -55,7 +55,7 @@ public class Model_MenuItem {
 
     // Utility    
     
-    public static enum MenuType { TITLE, MENU, EMPTY }
+    public static enum MenuType { TITLE, MENU, EMPTY, SEPARATOR }
     
     public Icon toIcon() {
         return new ImageIcon(getClass().getResource("/view/graphics/" + icon + ".png"));
