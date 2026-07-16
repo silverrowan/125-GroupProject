@@ -50,19 +50,32 @@ public class DashboardControl<T> {
         
     private void buildMenu(){
         User currentUser = context.getCurrentSession().getCurrentUser();
-                addToMenuList(new Model_MenuItem("", "Welcome " + currentUser.getUsername(), Model_MenuItem.MenuType.HEADER, "ViewAdminProfile"));
+                addToMenuList(new Model_MenuItem("", "Welcome " + currentUser.getUsername(), Model_MenuItem.MenuType.HEADER, ""));
         switch ( currentUser.getRole() ) {
             case "Admin":
+                
                 addToMenuList(new Model_MenuItem("id-card", "My Profile", Model_MenuItem.MenuType.MENU, "ViewAdminProfile"));
                 
+                addToMenuList(new Model_MenuItem("", "", Model_MenuItem.MenuType.SEPARATOR, ""));
+                
+                addToMenuList(new Model_MenuItem("add_location_alt", "Search Products", Model_MenuItem.MenuType.MENU, "SearchProducts"));
+                addToMenuList(new Model_MenuItem("add_location_alt", "Search Packages", Model_MenuItem.MenuType.MENU, "SearchPackages"));
+                addToMenuList(new Model_MenuItem("add_location_alt", "Search Destinations", Model_MenuItem.MenuType.MENU, "SearchDestinations"));
+                
+                addToMenuList(new Model_MenuItem("", "", Model_MenuItem.MenuType.SEPARATOR, ""));
+                
                 addToMenuList(new Model_MenuItem("user-search-line", "Search Users", Model_MenuItem.MenuType.MENU, "SearchForUser"));
+                addToMenuList(new Model_MenuItem("user-search-line", "Search Bookings", Model_MenuItem.MenuType.MENU, "SearchForBooking"));
+                try { addAdminTargetItems(); }
+                catch ( Exception e ) { System.out.println("exception " + e ); }
+                
                 addToMenuList(new Model_MenuItem("", "", Model_MenuItem.MenuType.SEPARATOR, ""));
                 
                 buildSharedMenu();
                 break;
             case "Travel Agent":
         //        Agent Name Header
-                addToMenuList(new Model_MenuItem("id-card", "Profile", Model_MenuItem.MenuType.MENU, "ViewEmployeeProfile"));
+                addToMenuList(new Model_MenuItem("id-card", "My Profile", Model_MenuItem.MenuType.MENU, "ViewEmployeeProfile"));
                 addToMenuList(new Model_MenuItem("user-search-line", "Search Customers", Model_MenuItem.MenuType.MENU, "SearchForCustomer"));
         //        Active Customer Name Header
                 addToMenuList(new Model_MenuItem("id-card", "Customer Profile", Model_MenuItem.MenuType.MENU, "ViewCustomerProfile"));
@@ -71,7 +84,7 @@ public class DashboardControl<T> {
                 break;
 //            case "Tour Guide":                
             case "Customer":
-                addToMenuList(new Model_MenuItem("id-card", "Profile", Model_MenuItem.MenuType.MENU, "ViewCustomerProfile"));
+                addToMenuList(new Model_MenuItem("id-card", "My Profile", Model_MenuItem.MenuType.MENU, "ViewCustomerProfile"));
                 buildSharedMenu();
                 break;
             }

@@ -34,13 +34,13 @@ public class DashboardMenu extends GradientPanel {
         super(new Color(204,255,204), new Color( 255,150,46 ), 0);
         initComponents();
         
-        menuListA.setOpaque(false);
-        menuListA.refresh();
-        menuListA.setVisible(true);
-        
         menuListB.setOpaque(false);
         menuListB.refresh();
         menuListB.setVisible(true);
+        
+        menuListA.setOpaque(false);
+        menuListA.refresh();
+        menuListA.setVisible(true);
     }
         
     //getters and setters
@@ -55,13 +55,13 @@ public class DashboardMenu extends GradientPanel {
         this.lblLogo = lblLogo;
     }
 
-    public ListMenu getMenuListA() { return menuListA; }
+    public ListMenu getMenuListA() { return menuListB; }
     public void setMenuListA(ListMenu menuList) {
-        this.menuListA = menuList;
-    }
-    public ListMenu getMenuListB() { return menuListB; }
-    public void setMenuListB(ListMenu menuList) {
         this.menuListB = menuList;
+    }
+    public ListMenu getMenuListB() { return menuListA; }
+    public void setMenuListB(ListMenu menuList) {
+        this.menuListA = menuList;
     }
 
     public JPanel getPnlLogo() { return pnlLogo; }
@@ -98,8 +98,8 @@ public class DashboardMenu extends GradientPanel {
 
         pnlLogo = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
-        menuListA = new view.components.ListMenu();
         menuListB = new view.components.ListMenu();
+        menuListA = new view.components.ListMenu();
 
         pnlLogo.setOpaque(false);
 
@@ -125,9 +125,9 @@ public class DashboardMenu extends GradientPanel {
                 .addGap(6, 6, 6))
         );
 
-        menuListA.setBackground(new java.awt.Color(242, 242, 242));
-
         menuListB.setBackground(new java.awt.Color(242, 242, 242));
+
+        menuListA.setBackground(new java.awt.Color(242, 242, 242));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -137,9 +137,9 @@ public class DashboardMenu extends GradientPanel {
                 .addComponent(pnlLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 312, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(menuListB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(menuListA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(menuListA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(menuListB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,8 +147,8 @@ public class DashboardMenu extends GradientPanel {
                 .addComponent(pnlLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(menuListA, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
-                    .addComponent(menuListB, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)))
+                    .addComponent(menuListB, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
+                    .addComponent(menuListA, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 

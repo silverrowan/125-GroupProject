@@ -78,15 +78,13 @@ public class CardMenuRenderer extends JPanel implements ListCellRenderer<Model_M
 } 
 
     public void setDataWIcon( Model_MenuItem value ) {
+        System.out.println("dataWIcon: " + value.getType() );
+        System.out.println("dataWIcon: " + value.getName());
         lblTitle.setFont(new Font("URW Bookman", Font.BOLD, 32));
         lblTitle.setText(value.getName());
 
-        if (value.getIcon() == null) {
-            lblIcon.setIcon(null);
-        } else {
-            RoImageIcon icon = (RoImageIcon) value.toRoImageIcon();
-            lblIcon.setIcon(icon.scaleIconYFontY(lblTitle));
-        }
+        RoImageIcon icon = (RoImageIcon) value.toRoImageIcon();
+        lblIcon.setIcon(icon.scaleIconYFontY(lblTitle));
     }
     
     public void setData( Model_MenuItem value ) {
