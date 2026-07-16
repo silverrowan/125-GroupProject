@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.SingleSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import model.gui.Model_MenuItem;
+import view.models.Model_MenuItem;
 import view.ProductsGUI;
 import utility.AppWindow;
 

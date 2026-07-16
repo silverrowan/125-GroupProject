@@ -1,14 +1,12 @@
 
 package utility;
 
-import controller.AppContext;
 import controller.DashboardControl;
 import controller.LoginControl;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import model.User;
-import model.gui.Session;
 import utility.AppWindow;
 import view.Login;
 

@@ -1,6 +1,7 @@
-package view.components;
+package view.models;
 
 import java.awt.Color;
+import view.components.GradientPanel;
 
 /**
  *
@@ -8,20 +9,15 @@ import java.awt.Color;
  */
 public class Card extends GradientPanel {
     //Check if theres a significant preformance hit to doing things this way for plain background items
-    String title;
-    String contents;
-    String imgName;
-    int padding;
-    ImgLocation imgLocation;
-    
-    public static enum ImgLocation {
-        TOP, LEFT, BOTTOM, RIGHT, EMPTY
-    } 
+    private String title;
+    private String contents;
+    private CardType type;
+    public static enum CardType { HEADER, ICON_HEADER, EMPTY, SEPARATOR, IMG, MENU }
+    private int padding;
+    private String tag;
     
     public Card(Color topColor, Color bottomColor, int roundCorners ) { //gradient background
         super(topColor, bottomColor, roundCorners);
-//        initComponents(); - done by parent - don't need?
-//        setOpaque(false); - done by parent - don't need?
     }
     
     public Card(Color bgColor, int roundCorners ) { //flat background
@@ -31,10 +27,7 @@ public class Card extends GradientPanel {
     public Card() {
         this( new Color(255,255,255), 0 ); //white background
     }
-    
-
-
-     
+         
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,56 +41,28 @@ public class Card extends GradientPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 267, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 74, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    public String getTitle() {
-        return title;
-    }
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    public String getContents() { return contents; }
+    public void setContents(String contents) { this.contents = contents;} 
 
-    public String getContents() {
-        return contents;
-    }
-
-    public void setContents(String contents) {
-        this.contents = contents;
-    }
-
-    public String getImgName() {
-        return imgName;
-    }
-
-    public void setImgName(String imgName) {
-        this.imgName = imgName;
-    }
-
-    public int getPadding() {
-        return padding;
-    }
-
-    public void setPadding(int padding) {
-        this.padding = padding;
-    }
-
-    public ImgLocation getImgLocation() {
-        return imgLocation;
-    }
-
-    public void setImgLocation(ImgLocation imgLocation) {
-        this.imgLocation = imgLocation;
-    }
-
+    public int getPadding() { return padding; }
+    public void setPadding(int padding) { this.padding = padding; }
     
-
+    public CardType getType() { return type; }
+    public void setType(CardType type) { this.type = type; }
+    
+    public String tag() { return tag; }
+    public void setTag() { this.tag = tag; }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

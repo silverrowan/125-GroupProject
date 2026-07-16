@@ -1,11 +1,11 @@
 package view.components;
 
+import view.models.Model_MenuItem;
 import java.awt.Color;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 import javax.swing.SwingUtilities;
-import model.gui.Model_MenuItem;
 
 /**
  *

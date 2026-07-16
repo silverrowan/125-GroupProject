@@ -1,6 +1,7 @@
 
 package view.components;
 
+import view.models.Model_MenuItem;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -10,13 +11,13 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import javax.swing.BorderFactory;
-import model.gui.Model_MenuItem;
+import javax.swing.JPanel;
 
 /**
  *
  * @author rowan
  */
-public class MenuItem extends javax.swing.JPanel {
+public class MenuItem extends JPanel {
     
     private boolean selected;
 
@@ -30,7 +31,7 @@ public class MenuItem extends javax.swing.JPanel {
             lblMenu.setText(data.getName());
             lblMenu.setFont(new Font( null , 1, 24));
             lblIcon.setIcon(data.scaleIconByText(lblMenu, "travelBug70") );
-        } else if (data.getType() == Model_MenuItem.MenuType.TITLE) {
+        } else if (data.getType() == Model_MenuItem.MenuType.HEADER) {
             lblIcon.setText(data.getName());
             lblIcon.setFont(new Font( null , 1, 24));
             lblMenu.setVisible(false);

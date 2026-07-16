@@ -1,7 +1,6 @@
 package utility;
 
 import view.DashboardMenu;
-import controller.AppContext;
 import controller.UserControl;
 import dao.UserDAO;
 import view.AddUserGUIPage1;

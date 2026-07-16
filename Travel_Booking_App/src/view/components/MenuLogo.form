@@ -33,7 +33,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="model.gui.Model_lblScales" name="model_lblScales1">
+    <Component class="view.models.Model_lblScales" name="model_lblScales1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/view/graphics/travelBug70.png"/>

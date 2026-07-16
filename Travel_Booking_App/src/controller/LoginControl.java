@@ -1,6 +1,6 @@
 package controller;
 
-import controller.AppContext;
+import utility.AppContext;
 import dao.UserDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

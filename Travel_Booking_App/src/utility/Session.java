@@ -1,5 +1,5 @@
 
-package model.gui;
+package utility;
 
 import model.Customer;
 import model.User;

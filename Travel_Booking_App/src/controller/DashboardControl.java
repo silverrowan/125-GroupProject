@@ -1,5 +1,6 @@
 package controller;
 
+import utility.AppContext;
 import utility.DuplicateTargetException;
 import java.awt.Window;
 import java.nio.file.AccessDeniedException;
@@ -9,8 +10,8 @@ import javax.swing.JFrame;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import model.User;
-import model.gui.Model_MenuItem;
-import model.gui.Session;
+import view.models.Model_MenuItem;
+import utility.Session;
 import view.AddUserGUIPage1;
 import view.Login;
 import view.ProductsGUI;
