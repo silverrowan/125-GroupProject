@@ -94,7 +94,7 @@ public class DashboardControl<T> {
             System.out.println("menulist" + menuList.getFirst().getName() );
             System.out.println("menulist" + menuList.getFirst().getName() );
             
-            splitMenuLists();
+//            splitMenuLists();
             
         //refresh menu
     }
@@ -105,19 +105,19 @@ public class DashboardControl<T> {
         menuList.addLast( new ImgCard(icon, title, type, action) );
     }
     
-    private void splitMenuLists() {
-        int listLength = menuList.size();
-        int midpoint = ( listLength + 1) / 2 ;
-        for ( int i = 0 ; i < midpoint ; i++ ) {
-            menuA.addItem( menuList.removeFirst() );
-        }
-        for ( int i = midpoint ; i < listLength ; i++) {
-            if ( menuList.size() == 0 ) { break; }
-            menuB.addItem( menuList.removeFirst() );
-        }
-        menuA.repaint();
-        menuB.repaint();
-    }
+//    private void splitMenuLists() {
+//        int listLength = menuList.size();
+//        int midpoint = ( listLength + 1) / 2 ;
+//        for ( int i = 0 ; i < midpoint ; i++ ) {
+//            menuA.addItem( menuList.removeFirst() );
+//        }
+//        for ( int i = midpoint ; i < listLength ; i++) {
+//            if ( menuList.size() == 0 ) { break; }
+//            menuB.addItem( menuList.removeFirst() );
+//        }
+//        menuA.repaint();
+//        menuB.repaint();
+//    }
     
     private void buildSharedMenu(){
         addToMenuList(new ImgCard("world-search", "Packages", Card.CardType.MENU, "SearchPackages"));

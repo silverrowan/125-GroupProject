@@ -18,19 +18,14 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Component id="pnlLogo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="lblClearCust" alignment="0" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="lblUser" min="-2" pref="261" max="-2" attributes="0"/>
+                  <Component id="dashShared1" pref="300" max="32767" attributes="0"/>
                   <Component id="btnCustProfile" alignment="0" max="32767" attributes="0"/>
-                  <Component id="dashShared2" alignment="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="lblLogout" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnSearchCust" alignment="0" max="32767" attributes="0"/>
-                  <Component id="lblUser1" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnCustProfile1" alignment="1" max="32767" attributes="0"/>
-                  <Component id="lblUser" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
@@ -40,22 +35,12 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="pnlLogo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="lblUser" min="-2" pref="47" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Component id="btnCustProfile1" min="-2" pref="40" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Component id="btnSearchCust" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Component id="lblLogout" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="38" max="32767" attributes="0"/>
-              <Component id="lblUser1" min="-2" pref="47" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="btnCustProfile" min="-2" pref="40" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Component id="dashShared2" min="-2" pref="148" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Component id="lblClearCust" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Component id="dashShared1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -105,8 +90,7 @@
     <Component class="view.models.ButtonBase" name="btnCustProfile">
       <Properties>
         <Property name="actionCommand" type="java.lang.String" value="searchTrips"/>
-        <Property name="label" type="java.lang.String" value="Customer Profile"/>
-        <Property name="name" type="java.lang.String" value="" noResource="true"/>
+        <Property name="label" type="java.lang.String" value="My Profile"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblUser">
@@ -114,45 +98,7 @@
         <Property name="text" type="java.lang.String" value="temp"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblUser1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="temp"/>
-      </Properties>
-    </Component>
-    <Component class="view.models.ButtonBase" name="btnCustProfile1">
-      <Properties>
-        <Property name="actionCommand" type="java.lang.String" value="searchTrips"/>
-        <Property name="label" type="java.lang.String" value="My Profile"/>
-      </Properties>
-    </Component>
-    <Component class="view.models.ButtonBase" name="lblClearCust">
-      <Properties>
-        <Property name="actionCommand" type="java.lang.String" value="ClearCust"/>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ef" green="ee" red="bd" type="rgb"/>
-        </Property>
-        <Property name="label" type="java.lang.String" value="Clear Customer"/>
-      </Properties>
-    </Component>
-    <Component class="view.dashboard.DashShared" name="dashShared2">
-    </Component>
-    <Component class="view.models.ButtonBase" name="lblLogout">
-      <Properties>
-        <Property name="actionCommand" type="java.lang.String" value="Logout"/>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ef" green="ee" red="bd" type="rgb"/>
-        </Property>
-        <Property name="label" type="java.lang.String" value="Logout"/>
-      </Properties>
-    </Component>
-    <Component class="view.models.ButtonBase" name="btnSearchCust">
-      <Properties>
-        <Property name="actionCommand" type="java.lang.String" value="searchCustomer"/>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="99" green="cc" red="ff" type="rgb"/>
-        </Property>
-        <Property name="label" type="java.lang.String" value="Search Customers"/>
-      </Properties>
+    <Component class="view.dashboard.DashShared" name="dashShared1">
     </Component>
   </SubComponents>
 </Form>

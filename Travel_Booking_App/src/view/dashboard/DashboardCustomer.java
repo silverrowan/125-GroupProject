@@ -16,7 +16,7 @@ import view.components.ListMenu;
  *
  * @author rowan
  */
-public class DashboardMenu extends GradientPanel {
+public class DashboardCustomer extends GradientPanel {
         Color topColor;
         Color bottomColor;
         Color selectColor;
@@ -29,7 +29,7 @@ public class DashboardMenu extends GradientPanel {
     /**
      * Creates new form MenuCustomer
      */
-    public DashboardMenu( ) {
+    public DashboardCustomer( ) {
         super(new Color(204,255,204), new Color( 255,150,46 ), 0);
         initComponents();
         
@@ -99,12 +99,7 @@ public class DashboardMenu extends GradientPanel {
         lblLogo = new javax.swing.JLabel();
         btnCustProfile = new view.models.ButtonBase();
         lblUser = new javax.swing.JLabel();
-        lblUser1 = new javax.swing.JLabel();
-        btnCustProfile1 = new view.models.ButtonBase();
-        lblClearCust = new view.models.ButtonBase();
-        dashShared2 = new view.dashboard.DashShared();
-        lblLogout = new view.models.ButtonBase();
-        btnSearchCust = new view.models.ButtonBase();
+        dashShared1 = new view.dashboard.DashShared();
 
         pnlLogo.setOpaque(false);
 
@@ -131,27 +126,9 @@ public class DashboardMenu extends GradientPanel {
         );
 
         btnCustProfile.setActionCommand("searchTrips");
-        btnCustProfile.setLabel("Customer Profile");
-        btnCustProfile.setName(""); // NOI18N
+        btnCustProfile.setLabel("My Profile");
 
         lblUser.setText("temp");
-
-        lblUser1.setText("temp");
-
-        btnCustProfile1.setActionCommand("searchTrips");
-        btnCustProfile1.setLabel("My Profile");
-
-        lblClearCust.setActionCommand("ClearCust");
-        lblClearCust.setBackground(new java.awt.Color(189, 238, 239));
-        lblClearCust.setLabel("Clear Customer");
-
-        lblLogout.setActionCommand("Logout");
-        lblLogout.setBackground(new java.awt.Color(189, 238, 239));
-        lblLogout.setLabel("Logout");
-
-        btnSearchCust.setActionCommand("searchCustomer");
-        btnSearchCust.setBackground(new java.awt.Color(255, 204, 153));
-        btnSearchCust.setLabel("Search Customers");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -159,40 +136,25 @@ public class DashboardMenu extends GradientPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 15, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblClearCust, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCustProfile, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(dashShared2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(lblLogout, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSearchCust, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblUser1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCustProfile1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblUser, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dashShared1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                    .addComponent(btnCustProfile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22)
+                .addGap(18, 18, 18)
                 .addComponent(lblUser, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
-                .addComponent(btnCustProfile1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
-                .addComponent(btnSearchCust, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
-                .addComponent(lblLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addComponent(lblUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCustProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
-                .addComponent(dashShared2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
-                .addComponent(lblClearCust, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(dashShared1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -212,14 +174,9 @@ public class DashboardMenu extends GradientPanel {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private view.models.ButtonBase btnCustProfile;
-    private view.models.ButtonBase btnCustProfile1;
-    private view.models.ButtonBase btnSearchCust;
-    private view.dashboard.DashShared dashShared2;
-    private view.models.ButtonBase lblClearCust;
+    private view.dashboard.DashShared dashShared1;
     private javax.swing.JLabel lblLogo;
-    private view.models.ButtonBase lblLogout;
     private javax.swing.JLabel lblUser;
-    private javax.swing.JLabel lblUser1;
     private javax.swing.JPanel pnlLogo;
     // End of variables declaration//GEN-END:variables
 }

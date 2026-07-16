@@ -106,7 +106,6 @@
       <Properties>
         <Property name="actionCommand" type="java.lang.String" value="searchTrips"/>
         <Property name="label" type="java.lang.String" value="Customer Profile"/>
-        <Property name="name" type="java.lang.String" value="" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblUser">

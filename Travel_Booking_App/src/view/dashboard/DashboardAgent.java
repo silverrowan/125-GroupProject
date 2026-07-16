@@ -16,7 +16,7 @@ import view.components.ListMenu;
  *
  * @author rowan
  */
-public class DashboardMenu extends GradientPanel {
+public class DashboardAgent extends GradientPanel {
         Color topColor;
         Color bottomColor;
         Color selectColor;
@@ -29,7 +29,7 @@ public class DashboardMenu extends GradientPanel {
     /**
      * Creates new form MenuCustomer
      */
-    public DashboardMenu( ) {
+    public DashboardAgent( ) {
         super(new Color(204,255,204), new Color( 255,150,46 ), 0);
         initComponents();
         
@@ -132,7 +132,6 @@ public class DashboardMenu extends GradientPanel {
 
         btnCustProfile.setActionCommand("searchTrips");
         btnCustProfile.setLabel("Customer Profile");
-        btnCustProfile.setName(""); // NOI18N
 
         lblUser.setText("temp");
 

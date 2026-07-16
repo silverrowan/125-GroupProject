@@ -12,6 +12,6 @@ public class ButtonBase extends Button {
     
     public ButtonBase(){
     setBackground(new Color(204, 255, 204));
-    setFont(new Font("Segoe UI", Font.BOLD, 18));
+    setFont(new Font("Segoe UI", Font.BOLD, 24));
     }
 }
