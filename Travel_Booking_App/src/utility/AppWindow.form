@@ -57,7 +57,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="view.DashboardMenu" name="dashboardList">
+        <Component class="view.dashboard.DashboardMenu" name="dashboardList">
         </Component>
       </SubComponents>
     </Container>

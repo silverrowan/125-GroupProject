@@ -30,6 +30,13 @@ public class ImgCard extends Card {
     public ImgCard() {
         this( new Color(255,255,255), 0 ); //white background
     }
+    
+    public ImgCard( String icon, String title, CardType type, String action ) {
+        super( new Color(255,255,255), 5 );
+        this.setTitle(title);
+        this.setTag(action);
+        toIcon( icon );
+    }
          
     /**
      * This method is called from within the constructor to initialize the form.

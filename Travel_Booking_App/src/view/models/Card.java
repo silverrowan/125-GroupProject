@@ -12,7 +12,6 @@ public class Card extends GradientPanel {
     private String title;
     private String contents;
     private CardType type;
-    public static enum CardType { HEADER, ICON_HEADER, EMPTY, SEPARATOR, IMG, MENU }
     private int padding;
     private String tag;
     
@@ -27,7 +26,15 @@ public class Card extends GradientPanel {
     public Card() {
         this( new Color(255,255,255), 0 ); //white background
     }
+    
+    public Card( String title, CardType type, String action ) {
+        super( new Color(255,255,255), 5 );
+        this.title = title;
+        this.tag = action;
+    }
          
+    public static enum CardType { HEADER, ICON_HEADER, EMPTY, SEPARATOR, IMG, MENU }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,8 +68,8 @@ public class Card extends GradientPanel {
     public CardType getType() { return type; }
     public void setType(CardType type) { this.type = type; }
     
-    public String tag() { return tag; }
-    public void setTag() { this.tag = tag; }
+    public String getTag() { return tag; }
+    public void setTag( String tag ) { this.tag = tag; }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

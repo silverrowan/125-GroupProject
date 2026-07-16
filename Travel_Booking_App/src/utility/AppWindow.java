@@ -1,6 +1,6 @@
 package utility;
 
-import view.DashboardMenu;
+import view.dashboard.DashboardMenu;
 import controller.UserControl;
 import dao.UserDAO;
 import view.AddUserGUIPage1;
@@ -63,7 +63,7 @@ public class AppWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlAppWindow = new view.components.PanelBorder();
-        dashboardList = new view.DashboardMenu();
+        dashboardList = new view.dashboard.DashboardMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -135,7 +135,7 @@ public class AppWindow extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private view.DashboardMenu dashboardList;
+    private view.dashboard.DashboardMenu dashboardList;
     private view.components.PanelBorder pnlAppWindow;
     // End of variables declaration//GEN-END:variables
 }

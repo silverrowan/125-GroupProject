@@ -1,11 +1,10 @@
-package view;
+package view.dashboard;
 
 import utility.AppContext;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import model.User;
-import view.models.Model_MenuItem;
 import view.ViewCustomerGUI;
 import view.ViewDestinationsGUI;
 import view.ViewTripFrame;
@@ -98,8 +97,8 @@ public class DashboardMenu extends GradientPanel {
 
         pnlLogo = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
-        dashListA = new javax.swing.JPanel();
-        dashListB = new javax.swing.JPanel();
+        buttonBase1 = new view.models.ButtonBase();
+        lblUser = new javax.swing.JLabel();
 
         pnlLogo.setOpaque(false);
 
@@ -125,27 +124,9 @@ public class DashboardMenu extends GradientPanel {
                 .addGap(6, 6, 6))
         );
 
-        javax.swing.GroupLayout dashListALayout = new javax.swing.GroupLayout(dashListA);
-        dashListA.setLayout(dashListALayout);
-        dashListALayout.setHorizontalGroup(
-            dashListALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        dashListALayout.setVerticalGroup(
-            dashListALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        buttonBase1.setLabel("buttonBase1");
 
-        javax.swing.GroupLayout dashListBLayout = new javax.swing.GroupLayout(dashListB);
-        dashListB.setLayout(dashListBLayout);
-        dashListBLayout.setHorizontalGroup(
-            dashListBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        dashListBLayout.setVerticalGroup(
-            dashListBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        lblUser.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -155,21 +136,23 @@ public class DashboardMenu extends GradientPanel {
                 .addComponent(pnlLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(dashListA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(dashListB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(buttonBase1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(lblUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblUser, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dashListA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dashListB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(buttonBase1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -187,9 +170,9 @@ public class DashboardMenu extends GradientPanel {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel dashListA;
-    private javax.swing.JPanel dashListB;
+    private view.models.ButtonBase buttonBase1;
     private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel lblUser;
     private javax.swing.JPanel pnlLogo;
     // End of variables declaration//GEN-END:variables
 }
