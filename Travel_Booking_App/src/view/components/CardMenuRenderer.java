@@ -30,6 +30,7 @@ public class CardMenuRenderer extends JPanel implements ListCellRenderer<Model_M
     private JLabel lblIcon = new JLabel();
     private JLabel lblTitle = new JLabel();
     private JSeparator separator = new JSeparator();
+    private JLabel label;
     private boolean selected;
     private Color selectColor;
     
@@ -55,14 +56,21 @@ public class CardMenuRenderer extends JPanel implements ListCellRenderer<Model_M
             JList<? extends Model_MenuItem> list, Model_MenuItem value, int index, 
             boolean isSelected, boolean cellHasFocus) {
         
-            //Card contents
+        //Card contents
         //----------Separator--------------
     if (value.getType() == Model_MenuItem.MenuType.SEPARATOR) {
         separator.setPreferredSize(new Dimension(1, 10));   // adjust height here
         return separator;
     }
     //------------------Header----------------
-    if (value.getType() == Model_MenuItem.MenuType.HEADER) { setData( value ); } 
+    if (value.getType() == Model_MenuItem.MenuType.HEADER) { 
+        label = new JLabel( value.getName() );
+        label.setFont( new Font( "Segoe UI", Font.BOLD, 24));
+        label.setHorizontalAlignment( SwingConstants.CENTER );
+        
+        return label;
+    } 
+    //-----------------With Icon---------------------
     else { setDataWIcon( value ); }
     setSelected( isSelected , list);
 
