@@ -123,6 +123,9 @@ public class ProductsGUI extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here: this will go back to main screen
+       // MainMenuGUI mainMenu = new MainMenuGUI();
+        //mainMenu.setVisible(true);
+        //this.dispose();
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void detailsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detailsBtnActionPerformed
