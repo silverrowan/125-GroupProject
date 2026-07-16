@@ -1,6 +1,8 @@
 package controller;
 
+import utility.DuplicateTargetException;
 import java.awt.Window;
+import java.nio.file.AccessDeniedException;
 import java.util.LinkedList;
 import javax.naming.InvalidNameException;
 import javax.swing.JFrame;
@@ -8,6 +10,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import model.User;
 import model.gui.Model_MenuItem;
+import model.gui.Session;
 import view.AddUserGUIPage1;
 import view.Login;
 import view.ProductsGUI;
@@ -24,11 +27,11 @@ public class DashboardControl<T> {
 //    private menuDAO menuDao;
 //    private ListMenu listMenu;
     private AppContext context;
+    private AppWindow dashWindow;
 //    private DashboardMenu menu;
     private ListMenu menuA;
     private ListMenu menuB;
     private LinkedList<Model_MenuItem> menuList = new LinkedList<Model_MenuItem>();
-    private AppWindow dashWindow;
     
 //    public DashboardControl(){}
 //    public DashboardControl( AppContext context, DashboardMenu menu ){
@@ -47,13 +50,14 @@ public class DashboardControl<T> {
         
     private void buildMenu(){
         User currentUser = context.getCurrentSession().getCurrentUser();
+                addToMenuList(new Model_MenuItem("", "Welcome " + currentUser.getUsername(), Model_MenuItem.MenuType.HEADER, "ViewAdminProfile"));
         switch ( currentUser.getRole() ) {
             case "Admin":
-                addToMenuList(new Model_MenuItem("id-card", "My Profile", Model_MenuItem.MenuType.MENU, "ViewEmployeeProfile"));
+                addToMenuList(new Model_MenuItem("id-card", "My Profile", Model_MenuItem.MenuType.MENU, "ViewAdminProfile"));
                 
                 addToMenuList(new Model_MenuItem("user-search-line", "Search Users", Model_MenuItem.MenuType.MENU, "SearchForUser"));
-                //        Active Customer Name Header
-                addToMenuList(new Model_MenuItem("id-card", "Customer Profile", Model_MenuItem.MenuType.MENU, "ViewCustomerProfile"));
+                addToMenuList(new Model_MenuItem("", "", Model_MenuItem.MenuType.SEPARATOR, ""));
+                
                 buildSharedMenu();
                 break;
             case "Travel Agent":
@@ -86,10 +90,8 @@ public class DashboardControl<T> {
     }
     
     private void splitMenuLists() {
-        
         int listLength = menuList.size();
         int midpoint = ( listLength + 1) / 2 ;
-               
         for ( int i = 0 ; i < midpoint ; i++ ) {
             menuA.addItem( menuList.removeFirst() );
         }
@@ -107,8 +109,6 @@ public class DashboardControl<T> {
 //        addToMenuList(new Model_MenuItem("plans", "Plans", Model_MenuItem.MenuType.MENU, "ViewFutureBookingsOrItinerary"));
         addToMenuList(new Model_MenuItem("calendar_clock", "History", Model_MenuItem.MenuType.MENU, "ViewBookings"));
         addToMenuList(new Model_MenuItem("logout-box", "Logout", Model_MenuItem.MenuType.MENU, "Logout"));
-        
-
     }
     
     class MenuSelect implements ListSelectionListener {
@@ -153,6 +153,36 @@ public class DashboardControl<T> {
         }
     }
     
+    private void addAdminTargetItems() throws AccessDeniedException, DuplicateTargetException{
+        User loggedIn = context.getCurrentSession().getCurrentUser();
+        User customer = context.getCurrentSession().getCurrentCustomer();
+        User employee = context.getCurrentSession().getCurrentEmployee();
+        
+        if ( !loggedIn.getRole().equals("Admin") ) { throw new AccessDeniedException("User cannot access Admin functions"); }
+        if ( customer != null && employee != null ) { 
+            context.getCurrentSession().clearTargets();
+            throw new DuplicateTargetException("Cannot have two active targets. Clearing both. Retry");
+        } 
+        else if ( employee != null ) {
+            addToMenuList( "", "Active Employee: " + employee.getUsername(), Model_MenuItem.MenuType.HEADER, "" );
+            addToMenuList(new Model_MenuItem("id-card", "Employee Profile", Model_MenuItem.MenuType.MENU, "ViewEmployeeProfile"));
+        } 
+        else { addAgentTargetItems( customer ); }
+
+    }
+    
+    private void addAgentTargetItems( User customer ) {
+        if ( customer != null ) { 
+            //use customer option
+            addToMenuList( "", "Active Customer: " + customer.getUsername(), Model_MenuItem.MenuType.HEADER, "" );
+            addToMenuList(new Model_MenuItem("id-card", "Customer Profile", Model_MenuItem.MenuType.MENU, "ViewCustomerProfile"));
+        } else {
+            // NEW user when cleared
+            addToMenuList( "", "No Active Customer", Model_MenuItem.MenuType.HEADER, "" );
+            addToMenuList(new Model_MenuItem("id-card", "New User", Model_MenuItem.MenuType.MENU, "New User"));
+        }   
+    }
+    
 // ===========================================================================
 // ===========================================================================
 //  TEMPLATE
@@ -179,7 +209,7 @@ public class DashboardControl<T> {
 
     private void logoutUser( AppContext context ) {
         System.out.println("logout");
-        context.getCurrentSession().clearCurrentUserAndCustomer();
+        context.getCurrentSession().clearSession();
         
         for ( Window window : Window.getWindows() ) {
             window.dispose();

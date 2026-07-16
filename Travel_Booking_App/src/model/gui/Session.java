@@ -49,9 +49,15 @@ public class Session {
     
     public void clearCurrentUser() { this.currentUser = null; }
     public void clearCurrentCustomer() { this.currentCustomer = null; }
-    public void clearCurrentUserAndCustomer() { 
-        this.clearCurrentUser();
-        this.clearCurrentCustomer();
+    public void clearCurrentEmployee() { this.currentEmployee = null; }
+    public void clearTargets() {
+        clearCurrentCustomer();
+        clearCurrentEmployee();
+    }
+    public void clearSession() { 
+        clearCurrentCustomer();
+        clearCurrentEmployee();
+        clearCurrentUser();
     }
 }
 

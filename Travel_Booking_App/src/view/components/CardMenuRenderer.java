@@ -55,14 +55,15 @@ public class CardMenuRenderer extends JPanel implements ListCellRenderer<Model_M
             JList<? extends Model_MenuItem> list, Model_MenuItem value, int index, 
             boolean isSelected, boolean cellHasFocus) {
         
+            //Card contents
         //----------Separator--------------
     if (value.getType() == Model_MenuItem.MenuType.SEPARATOR) {
         separator.setPreferredSize(new Dimension(1, 10));   // adjust height here
         return separator;
-    }        
-        
-    //Card contents
-    setData( value );
+    }
+    //------------------Header----------------
+    if (value.getType() == Model_MenuItem.MenuType.HEADER) { setData( value ); } 
+    else { setDataWIcon( value ); }
     setSelected( isSelected , list);
 
     //card spacing
@@ -76,7 +77,7 @@ public class CardMenuRenderer extends JPanel implements ListCellRenderer<Model_M
         return this;
 } 
 
-    public void setData( Model_MenuItem value ) {
+    public void setDataWIcon( Model_MenuItem value ) {
         lblTitle.setFont(new Font("URW Bookman", Font.BOLD, 32));
         lblTitle.setText(value.getName());
 
@@ -86,6 +87,13 @@ public class CardMenuRenderer extends JPanel implements ListCellRenderer<Model_M
             RoImageIcon icon = (RoImageIcon) value.toRoImageIcon();
             lblIcon.setIcon(icon.scaleIconYFontY(lblTitle));
         }
+    }
+    
+    public void setData( Model_MenuItem value ) {
+        lblTitle.setFont(new Font("URW Bookman", Font.BOLD, 32));
+        lblTitle.setText(value.getName());
+        lblIcon.setIcon(null);        
+        lblIcon.setIcon(null);        
     }
     
     public void setSelected(boolean selected, JList<?> list) {
