@@ -18,6 +18,7 @@ import view.Login;
 import view.ProductsGUI;
 import view.ViewCustomerGUI;
 import utility.AppWindowCust;
+import view.components.GradientPanel;
 import view.components.ListMenu;
 import view.dashboard.DashboardMenu;
 import view.models.ImgCard;
@@ -30,15 +31,17 @@ public class DashboardControl<T> {
 //    private menuDAO menuDao;
 //    private ListMenu listMenu;
     private AppContext context;
-    private AppWindowCust dashWindow;
-//    private DashboardMenu menu;
+    private JFrame dashWindow;
+    private GradientPanel dashDisplay;
+    private GradientPanel dashList;
+
     private ListMenu menuA;
     private ListMenu menuB;
     private LinkedList<Card> menuList = new LinkedList<Card>();
     
 //    public DashboardControl(){}
 //    public DashboardControl( AppContext context, DashboardMenu menu ){
-    public DashboardControl( AppContext context, AppWindowCust dashWindow ){
+    public DashboardControl( AppContext context, JFrame dashWindow ){
         this.context = context;
         this.dashWindow = dashWindow;
 //        this.menuA = dashWindow.getDashboardList().getMenuListA();

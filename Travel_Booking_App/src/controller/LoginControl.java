@@ -58,7 +58,8 @@ public class LoginControl {
                 context.getCurrentSession().setCurrentUser(activeUser);
                 System.out.println("Successful Login");
                 
-                getDashboard( activeUser );                
+                getDashboard( activeUser );
+                
                 AppWindowCust view = new AppWindowCust( context ); //make target window/dashboard: This is Menu AND beside contents.
                 // if exists a dashboard regenerate, else make new
                 DashboardControl dash = new DashboardControl( context, view ); 
@@ -101,6 +102,7 @@ public class LoginControl {
     
     public void getDashboard( User user) {
         String role = user.getRole();
+        System.out.println("role: " + role);
         if ( role == "Admin" ) {
             AppWindowAdmin view = new AppWindowAdmin( context ); //make target window/dashboard: This is Menu AND beside contents.
         } else if ( role == "Travel Agent" ) {

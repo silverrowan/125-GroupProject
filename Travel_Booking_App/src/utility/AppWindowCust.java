@@ -50,6 +50,22 @@ public class AppWindowCust extends javax.swing.JFrame {
     public void setPnlAppWindow(PanelBorder pnlAppWindow) {
         this.pnlDashWind = pnlAppWindow;
     }
+
+    public DashboardCustomer getPnlDashCust() {
+        return pnlDashCust;
+    }
+
+    public void setPnlDashCust(DashboardCustomer pnlDashCust) {
+        this.pnlDashCust = pnlDashCust;
+    }
+
+    public PanelBorder getPnlDashWind() {
+        return pnlDashWind;
+    }
+
+    public void setPnlDashWind(PanelBorder pnlDashWind) {
+        this.pnlDashWind = pnlDashWind;
+    }
     
     
     

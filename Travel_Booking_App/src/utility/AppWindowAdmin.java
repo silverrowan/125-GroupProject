@@ -46,6 +46,22 @@ public class AppWindowAdmin extends javax.swing.JFrame {
     public void setPnlAppWindow(PanelBorder pnlAppWindow) {
         this.pnlDashWind = pnlAppWindow;
     }
+
+    public DashboardAdmin getPnlDashAdmin() {
+        return pnlDashAdmin;
+    }
+
+    public void setPnlDashAdmin(DashboardAdmin pnlDashAdmin) {
+        this.pnlDashAdmin = pnlDashAdmin;
+    }
+
+    public PanelBorder getPnlDashWind() {
+        return pnlDashWind;
+    }
+
+    public void setPnlDashWind(PanelBorder pnlDashWind) {
+        this.pnlDashWind = pnlDashWind;
+    }
     
     
     
@@ -76,9 +92,7 @@ public class AppWindowAdmin extends javax.swing.JFrame {
         );
         pnlDashWindLayout.setVerticalGroup(
             pnlDashWindLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDashWindLayout.createSequentialGroup()
-                .addComponent(pnlDashAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(pnlDashAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -89,7 +103,7 @@ public class AppWindowAdmin extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlDashWind, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlDashWind, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

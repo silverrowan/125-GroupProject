@@ -46,6 +46,22 @@ public class AppWindowAgent extends javax.swing.JFrame {
     public void setPnlAppWindow(PanelBorder pnlAppWindow) {
         this.pnlDashWind = pnlAppWindow;
     }
+
+    public DashboardAgent getPnlDashAgent() {
+        return pnlDashAgent;
+    }
+
+    public void setPnlDashAgent(DashboardAgent pnlDashAgent) {
+        this.pnlDashAgent = pnlDashAgent;
+    }
+
+    public PanelBorder getPnlDashWind() {
+        return pnlDashWind;
+    }
+
+    public void setPnlDashWind(PanelBorder pnlDashWind) {
+        this.pnlDashWind = pnlDashWind;
+    }
     
     
     
@@ -76,9 +92,7 @@ public class AppWindowAgent extends javax.swing.JFrame {
         );
         pnlDashWindLayout.setVerticalGroup(
             pnlDashWindLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDashWindLayout.createSequentialGroup()
-                .addComponent(pnlDashAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(pnlDashAgent, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

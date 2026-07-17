@@ -22,26 +22,15 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblLogout" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnSearchCust" alignment="0" pref="253" max="32767" attributes="0"/>
-                          <Component id="btnCustProfile1" alignment="1" max="32767" attributes="0"/>
-                          <Component id="lblUser" alignment="1" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="lblClearCust" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="lblLogout" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnSearchCust" alignment="0" pref="253" max="32767" attributes="0"/>
+                  <Component id="btnCustProfile1" alignment="1" max="32767" attributes="0"/>
+                  <Component id="lblUser" alignment="1" max="32767" attributes="0"/>
+                  <Component id="lblClearCust" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              <Component id="dashPanelCustomer1" pref="0" max="32767" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-          </Group>
+          <Component id="pnlDashCust" alignment="0" pref="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -55,9 +44,9 @@
               <Component id="btnSearchCust" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Component id="lblLogout" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="dashPanelCustomer1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace pref="14" max="32767" attributes="0"/>
+              <Component id="pnlDashCust" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="14" max="32767" attributes="0"/>
               <Component id="lblClearCust" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
@@ -65,7 +54,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="view.dashboard.DashPanelCustomer" name="dashPanelCustomer1">
+    <Component class="view.dashboard.DashPanelCustomer" name="pnlDashCust">
     </Component>
     <Component class="view.models.ButtonBase" name="btnSearchCust">
       <Properties>

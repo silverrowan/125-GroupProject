@@ -5,6 +5,7 @@ import controller.DashboardControl;
 import controller.LoginControl;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import model.User;
 import utility.AppWindowCust;
@@ -44,11 +45,29 @@ public class Main {
         context.getCurrentSession().setCurrentUser(activeUser);
         System.out.println("Successful Login");
 
-        AppWindowCust view = new AppWindowCust( context ); 
+        String role = context.getCurrentUser().getRole();
+        System.out.println("role: " + role);
+        JFrame view;
+        
+        if ( role.equals( "Admin" ) ) {
+            System.out.println("entered admin if");
+            view = new AppWindowAdmin( context ); //make target window/dashboard: This is Menu AND beside contents.
+        } else if ( role == "Travel Agent" ) {
+            System.out.println("entered Agent if");
+            view = new AppWindowAgent( context );
+//        } else if ( role == "Travel Guide") {
+//            //later
+        } else {
+            System.out.println("entered Cust/Other if");
+            view = new AppWindowCust( context );
+        }
+        
+        System.out.println("view: " + view);
+        
         DashboardControl dash = new DashboardControl( context, view ); 
         dash.initialize();
         view.setVisible(true);
-    }
+    }  
 }
 
 

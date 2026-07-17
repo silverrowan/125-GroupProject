@@ -28,7 +28,9 @@ public class DashPanelCustomer extends javax.swing.JPanel {
 
         btnCustProfile = new view.models.ButtonBase();
         lblUser = new javax.swing.JLabel();
-        dashShared1 = new view.dashboard.DashShared();
+        btnSearchDest = new view.models.ButtonBase();
+        lblLatestBooking = new view.models.ButtonBase();
+        lblViewBooking = new view.models.ButtonBase();
 
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(350, 303));
@@ -38,6 +40,16 @@ public class DashPanelCustomer extends javax.swing.JPanel {
 
         lblUser.setText("temp");
 
+        btnSearchDest.setActionCommand("searchTrips");
+        btnSearchDest.setBackground(new java.awt.Color(255, 204, 153));
+        btnSearchDest.setLabel("Search Destinations");
+
+        lblLatestBooking.setActionCommand("LastBooking");
+        lblLatestBooking.setLabel("Latest Booking");
+
+        lblViewBooking.setActionCommand("AllBooking");
+        lblViewBooking.setLabel("All Bookings");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -45,9 +57,11 @@ public class DashPanelCustomer extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dashShared1, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
-                    .addComponent(btnCustProfile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnCustProfile, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                    .addComponent(lblUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSearchDest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblLatestBooking, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblViewBooking, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
@@ -57,16 +71,22 @@ public class DashPanelCustomer extends javax.swing.JPanel {
                 .addComponent(lblUser, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCustProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(dashShared1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGap(14, 14, 14)
+                .addComponent(btnSearchDest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(lblLatestBooking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(lblViewBooking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private view.models.ButtonBase btnCustProfile;
-    private view.dashboard.DashShared dashShared1;
+    private view.models.ButtonBase btnSearchDest;
+    private view.models.ButtonBase lblLatestBooking;
     private javax.swing.JLabel lblUser;
+    private view.models.ButtonBase lblViewBooking;
     // End of variables declaration//GEN-END:variables
 }

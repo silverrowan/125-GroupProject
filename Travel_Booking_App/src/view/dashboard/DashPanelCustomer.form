@@ -22,14 +22,16 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="dashShared1" alignment="0" pref="310" max="32767" attributes="0"/>
-                  <Component id="btnCustProfile" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnCustProfile" alignment="0" pref="310" max="32767" attributes="0"/>
                   <Component id="lblUser" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnSearchDest" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblLatestBooking" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblViewBooking" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -40,9 +42,13 @@
               <Component id="lblUser" min="-2" pref="47" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnCustProfile" min="-2" pref="40" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Component id="dashShared1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Component id="btnSearchDest" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Component id="lblLatestBooking" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Component id="lblViewBooking" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -59,7 +65,26 @@
         <Property name="text" type="java.lang.String" value="temp"/>
       </Properties>
     </Component>
-    <Component class="view.dashboard.DashShared" name="dashShared1">
+    <Component class="view.models.ButtonBase" name="btnSearchDest">
+      <Properties>
+        <Property name="actionCommand" type="java.lang.String" value="searchTrips"/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="cc" red="ff" type="rgb"/>
+        </Property>
+        <Property name="label" type="java.lang.String" value="Search Destinations"/>
+      </Properties>
+    </Component>
+    <Component class="view.models.ButtonBase" name="lblLatestBooking">
+      <Properties>
+        <Property name="actionCommand" type="java.lang.String" value="LastBooking"/>
+        <Property name="label" type="java.lang.String" value="Latest Booking"/>
+      </Properties>
+    </Component>
+    <Component class="view.models.ButtonBase" name="lblViewBooking">
+      <Properties>
+        <Property name="actionCommand" type="java.lang.String" value="AllBooking"/>
+        <Property name="label" type="java.lang.String" value="All Bookings"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
