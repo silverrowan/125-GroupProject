@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="opaque" type="boolean" value="false"/>
+  </Properties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnTrips1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnBooking" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblUser" alignment="1" max="32767" attributes="0"/>
+                  <Component id="btnDestinations1" alignment="0" pref="253" max="32767" attributes="0"/>
+                  <Component id="btnPackages" max="32767" attributes="0"/>
+                  <Component id="btnProducts1" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Component id="lblUser" min="-2" pref="47" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Component id="btnProducts1" min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Component id="btnPackages" min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Component id="btnDestinations1" min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Component id="btnTrips1" min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Component id="btnBooking" min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="view.models.ButtonBase" name="btnPackages">
+      <Properties>
+        <Property name="actionCommand" type="java.lang.String" value="searchPackages"/>
+        <Property name="label" type="java.lang.String" value="Packages"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPackagesActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblUser">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Search &amp; Edit"/>
+      </Properties>
+    </Component>
+    <Component class="view.models.ButtonBase" name="btnProducts1">
+      <Properties>
+        <Property name="actionCommand" type="java.lang.String" value="searchProducts"/>
+        <Property name="label" type="java.lang.String" value="Products"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProducts1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="view.models.ButtonBase" name="btnBooking">
+      <Properties>
+        <Property name="actionCommand" type="java.lang.String" value="searchBooking"/>
+        <Property name="label" type="java.lang.String" value="Booking"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBookingActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="view.models.ButtonBase" name="btnDestinations1">
+      <Properties>
+        <Property name="actionCommand" type="java.lang.String" value="searchDestinations"/>
+        <Property name="label" type="java.lang.String" value="Destinations"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDestinations1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="view.models.ButtonBase" name="btnTrips1">
+      <Properties>
+        <Property name="actionCommand" type="java.lang.String" value="searchTrips"/>
+        <Property name="label" type="java.lang.String" value="Trips"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTrips1ActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>
