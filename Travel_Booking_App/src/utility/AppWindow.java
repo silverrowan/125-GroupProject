@@ -63,7 +63,7 @@ public class AppWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlAppWindow = new view.components.PanelBorder();
-        dashboardList = new view.dashboard.DashboardMenu();
+        dashboardCustomer1 = new view.dashboard.DashboardCustomer();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -73,13 +73,15 @@ public class AppWindow extends javax.swing.JFrame {
         pnlAppWindow.setLayout(pnlAppWindowLayout);
         pnlAppWindowLayout.setHorizontalGroup(
             pnlAppWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlAppWindowLayout.createSequentialGroup()
-                .addComponent(dashboardList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAppWindowLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(dashboardCustomer1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnlAppWindowLayout.setVerticalGroup(
             pnlAppWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dashboardList, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
+            .addGroup(pnlAppWindowLayout.createSequentialGroup()
+                .addComponent(dashboardCustomer1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -135,7 +137,7 @@ public class AppWindow extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private view.dashboard.DashboardMenu dashboardList;
+    private view.dashboard.DashboardCustomer dashboardCustomer1;
     private view.components.PanelBorder pnlAppWindow;
     // End of variables declaration//GEN-END:variables
 }
