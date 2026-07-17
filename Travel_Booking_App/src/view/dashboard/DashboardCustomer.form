@@ -19,13 +19,13 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="pnlLogo" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="dashPanelCustomer1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="pnlDashCust" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-              <Component id="lblLogout" min="-2" pref="310" max="-2" attributes="0"/>
+              <Component id="btnLogout" min="-2" pref="310" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -35,9 +35,9 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="pnlLogo" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="62" max="32767" attributes="0"/>
-              <Component id="dashPanelCustomer1" min="-2" max="-2" attributes="0"/>
+              <Component id="pnlDashCust" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              <Component id="lblLogout" min="-2" max="-2" attributes="0"/>
+              <Component id="btnLogout" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -84,7 +84,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="view.models.ButtonBase" name="lblLogout">
+    <Component class="view.models.ButtonBase" name="btnLogout">
       <Properties>
         <Property name="actionCommand" type="java.lang.String" value="Logout"/>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -93,10 +93,10 @@
         <Property name="label" type="java.lang.String" value="Logout"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lblLogoutActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogoutActionPerformed"/>
       </Events>
     </Component>
-    <Component class="view.dashboard.DashPanelCustomer" name="dashPanelCustomer1">
+    <Component class="view.dashboard.DashPanelCustomer" name="pnlDashCust">
     </Component>
   </SubComponents>
 </Form>

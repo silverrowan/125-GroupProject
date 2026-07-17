@@ -1,5 +1,6 @@
 package utility;
 
+import java.awt.event.ActionListener;
 import view.components.PanelBorder;
 import view.dashboard.DashboardAdmin;
 
@@ -20,7 +21,6 @@ public class AppWindowAdmin extends javax.swing.JFrame {
     }
     
      //Getter and Setters
-
     public DashboardAdmin getDashboardList() {
         return pnlDashAdmin;
     }
@@ -49,8 +49,27 @@ public class AppWindowAdmin extends javax.swing.JFrame {
         this.pnlDashWind = pnlDashWind;
     }
     
-    
-    
+    // ---------------Listeners--------------------------
+    //----------------Customer Section-------------------
+    public void addItemLIsOnListener( ActionListener loginListener ) {
+        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnCustProfile().addActionListener( loginListener );
+        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnSearchDest().addActionListener( loginListener );
+        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnLatestBooking().addActionListener( loginListener );
+        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnViewBooking().addActionListener( loginListener );
+        
+    //----------------Agent Section-------------------
+        pnlDashAdmin.getPnlDashAgent().getBtnAgentProfile().addActionListener( loginListener );
+        pnlDashAdmin.getPnlDashAgent().getBtnSearchCust().addActionListener( loginListener );
+        pnlDashAdmin.getPnlDashAgent().getBtnLogout().addActionListener( loginListener );
+        pnlDashAdmin.getPnlDashAgent().getBtnClearCust().addActionListener( loginListener );
+                
+    //----------------Admin Section-------------------
+        pnlDashAdmin.getPnlDashAdmin().getBtnProducts().addActionListener( loginListener );
+        pnlDashAdmin.getPnlDashAdmin().getBtnPackages().addActionListener( loginListener );
+        pnlDashAdmin.getPnlDashAdmin().getBtnDestinations().addActionListener( loginListener );
+        pnlDashAdmin.getPnlDashAdmin().getBtnTrips().addActionListener( loginListener );
+        pnlDashAdmin.getPnlDashAdmin().getBtnBooking().addActionListener( loginListener );
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.

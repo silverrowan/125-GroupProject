@@ -36,20 +36,20 @@ public class DashPanelAgent extends javax.swing.JPanel {
         this.btnSearchCust = btnSearchCust;
     }
 
-    public ButtonBase getLblClearCust() {
-        return lblClearCust;
+    public ButtonBase getBtnClearCust() {
+        return btnClearCust;
     }
 
-    public void setLblClearCust(ButtonBase lblClearCust) {
-        this.lblClearCust = lblClearCust;
+    public void setBtnClearCust(ButtonBase lblClearCust) {
+        this.btnClearCust = lblClearCust;
     }
 
-    public ButtonBase getLblLogout() {
-        return lblLogout;
+    public ButtonBase getBtnLogout() {
+        return btnLogout;
     }
 
-    public void setLblLogout(ButtonBase lblLogout) {
-        this.lblLogout = lblLogout;
+    public void setBtnLogout(ButtonBase lblLogout) {
+        this.btnLogout = lblLogout;
     }
 
     public JLabel getLblUser() {
@@ -81,9 +81,9 @@ public class DashPanelAgent extends javax.swing.JPanel {
         lblUser = new javax.swing.JLabel();
         btnAgentProfile = new view.models.ButtonBase();
         btnSearchCust = new view.models.ButtonBase();
-        lblLogout = new view.models.ButtonBase();
+        btnLogout = new view.models.ButtonBase();
         pnlDashCust = new view.dashboard.DashPanelCustomer();
-        lblClearCust = new view.models.ButtonBase();
+        btnClearCust = new view.models.ButtonBase();
 
         setOpaque(false);
 
@@ -96,13 +96,13 @@ public class DashPanelAgent extends javax.swing.JPanel {
         btnSearchCust.setBackground(new java.awt.Color(255, 204, 153));
         btnSearchCust.setLabel("Search Customers");
 
-        lblLogout.setActionCommand("Logout");
-        lblLogout.setBackground(new java.awt.Color(189, 238, 239));
-        lblLogout.setLabel("Logout");
+        btnLogout.setActionCommand("Logout");
+        btnLogout.setBackground(new java.awt.Color(189, 238, 239));
+        btnLogout.setLabel("Logout");
 
-        lblClearCust.setActionCommand("ClearCust");
-        lblClearCust.setBackground(new java.awt.Color(189, 238, 239));
-        lblClearCust.setLabel("Clear Customer");
+        btnClearCust.setActionCommand("ClearCust");
+        btnClearCust.setBackground(new java.awt.Color(189, 238, 239));
+        btnClearCust.setLabel("Clear Customer");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -111,11 +111,11 @@ public class DashPanelAgent extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnSearchCust, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
                     .addComponent(btnAgentProfile, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblUser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblClearCust, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnClearCust, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
             .addComponent(pnlDashCust, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
@@ -129,11 +129,11 @@ public class DashPanelAgent extends javax.swing.JPanel {
                 .addGap(14, 14, 14)
                 .addComponent(btnSearchCust, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
-                .addComponent(lblLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(pnlDashCust, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addComponent(lblClearCust, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnClearCust, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -141,9 +141,9 @@ public class DashPanelAgent extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private view.models.ButtonBase btnAgentProfile;
+    private view.models.ButtonBase btnClearCust;
+    private view.models.ButtonBase btnLogout;
     private view.models.ButtonBase btnSearchCust;
-    private view.models.ButtonBase lblClearCust;
-    private view.models.ButtonBase lblLogout;
     private javax.swing.JLabel lblUser;
     private view.dashboard.DashPanelCustomer pnlDashCust;
     // End of variables declaration//GEN-END:variables

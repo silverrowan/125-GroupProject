@@ -1,5 +1,6 @@
 package utility;
 
+import java.awt.event.ActionListener;
 import view.components.PanelBorder;
 import view.dashboard.DashboardAgent;
 
@@ -63,8 +64,20 @@ public class AppWindowAgent extends javax.swing.JFrame {
         this.pnlDashWind = pnlDashWind;
     }
     
-    
-    
+    // ---------------Listeners--------------------------
+    //----------------Customer Section-------------------
+    public void addItemLIsOnListener( ActionListener loginListener ) {
+        getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnCustProfile().addActionListener( loginListener );
+        getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnSearchDest().addActionListener( loginListener );
+        getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnLatestBooking().addActionListener( loginListener );
+        getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnViewBooking().addActionListener( loginListener );
+        
+    //----------------Agent Section-------------------
+        getPnlDashAgent().getDashPanelAgent().getBtnAgentProfile().addActionListener( loginListener );
+        getPnlDashAgent().getDashPanelAgent().getBtnSearchCust().addActionListener( loginListener );
+        getPnlDashAgent().getDashPanelAgent().getBtnLogout().addActionListener( loginListener );
+        getPnlDashAgent().getDashPanelAgent().getBtnClearCust().addActionListener( loginListener );    
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.

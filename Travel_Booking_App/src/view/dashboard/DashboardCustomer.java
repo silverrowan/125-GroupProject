@@ -11,6 +11,7 @@ import view.ViewTripFrame;
 import utility.AppWindowCust;
 import view.components.GradientPanel;
 import view.components.ListMenu;
+import view.models.ButtonBase;
 
 /**
  *
@@ -67,12 +68,28 @@ public class DashboardCustomer extends GradientPanel {
     public void setPnlLogo(JPanel pnlLogo) {
         this.pnlLogo = pnlLogo;
     }       
+
+    public DashPanelCustomer getPnlDashCust() {
+        return pnlDashCust;
+    }
+
+    public void setPnlDashCust(DashPanelCustomer pnlDashCust) {
+        this.pnlDashCust = pnlDashCust;
+    }
     
 //    public void setBasics(AppWindowCust topView, AppContext context) {
 //    this.topView = topView;
 //    this.context = context;
 //    repaint();
 //    }
+
+    public ButtonBase getBtnLogout() {
+        return btnLogout;
+    }
+
+    public void setBtnLogout(ButtonBase btnLogout) {
+        this.btnLogout = btnLogout;
+    }
 
 
 //    public ListMenu<String> getListMenuCustomer() {
@@ -97,8 +114,8 @@ public class DashboardCustomer extends GradientPanel {
 
         pnlLogo = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
-        lblLogout = new view.models.ButtonBase();
-        dashPanelCustomer1 = new view.dashboard.DashPanelCustomer();
+        btnLogout = new view.models.ButtonBase();
+        pnlDashCust = new view.dashboard.DashPanelCustomer();
 
         pnlLogo.setOpaque(false);
 
@@ -124,10 +141,10 @@ public class DashboardCustomer extends GradientPanel {
                 .addGap(6, 6, 6))
         );
 
-        lblLogout.setActionCommand("Logout");
-        lblLogout.setBackground(new java.awt.Color(189, 238, 239));
-        lblLogout.setLabel("Logout");
-        lblLogout.addActionListener(this::lblLogoutActionPerformed);
+        btnLogout.setActionCommand("Logout");
+        btnLogout.setBackground(new java.awt.Color(189, 238, 239));
+        btnLogout.setLabel("Logout");
+        btnLogout.addActionListener(this::btnLogoutActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -136,11 +153,11 @@ public class DashboardCustomer extends GradientPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dashPanelCustomer1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlDashCust, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(lblLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
         layout.setVerticalGroup(
@@ -148,16 +165,16 @@ public class DashboardCustomer extends GradientPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                .addComponent(dashPanelCustomer1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlDashCust, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(lblLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblLogoutActionPerformed
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblLogoutActionPerformed
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
 //    @Override
 //    protected void paintChildren(Graphics grphcs){
@@ -173,9 +190,9 @@ public class DashboardCustomer extends GradientPanel {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private view.dashboard.DashPanelCustomer dashPanelCustomer1;
+    private view.models.ButtonBase btnLogout;
     private javax.swing.JLabel lblLogo;
-    private view.models.ButtonBase lblLogout;
+    private view.dashboard.DashPanelCustomer pnlDashCust;
     private javax.swing.JPanel pnlLogo;
     // End of variables declaration//GEN-END:variables
 }

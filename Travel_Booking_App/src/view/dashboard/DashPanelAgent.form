@@ -22,11 +22,11 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblLogout" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnLogout" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnSearchCust" alignment="0" pref="253" max="32767" attributes="0"/>
                   <Component id="btnAgentProfile" alignment="1" max="32767" attributes="0"/>
                   <Component id="lblUser" alignment="1" max="32767" attributes="0"/>
-                  <Component id="lblClearCust" max="32767" attributes="0"/>
+                  <Component id="btnClearCust" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
           </Group>
@@ -43,11 +43,11 @@
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Component id="btnSearchCust" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Component id="lblLogout" min="-2" max="-2" attributes="0"/>
+              <Component id="btnLogout" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="14" max="32767" attributes="0"/>
               <Component id="pnlDashCust" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="14" max="32767" attributes="0"/>
-              <Component id="lblClearCust" min="-2" max="-2" attributes="0"/>
+              <Component id="btnClearCust" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -74,7 +74,7 @@
         <Property name="label" type="java.lang.String" value="Search Customers"/>
       </Properties>
     </Component>
-    <Component class="view.models.ButtonBase" name="lblLogout">
+    <Component class="view.models.ButtonBase" name="btnLogout">
       <Properties>
         <Property name="actionCommand" type="java.lang.String" value="Logout"/>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -85,7 +85,7 @@
     </Component>
     <Component class="view.dashboard.DashPanelCustomer" name="pnlDashCust">
     </Component>
-    <Component class="view.models.ButtonBase" name="lblClearCust">
+    <Component class="view.models.ButtonBase" name="btnClearCust">
       <Properties>
         <Property name="actionCommand" type="java.lang.String" value="ClearCust"/>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

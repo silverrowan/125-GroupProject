@@ -1,5 +1,6 @@
 package utility;
 
+import java.awt.event.ActionListener;
 import view.components.PanelBorder;
 import view.dashboard.DashboardCustomer;
 
@@ -63,8 +64,15 @@ public class AppWindowCust extends javax.swing.JFrame {
         this.pnlDashWind = pnlDashWind;
     }
     
-    
-    
+    // ---------------Listeners--------------------------
+    //----------------Customer Section-------------------
+    public void addItemLIsOnListener( ActionListener loginListener ) {                
+        getPnlDashCust().getPnlDashCust().getBtnCustProfile().addActionListener( loginListener );    
+        getPnlDashCust().getPnlDashCust().getBtnSearchDest().addActionListener( loginListener );
+        getPnlDashCust().getPnlDashCust().getBtnLatestBooking().addActionListener( loginListener );
+        getPnlDashCust().getPnlDashCust().getBtnViewBooking().addActionListener( loginListener );    
+        getPnlDashCust().getBtnLogout().addActionListener( loginListener );
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.

@@ -43,62 +43,62 @@ public class DashboardControl<T> {
     public void initialize() { 
 //        menuA.addListSelectionListener( new MenuSelect() ); //menu listener
 //        menuB.addListSelectionListener( new MenuSelect() ); //menu listener
-        buildMenu(); 
+//        buildMenu(); 
     }
         
-    private void buildMenu(){
-        User currentUser = context.getCurrentSession().getCurrentUser();
-                addToMenuList(new Card("Welcome " + currentUser.getUsername(), Card.CardType.HEADER, ""));
-        switch ( currentUser.getRole() ) {
-            case "Admin":
-                
-                addToMenuList(new ImgCard("id-card", "My Profile", Card.CardType.MENU, "ViewAdminProfile"));
-                
-                addToMenuList(new Card( "", Card.CardType.SEPARATOR, ""));
-                
-                addToMenuList(new ImgCard("add_location_alt", "Search Products", Card.CardType.MENU, "SearchProducts"));
-                addToMenuList(new ImgCard("add_location_alt", "Search Packages", Card.CardType.MENU, "SearchPackages"));
-                addToMenuList(new ImgCard("add_location_alt", "Search Destinations", Card.CardType.MENU, "SearchDestinations"));
-                
-                addToMenuList(new Card( "", Card.CardType.SEPARATOR, ""));
-                
-                addToMenuList(new ImgCard("user-search-line", "Search Users", Card.CardType.MENU, "SearchForUser"));
-                addToMenuList(new ImgCard("user-search-line", "Search Bookings", Card.CardType.MENU, "SearchForBooking"));
-                try { addAdminTargetItems(); }
-                catch ( Exception e ) { System.out.println("exception " + e ); }
-                
-                addToMenuList(new Card( "", Card.CardType.SEPARATOR, ""));
-                
-                buildSharedMenu();
-                break;
-            case "Travel Agent":
-        //        Agent Name Header
-                addToMenuList(new ImgCard("id-card", "My Profile", Card.CardType.MENU, "ViewEmployeeProfile"));
-                addToMenuList(new ImgCard("user-search-line", "Search Customers", Card.CardType.MENU, "SearchForCustomer"));
-        //        Active Customer Name Header
-                addToMenuList(new ImgCard("id-card", "Customer Profile", Card.CardType.MENU, "ViewCustomerProfile"));
-//                addToMenuList(new Card("id-card", "Customer Profile", Card.CardType.MENU, "ViewCustomerProfile"));
-                buildSharedMenu();
-                break;
-//            case "Tour Guide":                
-            case "Customer":
-                addToMenuList(new ImgCard("id-card", "My Profile", Card.CardType.MENU, "ViewCustomerProfile"));
-                buildSharedMenu();
-                break;
-            }
-            System.out.println("menulist" + menuList.getFirst().getName() );
-            System.out.println("menulist" + menuList.getFirst().getName() );
+//    private void buildMenu(){
+//        User currentUser = context.getCurrentSession().getCurrentUser();
+//                addToMenuList(new Card("Welcome " + currentUser.getUsername(), Card.CardType.HEADER, ""));
+//        switch ( currentUser.getRole() ) {
+//            case "Admin":
+//                
+//                addToMenuList(new ImgCard("id-card", "My Profile", Card.CardType.MENU, "ViewAdminProfile"));
+//                
+//                addToMenuList(new Card( "", Card.CardType.SEPARATOR, ""));
+//                
+//                addToMenuList(new ImgCard("add_location_alt", "Search Products", Card.CardType.MENU, "SearchProducts"));
+//                addToMenuList(new ImgCard("add_location_alt", "Search Packages", Card.CardType.MENU, "SearchPackages"));
+//                addToMenuList(new ImgCard("add_location_alt", "Search Destinations", Card.CardType.MENU, "SearchDestinations"));
+//                
+//                addToMenuList(new Card( "", Card.CardType.SEPARATOR, ""));
+//                
+//                addToMenuList(new ImgCard("user-search-line", "Search Users", Card.CardType.MENU, "SearchForUser"));
+//                addToMenuList(new ImgCard("user-search-line", "Search Bookings", Card.CardType.MENU, "SearchForBooking"));
+//                try { addAdminTargetItems(); }
+//                catch ( Exception e ) { System.out.println("exception " + e ); }
+//                
+//                addToMenuList(new Card( "", Card.CardType.SEPARATOR, ""));
+//                
+//                buildSharedMenu();
+//                break;
+//            case "Travel Agent":
+//        //        Agent Name Header
+//                addToMenuList(new ImgCard("id-card", "My Profile", Card.CardType.MENU, "ViewEmployeeProfile"));
+//                addToMenuList(new ImgCard("user-search-line", "Search Customers", Card.CardType.MENU, "SearchForCustomer"));
+//        //        Active Customer Name Header
+//                addToMenuList(new ImgCard("id-card", "Customer Profile", Card.CardType.MENU, "ViewCustomerProfile"));
+////                addToMenuList(new Card("id-card", "Customer Profile", Card.CardType.MENU, "ViewCustomerProfile"));
+//                buildSharedMenu();
+//                break;
+////            case "Tour Guide":                
+//            case "Customer":
+//                addToMenuList(new ImgCard("id-card", "My Profile", Card.CardType.MENU, "ViewCustomerProfile"));
+//                buildSharedMenu();
+//                break;
+//            }
+//            System.out.println("menulist" + menuList.getFirst().getName() );
+//            System.out.println("menulist" + menuList.getFirst().getName() );
             
 //            splitMenuLists();
             
         //refresh menu
     }
     
-    private void addToMenuList( Card item ){ menuList.addLast( item ); }
-
-    private void addToMenuList( String icon, String title, Card.CardType type, String action ){
-        menuList.addLast( new ImgCard(icon, title, type, action) );
-    }
+//    private void addToMenuList( Card item ){ menuList.addLast( item ); }
+//
+//    private void addToMenuList( String icon, String title, Card.CardType type, String action ){
+//        menuList.addLast( new ImgCard(icon, title, type, action) );
+//    }
     
 //    private void splitMenuLists() {
 //        int listLength = menuList.size();
@@ -114,13 +114,13 @@ public class DashboardControl<T> {
 //        menuB.repaint();
 //    }
     
-    private void buildSharedMenu(){
-        addToMenuList(new ImgCard("world-search", "Packages", Card.CardType.MENU, "SearchPackages"));
-        addToMenuList(new ImgCard("calendar_plus", "Latest", Card.CardType.MENU, "LastBooking"));
-//        addToMenuList(new Card("plans", "Plans", Card.CardType.MENU, "ViewFutureBookingsOrItinerary"));
-        addToMenuList(new ImgCard("calendar_clock", "History", Card.CardType.MENU, "ViewBookings"));
-        addToMenuList(new ImgCard("logout-box", "Logout", Card.CardType.MENU, "Logout"));
-    }
+//    private void buildSharedMenu(){
+//        addToMenuList(new ImgCard("world-search", "Packages", Card.CardType.MENU, "SearchPackages"));
+//        addToMenuList(new ImgCard("calendar_plus", "Latest", Card.CardType.MENU, "LastBooking"));
+////        addToMenuList(new Card("plans", "Plans", Card.CardType.MENU, "ViewFutureBookingsOrItinerary"));
+//        addToMenuList(new ImgCard("calendar_clock", "History", Card.CardType.MENU, "ViewBookings"));
+//        addToMenuList(new ImgCard("logout-box", "Logout", Card.CardType.MENU, "Logout"));
+//    }
     
 //    class MenuSelect implements ListSelectionListener {
 
