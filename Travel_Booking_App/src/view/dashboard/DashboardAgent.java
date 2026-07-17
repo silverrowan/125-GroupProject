@@ -69,7 +69,17 @@ public class DashboardAgent extends GradientPanel {
     public JPanel getPnlLogo() { return pnlLogo; }
     public void setPnlLogo(JPanel pnlLogo) {
         this.pnlLogo = pnlLogo;
-    }       
+    }
+
+    public DashPanelAgent getDashPanelAgent() {
+        return dashPanelAgent;
+    }
+
+    public void setDashPanelAgent(DashPanelAgent dashPanelAgent) {
+        this.dashPanelAgent = dashPanelAgent;
+    }
+    
+    
     
 //    public void setBasics(AppWindowCust topView, AppContext context) {
 //    this.topView = topView;

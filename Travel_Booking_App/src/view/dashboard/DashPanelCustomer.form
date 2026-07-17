@@ -54,15 +54,15 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
+    <Component class="javax.swing.JLabel" name="lblUser">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="temp"/>
+      </Properties>
+    </Component>
     <Component class="view.models.ButtonBase" name="btnCustProfile">
       <Properties>
         <Property name="actionCommand" type="java.lang.String" value="searchTrips"/>
         <Property name="label" type="java.lang.String" value="My Profile"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblUser">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="temp"/>
       </Properties>
     </Component>
     <Component class="view.models.ButtonBase" name="btnSearchDest">

@@ -1,12 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package view.dashboard;
+
+import javax.swing.JLabel;
+import view.models.ButtonBase;
 
 /**
  *
- * @author c0350261
+ * @author Mariah
  */
 public class DashPanelCustomer extends javax.swing.JPanel {
 
@@ -17,6 +17,48 @@ public class DashPanelCustomer extends javax.swing.JPanel {
         initComponents();
     }
 
+    public ButtonBase getBtnCustProfile() {
+        return btnCustProfile;
+    }
+
+    public void setBtnCustProfile(ButtonBase btnCustProfile) {
+        this.btnCustProfile = btnCustProfile;
+    }
+
+    public ButtonBase getBtnSearchDest() {
+        return btnSearchDest;
+    }
+
+    public void setBtnSearchDest(ButtonBase btnSearchDest) {
+        this.btnSearchDest = btnSearchDest;
+    }
+
+    public ButtonBase getLblLatestBooking() {
+        return lblLatestBooking;
+    }
+
+    public void setLblLatestBooking(ButtonBase lblLatestBooking) {
+        this.lblLatestBooking = lblLatestBooking;
+    }
+
+    public JLabel getLblUser() {
+        return lblUser;
+    }
+
+    public void setLblUser(JLabel lblUser) {
+        this.lblUser = lblUser;
+    }
+
+    public ButtonBase getLblViewBooking() {
+        return lblViewBooking;
+    }
+
+    public void setLblViewBooking(ButtonBase lblViewBooking) {
+        this.lblViewBooking = lblViewBooking;
+    }
+
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,8 +68,8 @@ public class DashPanelCustomer extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnCustProfile = new view.models.ButtonBase();
         lblUser = new javax.swing.JLabel();
+        btnCustProfile = new view.models.ButtonBase();
         btnSearchDest = new view.models.ButtonBase();
         lblLatestBooking = new view.models.ButtonBase();
         lblViewBooking = new view.models.ButtonBase();
@@ -35,10 +77,10 @@ public class DashPanelCustomer extends javax.swing.JPanel {
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(350, 303));
 
+        lblUser.setText("temp");
+
         btnCustProfile.setActionCommand("searchTrips");
         btnCustProfile.setLabel("My Profile");
-
-        lblUser.setText("temp");
 
         btnSearchDest.setActionCommand("searchTrips");
         btnSearchDest.setBackground(new java.awt.Color(255, 204, 153));

@@ -37,7 +37,7 @@ public class Main {
     public static void directToDash(AppContext context) {
         User activeUser;
         User loginUser;
-        String username = "s";           
+        String username = "m";           
         String password = "123123123";
 
         activeUser = context.getUserDao().getUserFromUsername(username, password);
@@ -52,10 +52,10 @@ public class Main {
         if ( role.equals( "Admin" ) ) {
             System.out.println("entered admin if");
             view = new AppWindowAdmin( context ); //make target window/dashboard: This is Menu AND beside contents.
-        } else if ( role == "Travel Agent" ) {
+        } else if ( role.equals("Travel Agent") ) {
             System.out.println("entered Agent if");
             view = new AppWindowAgent( context );
-//        } else if ( role == "Travel Guide") {
+//        } else if ( role.equals("Travel Guide") ) {
 //            //later
         } else {
             System.out.println("entered Cust/Other if");

@@ -1,12 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package view.dashboard;
+
+import javax.swing.JLabel;
+import view.models.ButtonBase;
 
 /**
  *
- * @author c0350261
+ * @author Mariah
  */
 public class DashPanelAdmin extends javax.swing.JPanel {
 
@@ -17,6 +16,55 @@ public class DashPanelAdmin extends javax.swing.JPanel {
         initComponents();
     }
 
+    public ButtonBase getBtnBooking() {
+        return btnBooking;
+    }
+
+    public void setBtnBooking(ButtonBase btnBooking) {
+        this.btnBooking = btnBooking;
+    }
+
+    public ButtonBase getBtnDestinations() {
+        return btnDestinations;
+    }
+
+    public void setBtnDestinations(ButtonBase btnDestinations) {
+        this.btnDestinations = btnDestinations;
+    }
+
+    public ButtonBase getBtnPackages() {
+        return btnPackages;
+    }
+
+    public void setBtnPackages(ButtonBase btnPackages) {
+        this.btnPackages = btnPackages;
+    }
+
+    public ButtonBase getBtnProducts() {
+        return btnProducts;
+    }
+
+    public void setBtnProducts(ButtonBase btnProducts) {
+        this.btnProducts = btnProducts;
+    }
+
+    public ButtonBase getBtnTrips() {
+        return btnTrips;
+    }
+
+    public void setBtnTrips(ButtonBase btnTrips) {
+        this.btnTrips = btnTrips;
+    }
+
+    public JLabel getLblUser() {
+        return lblUser;
+    }
+
+    public void setLblUser(JLabel lblUser) {
+        this.lblUser = lblUser;
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,10 +76,10 @@ public class DashPanelAdmin extends javax.swing.JPanel {
 
         btnPackages = new view.models.ButtonBase();
         lblUser = new javax.swing.JLabel();
-        btnProducts1 = new view.models.ButtonBase();
+        btnProducts = new view.models.ButtonBase();
         btnBooking = new view.models.ButtonBase();
-        btnDestinations1 = new view.models.ButtonBase();
-        btnTrips1 = new view.models.ButtonBase();
+        btnDestinations = new view.models.ButtonBase();
+        btnTrips = new view.models.ButtonBase();
 
         setOpaque(false);
 
@@ -45,11 +93,11 @@ public class DashPanelAdmin extends javax.swing.JPanel {
 
         lblUser.setText("Search & Edit");
 
-        btnProducts1.setActionCommand("searchProducts");
-        btnProducts1.setLabel("Products");
-        btnProducts1.addActionListener(new java.awt.event.ActionListener() {
+        btnProducts.setActionCommand("searchProducts");
+        btnProducts.setLabel("Products");
+        btnProducts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProducts1ActionPerformed(evt);
+                btnProductsActionPerformed(evt);
             }
         });
 
@@ -61,19 +109,19 @@ public class DashPanelAdmin extends javax.swing.JPanel {
             }
         });
 
-        btnDestinations1.setActionCommand("searchDestinations");
-        btnDestinations1.setLabel("Destinations");
-        btnDestinations1.addActionListener(new java.awt.event.ActionListener() {
+        btnDestinations.setActionCommand("searchDestinations");
+        btnDestinations.setLabel("Destinations");
+        btnDestinations.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDestinations1ActionPerformed(evt);
+                btnDestinationsActionPerformed(evt);
             }
         });
 
-        btnTrips1.setActionCommand("searchTrips");
-        btnTrips1.setLabel("Trips");
-        btnTrips1.addActionListener(new java.awt.event.ActionListener() {
+        btnTrips.setActionCommand("searchTrips");
+        btnTrips.setLabel("Trips");
+        btnTrips.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTrips1ActionPerformed(evt);
+                btnTripsActionPerformed(evt);
             }
         });
 
@@ -84,12 +132,12 @@ public class DashPanelAdmin extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnTrips1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnTrips, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnBooking, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblUser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDestinations1, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
+                    .addComponent(btnDestinations, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
                     .addComponent(btnPackages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnProducts1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnProducts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
@@ -98,13 +146,13 @@ public class DashPanelAdmin extends javax.swing.JPanel {
                 .addGap(20, 20, 20)
                 .addComponent(lblUser, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
-                .addComponent(btnProducts1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addComponent(btnPackages, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
-                .addComponent(btnDestinations1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnDestinations, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
-                .addComponent(btnTrips1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnTrips, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addComponent(btnBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
@@ -115,29 +163,29 @@ public class DashPanelAdmin extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPackagesActionPerformed
 
-    private void btnProducts1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProducts1ActionPerformed
+    private void btnProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnProducts1ActionPerformed
+    }//GEN-LAST:event_btnProductsActionPerformed
 
     private void btnBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookingActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBookingActionPerformed
 
-    private void btnDestinations1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDestinations1ActionPerformed
+    private void btnDestinationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDestinationsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnDestinations1ActionPerformed
+    }//GEN-LAST:event_btnDestinationsActionPerformed
 
-    private void btnTrips1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrips1ActionPerformed
+    private void btnTripsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTripsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnTrips1ActionPerformed
+    }//GEN-LAST:event_btnTripsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private view.models.ButtonBase btnBooking;
-    private view.models.ButtonBase btnDestinations1;
+    private view.models.ButtonBase btnDestinations;
     private view.models.ButtonBase btnPackages;
-    private view.models.ButtonBase btnProducts1;
-    private view.models.ButtonBase btnTrips1;
+    private view.models.ButtonBase btnProducts;
+    private view.models.ButtonBase btnTrips;
     private javax.swing.JLabel lblUser;
     // End of variables declaration//GEN-END:variables
 }

@@ -24,7 +24,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lblLogout" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnSearchCust" alignment="0" pref="253" max="32767" attributes="0"/>
-                  <Component id="btnCustProfile1" alignment="1" max="32767" attributes="0"/>
+                  <Component id="btnAgentProfile" alignment="1" max="32767" attributes="0"/>
                   <Component id="lblUser" alignment="1" max="32767" attributes="0"/>
                   <Component id="lblClearCust" max="32767" attributes="0"/>
               </Group>
@@ -39,7 +39,7 @@
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Component id="lblUser" min="-2" pref="47" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Component id="btnCustProfile1" min="-2" pref="40" max="-2" attributes="0"/>
+              <Component id="btnAgentProfile" min="-2" pref="40" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Component id="btnSearchCust" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
@@ -54,7 +54,16 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="view.dashboard.DashPanelCustomer" name="pnlDashCust">
+    <Component class="javax.swing.JLabel" name="lblUser">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="temp"/>
+      </Properties>
+    </Component>
+    <Component class="view.models.ButtonBase" name="btnAgentProfile">
+      <Properties>
+        <Property name="actionCommand" type="java.lang.String" value="searchTrips"/>
+        <Property name="label" type="java.lang.String" value="My Profile"/>
+      </Properties>
     </Component>
     <Component class="view.models.ButtonBase" name="btnSearchCust">
       <Properties>
@@ -74,6 +83,8 @@
         <Property name="label" type="java.lang.String" value="Logout"/>
       </Properties>
     </Component>
+    <Component class="view.dashboard.DashPanelCustomer" name="pnlDashCust">
+    </Component>
     <Component class="view.models.ButtonBase" name="lblClearCust">
       <Properties>
         <Property name="actionCommand" type="java.lang.String" value="ClearCust"/>
@@ -81,17 +92,6 @@
           <Color blue="ef" green="ee" red="bd" type="rgb"/>
         </Property>
         <Property name="label" type="java.lang.String" value="Clear Customer"/>
-      </Properties>
-    </Component>
-    <Component class="view.models.ButtonBase" name="btnCustProfile1">
-      <Properties>
-        <Property name="actionCommand" type="java.lang.String" value="searchTrips"/>
-        <Property name="label" type="java.lang.String" value="My Profile"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblUser">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="temp"/>
       </Properties>
     </Component>
   </SubComponents>

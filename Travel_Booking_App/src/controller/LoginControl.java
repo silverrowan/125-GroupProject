@@ -58,7 +58,7 @@ public class LoginControl {
                 context.getCurrentSession().setCurrentUser(activeUser);
                 System.out.println("Successful Login");
                 
-                getDashboard( activeUser );
+                getDashboard();
                 
                 AppWindowCust view = new AppWindowCust( context ); //make target window/dashboard: This is Menu AND beside contents.
                 // if exists a dashboard regenerate, else make new
@@ -100,17 +100,22 @@ public class LoginControl {
         return !(password == null || password.isEmpty() || password.length() < 8);
     }
     
-    public void getDashboard( User user) {
-        String role = user.getRole();
+    public void getDashboard() {
+        String role = context.getCurrentUser().getRole();
         System.out.println("role: " + role);
-        if ( role == "Admin" ) {
-            AppWindowAdmin view = new AppWindowAdmin( context ); //make target window/dashboard: This is Menu AND beside contents.
-        } else if ( role == "Travel Agent" ) {
-            AppWindowAgent view = new AppWindowAgent( context );
-        } else if ( role == "Travel Guide") {
-            //later
+        JFrame view;
+
+        if ( role.equals( "Admin" ) ) {
+            System.out.println("entered admin if");
+            view = new AppWindowAdmin( context ); //make target window/dashboard: This is Menu AND beside contents.
+        } else if ( role.equals("Travel Agent") ) {
+            System.out.println("entered Agent if");
+            view = new AppWindowAgent( context );
+//        } else if ( role.equals("Travel Guide") ) {
+//            //later
         } else {
-            AppWindowCust view = new AppWindowCust( context );
+            System.out.println("entered Cust/Other if");
+            view = new AppWindowCust( context );
         }
         DashboardControl dash = new DashboardControl( context, view ); 
         dash.initialize();

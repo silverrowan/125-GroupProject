@@ -66,7 +66,25 @@ public class DashboardAdmin extends GradientPanel {
     public JPanel getPnlLogo() { return pnlLogo; }
     public void setPnlLogo(JPanel pnlLogo) {
         this.pnlLogo = pnlLogo;
-    }       
+    }
+
+    public DashPanelAdmin getPnlDashAdmin() {
+        return pnlDashAdmin;
+    }
+
+    public void setPnlDashAdmin(DashPanelAdmin pnlDashAdmin) {
+        this.pnlDashAdmin = pnlDashAdmin;
+    }
+
+    public DashPanelAgent getPnlDashAgent() {
+        return pnlDashAgent;
+    }
+
+    public void setPnlDashAgent(DashPanelAgent pnlDashAgent) {
+        this.pnlDashAgent = pnlDashAgent;
+    }
+    
+    
     
 //    public void setBasics(AppWindowCust topView, AppContext context) {
 //    this.topView = topView;
@@ -97,8 +115,8 @@ public class DashboardAdmin extends GradientPanel {
 
         pnlLogo = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
-        dashPanelAgent1 = new view.dashboard.DashPanelAgent();
-        dashPanelAdmin1 = new view.dashboard.DashPanelAdmin();
+        pnlDashAgent = new view.dashboard.DashPanelAgent();
+        pnlDashAdmin = new view.dashboard.DashPanelAdmin();
 
         pnlLogo.setOpaque(false);
 
@@ -131,9 +149,9 @@ public class DashboardAdmin extends GradientPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnlLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(dashPanelAgent1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pnlDashAgent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dashPanelAdmin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlDashAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -143,11 +161,11 @@ public class DashboardAdmin extends GradientPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(64, 64, 64)
-                        .addComponent(dashPanelAdmin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pnlDashAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(44, 195, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(dashPanelAgent1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(pnlDashAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addContainerGap())))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -166,9 +184,9 @@ public class DashboardAdmin extends GradientPanel {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private view.dashboard.DashPanelAdmin dashPanelAdmin1;
-    private view.dashboard.DashPanelAgent dashPanelAgent1;
     private javax.swing.JLabel lblLogo;
+    private view.dashboard.DashPanelAdmin pnlDashAdmin;
+    private view.dashboard.DashPanelAgent pnlDashAgent;
     private javax.swing.JPanel pnlLogo;
     // End of variables declaration//GEN-END:variables
 }
