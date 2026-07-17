@@ -8,13 +8,12 @@ import view.dashboard.DashboardCustomer;
  *
  * @author rowan
  */
-public class AppWindowCust extends javax.swing.JFrame {
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AppWindowCust.class.getName());
+public class AppWindowCust extends GenericView {
     private AppContext context;
     
     public AppWindowCust( AppContext context ) {
+        super( context );
         initComponents();
-        this.context = context;
         pnlDashCust.revalidate();
         pnlDashCust.repaint();
         
@@ -66,13 +65,16 @@ public class AppWindowCust extends javax.swing.JFrame {
     
     // ---------------Listeners--------------------------
     //----------------Customer Section-------------------
-    public void addItemLIsOnListener( ActionListener loginListener ) {                
-        getPnlDashCust().getPnlDashCust().getBtnCustProfile().addActionListener( loginListener );    
-        getPnlDashCust().getPnlDashCust().getBtnSearchDest().addActionListener( loginListener );
-        getPnlDashCust().getPnlDashCust().getBtnLatestBooking().addActionListener( loginListener );
-        getPnlDashCust().getPnlDashCust().getBtnViewBooking().addActionListener( loginListener );    
-        getPnlDashCust().getBtnLogout().addActionListener( loginListener );
-    }
+    public void addListenerToBtnCustProfile( ActionListener loginListener ) {               
+        getPnlDashCust().getPnlDashCust().getBtnCustProfile().addActionListener( loginListener ); }
+    public void addListenerToBtnSearchDest( ActionListener loginListener ) {
+        getPnlDashCust().getPnlDashCust().getBtnSearchDest().addActionListener( loginListener ); }
+    public void addListenerToBtnLatestBooking( ActionListener loginListener ) {
+        getPnlDashCust().getPnlDashCust().getBtnLatestBooking().addActionListener( loginListener ); }
+    public void addListenerToBtnAllBooking( ActionListener loginListener ) {
+        getPnlDashCust().getPnlDashCust().getBtnViewBooking().addActionListener( loginListener ); }
+    public void addListenerToLogoutCust( ActionListener loginListener ) {
+        getPnlDashCust().getBtnLogout().addActionListener( loginListener ); }
     
     /**
      * This method is called from within the constructor to initialize the form.

@@ -8,10 +8,10 @@ import view.dashboard.DashboardAdmin;
  *
  * @author rowan
  */
-public class AppWindowAdmin extends javax.swing.JFrame {
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AppWindowAdmin.class.getName());
+public class AppWindowAdmin extends GenericView {
     
     public AppWindowAdmin( AppContext context ) {
+        super( context );
         initComponents();
         pnlDashAdmin.revalidate();
         pnlDashAdmin.repaint();
@@ -51,25 +51,37 @@ public class AppWindowAdmin extends javax.swing.JFrame {
     
     // ---------------Listeners--------------------------
     //----------------Customer Section-------------------
-    public void addItemLIsOnListener( ActionListener loginListener ) {
-        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnCustProfile().addActionListener( loginListener );
-        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnSearchDest().addActionListener( loginListener );
-        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnLatestBooking().addActionListener( loginListener );
-        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnViewBooking().addActionListener( loginListener );
+    public void addListenerToBtnCustProfile( ActionListener loginListener ) {
+        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnCustProfile().addActionListener( loginListener ); }
+    public void addListenerToBtnSearchDest( ActionListener loginListener ) {
+        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnSearchDest().addActionListener( loginListener ); }
+    public void addListenerToBtnLatestBooking( ActionListener loginListener ) {
+        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnLatestBooking().addActionListener( loginListener ); }
+    public void addListenerToBtnAllBooking( ActionListener loginListener ) {
+        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnViewBooking().addActionListener( loginListener ); }
         
     //----------------Agent Section-------------------
-        pnlDashAdmin.getPnlDashAgent().getBtnAgentProfile().addActionListener( loginListener );
-        pnlDashAdmin.getPnlDashAgent().getBtnSearchCust().addActionListener( loginListener );
-        pnlDashAdmin.getPnlDashAgent().getBtnLogout().addActionListener( loginListener );
-        pnlDashAdmin.getPnlDashAgent().getBtnClearCust().addActionListener( loginListener );
+    public void addListenerToBtnAdminProfile( ActionListener loginListener ) {
+        pnlDashAdmin.getPnlDashAgent().getBtnAgentProfile().addActionListener( loginListener ); }
+    public void addListenerToBtnSearchCust( ActionListener loginListener ) {
+        pnlDashAdmin.getPnlDashAgent().getBtnSearchCust().addActionListener( loginListener ); }
+    public void addListenerToBtnLogoutAgent( ActionListener loginListener ) {
+        pnlDashAdmin.getPnlDashAgent().getBtnLogout().addActionListener( loginListener ); }
+    public void addListenerToBtnClearCust( ActionListener loginListener ) {
+        pnlDashAdmin.getPnlDashAgent().getBtnClearCust().addActionListener( loginListener ); }
                 
     //----------------Admin Section-------------------
-        pnlDashAdmin.getPnlDashAdmin().getBtnProducts().addActionListener( loginListener );
-        pnlDashAdmin.getPnlDashAdmin().getBtnPackages().addActionListener( loginListener );
-        pnlDashAdmin.getPnlDashAdmin().getBtnDestinations().addActionListener( loginListener );
-        pnlDashAdmin.getPnlDashAdmin().getBtnTrips().addActionListener( loginListener );
-        pnlDashAdmin.getPnlDashAdmin().getBtnBooking().addActionListener( loginListener );
-    }
+    public void addListenerToBtnSearchProduct( ActionListener loginListener ) {
+        pnlDashAdmin.getPnlDashAdmin().getBtnProducts().addActionListener( loginListener ); }
+    public void addListenerToBtnSearchPackage( ActionListener loginListener ) {
+        pnlDashAdmin.getPnlDashAdmin().getBtnPackages().addActionListener( loginListener ); }
+    public void addListenerToBtnSearchDestAdmin( ActionListener loginListener ) {
+        pnlDashAdmin.getPnlDashAdmin().getBtnDestinations().addActionListener( loginListener ); }
+    public void addListenerToBtnSearchTrips( ActionListener loginListener ) {
+        pnlDashAdmin.getPnlDashAdmin().getBtnTrips().addActionListener( loginListener ); }
+    public void addListenerToBtnSearchBook( ActionListener loginListener ) {
+        pnlDashAdmin.getPnlDashAdmin().getBtnBooking().addActionListener( loginListener ); }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.

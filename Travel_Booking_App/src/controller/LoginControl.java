@@ -32,36 +32,13 @@ public class LoginControl {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            String username = loginView.getTxtUserName().getText();
-            char[] passChars = loginView.getTxtPassword().getPassword();
-            
-            String password = new String(passChars);
-            clearPassArray(passChars);
-            
-            if ( !validateUsername(username) ) { 
-                JOptionPane.showMessageDialog(null, "a username is required");
-                throw new IllegalArgumentException("a username is required"); }
-            if ( !validatePassword(password) ) { 
-                JOptionPane.showMessageDialog(null, "a password is required, and must be at least 8 characters");
-                throw new IllegalArgumentException("Password must be at least 8 characters"); }
+            loginUser();                
+            getDashboard();
 
-            loginUser = context.getUserDao().getUserFromUsername(username, password);
-
-            
-            if ( loginUser == null ) { JOptionPane.showMessageDialog(null, "Username or password do not match, try again"); }
-            else {
-                activeUser = loginUser;
-                loginUser = null;
-                context.getCurrentSession().setCurrentUser(activeUser);
-                System.out.println("Successful Login");
-                
-                getDashboard();
-                
-                AppWindowCust view = new AppWindowCust( context ); //make target window/dashboard: This is Menu AND beside contents.
-                // if exists a dashboard regenerate, else make new
-                DashboardControl dash = new DashboardControl( context, view ); 
-                dash.initialize();
-                view.setVisible(true);
+            AppWindowCust view = new AppWindowCust( context ); //make target window/dashboard: This is Menu AND beside contents.
+            DashboardControl dash = new DashboardControl( context, view ); 
+            dash.initialize();
+            view.setVisible(true);
                 
 //                DashboardMenu dashboard = new DashboardMenu(); // can't use this one - MENU is an x of gradient which is of JPanel not Frame
                     // left for now so i dont re-discover this repeatedly
@@ -97,6 +74,32 @@ public class LoginControl {
         return !(password == null || password.isEmpty() || password.length() < 8);
     }
     
+    public void loginUser(){
+        String username = loginView.getTxtUserName().getText();
+        char[] passChars = loginView.getTxtPassword().getPassword();
+
+        String password = new String(passChars);
+        clearPassArray(passChars);
+
+        if ( !validateUsername(username) ) { 
+            JOptionPane.showMessageDialog(null, "a username is required");
+            throw new IllegalArgumentException("a username is required"); }
+        if ( !validatePassword(password) ) { 
+            JOptionPane.showMessageDialog(null, "a password is required, and must be at least 8 characters");
+            throw new IllegalArgumentException("Password must be at least 8 characters"); }
+
+        loginUser = context.getUserDao().getUserFromUsername(username, password);
+
+
+        if ( loginUser == null ) { JOptionPane.showMessageDialog(null, "Username or password do not match, try again"); }
+        else {
+            activeUser = loginUser;
+            loginUser = null;
+            context.getCurrentSession().setCurrentUser(activeUser);
+            System.out.println("Successful Login");        
+        }
+    }
+
     public void getDashboard() {
         String role = context.getCurrentUser().getRole();
         System.out.println("role: " + role);

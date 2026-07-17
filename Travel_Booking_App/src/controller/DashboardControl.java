@@ -1,167 +1,169 @@
 package controller;
 
+import java.awt.Button;
 import utility.AppContext;
 import utility.DuplicateTargetException;
 import java.awt.Window;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.nio.file.AccessDeniedException;
 import java.util.LinkedList;
-import javax.swing.JFrame;
 import model.User;
+import utility.AppWindowAdmin;
+import utility.AppWindowAgent;
+import utility.GenericView;
+import utility.AppWindowCust;
 import view.models.Card;
 import view.Login;
 import view.ProductsGUI;
 import view.ViewCustomerGUI;
 import view.components.GradientPanel;
 import view.components.ListMenu;
-import view.models.ImgCard;
 
 /**
  *
  * @author Mariah Malczewska
  */
-public class DashboardControl<T> {
+public class DashboardControl extends GenericControl{
 //    private menuDAO menuDao;
 //    private ListMenu listMenu;
     private AppContext context;
-    private JFrame dashWindow;
+
+    private AppWindowAdmin dashAdmin;
+    private AppWindowAgent dashAgent;
+    private AppWindowCust dashCust;
+    private GenericView dash;
+
     private GradientPanel dashDisplay;
     private GradientPanel dashList;
 
-    private ListMenu menuA;
+    private Button btnAdminProfile;
+    private Button btnSearchCust;
+    private Button btnSearchDestAdmin;
+    private Button btnSearchProduct;
+    private Button btnSearchPackage;
+    private Button btnSearchTrip;
+    private Button btnSearchBooking;
+
+    private Button btnAgentProfile;
+    private Button btnClearUser;
+
+    private Button btnCustProfile;
+    private Button btnSearchDest;
+    private Button btnLatestBooking;
+    private Button btnAllBooking;
+
+    private Button btnLogout;
+
+
     private ListMenu menuB;
-    private LinkedList<Card> menuList = new LinkedList<Card>();
+//    private LinkedList<Card> menuList = new LinkedList<Card>();
     
 //    public DashboardControl(){}
 //    public DashboardControl( AppContext context, DashboardMenu menu ){
-    public DashboardControl( AppContext context, JFrame dashWindow ){
-        this.context = context;
-        this.dashWindow = dashWindow;
-//        this.menuA = dashWindow.getDashboardList().getMenuListA();
-//        this.menuB = dashWindow.getDashboardList().getMenuListB();
-}
+    public DashboardControl( AppContext context, GenericView dash, int never ){
+        super( context, dash );
+    }
+
+    public DashboardControl( AppContext context, AppWindowCust dashCust ){
+        this( context, dashCust, 99 );
+        this.dashCust.addListenerToBtnCustProfile( new CustProfile() );
+        this.dashCust.addListenerToBtnSearchDest( new SearchDest() );
+        this.dashCust.addListenerToBtnLatestBooking( new LatestBooking() );
+        this.dashCust.addListenerToBtnAllBooking( new AllBooking() );
+        this.dashCust.addListenerToLogoutCust( new Logout() );
+    }
     
+    public DashboardControl( AppContext context, AppWindowAgent dashAgent ){
+        this( context, dashAgent, 99 );
+        //--cust section--
+        this.dashAgent.addListenerToBtnCustProfile( new CustProfile() );
+        this.dashAgent.addListenerToBtnSearchDest( new SearchDest() );
+        this.dashAgent.addListenerToBtnLatestBooking( new LatestBooking() );
+        this.dashAgent.addListenerToBtnAllBooking( new AllBooking() );
+        //--agent section--
+        this.dashAgent.addListenerToBtnAgentProfile( new AgentProfile() );        
+        this.dashAgent.addListenerToBtnSearchCust( new SearchCust() );        
+        this.dashAgent.addListenerToBtnLogoutAgent( new Logout() );        
+        this.dashAgent.addListenerToBtnClearCust( new ClearCust() );        
+    }
+    
+        class CustProfile implements ActionListener {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        }
+
+        class SearchDest implements ActionListener {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        }
+
+        class LatestBooking implements ActionListener {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        }
+
+        class AllBooking implements ActionListener {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        }
+
+        class Logout implements ActionListener {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        }
+
     public void initialize() { 
 //        menuA.addListSelectionListener( new MenuSelect() ); //menu listener
 //        menuB.addListSelectionListener( new MenuSelect() ); //menu listener
 //        buildMenu(); 
     }
         
-//    private void buildMenu(){
-//        User currentUser = context.getCurrentSession().getCurrentUser();
-//                addToMenuList(new Card("Welcome " + currentUser.getUsername(), Card.CardType.HEADER, ""));
-//        switch ( currentUser.getRole() ) {
+    public void startView( context, view ) {
+        GenericView view = new GenericView( context ); //make target window/dashboard: This is Menu AND beside contents.
+        GenericControl dash = new GenericControl( context, view ); 
+//        dash.initialize();
+        view.setVisible(true);        
+    }
+
+
 //            case "Admin":
 //                
 //                addToMenuList(new ImgCard("id-card", "My Profile", Card.CardType.MENU, "ViewAdminProfile"));
-//                
-//                addToMenuList(new Card( "", Card.CardType.SEPARATOR, ""));
-//                
 //                addToMenuList(new ImgCard("add_location_alt", "Search Products", Card.CardType.MENU, "SearchProducts"));
 //                addToMenuList(new ImgCard("add_location_alt", "Search Packages", Card.CardType.MENU, "SearchPackages"));
 //                addToMenuList(new ImgCard("add_location_alt", "Search Destinations", Card.CardType.MENU, "SearchDestinations"));
-//                
-//                addToMenuList(new Card( "", Card.CardType.SEPARATOR, ""));
-//                
+//                             
 //                addToMenuList(new ImgCard("user-search-line", "Search Users", Card.CardType.MENU, "SearchForUser"));
 //                addToMenuList(new ImgCard("user-search-line", "Search Bookings", Card.CardType.MENU, "SearchForBooking"));
 //                try { addAdminTargetItems(); }
-//                catch ( Exception e ) { System.out.println("exception " + e ); }
-//                
-//                addToMenuList(new Card( "", Card.CardType.SEPARATOR, ""));
-//                
 //                buildSharedMenu();
 //                break;
+    
 //            case "Travel Agent":
-//        //        Agent Name Header
+
 //                addToMenuList(new ImgCard("id-card", "My Profile", Card.CardType.MENU, "ViewEmployeeProfile"));
 //                addToMenuList(new ImgCard("user-search-line", "Search Customers", Card.CardType.MENU, "SearchForCustomer"));
-//        //        Active Customer Name Header
 //                addToMenuList(new ImgCard("id-card", "Customer Profile", Card.CardType.MENU, "ViewCustomerProfile"));
 ////                addToMenuList(new Card("id-card", "Customer Profile", Card.CardType.MENU, "ViewCustomerProfile"));
 //                buildSharedMenu();
 //                break;
-////            case "Tour Guide":                
-//            case "Customer":
-//                addToMenuList(new ImgCard("id-card", "My Profile", Card.CardType.MENU, "ViewCustomerProfile"));
-//                buildSharedMenu();
-//                break;
-//            }
-//            System.out.println("menulist" + menuList.getFirst().getName() );
-//            System.out.println("menulist" + menuList.getFirst().getName() );
-            
-//            splitMenuLists();
-            
-        //refresh menu
-    }
     
-//    private void addToMenuList( Card item ){ menuList.addLast( item ); }
-//
-//    private void addToMenuList( String icon, String title, Card.CardType type, String action ){
-//        menuList.addLast( new ImgCard(icon, title, type, action) );
-//    }
-    
-//    private void splitMenuLists() {
-//        int listLength = menuList.size();
-//        int midpoint = ( listLength + 1) / 2 ;
-//        for ( int i = 0 ; i < midpoint ; i++ ) {
-//            menuA.addItem( menuList.removeFirst() );
-//        }
-//        for ( int i = midpoint ; i < listLength ; i++) {
-//            if ( menuList.size() == 0 ) { break; }
-//            menuB.addItem( menuList.removeFirst() );
-//        }
-//        menuA.repaint();
-//        menuB.repaint();
-//    }
-    
-//    private void buildSharedMenu(){
-//        addToMenuList(new ImgCard("world-search", "Packages", Card.CardType.MENU, "SearchPackages"));
-//        addToMenuList(new ImgCard("calendar_plus", "Latest", Card.CardType.MENU, "LastBooking"));
-////        addToMenuList(new Card("plans", "Plans", Card.CardType.MENU, "ViewFutureBookingsOrItinerary"));
-//        addToMenuList(new ImgCard("calendar_clock", "History", Card.CardType.MENU, "ViewBookings"));
-//        addToMenuList(new ImgCard("logout-box", "Logout", Card.CardType.MENU, "Logout"));
-//    }
-    
-//    class MenuSelect implements ListSelectionListener {
 
-//        @Override
-//        public void valueChanged(ListSelectionEvent e) {
-//            if (e.getValueIsAdjusting()) { return; }                
-//            
-//            Card itemA = menuA.getSelectedValue();
-//            Card itemB = menuB.getSelectedValue();
-//            Card item;
-//            
-//            if (itemA == null && itemB == null) { return; }
-//            else if ( itemA != null ) { item = itemA; }
-//            else { item = itemB; }
-//
-//            switch ( item.getTag()) {
-//                case "Logout":
-//                    logoutUser( context );
-//                    break;
-//                case "ViewBookings":
-//                    makeViewCustomerBookings( context );
-//                    break;
-//                case "LastBooking":
-//                    makeViewCustomerLastBooking( context );
-//                    break;
-//                case "SearchPackages":
-//                    makeViewPackageSearch( context );
-//                    break;
-//                case "ViewCustomerProfile":
-//                    makeViewProfile( context, false ); 
-//                    break;
-//                case "ViewEmployeeProfile":
-//                    makeViewProfile( context, true ); 
-//                    break;
-//                default:
-//                    System.out.println("Selection " + item.getTag()+ " has no valid target");
-//                    break;
-//            }
-//            menuA.clearSelection(); // clears selection after completing - makes act like a button instead of a selection list
-//            menuB.clearSelection(); // clears selection after completing - makes act like a button instead of a selection list
-//        }
 //    }
     
     private void addAdminTargetItems() throws AccessDeniedException, DuplicateTargetException{
@@ -176,7 +178,7 @@ public class DashboardControl<T> {
         } 
         else if ( employee != null ) {
 //            addToMenuList( new JLabel( "Active Employee: " + employee.getUsername(), Card.CardType.HEADER, "" ));
-            addToMenuList(new ImgCard("id-card", "Employee Profile", Card.CardType.MENU, "ViewEmployeeProfile"));
+//            addToMenuList(new ImgCard("id-card", "Employee Profile", Card.CardType.MENU, "ViewEmployeeProfile"));
         } 
         else { addAgentTargetItems( customer ); }
 
@@ -186,11 +188,11 @@ public class DashboardControl<T> {
         if ( customer != null ) { 
             //use customer option
 //            addToMenuList( "", "Active Customer: " + customer.getUsername(), Card.CardType.HEADER, "" );
-            addToMenuList(new ImgCard("id-card", "Customer Profile", Card.CardType.MENU, "ViewCustomerProfile"));
+//            addToMenuList(new ImgCard("id-card", "Customer Profile", Card.CardType.MENU, "ViewCustomerProfile"));
         } else {
             // NEW user when cleared
 //            addToMenuList( "", "No Active Customer", Card.CardType.HEADER, "" );
-            addToMenuList(new ImgCard("id-card", "New User", Card.CardType.MENU, "New User"));
+//            addToMenuList(new ImgCard("id-card", "New User", Card.CardType.MENU, "New User"));
         }   
     }
     
@@ -226,7 +228,7 @@ public class DashboardControl<T> {
             window.dispose();
         }
         Login loginView = new Login();
-        LoginControl loginControl = new LoginControl(context, loginView);
+        GenericControl loginControl = new GenericControl(context, loginView);
         loginView.setVisible(true);
     }
     
@@ -244,7 +246,7 @@ public class DashboardControl<T> {
         System.out.println("search products");
         //get the data & apply it? not sure if before or after creating the view/control
         ProductsGUI view = new ProductsGUI(); //new view
-        view.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
+        view.setDefaultCloseOperation(GenericView.DISPOSE_ON_CLOSE); 
 
         //associated controller
 //        DestinationsController packageControl = new DestinationsController( context, view ); 
@@ -260,7 +262,7 @@ public class DashboardControl<T> {
         //get the data & apply it? not sure if before or after creating the view/control
         ViewCustomerGUI view = new ViewCustomerGUI(); //new view
         //set to NOT close app when this window closes
-        view.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
+        view.setDefaultCloseOperation(GenericView.DISPOSE_ON_CLOSE); 
         //associated controller
 //        AddUserGUIPage1 userControl = new AddUserGUIPage1( context, view ); 
         view.setVisible(true); //make it visible

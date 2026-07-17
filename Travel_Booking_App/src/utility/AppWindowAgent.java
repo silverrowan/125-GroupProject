@@ -8,13 +8,12 @@ import view.dashboard.DashboardAgent;
  *
  * @author rowan
  */
-public class AppWindowAgent extends javax.swing.JFrame {
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AppWindowAgent.class.getName());
+public class AppWindowAgent extends GenericView {
     private AppContext context;
     
     public AppWindowAgent( AppContext context ) {
+        super( context );
         initComponents();
-        this.context = context;
         pnlDashAgent.revalidate();
         pnlDashAgent.repaint();
         
@@ -66,18 +65,24 @@ public class AppWindowAgent extends javax.swing.JFrame {
     
     // ---------------Listeners--------------------------
     //----------------Customer Section-------------------
-    public void addItemLIsOnListener( ActionListener loginListener ) {
-        getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnCustProfile().addActionListener( loginListener );
-        getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnSearchDest().addActionListener( loginListener );
-        getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnLatestBooking().addActionListener( loginListener );
-        getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnViewBooking().addActionListener( loginListener );
+    public void addListenerToBtnCustProfile( ActionListener loginListener ) {
+        getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnCustProfile().addActionListener( loginListener ); }
+    public void addListenerToBtnSearchDest( ActionListener loginListener ) {
+        getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnSearchDest().addActionListener( loginListener ); }
+    public void addListenerToBtnLatestBooking( ActionListener loginListener ) {
+        getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnLatestBooking().addActionListener( loginListener ); }
+    public void addListenerToBtnAllBooking( ActionListener loginListener ) {
+        getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnViewBooking().addActionListener( loginListener ); }
         
     //----------------Agent Section-------------------
-        getPnlDashAgent().getDashPanelAgent().getBtnAgentProfile().addActionListener( loginListener );
-        getPnlDashAgent().getDashPanelAgent().getBtnSearchCust().addActionListener( loginListener );
-        getPnlDashAgent().getDashPanelAgent().getBtnLogout().addActionListener( loginListener );
-        getPnlDashAgent().getDashPanelAgent().getBtnClearCust().addActionListener( loginListener );    
-    }
+    public void addListenerToBtnAgentProfile( ActionListener loginListener ) {
+        getPnlDashAgent().getDashPanelAgent().getBtnAgentProfile().addActionListener( loginListener ); }
+    public void addListenerToBtnSearchCust( ActionListener loginListener ) {
+        getPnlDashAgent().getDashPanelAgent().getBtnSearchCust().addActionListener( loginListener ); }
+    public void addListenerToBtnLogoutAgent( ActionListener loginListener ) {
+        getPnlDashAgent().getDashPanelAgent().getBtnLogout().addActionListener( loginListener ); }
+    public void addListenerToBtnClearCust( ActionListener loginListener ) {
+        getPnlDashAgent().getDashPanelAgent().getBtnClearCust().addActionListener( loginListener ); }
     
     /**
      * This method is called from within the constructor to initialize the form.
