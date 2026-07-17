@@ -114,7 +114,9 @@ public class DashboardControl extends GenericControl{
                 throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
             }
         }
-
+//----------------------------Listener Implementation--------------------------
+//-----------------------------------------------------------------------------
+        //Cust section
         class SearchDest implements ActionListener {
 
             @Override
@@ -147,18 +149,92 @@ public class DashboardControl extends GenericControl{
             }
         }
 
+        //Agent section
+        class AgentProfile implements ActionListener {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        }
+
+        class AdminProfile implements ActionListener {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        }
+
+        class SearchCust implements ActionListener {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        }
+
+        class ClearCust implements ActionListener {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        }
+
+        //Admin Section
+        class SearchProduct implements ActionListener {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        }
+
+        class SearchPackage implements ActionListener {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        }
+
+        class SearchDestAdmin implements ActionListener {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        }
+
+        class SearchTrip implements ActionListener {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        }
+
+        class SearchBooking implements ActionListener {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        }
+
     public void initialize() { 
 //        menuA.addListSelectionListener( new MenuSelect() ); //menu listener
 //        menuB.addListSelectionListener( new MenuSelect() ); //menu listener
 //        buildMenu(); 
     }
         
-    public void startView( context, view ) {
-        GenericView view = new GenericView( context ); //make target window/dashboard: This is Menu AND beside contents.
-        GenericControl dash = new GenericControl( context, view ); 
-//        dash.initialize();
-        view.setVisible(true);        
-    }
+//    public void startView( context, view ) {
+//        GenericView view = new GenericView( context ); //make target window/dashboard: This is Menu AND beside contents.
+//        GenericControl dash = new GenericControl( context, view ); 
+////        dash.initialize();
+//        view.setVisible(true);        
+//    }
 
 
 //            case "Admin":
