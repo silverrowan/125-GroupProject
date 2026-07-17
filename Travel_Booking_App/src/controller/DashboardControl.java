@@ -18,7 +18,6 @@ import view.Login;
 import view.ProductsGUI;
 import view.ViewCustomerGUI;
 import view.components.GradientPanel;
-import view.components.ListMenu;
 
 /**
  *
@@ -56,7 +55,7 @@ public class DashboardControl extends GenericControl{
     private Button btnLogout;
 
 
-    private ListMenu menuB;
+//    private ListMenu menuB;
 //    private LinkedList<Card> menuList = new LinkedList<Card>();
     
 //    public DashboardControl(){}

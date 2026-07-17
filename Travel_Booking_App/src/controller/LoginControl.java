@@ -3,11 +3,14 @@ package controller;
 import utility.AppContext;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import model.User;
+import utility.AppWindowAdmin;
 import utility.AppWindowAgent;
 import view.Login;
 import utility.AppWindowCust;
+import utility.GenericView;
 
 /**
  *
@@ -48,7 +51,6 @@ public class LoginControl {
                 //close login window
             }
         }
-    }
     
     class AddNewCustomer implements ActionListener {
 
@@ -88,8 +90,8 @@ public class LoginControl {
             JOptionPane.showMessageDialog(null, "a password is required, and must be at least 8 characters");
             throw new IllegalArgumentException("Password must be at least 8 characters"); }
 
-        loginUser = context.getUserDao().getUserFromUsername(username, password);
-
+        User loginUser = context.getUserDao().getUserFromUsername(username, password);
+        User activeUser;
 
         if ( loginUser == null ) { JOptionPane.showMessageDialog(null, "Username or password do not match, try again"); }
         else {
@@ -103,22 +105,28 @@ public class LoginControl {
     public void getDashboard() {
         String role = context.getCurrentUser().getRole();
         System.out.println("role: " + role);
-        JFrame view;
+//        GenericView view;
 
         if ( role.equals( "Admin" ) ) {
             System.out.println("entered admin if");
-            view = new AppWindowAdmin( context ); //make target window/dashboard: This is Menu AND beside contents.
+            AppWindowAdmin view = new AppWindowAdmin( context ); //make target window/dashboard: This is Menu AND beside contents.
+            DashboardControl dash = new DashboardControl( context, view ); 
+            dash.initialize();
+            view.setVisible(true); 
         } else if ( role.equals("Travel Agent") ) {
             System.out.println("entered Agent if");
-            view = new AppWindowAgent( context );
+            AppWindowAgent view = new AppWindowAgent( context );
+            DashboardControl dash = new DashboardControl( context, view );
+            dash.initialize();
+            view.setVisible(true); 
 //        } else if ( role.equals("Travel Guide") ) {
 //            //later
         } else {
             System.out.println("entered Cust/Other if");
-            view = new AppWindowCust( context );
-        }
-        DashboardControl dash = new DashboardControl( context, view ); 
-        dash.initialize();
-        view.setVisible(true);
-    }                
+            AppWindowCust view = new AppWindowCust( context );
+            DashboardControl dash = new DashboardControl( context, view );
+            dash.initialize();
+            view.setVisible(true); 
+        }   
+    }
 }

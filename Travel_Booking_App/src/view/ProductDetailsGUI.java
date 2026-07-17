@@ -4,6 +4,8 @@
  */
 package view;
 
+import controller.DestinationsController;
+
 /**
  *
  * @author kalei
@@ -22,7 +24,7 @@ public class ProductDetailsGUI extends javax.swing.JFrame {
 
     ProductDetailsGUI(int destinationID) {
         initComponents();
-        destinationsController = new DestinationsController();
+        DestinationsController destinationsController = new DestinationsController();
         loadDestinationDetails(destinationID);
     }
 

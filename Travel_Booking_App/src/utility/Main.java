@@ -47,27 +47,30 @@ public class Main {
 
         String role = context.getCurrentUser().getRole();
         System.out.println("role: " + role);
-        JFrame view;
+//        JFrame view;
         
         if ( role.equals( "Admin" ) ) {
             System.out.println("entered admin if");
-            view = new AppWindowAdmin( context ); //make target window/dashboard: This is Menu AND beside contents.
+            AppWindowAdmin view = new AppWindowAdmin( context ); //make target window/dashboard: This is Menu AND beside contents.
+            DashboardControl dash = new DashboardControl( context, view ); 
+            dash.initialize();
+            view.setVisible(true); 
         } else if ( role.equals("Travel Agent") ) {
             System.out.println("entered Agent if");
-            view = new AppWindowAgent( context );
+            AppWindowAgent view = new AppWindowAgent( context );
+            DashboardControl dash = new DashboardControl( context, view );
+            dash.initialize();
+            view.setVisible(true); 
 //        } else if ( role.equals("Travel Guide") ) {
 //            //later
         } else {
             System.out.println("entered Cust/Other if");
-            view = new AppWindowCust( context );
+            AppWindowCust view = new AppWindowCust( context );
+            DashboardControl dash = new DashboardControl( context, view );
+            dash.initialize();
+            view.setVisible(true);
         }
-        
-        System.out.println("view: " + view);
-        
-        DashboardControl dash = new DashboardControl( context, view ); 
-        dash.initialize();
-        view.setVisible(true);
-    }  
+    }
 }
 
 
