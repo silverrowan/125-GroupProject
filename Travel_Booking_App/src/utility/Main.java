@@ -37,7 +37,7 @@ public class Main {
     public static void directToDash(AppContext context) {
         User activeUser;
         User loginUser;
-        String username = "m";           
+        String username = "s";           
         String password = "123123123";
 
         activeUser = context.getUserDao().getUserFromUsername(username, password);
