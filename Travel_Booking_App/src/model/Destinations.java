@@ -28,7 +28,7 @@ public class Destinations {
     private float basePrice;
     private float activityFees;
     private float totalEstimatedCost;
-    private StatusType destinationStatus;
+    private String destinationStatus;
     //Composite Fields (not passed to database)
     private String fullAddress;
 
@@ -40,7 +40,7 @@ public class Destinations {
             String hotelCountry, String flightInfo, String busTrainInfo, 
             String transferDetails, String includedActivities, 
             String optionalActivities, int durationDays, int durationNights, 
-            float basePrice, float activityFees) {
+            float basePrice, float activityFees, String destinationStatus) {
         this.DestinationName = DestinationName;
         this.countryRegion = countryRegion;
         this.notes = notes;
@@ -62,43 +62,7 @@ public class Destinations {
         this.basePrice = basePrice;
         this.activityFees = activityFees;
         this.totalEstimatedCost = basePrice + activityFees;            
-    }
-    public Destinations(String DestinationName, String countryRegion, 
-            String notes, String hotelName, float hotel_rating, 
-            String hotelStreetNumber, String hotelStreetName, String hotelCity, 
-            String hotelProvinceRegion, String hotelPostalCode, 
-            String hotelCountry, String flightInfo, String busTrainInfo, 
-            String transferDetails, String includedActivities, 
-            String optionalActivities, int durationDays, int durationNights, 
-            float basePrice, float activityFees, StatusType destinationStatus) {
-        this( DestinationName, countryRegion, 
-                notes, hotelName, hotel_rating, 
-                hotelStreetNumber, hotelStreetName, hotelCity, 
-                hotelProvinceRegion, hotelPostalCode, 
-                hotelCountry, flightInfo, busTrainInfo, 
-                transferDetails, includedActivities, 
-                optionalActivities, durationDays, durationNights, 
-                basePrice, activityFees );
         this.destinationStatus = destinationStatus;
-    }
-    
-        public Destinations(String DestinationName, String countryRegion, 
-            String notes, String hotelName, float hotel_rating, 
-            String hotelStreetNumber, String hotelStreetName, String hotelCity, 
-            String hotelProvinceRegion, String hotelPostalCode, 
-            String hotelCountry, String flightInfo, String busTrainInfo, 
-            String transferDetails, String includedActivities, 
-            String optionalActivities, int durationDays, int durationNights, 
-            float basePrice, float activityFees, String destinationStatus) {
-        this( DestinationName, countryRegion, 
-                notes, hotelName, hotel_rating, 
-                hotelStreetNumber, hotelStreetName, hotelCity, 
-                hotelProvinceRegion, hotelPostalCode, 
-                hotelCountry, flightInfo, busTrainInfo, 
-                transferDetails, includedActivities, 
-                optionalActivities, durationDays, durationNights, 
-                basePrice, activityFees );
-        this.destinationStatus = StatusType.valueOf( destinationStatus );
     }
 
     public Destinations(String DestinationName, String countryRegion, 
@@ -273,7 +237,7 @@ public class Destinations {
     /**
      * @return the destinationStatus
      */
-    public StatusType getDestinationStatus() {
+    public String getDestinationStatus() {
         return destinationStatus;
     }
     
@@ -445,7 +409,7 @@ public class Destinations {
     /**
      * @param destinationStatus the destinationStatus to set
      */
-    public void setDestinationStatus(StatusType destinationStatus) {
+    public void setDestinationStatus(String destinationStatus) {
         this.destinationStatus = destinationStatus;
     }
     

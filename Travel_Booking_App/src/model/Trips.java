@@ -14,7 +14,7 @@ public class Trips {
     private Date departureDate;
     private Date returnDate;
     private int maxTravelers;
-    private tripStatusType tripStatus;
+    private String tripStatus;
 
     //CONSTRUCTORS
 
@@ -25,12 +25,12 @@ public class Trips {
         this.departureDate = departureDate;
         this.returnDate = returnDate;
         this.maxTravelers = maxTravelers;
-        this.tripStatus = tripStatusType.Upcoming;
+        this.tripStatus = "Upcoming";
     }
 
     public Trips(int destinationID, int assignedGuideEmployeeID, 
             String tripTitle, Date departureDate, Date returnDate, 
-            int maxTravelers, tripStatusType tripStatus) {
+            int maxTravelers, String tripStatus) {
         this.destinationID = destinationID;
         this.assignedGuideEmployeeID = assignedGuideEmployeeID;
         this.tripTitle = tripTitle;
@@ -96,7 +96,7 @@ public class Trips {
     /**
      * @return the tripStatus
      */
-    public tripStatusType getTripStatus() {
+    public String getTripStatus() {
         return tripStatus;
     }
 
@@ -150,7 +150,7 @@ public class Trips {
     /**
      * @param tripStatus the tripStatus to set
      */
-    public void setTripStatus(tripStatusType tripStatus) {
+    public void setTripStatus(String tripStatus) {
         this.tripStatus = tripStatus;
     }
 }
