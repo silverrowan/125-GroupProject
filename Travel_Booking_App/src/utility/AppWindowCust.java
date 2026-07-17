@@ -1,9 +1,5 @@
 package utility;
 
-import view.dashboard.DashboardMenu;
-import controller.UserControl;
-import dao.UserDAO;
-import view.AddUserGUIPage1;
 import view.components.PanelBorder;
 import view.dashboard.DashboardCustomer;
 

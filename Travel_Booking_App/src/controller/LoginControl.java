@@ -1,16 +1,13 @@
 package controller;
 
 import utility.AppContext;
-import dao.UserDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import model.User;
 import utility.AppWindowAgent;
-import view.AddUserGUIPage1;
 import view.Login;
 import utility.AppWindowCust;
-import view.dashboard.DashboardMenu;
 
 /**
  *

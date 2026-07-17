@@ -5,22 +5,14 @@ import utility.DuplicateTargetException;
 import java.awt.Window;
 import java.nio.file.AccessDeniedException;
 import java.util.LinkedList;
-import javax.naming.InvalidNameException;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import model.User;
 import view.models.Card;
-import utility.Session;
-import view.AddUserGUIPage1;
 import view.Login;
 import view.ProductsGUI;
 import view.ViewCustomerGUI;
-import utility.AppWindowCust;
 import view.components.GradientPanel;
 import view.components.ListMenu;
-import view.dashboard.DashboardMenu;
 import view.models.ImgCard;
 
 /**
