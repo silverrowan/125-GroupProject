@@ -1,25 +1,21 @@
 package utility;
 
-import view.DashboardMenu;
-import controller.AppContext;
-import controller.UserControl;
-import dao.UserDAO;
-import view.AddUserGUIPage1;
+import java.awt.event.ActionListener;
 import view.components.PanelBorder;
+import view.dashboard.DashboardCustomer;
 
 /**
  *
  * @author rowan
  */
-public class AppWindow extends javax.swing.JFrame {
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AppWindow.class.getName());
+public class AppWindowCust extends GenericView {
     private AppContext context;
     
-    public AppWindow( AppContext context ) {
+    public AppWindowCust( AppContext context ) {
+        super( context );
         initComponents();
-        this.context = context;
-        dashboardList.revalidate();
-        dashboardList.repaint();
+        pnlDashCust.revalidate();
+        pnlDashCust.repaint();
         
 //        this.session = session;
 //        setBackground( new Color(0, 0, 0, 0) ); //only works with undecorated frame
@@ -27,12 +23,12 @@ public class AppWindow extends javax.swing.JFrame {
     
      //Getter and Setters
 
-    public DashboardMenu getDashboardList() {
-        return dashboardList;
+    public DashboardCustomer getDashboardList() {
+        return pnlDashCust;
     }
 
-    public void setDashboardList(DashboardMenu dashboardList) {
-        this.dashboardList = dashboardList;
+    public void setDashboardList(DashboardCustomer pnlDashCust) {
+        this.pnlDashCust = pnlDashCust;
     }
 
     public AppContext getContext() {
@@ -44,15 +40,41 @@ public class AppWindow extends javax.swing.JFrame {
     }
 
     public PanelBorder getPnlAppWindow() {
-        return pnlAppWindow;
+        return pnlDashWind;
     }
 
     public void setPnlAppWindow(PanelBorder pnlAppWindow) {
-        this.pnlAppWindow = pnlAppWindow;
+        this.pnlDashWind = pnlAppWindow;
+    }
+
+    public DashboardCustomer getPnlDashCust() {
+        return pnlDashCust;
+    }
+
+    public void setPnlDashCust(DashboardCustomer pnlDashCust) {
+        this.pnlDashCust = pnlDashCust;
+    }
+
+    public PanelBorder getPnlDashWind() {
+        return pnlDashWind;
+    }
+
+    public void setPnlDashWind(PanelBorder pnlDashWind) {
+        this.pnlDashWind = pnlDashWind;
     }
     
-    
-    
+    // ---------------Listeners--------------------------
+    //----------------Customer Section-------------------
+    public void addListenerToBtnCustProfile( ActionListener loginListener ) {               
+        getPnlDashCust().getPnlDashCust().getBtnCustProfile().addActionListener( loginListener ); }
+    public void addListenerToBtnSearchDest( ActionListener loginListener ) {
+        getPnlDashCust().getPnlDashCust().getBtnSearchDest().addActionListener( loginListener ); }
+    public void addListenerToBtnLatestBooking( ActionListener loginListener ) {
+        getPnlDashCust().getPnlDashCust().getBtnLatestBooking().addActionListener( loginListener ); }
+    public void addListenerToBtnAllBooking( ActionListener loginListener ) {
+        getPnlDashCust().getPnlDashCust().getBtnViewBooking().addActionListener( loginListener ); }
+    public void addListenerToLogoutCust( ActionListener loginListener ) {
+        getPnlDashCust().getBtnLogout().addActionListener( loginListener ); }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -63,35 +85,35 @@ public class AppWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlAppWindow = new view.components.PanelBorder();
-        dashboardList = new view.DashboardMenu();
+        pnlDashWind = new view.components.PanelBorder();
+        pnlDashCust = new view.dashboard.DashboardCustomer();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        javax.swing.GroupLayout pnlAppWindowLayout = new javax.swing.GroupLayout(pnlAppWindow);
-        pnlAppWindow.setLayout(pnlAppWindowLayout);
-        pnlAppWindowLayout.setHorizontalGroup(
-            pnlAppWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlAppWindowLayout.createSequentialGroup()
-                .addComponent(dashboardList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+        javax.swing.GroupLayout pnlDashWindLayout = new javax.swing.GroupLayout(pnlDashWind);
+        pnlDashWind.setLayout(pnlDashWindLayout);
+        pnlDashWindLayout.setHorizontalGroup(
+            pnlDashWindLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDashWindLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(pnlDashCust, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        pnlAppWindowLayout.setVerticalGroup(
-            pnlAppWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dashboardList, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
+        pnlDashWindLayout.setVerticalGroup(
+            pnlDashWindLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlDashCust, javax.swing.GroupLayout.DEFAULT_SIZE, 451, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlAppWindow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(pnlDashWind, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlAppWindow, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlDashWind, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -123,7 +145,7 @@ public class AppWindow extends javax.swing.JFrame {
 //        java.awt.EventQueue.invokeLater(() -> {
 //            
 //            AppContext session = new AppContext();
-//            AppWindow app = new AppWindow( session );
+//            AppWindowCust app = new AppWindowCust( session );
 //            app.setVisible(true);
 //            
 //            /*temporary while working on things - add user GUI */
@@ -136,7 +158,7 @@ public class AppWindow extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private view.DashboardMenu dashboardList;
-    private view.components.PanelBorder pnlAppWindow;
+    private view.dashboard.DashboardCustomer pnlDashCust;
+    private view.components.PanelBorder pnlDashWind;
     // End of variables declaration//GEN-END:variables
 }

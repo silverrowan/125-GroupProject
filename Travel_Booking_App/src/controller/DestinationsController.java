@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controller;
 
 
@@ -75,10 +71,10 @@ public class DestinationsController {
     public boolean addDestination(Destinations destination) {
         validateDestination(destination);
 
-        if (destination.getDestinationStatus() == null
-                || destination.getDestinationStatus().isBlank()) {
-            destination.setDestinationStatus("Available");
-        }
+//        if (destination.getDestinationStatus() == null
+//                || destination.getDestinationStatus().isBlank()) {
+//            destination.setDestinationStatus("Available");
+//        }
 
         calculateTotalEstimatedCost(destination);
 
@@ -212,7 +208,7 @@ public class DestinationsController {
             );
         }
 
-        String status = destination.getDestinationStatus();
+        String status = destination.getDestinationStatus().toString();
 
         if (status != null
                 && !status.isBlank()
