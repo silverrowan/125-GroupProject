@@ -1,25 +1,21 @@
 package utility;
 
-import view.dashboard.DashboardMenu;
-import controller.UserControl;
-import dao.UserDAO;
-import view.AddUserGUIPage1;
 import view.components.PanelBorder;
-import view.dashboard.DashboardCustomer;
+import view.dashboard.DashboardAdmin;
 
 /**
  *
  * @author rowan
  */
-public class AppWindow extends javax.swing.JFrame {
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AppWindow.class.getName());
+public class AppWindowAdmin extends javax.swing.JFrame {
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AppWindowAdmin.class.getName());
     private AppContext context;
     
-    public AppWindow( AppContext context ) {
+    public AppWindowAdmin( AppContext context ) {
         initComponents();
         this.context = context;
-        pnlDashCust.revalidate();
-        pnlDashCust.repaint();
+        pnlDashAdmin.revalidate();
+        pnlDashAdmin.repaint();
         
 //        this.session = session;
 //        setBackground( new Color(0, 0, 0, 0) ); //only works with undecorated frame
@@ -27,12 +23,12 @@ public class AppWindow extends javax.swing.JFrame {
     
      //Getter and Setters
 
-    public DashboardCustomer getDashboardList() {
-        return pnlDashCust;
+    public DashboardAdmin getDashboardList() {
+        return pnlDashAdmin;
     }
 
-    public void setDashboardList(DashboardCustomer pnlDashCust) {
-        this.pnlDashCust = pnlDashCust;
+    public void setDashboardList(DashboardAdmin pnlDashAdmin) {
+        this.pnlDashAdmin = pnlDashAdmin;
     }
 
     public AppContext getContext() {
@@ -64,7 +60,7 @@ public class AppWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlDashWind = new view.components.PanelBorder();
-        pnlDashCust = new view.dashboard.DashboardCustomer();
+        pnlDashAdmin = new view.dashboard.DashboardAdmin();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -74,15 +70,15 @@ public class AppWindow extends javax.swing.JFrame {
         pnlDashWind.setLayout(pnlDashWindLayout);
         pnlDashWindLayout.setHorizontalGroup(
             pnlDashWindLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDashWindLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(pnlDashCust, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pnlDashWindLayout.createSequentialGroup()
+                .addComponent(pnlDashAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlDashWindLayout.setVerticalGroup(
             pnlDashWindLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDashWindLayout.createSequentialGroup()
-                .addComponent(pnlDashCust, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addComponent(pnlDashAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -138,7 +134,7 @@ public class AppWindow extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private view.dashboard.DashboardCustomer pnlDashCust;
+    private view.dashboard.DashboardAdmin pnlDashAdmin;
     private view.components.PanelBorder pnlDashWind;
     // End of variables declaration//GEN-END:variables
 }

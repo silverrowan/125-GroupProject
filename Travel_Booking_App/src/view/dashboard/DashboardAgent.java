@@ -53,6 +53,9 @@ public class DashboardAgent extends GradientPanel {
     public void setLblLogo(JLabel lblLogo) {
         this.lblLogo = lblLogo;
     }
+    
+    public DashPanelAgent getDashPanel(){ return dashPanelAgent; }
+    public void DashPanelAgent( DashPanelAgent panel ){ this.dashPanelAgent = panel; }
 
 //    public ListMenu getMenuListA() { return menuListB; }
 //    public void setMenuListA(ListMenu menuList) {
@@ -97,7 +100,7 @@ public class DashboardAgent extends GradientPanel {
 
         pnlLogo = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
-        dashPanelAgent1 = new view.dashboard.DashPanelAgent();
+        dashPanelAgent = new view.dashboard.DashPanelAgent();
 
         pnlLogo.setOpaque(false);
 
@@ -130,7 +133,7 @@ public class DashboardAgent extends GradientPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnlLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(dashPanelAgent1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(dashPanelAgent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -138,7 +141,7 @@ public class DashboardAgent extends GradientPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
-                .addComponent(dashPanelAgent1, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dashPanelAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -157,7 +160,7 @@ public class DashboardAgent extends GradientPanel {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private view.dashboard.DashPanelAgent dashPanelAgent1;
+    private view.dashboard.DashPanelAgent dashPanelAgent;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JPanel pnlLogo;
     // End of variables declaration//GEN-END:variables
