@@ -66,6 +66,7 @@ public class DashboardControl extends GenericControl{
 
     public DashboardControl( AppContext context, AppWindowCust dashCust ){
         this( context, dashCust, 99 );
+        this.dashCust = (AppWindowCust) getView();        
         this.dashCust.addListenerToBtnCustProfile( new CustProfile() );
         this.dashCust.addListenerToBtnSearchDest( new SearchDest() );
         this.dashCust.addListenerToBtnLatestBooking( new LatestBooking() );
@@ -75,6 +76,7 @@ public class DashboardControl extends GenericControl{
     
     public DashboardControl( AppContext context, AppWindowAgent dashAgent ){
         this( context, dashAgent, 99 );
+        this.dashAgent = (AppWindowAgent) getView();        
         //--cust section--
         this.dashAgent.addListenerToBtnCustProfile( new CustProfile() );
         this.dashAgent.addListenerToBtnSearchDest( new SearchDest() );
@@ -87,8 +89,9 @@ public class DashboardControl extends GenericControl{
         this.dashAgent.addListenerToBtnClearCust( new ClearCust() );        
     }
     
-    public DashboardControl( AppContext context, AppWindowAdmin dashAdmin ){
-        this( context, dashAdmin, 99 );
+    public DashboardControl( AppContext contextOuter, AppWindowAdmin dashAdminOuter ){
+        this( contextOuter, dashAdminOuter, 99 );
+        this.dashAdmin = (AppWindowAdmin) getView();
         //--cust section--
         this.dashAdmin.addListenerToBtnCustProfile( new CustProfile() );
         this.dashAdmin.addListenerToBtnSearchDest( new SearchDest() );

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
 package controller;
 
@@ -14,12 +10,19 @@ import utility.GenericView;
  * @author Mariah Malczewska
  */
 public class GenericControl {
-    private final AppContext context;
-    private final JFrame view;
+    private AppContext appcontext;
+    private JFrame view;
 
-    public GenericControl( AppContext context, JFrame view ) {
-        this.context = context;
+    public GenericControl( AppContext appcontext, JFrame view ) {
+        this.appcontext = appcontext;
         this.view = view;
-    }    
+    }
+
+    public AppContext getAppcontext() { return appcontext; }
+    public void setAppcontext(AppContext appcontext) { this.appcontext = appcontext; }
+
+    public JFrame getView() { return view; }
+    public void setView(JFrame view) { this.view = view; }
+    
     
 }
