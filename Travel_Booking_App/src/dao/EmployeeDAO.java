@@ -18,11 +18,11 @@ import utility.DBConnection;
 public class EmployeeDAO {
 
     public static Employee addNewEmployee(User user, int userID) {
-        user = UserDAO.addNewUser(user);
+//        user = userDAO.addNewUser(user);
 
         String query = "INSERT INTO customers ( user_id ) VALUES (?,?);";
         
-        try ( Connection link = DBConnection.getConnnection(); 
+        try ( Connection link = DBConnection.getConnection(); 
             PreparedStatement p = link.prepareStatement(query, Statement.RETURN_GENERATED_KEYS); )
         {
             p.setInt(1, user.getUserID() );

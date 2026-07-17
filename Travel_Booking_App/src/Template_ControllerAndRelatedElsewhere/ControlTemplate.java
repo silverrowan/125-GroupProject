@@ -6,9 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.SingleSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import model.gui.Model_MenuItem;
 import view.ProductsGUI;
-import view.components.AppWindow;
+import utility.AppWindowCust;
+import utility.GenericView;
 
 /**
  *
@@ -18,15 +18,15 @@ public class ControlTemplate {
     private AppContextPlaceholder context;
     //private filds for each related view, format:
     //private ViewClassName view;  eg:
-    private AppWindow dashWindow;
+    private AppWindowCust dashWindow;
     // next line is for a helper - this is for the subview; 
     // don't pass into the constructer, pull out of the relevant view (dashWindow) 
     // once its parent is passed in
     private Object panelView; 
-    private FrameGUITemplate frameView; 
+    private GenericView frameView; 
     
     // EACH view that this interacts with will need its own Constructor
-    public ControlTemplate( AppContextPlaceholder context, AppWindow dashWindow ) { 
+    public ControlTemplate( AppContextPlaceholder context, AppWindowCust dashWindow ) { 
         this.context = context;
         this.dashWindow = dashWindow;
         this.panelView = dashWindow.getDashboardList(); // helper - gets the subview
@@ -37,7 +37,7 @@ public class ControlTemplate {
         demoBuild(); // any build functions you define in here      
         
     // ATTACH the listener you will create in its own subclass - this one is for listening in a list
-        frameView.getListMenuCustomer().addListSelectionListener( new MenuListSelect() ); 
+//        frameView.getListMenuCustomer().addListSelectionListener( new MenuListSelect() ); 
         //attach a button listener
 //        this.loginView.addLoginBtnListener( new LoginControl.LogInUser() );      
     }
@@ -71,7 +71,7 @@ public class ControlTemplate {
             int item = itemList.getSelectedIndex(); // this pair version makes clearing later easier if long chain
             
 //            or ...
-            String item2 = frameView.getListMenuCustomer().getSelectedValue(); 
+//            String item2 = frameView.getListMenuCustomer().getSelectedValue(); 
                 // "Model_MenuItem" is the Class used for the frameView items - gets the item clicked on
                 // getMenuList() must be defined in the view frameView references (FrameGUITemplate)
             
@@ -90,7 +90,7 @@ public class ControlTemplate {
 //            }
             
             itemList.clearSelection(); // clears selection after completing - for LIST listeners makes act like a button; dont use if dont want that
-            frameView.getListMenuCustomer().clearSelection(); 
+//            frameView.getListMenuCustomer().clearSelection(); 
 
         }
         

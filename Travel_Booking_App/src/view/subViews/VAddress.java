@@ -4,6 +4,8 @@
  */
 package view.subViews;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author C0350261
@@ -15,6 +17,13 @@ public class VAddress extends javax.swing.JPanel {
      */
     public VAddress() {
         initComponents();
+    }
+    
+    public String getAddressText() { return txtFullAddress.getText(); } // get current content?
+    public void onSubmit(ActionListener listener) {
+    }
+    public void updateAddressText(String text) {
+        txtFullAddress.setText( text );
     }
 
     /**

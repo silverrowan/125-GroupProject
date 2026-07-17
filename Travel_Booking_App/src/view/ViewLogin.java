@@ -22,7 +22,11 @@ public class ViewLogin extends javax.swing.JFrame {
         initComponents();
         
         UserDAO userDao = new UserDAO();
-        LoginControl activeControl = new LoginControl(userDao, this);
+//        ----------------------------------------------------------------------
+//        NOTE: anything that calls a vie shoudl initiate the control
+//        VIEW doesnt see the control (or DAO)
+//        old code: LoginControl activeControl = new LoginControl(context, this); 
+//        ----------------------------------------------------------------------
         this.setSize(679,422);
         this.setLocationRelativeTo(null);
         this.setResizable(false);

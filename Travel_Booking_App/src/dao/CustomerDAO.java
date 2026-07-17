@@ -20,11 +20,11 @@ public class CustomerDAO {
     public CustomerDAO(){}
     
     public static Customer addNewCustomer(User user) {
-        user = UserDAO.addNewUser(user);
+//        user = userDAO.addNewUser(user);
 
         String query = "INSERT INTO customers ( user_id ) VALUES (?,?);";
         
-        try ( Connection link = DBConnection.getConnnection(); 
+        try ( Connection link = DBConnection.getConnection(); 
             PreparedStatement p = link.prepareStatement(query, Statement.RETURN_GENERATED_KEYS); )
         {
             p.setInt(1, user.getUserID() );

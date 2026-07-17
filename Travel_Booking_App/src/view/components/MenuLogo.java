@@ -28,7 +28,7 @@ public class MenuLogo extends javax.swing.JPanel {
     private void initComponents() {
 
         lblLogo = new javax.swing.JLabel();
-        model_lblScales1 = new model.gui.Model_lblScales();
+        model_lblScales1 = new view.models.Model_lblScales();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -46,6 +46,6 @@ public class MenuLogo extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lblLogo;
-    private model.gui.Model_lblScales model_lblScales1;
+    private view.models.Model_lblScales model_lblScales1;
     // End of variables declaration//GEN-END:variables
 }

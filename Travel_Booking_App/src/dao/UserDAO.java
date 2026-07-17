@@ -12,17 +12,17 @@ import java.sql.Statement;
 
 /**
  *
- * @author rowan
+ * @author rowan (mariah), max
  */
 public class UserDAO {
 //    private User user;
     
     public UserDAO(){}
 
-    public static User addNewUser(User user) {
+    public User addNewUser(User user) {
         String query = "INSERT INTO users (username, password, first_name, last_name, email, role, phone) VALUES (?,?,?,?,?,?,?);";
         
-        try ( Connection link = DBConnection.getConnnection(); 
+        try ( Connection link = DBConnection.getConnection(); 
             PreparedStatement p = link.prepareStatement(query, Statement.RETURN_GENERATED_KEYS); )
         {
             p.setString( 1, user.getUsername() );
@@ -35,11 +35,17 @@ public class UserDAO {
             
             int row = p.executeUpdate();
             
+            System.out.println("Rows inserted: " + row);
+            System.out.println(link.getMetaData().getURL());
+            System.out.println("Database: " + link.getCatalog());
+            
             if ( row > 0 ) { 
                 ResultSet rs = p.getGeneratedKeys();
                 if (rs.next()) {
                     int idGen = rs.getInt(1); //get int in column 1 of DB table
                     user.setuserID(idGen);
+                    
+                    System.out.println("Generated ID: " + user.getUserID() );
                     return user; 
                 }
             }
@@ -49,14 +55,15 @@ public class UserDAO {
         return null;
     }
     
-//    activeUser = UserDAO.getUserFromUsername(username, password);
-    public static User getUserFromUsername(String username, String password){
+//    activeUser = UserDAO.getUserFromUsername(username, password);\
+    
+    public User getUserFromUsername(String username, String password){ //rename to CHECK LOGIN 
         String query = "SELECT user_id, password, username, first_name, last_name," + 
                 "role, email, phone, street_number, street_name, city, province," +
                 "postal_code, country, account_status FROM users " +
                 "WHERE username = ? AND password = BINARY ? ;" ;
         
-        try ( Connection link = DBConnection.getConnnection(); 
+        try ( Connection link = DBConnection.getConnection(); 
             PreparedStatement p = link.prepareStatement(query); ) 
         {
             p.setString(1, username);
@@ -73,13 +80,35 @@ public class UserDAO {
         return null; 
     }
     
-    public static User makeUserObj(ResultSet rs) throws SQLException{
+//        public User getUserFromUsername(String username){
+//        String query = "SELECT user_id, password, username, first_name, last_name," + 
+//                "role, email, phone, street_number, street_name, city, province," +
+//                "postal_code, country, account_status FROM users " +
+//                "WHERE username = ? ;";
+//        
+//        try ( Connection link = DBConnection.getConnnection(); 
+//            PreparedStatement p = link.prepareStatement(query); ) 
+//        {
+//            p.setString(1, username);
+//            
+//            ResultSet rs = p.executeQuery();
+//            if (rs.next()) {
+//                User user = makeUserObj(rs);
+//                return user;
+//            }
+//        }
+//        catch ( SQLException e ) { e.printStackTrace(); }
+//        catch ( Exception e ) { e.printStackTrace(); }
+//        return null; 
+//    }
+    
+    public User makeUserObj(ResultSet rs) throws SQLException{
         User user = new User();
         user.setuserID( rs.getInt("user_id" ));
         user.setUsername( rs.getString("username") );
         user.setPassword( rs.getString("password") );
         user.setFirstName( rs.getString("first_name") );
-        user.setFirstName( rs.getString("last_name") );
+        user.setLastName( rs.getString("last_name") );
         user.setRole( rs.getString("role") );
         user.setEmail( rs.getString("email") );
         user.setPhone( rs.getString("phone") );

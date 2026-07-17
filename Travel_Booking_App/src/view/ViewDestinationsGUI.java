@@ -1,15 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 import model.*;
+import view.subViews.EDestinationSummary;
+import view.subViews.VAddress;
+import view.subViews.VTravelMethod;
+import view.subViews.VActivities;
 
 /**
  *
  * @author rowan
  */
 public class ViewDestinationsGUI extends javax.swing.JFrame {
+//    private final eSummarySubview summarySubview = new eSummarySubview();
+//    private final vAddressSubview addressSubview = new vAddressSubview();
+//    private final vTravelSubview travelSubview = new vTravelSubview();
+//    private final vActivitiesSubview activitiesSubview = new vActivitiesSubview();
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ViewDestinationsGUI.class.getName());
 
@@ -20,6 +24,11 @@ public class ViewDestinationsGUI extends javax.swing.JFrame {
         initComponents();
     }
 
+    public EDestinationSummary getSummarySubview() { return eSummarySubview; }
+    public VAddress getAddressSubview() { return vAddressSubview; }
+    public VTravelMethod getTravelSubview() { return vTravelSubview; }
+    public VActivities getActivitiesSubview() { return vActivitiesSubview; }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,10 +43,10 @@ public class ViewDestinationsGUI extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         pnlDestinationCombined = new javax.swing.JPanel();
         btnFindTrips = new javax.swing.JButton();
-        vHotelInfo1 = new view.subViews.VAddress();
-        vTravelMethod1 = new view.subViews.VTravelMethod();
-        vActivities1 = new view.subViews.VActivities();
-        eDestinationSummary1 = new view.subViews.EDestinationSummary();
+        vAddressSubview = new view.subViews.VAddress();
+        vTravelSubview = new view.subViews.VTravelMethod();
+        vActivitiesSubview = new view.subViews.VActivities();
+        eSummarySubview = new view.subViews.EDestinationSummary();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -58,23 +67,23 @@ public class ViewDestinationsGUI extends javax.swing.JFrame {
         pnlDestinationCombinedLayout.setHorizontalGroup(
             pnlDestinationCombinedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnFindTrips, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(vHotelInfo1, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
-            .addComponent(vTravelMethod1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(vActivities1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(eDestinationSummary1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(vAddressSubview, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
+            .addComponent(vTravelSubview, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(vActivitiesSubview, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(eSummarySubview, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnlDestinationCombinedLayout.setVerticalGroup(
             pnlDestinationCombinedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDestinationCombinedLayout.createSequentialGroup()
-                .addComponent(eDestinationSummary1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(eSummarySubview, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnFindTrips)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(vHotelInfo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(vAddressSubview, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(vTravelMethod1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(vTravelSubview, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(vActivities1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(vActivitiesSubview, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -126,13 +135,13 @@ public class ViewDestinationsGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFindTrips;
-    private view.subViews.EDestinationSummary eDestinationSummary1;
+    private view.subViews.EDestinationSummary eSummarySubview;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel pnlDestinationCombined;
-    private view.subViews.VActivities vActivities1;
-    private view.subViews.VAddress vHotelInfo1;
-    private view.subViews.VTravelMethod vTravelMethod1;
+    private view.subViews.VActivities vActivitiesSubview;
+    private view.subViews.VAddress vAddressSubview;
+    private view.subViews.VTravelMethod vTravelSubview;
     // End of variables declaration//GEN-END:variables
 }

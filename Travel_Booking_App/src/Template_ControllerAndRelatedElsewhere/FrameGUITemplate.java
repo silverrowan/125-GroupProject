@@ -40,13 +40,13 @@ public class FrameGUITemplate extends javax.swing.JFrame {
     public JTextField getjTextField1() { return jTextField1; }
     public void setjTextField1(JTextField jTextField1) { this.jTextField1 = jTextField1; }
 
-    public ListMenu<String> getListMenuCustomer() {
-        return listMenuCustomer;
-    }
-
-    public void setListMenuCustomer(ListMenu<String> listMenuCustomer) {
-        this.listMenuCustomer = listMenuCustomer;
-    }
+//    public ListMenu<String> getListMenuCustomer() {
+//        return listMenuCustomer;
+//    }
+//
+//    public void setListMenuCustomer(ListMenu<String> listMenuCustomer) {
+//        this.listMenuCustomer = listMenuCustomer;
+//    }
    
     
     
@@ -75,7 +75,6 @@ public class FrameGUITemplate extends javax.swing.JFrame {
 
         panelDemo1 = new Template_ControllerAndRelatedElsewhere.PanelDemo();
         jTextField1 = new javax.swing.JTextField();
-        listMenuCustomer = new view.components.ListMenu<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 255));
@@ -83,8 +82,6 @@ public class FrameGUITemplate extends javax.swing.JFrame {
         panelDemo1.setBackground(new java.awt.Color(204, 255, 204));
 
         jTextField1.setText("jTextField1");
-
-        listMenuCustomer.setBackground(new java.awt.Color(242, 242, 242));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -95,9 +92,7 @@ public class FrameGUITemplate extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelDemo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextField1))
-                .addGap(61, 61, 61)
-                .addComponent(listMenuCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(212, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,11 +101,7 @@ public class FrameGUITemplate extends javax.swing.JFrame {
                 .addComponent(panelDemo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(listMenuCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 528, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(249, Short.MAX_VALUE))
         );
 
         pack();
@@ -154,7 +145,6 @@ public class FrameGUITemplate extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField jTextField1;
-    private view.components.ListMenu<String> listMenuCustomer;
     private Template_ControllerAndRelatedElsewhere.PanelDemo panelDemo1;
     // End of variables declaration//GEN-END:variables
 }

@@ -318,8 +318,8 @@
               <StringArray count="4">
                 <StringItem index="0" value="Customer"/>
                 <StringItem index="1" value="Admin"/>
-                <StringItem index="2" value="Employee"/>
-                <StringItem index="3" value="Tour guide"/>
+                <StringItem index="2" value="Travel Agent"/>
+                <StringItem index="3" value="Tour Guide"/>
               </StringArray>
             </Property>
           </Properties>

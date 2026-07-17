@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="opaque" type="boolean" value="false"/>
+  </Properties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnLogout" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnSearchCust" alignment="0" pref="253" max="32767" attributes="0"/>
+                  <Component id="btnAgentProfile" alignment="1" max="32767" attributes="0"/>
+                  <Component id="lblUser" alignment="1" max="32767" attributes="0"/>
+                  <Component id="btnClearCust" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+          </Group>
+          <Component id="pnlDashCust" alignment="0" pref="0" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Component id="lblUser" min="-2" pref="47" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Component id="btnAgentProfile" min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Component id="btnSearchCust" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Component id="btnLogout" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="14" max="32767" attributes="0"/>
+              <Component id="pnlDashCust" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="14" max="32767" attributes="0"/>
+              <Component id="btnClearCust" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="lblUser">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="temp"/>
+      </Properties>
+    </Component>
+    <Component class="view.models.ButtonBase" name="btnAgentProfile">
+      <Properties>
+        <Property name="actionCommand" type="java.lang.String" value="searchTrips"/>
+        <Property name="label" type="java.lang.String" value="My Profile"/>
+      </Properties>
+    </Component>
+    <Component class="view.models.ButtonBase" name="btnSearchCust">
+      <Properties>
+        <Property name="actionCommand" type="java.lang.String" value="searchCustomer"/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="cc" red="ff" type="rgb"/>
+        </Property>
+        <Property name="label" type="java.lang.String" value="Search Customers"/>
+      </Properties>
+    </Component>
+    <Component class="view.models.ButtonBase" name="btnLogout">
+      <Properties>
+        <Property name="actionCommand" type="java.lang.String" value="Logout"/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ef" green="ee" red="bd" type="rgb"/>
+        </Property>
+        <Property name="label" type="java.lang.String" value="Logout"/>
+      </Properties>
+    </Component>
+    <Component class="view.dashboard.DashPanelCustomer" name="pnlDashCust">
+    </Component>
+    <Component class="view.models.ButtonBase" name="btnClearCust">
+      <Properties>
+        <Property name="actionCommand" type="java.lang.String" value="ClearCust"/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ef" green="ee" red="bd" type="rgb"/>
+        </Property>
+        <Property name="label" type="java.lang.String" value="Clear Customer"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>

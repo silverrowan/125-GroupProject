@@ -28,6 +28,15 @@ public class Employee {
         this.userID = userID;
     }
 
+    // required constructor
+    public Employee(int employeeID, int userID) {
+        this.employeeID = employeeID;
+        this.userID = userID;
+    }
+    
+    //emum field options
+    public static enum statusType { Active, Inactive }    
+    
     // getters and setters
     public int getEmployeeID() {
         return employeeID;

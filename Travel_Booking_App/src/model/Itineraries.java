@@ -20,20 +20,20 @@ public class Itineraries {
     private String transportationDetails;
     private String activitySchedule;
     private String guideNotes;
-    private String activityStatus;
+    private activityStatusType activityStatus;
     private Date lastUpdated;   
 
     //CONSTRUCTORS
     public Itineraries(int bookingID) {
         this.bookingID = bookingID;
-        this.activityStatus = "Not Started";
+        this.activityStatus = activityStatusType.NotStarted;
         // gets current timestamp and converts it into correct date format
         this.lastUpdated = java.util.Date.from( Instant.now() );
     }
 
     public Itineraries(int bookingID, String itinerarySummary, 
             String hotelDetails, String transportationDetails, 
-            String activitySchedule, String guideNotes, String activityStatus, 
+            String activitySchedule, String guideNotes, activityStatusType activityStatus, 
             Date lastUpdated) {
         this.bookingID = bookingID;
         this.itinerarySummary = itinerarySummary;
@@ -46,7 +46,8 @@ public class Itineraries {
         this.lastUpdated = java.util.Date.from( Instant.now() );
     }
     
-    
+    //emum field options
+    public static enum activityStatusType { NotStarted, InProgress, Completed } // not exact database match    
     
     //GETTERS
     /**
@@ -101,7 +102,7 @@ public class Itineraries {
     /**
      * @return the activityStatus
      */
-    public String getActivityStatus() {
+    public activityStatusType getActivityStatus() {
         return activityStatus;
     }
 
@@ -158,7 +159,7 @@ public class Itineraries {
     /**
      * @param activityStatus the activityStatus to set
      */
-    public void setActivityStatus(String activityStatus) {
+    public void setActivityStatus(activityStatusType activityStatus) {
         this.activityStatus = activityStatus;
     }
 

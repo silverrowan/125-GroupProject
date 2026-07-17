@@ -1,5 +1,6 @@
 package controller;
 
+import utility.AppContext;
 import dao.UserDAO;
 import view.AddUserGUIPage1;
 import model.User;
@@ -9,6 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import model.Customer;
 import model.Employee;
+import dao.UserDAO;
 
 
 /**
@@ -16,7 +18,8 @@ import model.Employee;
  * @author rowan
  */
 public class UserControl {
-    private UserDAO userDao;
+    private AppContext context;
+    private UserDAO userDAO;
     private AddUserGUIPage1 userView;
 //    private UserService userService;
     
@@ -28,9 +31,10 @@ public class UserControl {
 //        this.userView.addNextBtnListener( new AddUserRecord() );
 //    }
    
-    public UserControl( UserDAO userDao, AddUserGUIPage1 userView ) {
-        this.userDao = userDao;
+    public UserControl( AppContext context, AddUserGUIPage1 userView ) {
+        this.context = context;
         this.userView = userView;
+        userDAO = context.getUserDao();
         
         this.userView.addNextBtnListener( new AddUserRecord() );
     }
@@ -64,7 +68,7 @@ public class UserControl {
 //                Employee emp = new Employee(user, getID(user)); 
 //            }
 //            boolean isSuccess = UserDAO.addNewUser(user);
-            user = UserDAO.addNewUser(user);
+            user = userDAO.addNewUser(user);
 
             if ( !(user == null) ) { JOptionPane.showMessageDialog(null, "User created successfully"); }
             else { JOptionPane.showMessageDialog(null, "User was not created"); }
@@ -73,7 +77,7 @@ public class UserControl {
 
 
 // Validation Helper Functions
-    public static boolean validateRole(Object roleObj) {
+    public boolean validateRole(Object roleObj) {
         String role = null;
         boolean validRole = false;
 
@@ -87,20 +91,20 @@ public class UserControl {
         } else { return false; }
     }
     
-    public static boolean validateUsername(String username) { 
+    public boolean validateUsername(String username) { 
         return !( username == null || username.isEmpty() ); 
     }
-    public static boolean validateFirstName(String firstName) { 
+    public boolean validateFirstName(String firstName) { 
         return !( firstName == null || firstName.isEmpty() );
     }
-    public static boolean validateLastName(String lastName) { 
+    public boolean validateLastName(String lastName) { 
         return !( lastName == null || lastName.isEmpty() ); 
     }
-    public static boolean validateEmail(String email) { 
+    public boolean validateEmail(String email) { 
         return !( email == null || email.isEmpty() ); 
     }
 
-    public static boolean validatePassword(String password) { 
+    public boolean validatePassword(String password) { 
         return !(password == null || password.isEmpty() || password.length() < 8);
     }
     
@@ -108,6 +112,6 @@ public class UserControl {
     //        if ( email == LETTERS@LETTERS.LETTERS -- note where 'letters' incl _-.) { throw new IllegalArgumentException("Please enter a valid email"); }
 
     
-    public static boolean validatePhone(String phone) { return true; }
+    public boolean validatePhone(String phone) { return true; }
     
 }

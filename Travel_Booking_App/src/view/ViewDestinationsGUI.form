@@ -65,24 +65,24 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="btnFindTrips" max="32767" attributes="0"/>
-              <Component id="vHotelInfo1" pref="458" max="32767" attributes="0"/>
-              <Component id="vTravelMethod1" alignment="0" max="32767" attributes="0"/>
-              <Component id="vActivities1" max="32767" attributes="0"/>
-              <Component id="eDestinationSummary1" alignment="0" max="32767" attributes="0"/>
+              <Component id="vAddressSubview" pref="458" max="32767" attributes="0"/>
+              <Component id="vTravelSubview" alignment="0" max="32767" attributes="0"/>
+              <Component id="vActivitiesSubview" max="32767" attributes="0"/>
+              <Component id="eSummarySubview" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="eDestinationSummary1" min="-2" max="-2" attributes="0"/>
+                  <Component id="eSummarySubview" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnFindTrips" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="vHotelInfo1" min="-2" max="-2" attributes="0"/>
+                  <Component id="vAddressSubview" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="vTravelMethod1" min="-2" max="-2" attributes="0"/>
+                  <Component id="vTravelSubview" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="vActivities1" min="-2" max="-2" attributes="0"/>
+                  <Component id="vActivitiesSubview" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -102,13 +102,13 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFindTripsActionPerformed"/>
           </Events>
         </Component>
-        <Component class="view.subViews.VAddress" name="vHotelInfo1">
+        <Component class="view.subViews.VAddress" name="vAddressSubview">
         </Component>
-        <Component class="view.subViews.VTravelMethod" name="vTravelMethod1">
+        <Component class="view.subViews.VTravelMethod" name="vTravelSubview">
         </Component>
-        <Component class="view.subViews.VActivities" name="vActivities1">
+        <Component class="view.subViews.VActivities" name="vActivitiesSubview">
         </Component>
-        <Component class="view.subViews.EDestinationSummary" name="eDestinationSummary1">
+        <Component class="view.subViews.EDestinationSummary" name="eSummarySubview">
         </Component>
       </SubComponents>
     </Container>
