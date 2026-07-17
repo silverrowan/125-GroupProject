@@ -8,6 +8,8 @@ import javax.swing.JOptionPane;
 import model.User;
 import utility.AppWindowAdmin;
 import utility.AppWindowAgent;
+import view.AddUserGUIPage1;
+import view.EditUserGUIPage1;
 import view.Login;
 import utility.AppWindowCust;
 import utility.GenericView;
@@ -43,6 +45,7 @@ public class LoginControl {
 //            dash.initialize();
             view.setVisible(true);
                 
+
 //                DashboardMenu dashboard = new DashboardMenu(); // can't use this one - MENU is an x of gradient which is of JPanel not Frame
                     // left for now so i dont re-discover this repeatedly
                 loginView.dispose();
