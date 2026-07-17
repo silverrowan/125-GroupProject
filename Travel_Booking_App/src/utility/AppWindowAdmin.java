@@ -9,11 +9,9 @@ import view.dashboard.DashboardAdmin;
  */
 public class AppWindowAdmin extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AppWindowAdmin.class.getName());
-    private AppContext context;
     
     public AppWindowAdmin( AppContext context ) {
         initComponents();
-        this.context = context;
         pnlDashAdmin.revalidate();
         pnlDashAdmin.repaint();
         
@@ -26,23 +24,13 @@ public class AppWindowAdmin extends javax.swing.JFrame {
     public DashboardAdmin getDashboardList() {
         return pnlDashAdmin;
     }
-
     public void setDashboardList(DashboardAdmin pnlDashAdmin) {
         this.pnlDashAdmin = pnlDashAdmin;
-    }
-
-    public AppContext getContext() {
-        return context;
-    }
-
-    public void setContext(AppContext context) {
-        this.context = context;
     }
 
     public PanelBorder getPnlAppWindow() {
         return pnlDashWind;
     }
-
     public void setPnlAppWindow(PanelBorder pnlAppWindow) {
         this.pnlDashWind = pnlAppWindow;
     }
@@ -50,7 +38,6 @@ public class AppWindowAdmin extends javax.swing.JFrame {
     public DashboardAdmin getPnlDashAdmin() {
         return pnlDashAdmin;
     }
-
     public void setPnlDashAdmin(DashboardAdmin pnlDashAdmin) {
         this.pnlDashAdmin = pnlDashAdmin;
     }
@@ -58,7 +45,6 @@ public class AppWindowAdmin extends javax.swing.JFrame {
     public PanelBorder getPnlDashWind() {
         return pnlDashWind;
     }
-
     public void setPnlDashWind(PanelBorder pnlDashWind) {
         this.pnlDashWind = pnlDashWind;
     }
