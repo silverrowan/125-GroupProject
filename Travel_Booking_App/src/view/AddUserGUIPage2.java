@@ -119,7 +119,6 @@ public class AddUserGUIPage2 extends javax.swing.JFrame {
         });
 
         btnNext.setText("Next");
-        btnNext.setActionCommand("Next");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
@@ -138,6 +137,11 @@ public class AddUserGUIPage2 extends javax.swing.JFrame {
         jLabel1.setText("Role");
 
         selectionRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All roles", "Admin", "Employee", "Tour guide", "Customer" }));
+        selectionRole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectionRoleActionPerformed(evt);
+            }
+        });
 
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
         jLabel2.setText("*");
@@ -307,6 +311,10 @@ public class AddUserGUIPage2 extends javax.swing.JFrame {
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNextActionPerformed
+
+    private void selectionRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectionRoleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selectionRoleActionPerformed
 
     /**
      * @param args the command line arguments
