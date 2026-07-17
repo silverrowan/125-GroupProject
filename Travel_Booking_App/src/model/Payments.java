@@ -16,8 +16,8 @@ public class Payments {
     private float totalAmount;
     private Date paymentDate;
     private float amountPaid;
-    private String paymentMethod;
-    private String paymentStatus;
+    private methodType paymentMethod;
+    private paymentStatusType paymentStatus;
 
     //CONSTRUCTORS
 
@@ -30,7 +30,7 @@ public class Payments {
         this.amountPaid = 0;
     }
 
-    public Payments(int bookingID, Date invoiceDate, float basePrice, float activityFees, float taxAmount, float totalAmount, Date paymentDate, float amountPaid, String paymentMethod, String paymentStatus) {
+    public Payments(int bookingID, Date invoiceDate, float basePrice, float activityFees, float taxAmount, float totalAmount, Date paymentDate, float amountPaid, methodType paymentMethod, paymentStatusType paymentStatus) {
         this.bookingID = bookingID;
         this.invoiceDate = invoiceDate;
         this.basePrice = basePrice;
@@ -43,7 +43,9 @@ public class Payments {
         this.paymentStatus = paymentStatus;
     }
     
-    
+    //emum field options
+    public static enum methodType { CREDIT, DEBIT, PAYPAL } //doesnt match database perfectly
+    public static enum paymentStatusType { Pending, Paid, Refunded, Failed }
     
     //GETTERS
     /**
@@ -112,14 +114,14 @@ public class Payments {
     /**
      * @return the paymentMethod
      */
-    public String getPaymentMethod() {
+    public methodType getPaymentMethod() {
         return paymentMethod;
     }
 
     /**
      * @return the paymentStatus
      */
-    public String getPaymentStatus() {
+    public paymentStatusType getPaymentStatus() {
         return paymentStatus;
     }
 
@@ -183,14 +185,14 @@ public class Payments {
     /**
      * @param paymentMethod the paymentMethod to set
      */
-    public void setPaymentMethod(String paymentMethod) {
+    public void setPaymentMethod(methodType paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
 
     /**
      * @param paymentStatus the paymentStatus to set
      */
-    public void setPaymentStatus(String paymentStatus) {
+    public void setPaymentStatus(paymentStatusType paymentStatus) {
         this.paymentStatus = paymentStatus;
     }
 }
