@@ -53,13 +53,13 @@ public class Main {
             System.out.println("entered admin if");
             AppWindowAdmin view = new AppWindowAdmin( context ); //make target window/dashboard: This is Menu AND beside contents.
             DashboardControl dash = new DashboardControl( context, view ); 
-            dash.initialize();
+//            dash.initialize();
             view.setVisible(true); 
         } else if ( role.equals("Travel Agent") ) {
             System.out.println("entered Agent if");
             AppWindowAgent view = new AppWindowAgent( context );
             DashboardControl dash = new DashboardControl( context, view );
-            dash.initialize();
+//            dash.initialize();
             view.setVisible(true); 
 //        } else if ( role.equals("Travel Guide") ) {
 //            //later
@@ -67,7 +67,7 @@ public class Main {
             System.out.println("entered Cust/Other if");
             AppWindowCust view = new AppWindowCust( context );
             DashboardControl dash = new DashboardControl( context, view );
-            dash.initialize();
+//            dash.initialize();
             view.setVisible(true);
         }
     }

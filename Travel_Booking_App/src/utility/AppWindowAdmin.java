@@ -55,8 +55,8 @@ public class AppWindowAdmin extends GenericView {
         pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnCustProfile().addActionListener( loginListener ); }
     public void addListenerToBtnSearchDest( ActionListener loginListener ) {
         pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnSearchDest().addActionListener( loginListener ); }
-    public void addListenerToBtnLatestBooking( ActionListener loginListener ) {
-        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnLatestBooking().addActionListener( loginListener ); }
+//    public void addListenerToBtnLatestBooking( ActionListener loginListener ) {
+//        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnLatestBooking().addActionListener( loginListener ); }
     public void addListenerToBtnAllBooking( ActionListener loginListener ) {
         pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnViewBooking().addActionListener( loginListener ); }
         

@@ -20,6 +20,7 @@ import utility.GenericView;
 import utility.AppWindowCust;
 import utility.GenericView.Crud;
 import view.AddBookingGUI;
+import view.FilterUsersFrameGUIExperiment;
 import view.models.Card;
 import view.Login;
 import view.ProductsGUI;
@@ -61,8 +62,8 @@ public class DashboardControl extends GenericControl{
 
     private Button btnLogout;
     
-    private User user = context.getCurrentUser();
-    private User cust = context.getCurrentCustomerUser();
+    private User user;
+    private User cust; 
 
 
 //    private ListMenu menuB;
@@ -72,6 +73,8 @@ public class DashboardControl extends GenericControl{
 //    public DashboardControl( AppContext context, DashboardMenu menu ){
     public DashboardControl( AppContext context, GenericView dash, int never ){
         super( context, dash );
+        this.user = context.getCurrentUser();
+        this.cust = context.getCurrentCustomerUser();
     }
 
     public DashboardControl( AppContext context, AppWindowCust dashCust ){
@@ -79,7 +82,7 @@ public class DashboardControl extends GenericControl{
         this.dashCust = (AppWindowCust) getView();        
         this.dashCust.addListenerToBtnCustProfile( new CustProfile() );
         this.dashCust.addListenerToBtnSearchDest( new SearchDest() );
-        this.dashCust.addListenerToBtnLatestBooking( new LatestBooking() );
+//        this.dashCust.addListenerToBtnLatestBooking( new LatestBooking() );
         this.dashCust.addListenerToBtnAllBooking( new AllBooking() );
         this.dashCust.addListenerToLogoutCust( new Logout() );
     }
@@ -90,7 +93,7 @@ public class DashboardControl extends GenericControl{
         //--cust section--
         this.dashAgent.addListenerToBtnCustProfile( new CustProfile() );
         this.dashAgent.addListenerToBtnSearchDest( new SearchDest() );
-        this.dashAgent.addListenerToBtnLatestBooking( new LatestBooking() );
+//        this.dashAgent.addListenerToBtnLatestBooking( new LatestBooking() );
         this.dashAgent.addListenerToBtnAllBooking( new AllBooking() );
         //--agent section--
         this.dashAgent.addListenerToBtnAgentProfile( new AgentProfile() );        
@@ -105,7 +108,7 @@ public class DashboardControl extends GenericControl{
         //--cust section--
         this.dashAdmin.addListenerToBtnCustProfile( new CustProfile() );
         this.dashAdmin.addListenerToBtnSearchDest( new SearchDest() );
-        this.dashAdmin.addListenerToBtnLatestBooking( new LatestBooking() );
+//        this.dashAdmin.addListenerToBtnLatestBooking( new LatestBooking() );
         this.dashAdmin.addListenerToBtnAllBooking( new AllBooking() );
         //--agent section--
         this.dashAdmin.addListenerToBtnAdminProfile( new AdminProfile() );        
@@ -181,7 +184,7 @@ public class DashboardControl extends GenericControl{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                makeFindUserView();
             }
         }
 
@@ -360,6 +363,15 @@ public class DashboardControl extends GenericControl{
 //        DestinationsController packageControl = new DestinationsController( context, view ); 
         view.setVisible(true); //make it visible
     }
+    
+    private void makeFindUserView( AppContext context ) {
+        FilterUsersFrameGUIExperiment view = new FilterUsersFrameGUIExperiment( ); // views *shouldnt* need context, controller should tell it everything it needs
+        view.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
+        UserControl userControl = new UserControl( context, view ); 
+        view.setVisible(true); //make it visible
+// view existing booking matching booking ID
+//            bookView.setCrud( GenericView.Crud.REQUEST );
+//            pass booking ID to dao to get matching booking object
         
     private void makeViewProfile( AppContext context, boolean isEmployeeProfile ) {
         System.out.println("view profile; for employee? " + isEmployeeProfile );
