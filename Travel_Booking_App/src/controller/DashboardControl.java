@@ -140,11 +140,7 @@ public class DashboardControl extends GenericControl{
             
             @Override
             public void actionPerformed(ActionEvent e) {
-                int custID = context.getCurrentUser().getUserID();
-                //For userID find more recent (not cancelled) booking
-                //get that booking's ID
-                int operation
-                makeSingleBookingView( context, bookingID);
+                makeSingleBookingView( context, GenericView.Crud.REQUEST );
             }
         }
 
@@ -336,17 +332,15 @@ public class DashboardControl extends GenericControl{
         // open/create multi-booking view for current customer
     }
 
-    private void makeSingleBookingView( AppContext context, Crud crud ) throws Exception {
+    private void makeSingleBookingView( AppContext context, Crud crud ) {
         AddBookingGUI bookView = new AddBookingGUI( ); // views *shouldnt* need context, controller should tell it everything it needs
         bookView.setCrud( crud );
         bookView.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
-        BookingsController userControl = new BookingsController( context, bookView ); 
+        BookingsController bookControl = new BookingsController( context, bookView ); 
         bookView.setVisible(true); //make it visible
-
 // view existing booking matching booking ID
 //            bookView.setCrud( GenericView.Crud.REQUEST );
 //            pass booking ID to dao to get matching booking object
-        }
     }
     
     // Any other functions your controller uses, eg helpers, validation, buis logic & rules
