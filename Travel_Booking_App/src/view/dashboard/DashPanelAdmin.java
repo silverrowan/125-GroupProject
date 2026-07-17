@@ -39,22 +39,22 @@ public class DashPanelAdmin extends javax.swing.JPanel {
     public void setBtnPackages(ButtonBase btnPackages) {
         this.btnPackages = btnPackages;
     }
+//
+//    public ButtonBase getBtnProducts() {
+//        return btnProducts;
+//    }
+//
+//    public void setBtnProducts(ButtonBase btnProducts) {
+//        this.btnProducts = btnProducts;
+//    }
 
-    public ButtonBase getBtnProducts() {
-        return btnProducts;
-    }
-
-    public void setBtnProducts(ButtonBase btnProducts) {
-        this.btnProducts = btnProducts;
-    }
-
-    public ButtonBase getBtnTrips() {
-        return btnTrips;
-    }
-
-    public void setBtnTrips(ButtonBase btnTrips) {
-        this.btnTrips = btnTrips;
-    }
+//    public ButtonBase getBtnTrips() {
+//        return btnTrips;
+//    }
+//
+//    public void setBtnTrips(ButtonBase btnTrips) {
+//        this.btnTrips = btnTrips;
+//    }
 
     public JLabel getLblUser() {
         return lblUser;
@@ -76,10 +76,8 @@ public class DashPanelAdmin extends javax.swing.JPanel {
 
         btnPackages = new view.models.ButtonBase();
         lblUser = new javax.swing.JLabel();
-        btnProducts = new view.models.ButtonBase();
         btnBooking = new view.models.ButtonBase();
         btnDestinations = new view.models.ButtonBase();
-        btnTrips = new view.models.ButtonBase();
 
         setOpaque(false);
 
@@ -91,15 +89,8 @@ public class DashPanelAdmin extends javax.swing.JPanel {
             }
         });
 
+        lblUser.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblUser.setText("Search & Edit");
-
-        btnProducts.setActionCommand("searchProducts");
-        btnProducts.setLabel("Products");
-        btnProducts.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProductsActionPerformed(evt);
-            }
-        });
 
         btnBooking.setActionCommand("searchBooking");
         btnBooking.setLabel("Booking");
@@ -117,14 +108,6 @@ public class DashPanelAdmin extends javax.swing.JPanel {
             }
         });
 
-        btnTrips.setActionCommand("searchTrips");
-        btnTrips.setLabel("Trips");
-        btnTrips.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTripsActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,12 +115,10 @@ public class DashPanelAdmin extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnTrips, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnBooking, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblUser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnDestinations, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
-                    .addComponent(btnPackages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnProducts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnPackages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
@@ -146,13 +127,9 @@ public class DashPanelAdmin extends javax.swing.JPanel {
                 .addGap(20, 20, 20)
                 .addComponent(lblUser, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
-                .addComponent(btnProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
                 .addComponent(btnPackages, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addComponent(btnDestinations, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
-                .addComponent(btnTrips, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addComponent(btnBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
@@ -163,10 +140,6 @@ public class DashPanelAdmin extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPackagesActionPerformed
 
-    private void btnProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnProductsActionPerformed
-
     private void btnBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookingActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBookingActionPerformed
@@ -175,17 +148,11 @@ public class DashPanelAdmin extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDestinationsActionPerformed
 
-    private void btnTripsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTripsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnTripsActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private view.models.ButtonBase btnBooking;
     private view.models.ButtonBase btnDestinations;
     private view.models.ButtonBase btnPackages;
-    private view.models.ButtonBase btnProducts;
-    private view.models.ButtonBase btnTrips;
     private javax.swing.JLabel lblUser;
     // End of variables declaration//GEN-END:variables
 }

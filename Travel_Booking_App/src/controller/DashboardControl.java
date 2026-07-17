@@ -116,10 +116,10 @@ public class DashboardControl extends GenericControl{
         this.dashAdmin.addListenerToBtnLogoutAgent( new Logout() );        
         this.dashAdmin.addListenerToBtnClearCust( new ClearCust() );
         //--admin section--
-        this.dashAdmin.addListenerToBtnSearchProduct( new SearchProduct() );    
+//        this.dashAdmin.addListenerToBtnSearchProduct( new SearchProduct() );    
         this.dashAdmin.addListenerToBtnSearchPackage( new SearchPackage() );    
         this.dashAdmin.addListenerToBtnSearchDestAdmin( new SearchDestAdmin() );    
-        this.dashAdmin.addListenerToBtnSearchTrips( new SearchTrip() );    
+//        this.dashAdmin.addListenerToBtnSearchTrips( new SearchTrip() );    
         this.dashAdmin.addListenerToBtnSearchBook( new SearchBooking() );    
     }
     
