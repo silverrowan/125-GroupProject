@@ -11,11 +11,11 @@ import view.dashboard.DashboardCustomer;
  *
  * @author rowan
  */
-public class AppWindow extends javax.swing.JFrame {
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AppWindow.class.getName());
+public class AppWindowCust extends javax.swing.JFrame {
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AppWindowCust.class.getName());
     private AppContext context;
     
-    public AppWindow( AppContext context ) {
+    public AppWindowCust( AppContext context ) {
         initComponents();
         this.context = context;
         pnlDashCust.revalidate();
@@ -125,7 +125,7 @@ public class AppWindow extends javax.swing.JFrame {
 //        java.awt.EventQueue.invokeLater(() -> {
 //            
 //            AppContext session = new AppContext();
-//            AppWindow app = new AppWindow( session );
+//            AppWindowCust app = new AppWindowCust( session );
 //            app.setVisible(true);
 //            
 //            /*temporary while working on things - add user GUI */

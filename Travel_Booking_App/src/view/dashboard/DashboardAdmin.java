@@ -8,7 +8,7 @@ import model.User;
 import view.ViewCustomerGUI;
 import view.ViewDestinationsGUI;
 import view.ViewTripFrame;
-import utility.AppWindow;
+import utility.AppWindowCust;
 import view.components.GradientPanel;
 import view.components.ListMenu;
 
@@ -21,7 +21,7 @@ public class DashboardAdmin extends GradientPanel {
         Color bottomColor;
         Color selectColor;
 //        private AppContext context;
-        private AppWindow topView;
+        private AppWindowCust topView;
         private AppContext context;
 //        ListMenu menuList = new ListMenu();
 
@@ -44,8 +44,8 @@ public class DashboardAdmin extends GradientPanel {
         
     //getters and setters
 
-    public AppWindow getTopView() { return topView; }
-    public void setTopView(AppWindow topView) { 
+    public AppWindowCust getTopView() { return topView; }
+    public void setTopView(AppWindowCust topView) { 
         this.topView = topView; 
     }
 
@@ -68,7 +68,7 @@ public class DashboardAdmin extends GradientPanel {
         this.pnlLogo = pnlLogo;
     }       
     
-//    public void setBasics(AppWindow topView, AppContext context) {
+//    public void setBasics(AppWindowCust topView, AppContext context) {
 //    this.topView = topView;
 //    this.context = context;
 //    repaint();

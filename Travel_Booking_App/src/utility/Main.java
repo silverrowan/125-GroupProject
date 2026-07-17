@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import model.User;
-import utility.AppWindow;
+import utility.AppWindowCust;
 import view.Login;
 
 /**
@@ -44,7 +44,7 @@ public class Main {
         context.getCurrentSession().setCurrentUser(activeUser);
         System.out.println("Successful Login");
 
-        AppWindow view = new AppWindow( context ); 
+        AppWindowCust view = new AppWindowCust( context ); 
         DashboardControl dash = new DashboardControl( context, view ); 
         dash.initialize();
         view.setVisible(true);

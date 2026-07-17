@@ -17,7 +17,7 @@ import view.AddUserGUIPage1;
 import view.Login;
 import view.ProductsGUI;
 import view.ViewCustomerGUI;
-import utility.AppWindow;
+import utility.AppWindowCust;
 import view.components.ListMenu;
 import view.dashboard.DashboardMenu;
 import view.models.ImgCard;
@@ -30,7 +30,7 @@ public class DashboardControl<T> {
 //    private menuDAO menuDao;
 //    private ListMenu listMenu;
     private AppContext context;
-    private AppWindow dashWindow;
+    private AppWindowCust dashWindow;
 //    private DashboardMenu menu;
     private ListMenu menuA;
     private ListMenu menuB;
@@ -38,7 +38,7 @@ public class DashboardControl<T> {
     
 //    public DashboardControl(){}
 //    public DashboardControl( AppContext context, DashboardMenu menu ){
-    public DashboardControl( AppContext context, AppWindow dashWindow ){
+    public DashboardControl( AppContext context, AppWindowCust dashWindow ){
         this.context = context;
         this.dashWindow = dashWindow;
 //        this.menuA = dashWindow.getDashboardList().getMenuListA();

@@ -8,7 +8,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import view.models.Model_MenuItem;
 import view.ProductsGUI;
-import utility.AppWindow;
+import utility.AppWindowCust;
 
 /**
  *
@@ -18,7 +18,7 @@ public class ControlTemplate {
     private AppContextPlaceholder context;
     //private filds for each related view, format:
     //private ViewClassName view;  eg:
-    private AppWindow dashWindow;
+    private AppWindowCust dashWindow;
     // next line is for a helper - this is for the subview; 
     // don't pass into the constructer, pull out of the relevant view (dashWindow) 
     // once its parent is passed in
@@ -26,7 +26,7 @@ public class ControlTemplate {
     private FrameGUITemplate frameView; 
     
     // EACH view that this interacts with will need its own Constructor
-    public ControlTemplate( AppContextPlaceholder context, AppWindow dashWindow ) { 
+    public ControlTemplate( AppContextPlaceholder context, AppWindowCust dashWindow ) { 
         this.context = context;
         this.dashWindow = dashWindow;
         this.panelView = dashWindow.getDashboardList(); // helper - gets the subview

@@ -6,7 +6,7 @@ import dao.EmployeeDAO;
 import dao.UserDAO;
 import model.User;
 import view.ViewCustomerGUI;
-import utility.AppWindow;
+import utility.AppWindowCust;
 
 /**
  *
@@ -23,7 +23,7 @@ public class AppContext {
     CustomerDAO customerDao = new CustomerDAO();
     
     //Open Windows
-    private AppWindow appWindow;
+    private AppWindowCust appWindow;
     private ViewCustomerGUI customerView;
 //    private ViewBookingsGUI bookingsView;
 //    private SearchProductsGUI searchView; 

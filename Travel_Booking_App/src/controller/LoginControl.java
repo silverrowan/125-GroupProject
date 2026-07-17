@@ -6,9 +6,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import model.User;
+import utility.AppWindowAgent;
 import view.AddUserGUIPage1;
 import view.Login;
-import utility.AppWindow;
+import utility.AppWindowCust;
 import view.dashboard.DashboardMenu;
 
 /**
@@ -57,7 +58,8 @@ public class LoginControl {
                 context.getCurrentSession().setCurrentUser(activeUser);
                 System.out.println("Successful Login");
                 
-                AppWindow view = new AppWindow( context ); //make target window/dashboard: This is Menu AND beside contents.
+                getDashboard( activeUser );                
+                AppWindowCust view = new AppWindowCust( context ); //make target window/dashboard: This is Menu AND beside contents.
                 // if exists a dashboard regenerate, else make new
                 DashboardControl dash = new DashboardControl( context, view ); 
                 dash.initialize();
@@ -96,4 +98,20 @@ public class LoginControl {
     public boolean validatePassword(String password) { 
         return !(password == null || password.isEmpty() || password.length() < 8);
     }
+    
+    public void getDashboard( User user) {
+        String role = user.getRole();
+        if ( role == "Admin" ) {
+            AppWindowAdmin view = new AppWindowAdmin( context ); //make target window/dashboard: This is Menu AND beside contents.
+        } else if ( role == "Travel Agent" ) {
+            AppWindowAgent view = new AppWindowAgent( context );
+        } else if ( role == "Travel Guide") {
+            //later
+        } else {
+            AppWindowCust view = new AppWindowCust( context );
+        }
+        DashboardControl dash = new DashboardControl( context, view ); 
+        dash.initialize();
+        view.setVisible(true);
+    }                
 }
