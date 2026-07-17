@@ -1,5 +1,8 @@
 package controller;
 
+import Template_ControllerAndRelatedElsewhere.AppContextPlaceholder;
+import Template_ControllerAndRelatedElsewhere.ProductControlDemo;
+import controller.BookingsController;
 import java.awt.Button;
 import utility.AppContext;
 import utility.DuplicateTargetException;
@@ -8,11 +11,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.nio.file.AccessDeniedException;
 import java.util.LinkedList;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import model.User;
 import utility.AppWindowAdmin;
 import utility.AppWindowAgent;
 import utility.GenericView;
 import utility.AppWindowCust;
+import utility.GenericView.Crud;
+import view.AddBookingGUI;
 import view.models.Card;
 import view.Login;
 import view.ProductsGUI;
@@ -53,6 +60,9 @@ public class DashboardControl extends GenericControl{
     private Button btnAllBooking;
 
     private Button btnLogout;
+    
+    private User user = context.getCurrentUser();
+    private User cust = context.getCurrentCustomerUser();
 
 
 //    private ListMenu menuB;
@@ -120,18 +130,21 @@ public class DashboardControl extends GenericControl{
 //-----------------------------------------------------------------------------
         //Cust section
         class SearchDest implements ActionListener {
-
             @Override
             public void actionPerformed(ActionEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                JOptionPane.showMessageDialog(null, "Not supported yet.");
             }
         }
 
         class LatestBooking implements ActionListener {
-
+            
             @Override
             public void actionPerformed(ActionEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                int custID = context.getCurrentUser().getUserID();
+                //For userID find more recent (not cancelled) booking
+                //get that booking's ID
+                int operation
+                makeSingleBookingView( context, bookingID);
             }
         }
 
@@ -225,18 +238,8 @@ public class DashboardControl extends GenericControl{
             }
         }
 
-    public void initialize() { 
-//        menuA.addListSelectionListener( new MenuSelect() ); //menu listener
-//        menuB.addListSelectionListener( new MenuSelect() ); //menu listener
-//        buildMenu(); 
-    }
-        
-//    public void startView( context, view ) {
-//        GenericView view = new GenericView( context ); //make target window/dashboard: This is Menu AND beside contents.
-//        GenericControl dash = new GenericControl( context, view ); 
-////        dash.initialize();
-//        view.setVisible(true);        
-//    }
+//    public void initialize() { 
+
 
 
 //            case "Admin":
@@ -260,9 +263,7 @@ public class DashboardControl extends GenericControl{
 ////                addToMenuList(new Card("id-card", "Customer Profile", Card.CardType.MENU, "ViewCustomerProfile"));
 //                buildSharedMenu();
 //                break;
-    
 
-//    }
     
     private void addAdminTargetItems() throws AccessDeniedException, DuplicateTargetException{
         User loggedIn = context.getCurrentSession().getCurrentUser();
@@ -335,6 +336,21 @@ public class DashboardControl extends GenericControl{
         // open/create multi-booking view for current customer
     }
 
+    private void makeSingleBookingView( AppContext context, Crud crud ) throws Exception {
+        AddBookingGUI bookView = new AddBookingGUI( ); // views *shouldnt* need context, controller should tell it everything it needs
+        bookView.setCrud( crud );
+        bookView.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
+        BookingsController userControl = new BookingsController( context, bookView ); 
+        bookView.setVisible(true); //make it visible
+
+// view existing booking matching booking ID
+//            bookView.setCrud( GenericView.Crud.REQUEST );
+//            pass booking ID to dao to get matching booking object
+        }
+    }
+    
+    // Any other functions your controller uses, eg helpers, validation, buis logic & rules
+
     private void makeViewCustomerLastBooking( AppContext context ) {
         System.out.println("view a booking");
         // open/create single-booking view for current customer's last booking
@@ -350,7 +366,6 @@ public class DashboardControl extends GenericControl{
 //        DestinationsController packageControl = new DestinationsController( context, view ); 
         view.setVisible(true); //make it visible
     }
-
         
     private void makeViewProfile( AppContext context, boolean isEmployeeProfile ) {
         System.out.println("view profile; for employee? " + isEmployeeProfile );
@@ -370,9 +385,4 @@ public class DashboardControl extends GenericControl{
 //dispose of opening window UNLESS DASHBOARD; otherwise leave it along *logout is a special case*
 //      this.dispose();  
     }
-
-
-    
-    
-
 }
