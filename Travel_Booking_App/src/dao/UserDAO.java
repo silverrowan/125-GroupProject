@@ -76,7 +76,7 @@ public class UserDAO {
                 + " WHERE user_id = ?;";
         
         // connect to database
-        try (Connection connection = DBConnection.getConnnection();
+        try (Connection connection = DBConnection.getConnection();
                 PreparedStatement p = connection.prepareStatement(query);) {
             
             // prepare query
@@ -143,7 +143,7 @@ public class UserDAO {
                 "postal_code, country, account_status FROM users " +
                 "WHERE username = ? ;";
         
-        try ( Connection link = DBConnection.getConnnection(); 
+        try ( Connection link = DBConnection.getConnection(); 
             PreparedStatement p = link.prepareStatement(query); ) 
         {
             p.setString(1, username);
