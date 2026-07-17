@@ -101,6 +101,10 @@ public class Trips {
     }
 
     //SETTERS
+    public void setTripID(int tripID) {
+        this.tripID = tripID;
+    }
+    
     /**
      * @param destinationID the destinationID to set
      */

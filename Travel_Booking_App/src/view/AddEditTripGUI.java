@@ -8,14 +8,14 @@ package view;
  *
  * @author kalei
  */
-public class AddTripGUI extends javax.swing.JFrame {
+public class AddEditTripGUI extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AddTripGUI.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AddEditTripGUI.class.getName());
 
     /**
      * Creates new form AddTravelPackageGUI
      */
-    public AddTripGUI() {
+    public AddEditTripGUI() {
         initComponents();
     }
 
@@ -39,7 +39,7 @@ public class AddTripGUI extends javax.swing.JFrame {
         returnTxt = new javax.swing.JTextField();
         statusTxt = new javax.swing.JTextField();
         backBtn = new javax.swing.JButton();
-        addBtn = new javax.swing.JButton();
+        saveBtn = new javax.swing.JButton();
         departureLbl = new javax.swing.JLabel();
         maxTravelerLbl = new javax.swing.JLabel();
         returnLbl = new javax.swing.JLabel();
@@ -64,9 +64,10 @@ public class AddTripGUI extends javax.swing.JFrame {
 
         departureTxt.addActionListener(this::departureTxtActionPerformed);
 
-        backBtn.setText("Cancel");
+        backBtn.setText("Back");
 
-        addBtn.setText("Add Trip");
+        saveBtn.setText("Save");
+        saveBtn.addActionListener(this::saveBtnActionPerformed);
 
         departureLbl.setText("Departure:");
 
@@ -76,7 +77,7 @@ public class AddTripGUI extends javax.swing.JFrame {
 
         statusLbl.setText("Status:");
 
-        addTripLbl.setText("Add Trip");
+        addTripLbl.setText("Add / Update Trip");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,7 +87,7 @@ public class AddTripGUI extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(backBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(addBtn)
+                .addComponent(saveBtn)
                 .addGap(20, 20, 20))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(39, Short.MAX_VALUE)
@@ -116,7 +117,7 @@ public class AddTripGUI extends javax.swing.JFrame {
                             .addComponent(returnTxt))))
                 .addGap(52, 52, 52))
             .addGroup(layout.createSequentialGroup()
-                .addGap(167, 167, 167)
+                .addGap(139, 139, 139)
                 .addComponent(addTripLbl)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -155,10 +156,10 @@ public class AddTripGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(statusTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(statusLbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backBtn)
-                    .addComponent(addBtn))
+                    .addComponent(saveBtn))
                 .addGap(36, 36, 36))
         );
 
@@ -172,6 +173,10 @@ public class AddTripGUI extends javax.swing.JFrame {
     private void departureTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_departureTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_departureTxtActionPerformed
+
+    private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,11 +200,10 @@ public class AddTripGUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new AddTripGUI().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new AddEditTripGUI().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addBtn;
     private javax.swing.JLabel addTripLbl;
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel departureLbl;
@@ -211,6 +215,7 @@ public class AddTripGUI extends javax.swing.JFrame {
     private javax.swing.JTextField maxTravelerTxt;
     private javax.swing.JLabel returnLbl;
     private javax.swing.JTextField returnTxt;
+    private javax.swing.JButton saveBtn;
     private javax.swing.JLabel statusLbl;
     private javax.swing.JTextField statusTxt;
     private javax.swing.JComboBox<String> tourguideCB;
