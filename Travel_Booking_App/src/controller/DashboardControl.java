@@ -88,6 +88,26 @@ public class DashboardControl extends GenericControl{
         this.dashAgent.addListenerToBtnClearCust( new ClearCust() );        
     }
     
+    public DashboardControl( AppContext context, AppWindowAdmin dashAdmin ){
+        this( context, dashAdmin, 99 );
+        //--cust section--
+        this.dashAdmin.addListenerToBtnCustProfile( new CustProfile() );
+        this.dashAdmin.addListenerToBtnSearchDest( new SearchDest() );
+        this.dashAdmin.addListenerToBtnLatestBooking( new LatestBooking() );
+        this.dashAdmin.addListenerToBtnAllBooking( new AllBooking() );
+        //--agent section--
+        this.dashAdmin.addListenerToBtnAdminProfile( new AdminProfile() );        
+        this.dashAdmin.addListenerToBtnSearchCust( new SearchCust() );        
+        this.dashAdmin.addListenerToBtnLogoutAgent( new Logout() );        
+        this.dashAdmin.addListenerToBtnClearCust( new ClearCust() );
+        //--admin section--
+        this.dashAdmin.addListenerToBtnSearchProduct( new SearchProduct() );    
+        this.dashAdmin.addListenerToBtnSearchPackage( new SearchPackage() );    
+        this.dashAdmin.addListenerToBtnSearchDestAdmin( new SearchDestAdmin() );    
+        this.dashAdmin.addListenerToBtnSearchTrips( new SearchTrip() );    
+        this.dashAdmin.addListenerToBtnSearchBook( new SearchBooking() );    
+    }
+    
         class CustProfile implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
