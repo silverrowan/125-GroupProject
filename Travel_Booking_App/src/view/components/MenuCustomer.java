@@ -53,12 +53,12 @@ public class MenuCustomer extends GradientPanel {
 //            case "Agent":
 //            case "Customer":
        
-        listMenuCustomer.addItem(new Model_MenuItem("id-card", "Profile", Model_MenuItem.MenuType.MENU));
-        listMenuCustomer.addItem(new Model_MenuItem("world-search", "Destinations", Model_MenuItem.MenuType.MENU));
-        listMenuCustomer.addItem(new Model_MenuItem("calendar_plus", "Latest", Model_MenuItem.MenuType.MENU));
-        listMenuCustomer.addItem(new Model_MenuItem("plans", "Plans", Model_MenuItem.MenuType.MENU));
-        listMenuCustomer.addItem(new Model_MenuItem("calendar_clock", "History", Model_MenuItem.MenuType.MENU));
-        listMenuCustomer.addItem(new Model_MenuItem("logout-box", "Logout", Model_MenuItem.MenuType.MENU));
+//        listMenuCustomer.addItem(new Model_MenuItem("id-card", "Profile", Model_MenuItem.MenuType.MENU));
+//        listMenuCustomer.addItem(new Model_MenuItem("world-search", "Destinations", Model_MenuItem.MenuType.MENU));
+//        listMenuCustomer.addItem(new Model_MenuItem("calendar_plus", "Latest", Model_MenuItem.MenuType.MENU));
+//        listMenuCustomer.addItem(new Model_MenuItem("plans", "Plans", Model_MenuItem.MenuType.MENU));
+//        listMenuCustomer.addItem(new Model_MenuItem("calendar_clock", "History", Model_MenuItem.MenuType.MENU));
+//        listMenuCustomer.addItem(new Model_MenuItem("logout-box", "Logout", Model_MenuItem.MenuType.MENU));
 //            case "Guide":
 //                
 //            case default:

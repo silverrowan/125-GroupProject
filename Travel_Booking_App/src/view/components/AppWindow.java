@@ -5,6 +5,7 @@ import controller.UserControl;
 import dao.UserDAO;
 import java.awt.Color;
 import model.User;
+import utility.AppContext;
 import view.AddUserGUIPage1;
 import view.EditUserGUIPage1;
 import view.components.CardMenuRenderer;
@@ -15,11 +16,11 @@ import view.components.CardMenuRenderer;
  */
 public class AppWindow extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AppWindow.class.getName());
-    private Session session;
+    private AppContext context;
     
-    public AppWindow( Session session ) {
+    public AppWindow( AppContext context ) {
         initComponents();
-        this.session = session;
+        this.context = context;
 //        setBackground( new Color(0, 0, 0, 0) ); //only works with undecorated frame
     }
     
@@ -93,12 +94,12 @@ public class AppWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             
-            Session session = new Session();
-            AppWindow app = new AppWindow( session );
+            AppContext context = new AppContext();
+            AppWindow app = new AppWindow( context );
             app.setVisible(true);
             AddUserGUIPage1 view = new AddUserGUIPage1();
-            UserDAO userDao = new UserDAO();
-            UserControl userControl = new UserControl( userDao, view );
+//            UserDAO userDao = new UserDAO();
+            UserControl userControl = new UserControl( context, view );
             view.setVisible(true);
         });
     }

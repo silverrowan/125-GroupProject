@@ -2,6 +2,7 @@
 package model;
 
 import controller.Session;
+import utility.AppContext;
 import view.ViewLogin;
 import view.components.AppWindow;
 
@@ -18,9 +19,9 @@ public class Main {
 //        ViewLogin login = new ViewLogin();
 //        login.setVisible(true);
         // instance of login when the real version. For now, new AppWindow
-        Session placeholder = new Session();
+        AppContext context = new AppContext();
 //        User placeholder = new User();
-        AppWindow dash = new AppWindow( placeholder );
+        AppWindow dash = new AppWindow( context );
         dash.setVisible(true);
     }
 
