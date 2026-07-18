@@ -24,6 +24,7 @@ import view.FilterUsersFrameGUIExperiment;
 import view.models.Card;
 import view.Login;
 import view.ProductsGUI;
+import view.ViewAllTripsGUI;
 import view.ViewCustomerGUI;
 import view.components.GradientPanel;
 
@@ -116,9 +117,9 @@ public class DashboardControl extends GenericControl{
         this.dashAdmin.addListenerToBtnLogoutAgent( new Logout() );        
         this.dashAdmin.addListenerToBtnClearCust( new ClearCust() );
         //--admin section--
-        this.dashAdmin.addListenerToBtnSearchProduct( new SearchProduct() );    
-        this.dashAdmin.addListenerToBtnSearchPackage( new SearchPackage() );    
-        this.dashAdmin.addListenerToBtnSearchDestAdmin( new SearchDestAdmin() );    
+//        this.dashAdmin.addListenerToBtnSearchProduct( new SearchProduct() );    
+//        this.dashAdmin.addListenerToBtnSearchPackage( new SearchPackage() );    
+        this.dashAdmin.addListenerToBtnSearchDestAdmin( new SearchDest() );    
         this.dashAdmin.addListenerToBtnSearchTrips( new SearchTrip() );    
         this.dashAdmin.addListenerToBtnSearchBook( new SearchBooking() );    
     }
@@ -135,7 +136,7 @@ public class DashboardControl extends GenericControl{
         class SearchDest implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Not supported yet.");
+                makeViewDestSearch(context);
             }
         }
 
@@ -342,15 +343,16 @@ public class DashboardControl extends GenericControl{
     }
     
     private void makeViewProfile( AppContext context, boolean isEmployeeProfile ) {
+        System.out.println("Need User Profiles");
 //        make user profile of current USER
         // Make new view & set up
         //==========================
         //get the data & apply it? not sure if before or after creating the view/control
-        ViewCustomerGUI view = new ViewCustomerGUI(); //new view
-        view.setDefaultCloseOperation(GenericView.DISPOSE_ON_CLOSE); 
-        view.setVisible(true); //make it visible
-        UserControl userControl = new UserControl( context, view ); 
-        view.setVisible(true); //make it visible
+//        ViewCustomerGUI view = new ViewCustomerGUI(); //new view
+//        view.setDefaultCloseOperation(GenericView.DISPOSE_ON_CLOSE); 
+//        view.setVisible(true); //make it visible
+//        UserControl userControl = new UserControl( context, view ); 
+//        view.setVisible(true); //make it visible
     }
     
     //-------BOOKING actions-------
@@ -373,15 +375,21 @@ public class DashboardControl extends GenericControl{
     // Any other functions your controller uses, eg helpers, validation, buis logic & rules
 
     
-    private void makeViewPackageSearch( AppContext context ) {
+    private void makeViewDestSearch( AppContext context ) {
         System.out.println("search products");
-        //get the data & apply it? not sure if before or after creating the view/control
+        System.out.println("NEEDS REAL CONTROLLER");
         ProductsGUI view = new ProductsGUI(); //new view
         view.setDefaultCloseOperation(GenericView.DISPOSE_ON_CLOSE); 
-
-        //associated controller
-//        DestinationsController packageControl = new DestinationsController( context, view ); 
+        ProductsControlPLACEHOLDER destsControl = new ProductsControlPLACEHOLDER( context, view ); 
         view.setVisible(true); //make it visible
+    }
+    
+    private void makeViewTripSearch( AppContext context ){
+        ViewAllTripsGUI view = new ViewAllTripsGUI(); //new view
+        view.setDefaultCloseOperation(GenericView.DISPOSE_ON_CLOSE); 
+        TripsController tripControl = new TripsController( context, view ); 
+        view.setVisible(true); //make it visible
+        
     }
     
 
