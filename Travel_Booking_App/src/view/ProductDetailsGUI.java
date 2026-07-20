@@ -1,9 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
-
+import controller.DestinationsController;
+import model.Destinations;
+import javax.swing.JOptionPane;
 /**
  *
  * @author kalei
@@ -11,12 +9,21 @@ package view;
 public class ProductDetailsGUI extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ProductDetailsGUI.class.getName());
-
+    private DestinationsController destinationsController;
     /**
      * Creates new form ProductDetailsGUI
      */
     public ProductDetailsGUI() {
         initComponents();
+        makeFieldsReadOnly();
+        
+    }
+
+    ProductDetailsGUI(int destinationID) {
+        initComponents();
+        destinationsController = new DestinationsController();
+        makeFieldsReadOnly();
+        loadDestinationDetails(destinationID);
     }
 
     /**
@@ -337,6 +344,120 @@ public class ProductDetailsGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void loadDestinationDetails(int destinationID) {
+        try {
+            Destinations destination =
+                    destinationsController.getDestinationByID(destinationID);
+
+            destinationTxt.setText(
+                    destination.getDestinationName()
+            );
+
+            countryTxt.setText(
+                    destination.getCountryRegion()
+            );
+
+            durationTxt.setText(
+                    destination.getDurationDays()
+                    + " days / "
+                    + destination.getDurationNights()
+                    + " nights"
+            );
+
+            statusTxt.setText(
+                    destination.getDestinationStatus()
+            );
+
+            hotelTxt.setText(
+                    destination.getHotelName()
+            );
+
+            ratingTxt.setText(
+                    String.valueOf(destination.getHotel_rating())
+            );
+
+            addressTxt.setText(
+                    destination.getFullAddress()
+            );
+
+            jTextArea2.setText(
+                    destination.getFlightInfo()
+            );
+
+            jTextArea1.setText(
+                    destination.getBusTrainInfo()
+            );
+
+            transferTxt.setText(
+                    destination.getTransferDetails()
+            );
+
+            jTextArea3.setText(
+                    destination.getIncludedActivities()
+            );
+
+            jTextArea4.setText(
+                    destination.getOptionalActivities()
+            );
+
+            baseTxt.setText(
+                    String.format("%.2f", destination.getBasePrice())
+            );
+
+            actfeeTxt.setText(
+                    String.format("%.2f", destination.getActivityFees())
+            );
+
+            totalTxt.setText(
+                    String.format("%.2f",
+                            destination.getTotalEstimatedCost())
+            );
+
+        } catch (RuntimeException exception) {
+            exception.printStackTrace();
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Could not load package details.\n"
+                            + exception.getMessage(),
+                    "Database Error",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        }
+    }
+    
+    private void makeFieldsReadOnly() {
+        destinationTxt.setEditable(false);
+        countryTxt.setEditable(false);
+        durationTxt.setEditable(false);
+        statusTxt.setEditable(false);
+
+        hotelTxt.setEditable(false);
+        ratingTxt.setEditable(false);
+        addressTxt.setEditable(false);
+
+        transferTxt.setEditable(false);
+        baseTxt.setEditable(false);
+        actfeeTxt.setEditable(false);
+        totalTxt.setEditable(false);
+
+        jTextArea1.setEditable(false);
+        jTextArea2.setEditable(false);
+        jTextArea3.setEditable(false);
+        jTextArea4.setEditable(false);
+
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setWrapStyleWord(true);
+
+        jTextArea2.setLineWrap(true);
+        jTextArea2.setWrapStyleWord(true);
+
+        jTextArea3.setLineWrap(true);
+        jTextArea3.setWrapStyleWord(true);
+
+        jTextArea4.setLineWrap(true);
+        jTextArea4.setWrapStyleWord(true);
+    }
     private void ratingTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ratingTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ratingTxtActionPerformed
@@ -363,6 +484,9 @@ public class ProductDetailsGUI extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
+        ProductsGUI productsGUI = new ProductsGUI();
+        productsGUI.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void durationTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_durationTxtActionPerformed

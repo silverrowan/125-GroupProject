@@ -1,25 +1,27 @@
-package view.components;
+package view.dashboard;
 
-import controller.AppContext;
+import utility.AppContext;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import model.User;
-import model.gui.Model_MenuItem;
 import view.ViewCustomerGUI;
 import view.ViewDestinationsGUI;
 import view.ViewTripFrame;
+import utility.AppWindowCust;
+import view.components.GradientPanel;
+import view.components.ListMenu;
 
 /**
  *
  * @author rowan
  */
-public class DashboardMenu extends GradientPanel {
+public class DashboardAgent extends GradientPanel {
         Color topColor;
         Color bottomColor;
         Color selectColor;
 //        private AppContext context;
-        private AppWindow topView;
+        private AppWindowCust topView;
         private AppContext context;
 //        ListMenu menuList = new ListMenu();
 
@@ -27,42 +29,23 @@ public class DashboardMenu extends GradientPanel {
     /**
      * Creates new form MenuCustomer
      */
-    public DashboardMenu( ) {
+    public DashboardAgent( ) {
         super(new Color(204,255,204), new Color( 255,150,46 ), 0);
         initComponents();
         
-        menuList.setOpaque(false);
-        menuList.refresh();
-        menuList.setVisible(true);
-        init( );
+//        menuListB.setOpaque(false);
+//        menuListB.refresh();
+//        menuListB.setVisible(true);
+//        
+//        menuListA.setOpaque(false);
+//        menuListA.refresh();
+//        menuListA.setVisible(true);
     }
-    
-//    public DashboardMenu() {
-//    System.out.println("DashboardMenu: " + this);
-//
-//    initComponents();
-//}
-    
-    
-//    public DashboardMenu( AppContext context ) {
-//        super(new Color(204,255,204), new Color( 255,150,46 ), 0);
-//        initComponents();
-//        menuList.setOpaque(false);
-//        menuList.refresh();
-//        menuList.setVisible(true);
-//        init( );
-//    }
-    
+        
     //getters and setters
 
-//    public AppContext getContext() { return context; }
-//    public void setContext(AppContext context) { 
-//        this.context = context;
-//        refreshView();
-//    }
-
-    public AppWindow getTopView() { return topView; }
-    public void setTopView(AppWindow topView) { 
+    public AppWindowCust getTopView() { return topView; }
+    public void setTopView(AppWindowCust topView) { 
         this.topView = topView; 
     }
 
@@ -70,18 +53,35 @@ public class DashboardMenu extends GradientPanel {
     public void setLblLogo(JLabel lblLogo) {
         this.lblLogo = lblLogo;
     }
+    
+    public DashPanelAgent getDashPanel(){ return dashPanelAgent; }
+    public void DashPanelAgent( DashPanelAgent panel ){ this.dashPanelAgent = panel; }
 
-    public ListMenu getMenuList() { return menuList; }
-    public void setMenuList(ListMenu menuList) {
-        this.menuList = menuList;
-    }
+//    public ListMenu getMenuListA() { return menuListB; }
+//    public void setMenuListA(ListMenu menuList) {
+//        this.menuListB = menuList;
+//    }
+//    public ListMenu getMenuListB() { return menuListA; }
+//    public void setMenuListB(ListMenu menuList) {
+//        this.menuListA = menuList;
+//    }
 
     public JPanel getPnlLogo() { return pnlLogo; }
     public void setPnlLogo(JPanel pnlLogo) {
         this.pnlLogo = pnlLogo;
-    }       
+    }
+
+    public DashPanelAgent getDashPanelAgent() {
+        return dashPanelAgent;
+    }
+
+    public void setDashPanelAgent(DashPanelAgent dashPanelAgent) {
+        this.dashPanelAgent = dashPanelAgent;
+    }
     
-//    public void setBasics(AppWindow topView, AppContext context) {
+    
+    
+//    public void setBasics(AppWindowCust topView, AppContext context) {
 //    this.topView = topView;
 //    this.context = context;
 //    repaint();
@@ -98,15 +98,6 @@ public class DashboardMenu extends GradientPanel {
     
 
 // FUNCTIONAL
-    private void init() {}
-//                
-//            case default:
-//                throw new InvalidAttributeValueException("there is a problem with the user role");
-
-
-
-
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -119,7 +110,7 @@ public class DashboardMenu extends GradientPanel {
 
         pnlLogo = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
-        menuList = new view.components.ListMenu();
+        dashPanelAgent = new view.dashboard.DashPanelAgent();
 
         pnlLogo.setOpaque(false);
 
@@ -145,8 +136,6 @@ public class DashboardMenu extends GradientPanel {
                 .addGap(6, 6, 6))
         );
 
-        menuList.setBackground(new java.awt.Color(242, 242, 242));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -154,15 +143,16 @@ public class DashboardMenu extends GradientPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnlLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(menuList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(dashPanelAgent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(menuList, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
+                .addComponent(dashPanelAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -180,8 +170,8 @@ public class DashboardMenu extends GradientPanel {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private view.dashboard.DashPanelAgent dashPanelAgent;
     private javax.swing.JLabel lblLogo;
-    private view.components.ListMenu menuList;
     private javax.swing.JPanel pnlLogo;
     // End of variables declaration//GEN-END:variables
 }

@@ -10,42 +10,42 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import javax.swing.BorderFactory;
-import model.gui.Model_MenuItem;
+import javax.swing.JPanel;
 
 /**
  *
  * @author rowan
  */
-public class MenuItem extends javax.swing.JPanel {
+public class MenuItem extends JPanel {
     
-    private boolean selected;
-
-    public MenuItem(Model_MenuItem data) {
-        initComponents();
-        setBorder( javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10) );
-        lblMenu.setBorder( BorderFactory.createEmptyBorder(0, 10, 0, 0));
-        setOpaque(false);
-
-        if ( data.getType() == Model_MenuItem.MenuType.MENU ) {
-            lblMenu.setText(data.getName());
-            lblMenu.setFont(new Font( null , 1, 24));
-            lblIcon.setIcon(data.scaleIconByText(lblMenu, "travelBug70") );
-        } else if (data.getType() == Model_MenuItem.MenuType.TITLE) {
-            lblIcon.setText(data.getName());
-            lblIcon.setFont(new Font( null , 1, 24));
-            lblMenu.setVisible(false);
-        } else {
-            lblMenu.setText(" ");
-        }
-
-        lblMenu.setPreferredSize(null);
-        lblMenu.revalidate();
-    }
-
-    public void setSelected(boolean selected) {
-        this.selected = selected;
-        repaint();
-    }
+//    private boolean selected;
+//
+//    public MenuItem(Model_MenuItem data) {
+//        initComponents();
+//        setBorder( javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10) );
+//        lblMenu.setBorder( BorderFactory.createEmptyBorder(0, 10, 0, 0));
+//        setOpaque(false);
+//
+//        if ( data.getType() == Model_MenuItem.MenuType.MENU ) {
+//            lblMenu.setText(data.getName());
+//            lblMenu.setFont(new Font( null , 1, 24));
+//            lblIcon.setIcon(data.scaleIconByText(lblMenu, "travelBug70") );
+//        } else if (data.getType() == Model_MenuItem.MenuType.HEADER) {
+//            lblIcon.setText(data.getName());
+//            lblIcon.setFont(new Font( null , 1, 24));
+//            lblMenu.setVisible(false);
+//        } else {
+//            lblMenu.setText(" ");
+//        }
+//
+//        lblMenu.setPreferredSize(null);
+//        lblMenu.revalidate();
+//    }
+//
+//    public void setSelected(boolean selected) {
+//        this.selected = selected;
+//        repaint();
+//    }
     
     
 
@@ -74,17 +74,17 @@ public class MenuItem extends javax.swing.JPanel {
         add(lblMenu, java.awt.BorderLayout.CENTER);
     }// </editor-fold>                        
 
-    @Override
-    protected void paintComponent(Graphics grphcs) {
-        if (selected) {
-            Graphics2D g2 = (Graphics2D)grphcs;
-            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-            g2.setColor(new Color(255,255,255,80) );
-            g2.fillRoundRect(10, 0, getWidth()-20, getHeight(), 5, 5);
-        }
-        
-        super.paintComponent(grphcs);
-    }
+//    @Override
+//    protected void paintComponent(Graphics grphcs) {
+//        if (selected) {
+//            Graphics2D g2 = (Graphics2D)grphcs;
+//            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+//            g2.setColor(new Color(255,255,255,80) );
+//            g2.fillRoundRect(10, 0, getWidth()-20, getHeight(), 5, 5);
+//        }
+//        
+//        super.paintComponent(grphcs);
+//    }
 
     // Variables declaration - do not modify                     
     private javax.swing.JLabel lblIcon;

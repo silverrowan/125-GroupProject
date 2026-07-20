@@ -28,7 +28,7 @@ public class Destinations {
     private float basePrice;
     private float activityFees;
     private float totalEstimatedCost;
-    private statusType destinationStatus;
+    private String destinationStatus;
     //Composite Fields (not passed to database)
     private String fullAddress;
 
@@ -40,7 +40,7 @@ public class Destinations {
             String hotelCountry, String flightInfo, String busTrainInfo, 
             String transferDetails, String includedActivities, 
             String optionalActivities, int durationDays, int durationNights, 
-            float basePrice, float activityFees, statusType destinationStatus) {
+            float basePrice, float activityFees, String destinationStatus) {
         this.DestinationName = DestinationName;
         this.countryRegion = countryRegion;
         this.notes = notes;
@@ -61,7 +61,7 @@ public class Destinations {
         this.durationNights = durationNights;
         this.basePrice = basePrice;
         this.activityFees = activityFees;
-        this.totalEstimatedCost = basePrice + activityFees;
+        this.totalEstimatedCost = basePrice + activityFees;            
         this.destinationStatus = destinationStatus;
     }
 
@@ -77,7 +77,7 @@ public class Destinations {
     }
 
     //emum field options
-    public static enum statusType { Active, Inactive } 
+    public static enum StatusType { Active, Inactive } 
     
     //GETTERS     
     /**
@@ -237,7 +237,7 @@ public class Destinations {
     /**
      * @return the destinationStatus
      */
-    public statusType getDestinationStatus() {
+    public String getDestinationStatus() {
         return destinationStatus;
     }
     
@@ -409,7 +409,7 @@ public class Destinations {
     /**
      * @param destinationStatus the destinationStatus to set
      */
-    public void setDestinationStatus(statusType destinationStatus) {
+    public void setDestinationStatus(String destinationStatus) {
         this.destinationStatus = destinationStatus;
     }
     

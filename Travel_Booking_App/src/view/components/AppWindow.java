@@ -1,9 +1,14 @@
 package view.components;
 
-import controller.AppContext;
+import utility.Session;
 import controller.UserControl;
 import dao.UserDAO;
+import java.awt.Color;
+import model.User;
+import utility.AppContext;
 import view.AddUserGUIPage1;
+import view.EditUserGUIPage1;
+import view.components.CardMenuRenderer;
 
 /**
  *
@@ -16,42 +21,11 @@ public class AppWindow extends javax.swing.JFrame {
     public AppWindow( AppContext context ) {
         initComponents();
         this.context = context;
-        dashboardList.revalidate();
-        dashboardList.repaint();
-        
-//        this.session = session;
 //        setBackground( new Color(0, 0, 0, 0) ); //only works with undecorated frame
     }
-
-    //Getter and Setters
-
-    public DashboardMenu getDashboardList() {
-        return dashboardList;
-    }
-
-    public void setDashboardList(DashboardMenu dashboardList) {
-        this.dashboardList = dashboardList;
-    }
-
-    public AppContext getContext() {
-        return context;
-    }
-
-    public void setContext(AppContext context) {
-        this.context = context;
-    }
-
-    public PanelBorder getPnlAppWindow() {
-        return pnlAppWindow;
-    }
-
-    public void setPnlAppWindow(PanelBorder pnlAppWindow) {
-        this.pnlAppWindow = pnlAppWindow;
-    }
     
-    
-    
-    
+    public Object getDashboardList() { return null; } // just to stop the template from complaining, delete later
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,35 +35,35 @@ public class AppWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlAppWindow = new view.components.PanelBorder();
-        dashboardList = new view.components.DashboardMenu();
+        panelBorder1 = new view.components.PanelBorder();
+        menuCustomer1 = new view.components.MenuCustomer();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        javax.swing.GroupLayout pnlAppWindowLayout = new javax.swing.GroupLayout(pnlAppWindow);
-        pnlAppWindow.setLayout(pnlAppWindowLayout);
-        pnlAppWindowLayout.setHorizontalGroup(
-            pnlAppWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlAppWindowLayout.createSequentialGroup()
-                .addComponent(dashboardList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+        javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
+        panelBorder1.setLayout(panelBorder1Layout);
+        panelBorder1Layout.setHorizontalGroup(
+            panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBorder1Layout.createSequentialGroup()
+                .addComponent(menuCustomer1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 603, Short.MAX_VALUE))
         );
-        pnlAppWindowLayout.setVerticalGroup(
-            pnlAppWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dashboardList, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
+        panelBorder1Layout.setVerticalGroup(
+            panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(menuCustomer1, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlAppWindow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelBorder1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlAppWindow, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelBorder1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -99,42 +73,39 @@ public class AppWindow extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-//            logger.log(java.util.logging.Level.SEVERE, null, ex);
-//        }
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        }
         //</editor-fold>
 
         /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(() -> {
-//            
-//            AppContext session = new AppContext();
-//            AppWindow app = new AppWindow( session );
-//            app.setVisible(true);
-//            
-//            /*temporary while working on things - add user GUI */
-//            AddUserGUIPage1 view = new AddUserGUIPage1();
+        java.awt.EventQueue.invokeLater(() -> {
+            
+            AppContext context = new AppContext();
+            AppWindow app = new AppWindow( context );
+            app.setVisible(true);
+            AddUserGUIPage1 view = new AddUserGUIPage1();
 //            UserDAO userDao = new UserDAO();
-//            UserControl userControl = new UserControl( userDao, view );
-//            
-//            view.setVisible(true);
-//        });
-//    }
+            UserControl userControl = new UserControl( context, view );
+            view.setVisible(true);
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private view.components.DashboardMenu dashboardList;
-    private view.components.PanelBorder pnlAppWindow;
+    private view.components.MenuCustomer menuCustomer1;
+    private view.components.PanelBorder panelBorder1;
     // End of variables declaration//GEN-END:variables
 }

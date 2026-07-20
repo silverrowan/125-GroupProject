@@ -13,30 +13,21 @@ import javax.swing.JLabel;
 /**
  *
  * @author rowan
- * for each item in the dashboard menu
- * icon is the name of the file in the view\graphics package (don't add the .png, just name body)
  */
 public class Model_MenuItem {
     String icon;
     String name;
     MenuType type;
-    String linkAction;
+    String linkPage;
       
     //Constructors
     public Model_MenuItem() { }
 
-/**
- * 
- * @param icon : the name of the file in view\graphics\ to reference. Do not include the .png
- * @param name : how this will appear in the menu
- * @param type : Controls how rendering works (theoretically) Not implemented. Use MENU for now
- * @param linkAction : the name of the function this item will call - which will call the appropriate page w filters etc. Do not include the ()
- */
-    public Model_MenuItem(String icon, String name, MenuType type, String linkAction) {
+    public Model_MenuItem(String icon, String name, MenuType type, String linkPage) {
         this.icon = icon;
         this.name = name;
         this.type = type;
-        this.linkAction = linkAction;
+        this.linkPage = linkPage;
     }
     
     //Getters & Setters
@@ -50,8 +41,8 @@ public class Model_MenuItem {
     public MenuType getType() { return type; }
     public void setType(MenuType type) { this.type = type; }
     
-    public String getLinkAction() { return linkAction; }  
-    public void setLinkAction(String linkAction) { this.linkAction = linkAction; }
+    public String getLinkPage() { return linkPage; }  
+    public void setLinkPage(String linkPage) { this.linkPage = linkPage; }
 
     // Utility    
     

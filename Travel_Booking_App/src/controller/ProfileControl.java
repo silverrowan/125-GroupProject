@@ -4,6 +4,7 @@ import dao.UserDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.User;
+import utility.AppContext;
 import view.EditUserGUIPage1;
 
 
@@ -26,6 +27,7 @@ public class ProfileControl {
         // get DAO
         userDAO = context.getUserDao();
         
+        // get current user
         this.currentUser = userDAO.getUserFromUsername(context.getCurrentUser().getUsername());
  
         // populate form with existing data
@@ -42,10 +44,10 @@ public class ProfileControl {
         });
         
         // save button
-        this.editProfileView.addNextBtnListener(new EditSaver());
+        this.editProfileView.addNextBtnListener(new EditUserSaver());
     }
     
-    class EditSaver implements ActionListener {
+    class EditUserSaver implements ActionListener {
         private String username;
         private String password;
         private String firstName;

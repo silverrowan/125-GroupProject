@@ -1,10 +1,10 @@
 
-package model.gui;
+package utility;
 
 import model.Customer;
 import model.User;
 import view.ViewCustomerGUI;
-import view.components.AppWindow;
+import utility.AppWindowCust;
 
 /**
  *
@@ -18,6 +18,7 @@ import view.components.AppWindow;
 public class Session {
     private User currentUser;
     private User currentCustomer; 
+    private User currentEmployee; // only used by Admin 
 
     public Session() { }
     
@@ -34,15 +35,29 @@ public class Session {
 
     public User getCurrentCustomer() { return currentCustomer; }
     public void setCurrentCustomer(User currentCustomer) {
+        this.currentEmployee = null;
         this.currentCustomer = currentCustomer;
+        currentCustomer.setPassword( null );
+    }
+    
+    public User getCurrentEmployee() { return currentEmployee; }
+    public void setCurrentEmployee(User currentEmployee) {
+        this.currentCustomer = null;
+        this.currentEmployee = currentEmployee;
         currentCustomer.setPassword( null );
     }
     
     public void clearCurrentUser() { this.currentUser = null; }
     public void clearCurrentCustomer() { this.currentCustomer = null; }
-    public void clearCurrentUserAndCustomer() { 
-        this.clearCurrentUser();
-        this.clearCurrentCustomer();
+    public void clearCurrentEmployee() { this.currentEmployee = null; }
+    public void clearTargets() {
+        clearCurrentCustomer();
+        clearCurrentEmployee();
+    }
+    public void clearSession() { 
+        clearCurrentCustomer();
+        clearCurrentEmployee();
+        clearCurrentUser();
     }
 }
 

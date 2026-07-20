@@ -12,7 +12,7 @@ import java.sql.Statement;
 
 /**
  *
- * @author rowan
+ * @author rowan (mariah), max
  */
 public class UserDAO {
 //    private User user;
@@ -22,7 +22,7 @@ public class UserDAO {
     public User addNewUser(User user) {
         String query = "INSERT INTO users (username, password, first_name, last_name, email, role, phone) VALUES (?,?,?,?,?,?,?);";
         
-        try ( Connection link = DBConnection.getConnnection(); 
+        try ( Connection link = DBConnection.getConnection(); 
             PreparedStatement p = link.prepareStatement(query, Statement.RETURN_GENERATED_KEYS); )
         {
             p.setString( 1, user.getUsername() );
@@ -72,11 +72,10 @@ public class UserDAO {
                 + "postal_code = ?,"
                 + "country = ?,"
                 + "account_status = ?"
-                //+ "WHERE username = ? AND password = BINARY ?;";
                 + " WHERE user_id = ?;";
         
         // connect to database
-        try (Connection connection = DBConnection.getConnnection();
+        try (Connection connection = DBConnection.getConnection();
                 PreparedStatement p = connection.prepareStatement(query);) {
             
             // prepare query
@@ -120,7 +119,7 @@ public class UserDAO {
                 "postal_code, country, account_status FROM users " +
                 "WHERE username = ? AND password = BINARY ? ;" ;
         
-        try ( Connection link = DBConnection.getConnnection(); 
+        try ( Connection link = DBConnection.getConnection(); 
             PreparedStatement p = link.prepareStatement(query); ) 
         {
             p.setString(1, username);
@@ -143,7 +142,7 @@ public class UserDAO {
                 "postal_code, country, account_status FROM users " +
                 "WHERE username = ? ;";
         
-        try ( Connection link = DBConnection.getConnnection(); 
+        try ( Connection link = DBConnection.getConnection(); 
             PreparedStatement p = link.prepareStatement(query); ) 
         {
             p.setString(1, username);

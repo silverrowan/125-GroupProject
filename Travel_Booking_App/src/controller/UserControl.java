@@ -1,5 +1,6 @@
 package controller;
 
+import utility.AppContext;
 import dao.UserDAO;
 import view.AddUserGUIPage1;
 import model.User;

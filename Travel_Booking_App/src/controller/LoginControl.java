@@ -1,16 +1,17 @@
 package controller;
 
-import controller.AppContext;
-import dao.UserDAO;
+import utility.AppContext;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import model.User;
-import view.AddUserGUIPage1;
 import view.EditUserGUIPage1;
+import utility.AppWindowAdmin;
+import utility.AppWindowAgent;
 import view.Login;
-import view.components.AppWindow;
-import view.components.DashboardMenu;
+import utility.AppWindowCust;
+import utility.GenericView;
 
 /**
  *
@@ -35,49 +36,27 @@ public class LoginControl {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            String username = loginView.getTxtUserName().getText();
-            char[] passChars = loginView.getTxtPassword().getPassword();
-            
-            String password = new String(passChars);
-            clearPassArray(passChars);
-            
-            if ( !validateUsername(username) ) { 
-                JOptionPane.showMessageDialog(null, "a username is required");
-                throw new IllegalArgumentException("a username is required"); }
-            if ( !validatePassword(password) ) { 
-                JOptionPane.showMessageDialog(null, "a password is required, and must be at least 8 characters");
-                throw new IllegalArgumentException("Password must be at least 8 characters"); }
+            loginUser();                
+            getDashboard();
 
-            loginUser = context.getUserDao().getUserFromUsername(username, password);
-
-            
-            if ( loginUser == null ) { JOptionPane.showMessageDialog(null, "Username or password do not match, try again"); }
-            else {
-                activeUser = loginUser;
-                loginUser = null;
-                context.getCurrentSession().setCurrentUser(activeUser);
-                System.out.println("Successful Login");
+            AppWindowCust view = new AppWindowCust( context ); //make target window/dashboard: This is Menu AND beside contents.
+            DashboardControl dash = new DashboardControl( context, view ); 
+            dash.initialize();
+            view.setVisible(true);
                 
-                AppWindow view = new AppWindow( context ); //make target window/dashboard: This is Menu AND beside contents.
-                // if exists a dashboard regenerate, else make new
-                DashboardControl dash = new DashboardControl( context, view ); 
-                dash.initialize();
-                view.setVisible(true);
-                
-                EditUserGUIPage1 view2 = new EditUserGUIPage1( ); //make target window/dashboard: This is Menu AND beside contents.
-                ProfileControl pc = new ProfileControl( context, view2 );
+            EditUserGUIPage1 view2 = new EditUserGUIPage1( ); //make target window/dashboard: This is Menu AND beside contents.
+            ProfileControl pc = new ProfileControl( context, view2 );
 //                userControl.initialize();
-                view2.setVisible(true);
+            view2.setVisible(true);
 //                DashboardMenu dashboard = new DashboardMenu(); // can't use this one - MENU is an x of gradient which is of JPanel not Frame
-//                dashboard.setVisible(true);
+                    // left for now so i dont re-discover this repeatedly
                 loginView.dispose();
     // make it visible
 //                TO DO 
                 //close login window
-            }
+            
         }
     }
-    
     class AddNewCustomer implements ActionListener {
 
         @Override
@@ -100,5 +79,59 @@ public class LoginControl {
     
     public boolean validatePassword(String password) { 
         return !(password == null || password.isEmpty() || password.length() < 8);
+    }
+    
+    public void loginUser(){
+        String username = loginView.getTxtUserName().getText();
+        char[] passChars = loginView.getTxtPassword().getPassword();
+
+        String password = new String(passChars);
+        clearPassArray(passChars);
+
+        if ( !validateUsername(username) ) { 
+            JOptionPane.showMessageDialog(null, "a username is required");
+            throw new IllegalArgumentException("a username is required"); }
+        if ( !validatePassword(password) ) { 
+            JOptionPane.showMessageDialog(null, "a password is required, and must be at least 8 characters");
+            throw new IllegalArgumentException("Password must be at least 8 characters"); }
+
+        User loginUser = context.getUserDao().getUserFromUsername(username, password);
+        User activeUser;
+
+        if ( loginUser == null ) { JOptionPane.showMessageDialog(null, "Username or password do not match, try again"); }
+        else {
+            activeUser = loginUser;
+            loginUser = null;
+            context.getCurrentSession().setCurrentUser(activeUser);
+            System.out.println("Successful Login");        
+        }
+    }
+
+    public void getDashboard() {
+        String role = context.getCurrentUser().getRole();
+        System.out.println("role: " + role);
+//        GenericView view;
+
+        if ( role.equals( "Admin" ) ) {
+            System.out.println("entered admin if");
+            AppWindowAdmin view = new AppWindowAdmin( context ); //make target window/dashboard: This is Menu AND beside contents.
+            DashboardControl dash = new DashboardControl( context, view ); 
+            dash.initialize();
+            view.setVisible(true); 
+        } else if ( role.equals("Travel Agent") ) {
+            System.out.println("entered Agent if");
+            AppWindowAgent view = new AppWindowAgent( context );
+            DashboardControl dash = new DashboardControl( context, view );
+            dash.initialize();
+            view.setVisible(true); 
+//        } else if ( role.equals("Travel Guide") ) {
+//            //later
+        } else {
+            System.out.println("entered Cust/Other if");
+            AppWindowCust view = new AppWindowCust( context );
+            DashboardControl dash = new DashboardControl( context, view );
+            dash.initialize();
+            view.setVisible(true); 
+        }   
     }
 }

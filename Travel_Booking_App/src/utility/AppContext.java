@@ -1,13 +1,12 @@
 
-package controller;
+package utility;
 
-import model.gui.Session;
 import dao.CustomerDAO;
 import dao.EmployeeDAO;
 import dao.UserDAO;
 import model.User;
 import view.ViewCustomerGUI;
-import view.components.AppWindow;
+import utility.AppWindowCust;
 
 /**
  *
@@ -20,15 +19,14 @@ public class AppContext {
     
     // DAOs
     UserDAO userDao = new UserDAO();
-    EmployeeDAO employeeDao = new EmployeeDAO();
+    EmployeeDAO employeeDao = new EmployeeDAO(); 
     CustomerDAO customerDao = new CustomerDAO();
     
     //Open Windows
-    private AppWindow appWindow;
+    private AppWindowCust appWindow;
     private ViewCustomerGUI customerView;
 //    private ViewBookingsGUI bookingsView;
 //    private SearchProductsGUI searchView; 
-
 
 //Constructor    
     public AppContext() {
@@ -36,21 +34,6 @@ public class AppContext {
         this.userDao = new UserDAO();
         this.employeeDao = new EmployeeDAO();
         this.customerDao = new CustomerDAO();
-    }
-    
-    // Session Getter & Setter
-    //========================================================================    
-    public Session getCurrentSession() { return currentSession; }
-    public void setCurrentSession(Session currentSession) {
-        this.currentSession = currentSession;
-    }
-    
-    public User getCurrentUser() { //make the string shorter helpers :) they're got more than set
-        return getCurrentSession().getCurrentUser();
-    }
-    
-    public User getCurrentCustomerUser() { //make the string shorter helpers
-        return getCurrentSession().getCurrentCustomer();
     }
 
     // DAO Getters & Setters
@@ -68,5 +51,20 @@ public class AppContext {
     public CustomerDAO getCustomerDao() { return customerDao; }
     public void setCustomerDao(CustomerDAO customerDao) {
         this.customerDao = customerDao;
+    }
+    
+    // Session Getter & Setter Helpers
+    //========================================================================    
+    public Session getCurrentSession() { return currentSession; }
+    public void setCurrentSession(Session currentSession) {
+        this.currentSession = currentSession;
+    }
+    
+    public User getCurrentUser() { //make the string shorter helpers :) they're got more than set
+        return getCurrentSession().getCurrentUser();
+    }
+    
+    public User getCurrentCustomerUser() { //make the string shorter helpers
+        return getCurrentSession().getCurrentCustomer();
     }
 }
