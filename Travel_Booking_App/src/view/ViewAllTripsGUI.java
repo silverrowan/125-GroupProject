@@ -160,10 +160,34 @@ public class ViewAllTripsGUI extends javax.swing.JFrame {
 
     private void removeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBtnActionPerformed
         // TODO add your handling code here:
-        try {
-            int tripID = Integer.parseInt(
-                    tripsTbl.getValueAt(selectedRow, 0).toString()
+        int selectedRow = tripsTbl.getSelectedRow();
+
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Please select a trip to remove.",
+                    "No Trip Selected",
+                    JOptionPane.WARNING_MESSAGE
             );
+            return;
+        }
+
+        int choice = JOptionPane.showConfirmDialog(
+                this,
+                "Are you sure you want to remove this trip?",
+                "Confirm Removal",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE
+        );
+
+        if (choice != JOptionPane.YES_OPTION) {
+            return;
+        }
+
+        try {
+            int tripID =
+                    ((Number) tripsTbl.getValueAt(selectedRow, 0))
+                            .intValue();
 
             boolean removed = tripsController.deleteTrip(tripID);
 
@@ -187,8 +211,8 @@ public class ViewAllTripsGUI extends javax.swing.JFrame {
         } catch (RuntimeException exception) {
             JOptionPane.showMessageDialog(
                     this,
-                    "The trip could not be removed. It may already have "
-                            + "bookings connected to it.",
+                    "The trip could not be removed.\n"
+                            + exception.getMessage(),
                     "Removal Failed",
                     JOptionPane.ERROR_MESSAGE
             );
