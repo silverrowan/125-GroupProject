@@ -6,7 +6,6 @@ import dao.EmployeeDAO;
 import dao.UserDAO;
 import model.User;
 import view.ViewCustomerGUI;
-import utility.AppWindowCust;
 
 /**
  *

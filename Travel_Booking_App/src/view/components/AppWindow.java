@@ -7,7 +7,6 @@ import java.awt.Color;
 import model.User;
 import utility.AppContext;
 import view.AddUserGUIPage1;
-import view.EditUserGUIPage1;
 import view.components.CardMenuRenderer;
 
 /**

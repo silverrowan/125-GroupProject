@@ -1,8 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package view;
+
+package view.profile;
 
 import java.awt.event.ActionListener;
 import javax.accessibility.AccessibleContext;
@@ -16,17 +13,18 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author c0350261
+ * @author Mariah, Max
  */
-public class EditCustomerGUI extends javax.swing.JFrame {
+public class EditEmployeeGUI extends AbstractEditUserView {
 
     /**
      * Creates new form ViewCustomerGUI
      */
-    public EditCustomerGUI() {
+    public EditEmployeeGUI() {
         initComponents();
     }
 
+    @Override
     public JButton getBtnCancel() {
         return btnCancel;
     }
@@ -43,6 +41,7 @@ public class EditCustomerGUI extends javax.swing.JFrame {
         this.btnDeleteAccount = btnDeleteAccount;
     }
 
+    @Override
     public JButton getBtnSave() {
         return btnSave;
     }
@@ -51,6 +50,7 @@ public class EditCustomerGUI extends javax.swing.JFrame {
         this.btnSave = btnSave;
     }
 
+    @Override
     public JTextField getInputCity() {
         return inputCity;
     }
@@ -59,6 +59,7 @@ public class EditCustomerGUI extends javax.swing.JFrame {
         this.inputCity = inputCity;
     }
 
+    @Override
     public JTextField getInputCountry() {
         return inputCountry;
     }
@@ -67,6 +68,7 @@ public class EditCustomerGUI extends javax.swing.JFrame {
         this.inputCountry = inputCountry;
     }
 
+    @Override
     public JTextField getInputEmail() {
         return inputEmail;
     }
@@ -75,22 +77,7 @@ public class EditCustomerGUI extends javax.swing.JFrame {
         this.inputEmail = inputEmail;
     }
 
-    public JTextField getInputEmergencyContactName() {
-        return inputEmergencyContactName;
-    }
-
-    public void setInputEmergencyContactName(JTextField inputEmergencyContactName) {
-        this.inputEmergencyContactName = inputEmergencyContactName;
-    }
-
-    public JTextField getInputEmergencyContactPhone() {
-        return inputEmergencyContactPhone;
-    }
-
-    public void setInputEmergencyContactPhone(JTextField inputEmergencyContactPhone) {
-        this.inputEmergencyContactPhone = inputEmergencyContactPhone;
-    }
-
+    @Override
     public JTextField getInputFirstName() {
         return inputFirstName;
     }
@@ -99,6 +86,23 @@ public class EditCustomerGUI extends javax.swing.JFrame {
         this.inputFirstName = inputFirstName;
     }
 
+    public JTextField getInputHireDate() {
+        return inputHireDate;
+    }
+
+    public void setInputHireDate(JTextField inputHireDate) {
+        this.inputHireDate = inputHireDate;
+    }
+
+    public JTextField getInputJobTitle() {
+        return inputJobTitle;
+    }
+
+    public void setInputJobTitle(JTextField inputJobTitle) {
+        this.inputJobTitle = inputJobTitle;
+    }
+
+    @Override
     public JTextField getInputLastName() {
         return inputLastName;
     }
@@ -107,6 +111,7 @@ public class EditCustomerGUI extends javax.swing.JFrame {
         this.inputLastName = inputLastName;
     }
 
+    @Override
     public JTextField getInputPassword() {
         return inputPassword;
     }
@@ -115,6 +120,7 @@ public class EditCustomerGUI extends javax.swing.JFrame {
         this.inputPassword = inputPassword;
     }
 
+    @Override
     public JTextField getInputPhone() {
         return inputPhone;
     }
@@ -123,6 +129,7 @@ public class EditCustomerGUI extends javax.swing.JFrame {
         this.inputPhone = inputPhone;
     }
 
+    @Override
     public JTextField getInputPost() {
         return inputPost;
     }
@@ -131,6 +138,7 @@ public class EditCustomerGUI extends javax.swing.JFrame {
         this.inputPost = inputPost;
     }
 
+    @Override
     public JTextField getInputProvince() {
         return inputProvince;
     }
@@ -139,6 +147,7 @@ public class EditCustomerGUI extends javax.swing.JFrame {
         this.inputProvince = inputProvince;
     }
 
+    @Override
     public JTextField getInputStreet() {
         return inputStreet;
     }
@@ -147,6 +156,7 @@ public class EditCustomerGUI extends javax.swing.JFrame {
         this.inputStreet = inputStreet;
     }
 
+    @Override
     public JTextField getInputStreetNumber() {
         return inputStreetNumber;
     }
@@ -155,6 +165,7 @@ public class EditCustomerGUI extends javax.swing.JFrame {
         this.inputStreetNumber = inputStreetNumber;
     }
 
+    @Override
     public JTextField getInputUsername() {
         return inputUsername;
     }
@@ -515,6 +526,7 @@ public class EditCustomerGUI extends javax.swing.JFrame {
         this.pnlStreet = pnlStreet;
     }
 
+    @Override
     public JCheckBox getRadioStatus() {
         return radioStatus;
     }
@@ -523,6 +535,7 @@ public class EditCustomerGUI extends javax.swing.JFrame {
         this.radioStatus = radioStatus;
     }
 
+    @Override
     public JComboBox<String> getSelectionRole() {
         return selectionRole;
     }
@@ -531,25 +544,25 @@ public class EditCustomerGUI extends javax.swing.JFrame {
         this.selectionRole = selectionRole;
     }
 
-    public JRootPane getRootPane() {
-        return rootPane;
-    }
-
-    public void setRootPane(JRootPane rootPane) {
-        this.rootPane = rootPane;
-    }
-
-    public boolean isRootPaneCheckingEnabled() {
-        return rootPaneCheckingEnabled;
-    }
-
-    public void setRootPaneCheckingEnabled(boolean rootPaneCheckingEnabled) {
-        this.rootPaneCheckingEnabled = rootPaneCheckingEnabled;
-    }
-
-    public AccessibleContext getAccessibleContext() {
-        return accessibleContext;
-    }
+//    public JRootPane getRootPane() {
+//        return rootPane;
+//    }
+//
+//    public void setRootPane(JRootPane rootPane) {
+//        this.rootPane = rootPane;
+//    }
+//
+//    public boolean isRootPaneCheckingEnabled() {
+//        return rootPaneCheckingEnabled;
+//    }
+//
+//    public void setRootPaneCheckingEnabled(boolean rootPaneCheckingEnabled) {
+//        this.rootPaneCheckingEnabled = rootPaneCheckingEnabled;
+//    }
+//
+//    public AccessibleContext getAccessibleContext() {
+//        return accessibleContext;
+//    }
 
     public void setAccessibleContext(AccessibleContext accessibleContext) {
         this.accessibleContext = accessibleContext;
@@ -558,12 +571,19 @@ public class EditCustomerGUI extends javax.swing.JFrame {
     
     
     // listeners
+    @Override
     public void addCancelBtnListener(ActionListener cancelListener) {
         btnCancel.addActionListener(cancelListener);
     }
     
-    public void addNextBtnListener(ActionListener saveListener) {
+    @Override
+    public void addSaveBtnListener(ActionListener saveListener) {
         btnSave.addActionListener(saveListener);
+    }
+    
+    @Override
+    public void addDeleteAccountBtnListener(ActionListener deleteAccountListener) {
+        btnDeleteAccount.addActionListener(deleteAccountListener);
     }
 
     /**
@@ -626,9 +646,9 @@ public class EditCustomerGUI extends javax.swing.JFrame {
         lblDestinationName2 = new javax.swing.JLabel();
         pnlEmergency = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
-        inputEmergencyContactPhone = new javax.swing.JTextField();
+        inputHireDate = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
-        inputEmergencyContactName = new javax.swing.JTextField();
+        inputJobTitle = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         lblDestinationName3 = new javax.swing.JLabel();
         lblDestinationName1 = new javax.swing.JLabel();
@@ -1055,27 +1075,27 @@ public class EditCustomerGUI extends javax.swing.JFrame {
 
         jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel29.setText("(778) 999-8888");
+        jLabel29.setText("yyyy--MM--dd");
 
-        inputEmergencyContactPhone.addActionListener(new java.awt.event.ActionListener() {
+        inputHireDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputEmergencyContactPhoneActionPerformed(evt);
+                inputHireDateActionPerformed(evt);
             }
         });
 
-        jLabel28.setText("Emergency Contact Phone");
+        jLabel28.setText("Hire Date");
 
-        inputEmergencyContactName.addActionListener(new java.awt.event.ActionListener() {
+        inputJobTitle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputEmergencyContactNameActionPerformed(evt);
+                inputJobTitleActionPerformed(evt);
             }
         });
 
-        jLabel27.setText("Emergency Contact Name");
+        jLabel27.setText("Job Title");
 
         lblDestinationName3.setFont(new java.awt.Font("Noto Sans", 3, 14)); // NOI18N
         lblDestinationName3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblDestinationName3.setText("Emergency Contact");
+        lblDestinationName3.setText("Job Information");
         lblDestinationName3.setToolTipText("");
 
         javax.swing.GroupLayout pnlEmergencyLayout = new javax.swing.GroupLayout(pnlEmergency);
@@ -1088,11 +1108,11 @@ public class EditCustomerGUI extends javax.swing.JFrame {
                     .addComponent(jLabel28)
                     .addComponent(jLabel29)
                     .addGroup(pnlEmergencyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(inputEmergencyContactPhone, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(inputHireDate, javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlEmergencyLayout.createSequentialGroup()
                             .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGap(69, 69, 69))
-                        .addComponent(inputEmergencyContactName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(inputJobTitle, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblDestinationName3, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -1104,11 +1124,11 @@ public class EditCustomerGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel27)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inputEmergencyContactName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inputJobTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel28)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inputEmergencyContactPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inputHireDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel29)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1116,7 +1136,7 @@ public class EditCustomerGUI extends javax.swing.JFrame {
 
         lblDestinationName1.setFont(new java.awt.Font("Noto Sans", 2, 18)); // NOI18N
         lblDestinationName1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDestinationName1.setText("Customer Profile");
+        lblDestinationName1.setText("Employee Profile");
         lblDestinationName1.setToolTipText("");
 
         btnSave.setBackground(new java.awt.Color(204, 255, 204));
@@ -1127,6 +1147,7 @@ public class EditCustomerGUI extends javax.swing.JFrame {
             }
         });
 
+        btnCancel.setBackground(new java.awt.Color(243, 243, 243));
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1245,14 +1266,6 @@ public class EditCustomerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_radioStatusActionPerformed
 
-    private void inputEmergencyContactPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEmergencyContactPhoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputEmergencyContactPhoneActionPerformed
-
-    private void inputEmergencyContactNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEmergencyContactNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputEmergencyContactNameActionPerformed
-
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelActionPerformed
@@ -1309,6 +1322,14 @@ public class EditCustomerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeleteAccountActionPerformed
 
+    private void inputJobTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputJobTitleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputJobTitleActionPerformed
+
+    private void inputHireDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputHireDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputHireDateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1326,21 +1347,23 @@ public class EditCustomerGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditCustomerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditEmployeeGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditCustomerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditEmployeeGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditCustomerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditEmployeeGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EditCustomerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditEmployeeGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EditCustomerGUI().setVisible(true);
+                new EditEmployeeGUI().setVisible(true);
             }
         });
     }
@@ -1352,9 +1375,9 @@ public class EditCustomerGUI extends javax.swing.JFrame {
     private javax.swing.JTextField inputCity;
     private javax.swing.JTextField inputCountry;
     private javax.swing.JTextField inputEmail;
-    private javax.swing.JTextField inputEmergencyContactName;
-    private javax.swing.JTextField inputEmergencyContactPhone;
     private javax.swing.JTextField inputFirstName;
+    private javax.swing.JTextField inputHireDate;
+    private javax.swing.JTextField inputJobTitle;
     private javax.swing.JTextField inputLastName;
     private javax.swing.JTextField inputPassword;
     private javax.swing.JTextField inputPhone;

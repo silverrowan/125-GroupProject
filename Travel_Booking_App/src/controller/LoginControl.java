@@ -6,12 +6,12 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import model.User;
-import view.EditUserGUIPage1;
 import utility.AppWindowAdmin;
 import utility.AppWindowAgent;
 import view.Login;
 import utility.AppWindowCust;
 import utility.GenericView;
+import view.profile.EditCustomerGUI;
 
 /**
  *
@@ -43,11 +43,10 @@ public class LoginControl {
             DashboardControl dash = new DashboardControl( context, view ); 
             dash.initialize();
             view.setVisible(true);
-                
-            EditUserGUIPage1 view2 = new EditUserGUIPage1( ); //make target window/dashboard: This is Menu AND beside contents.
-            ProfileControl pc = new ProfileControl( context, view2 );
+            
+            
+            //make target window/dashboard: This is Menu AND beside contents.
 //                userControl.initialize();
-            view2.setVisible(true);
 //                DashboardMenu dashboard = new DashboardMenu(); // can't use this one - MENU is an x of gradient which is of JPanel not Frame
                     // left for now so i dont re-discover this repeatedly
                 loginView.dispose();
