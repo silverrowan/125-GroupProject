@@ -383,4 +383,31 @@ public class TripsDAO {
 
         return trip;
     }
+    
+    /**
+    * Deletes a trip using its primary key.
+    */
+   public boolean deleteTrip(int tripID) {
+       String sql = """
+           DELETE FROM trips
+           WHERE trip_id = ?
+           """;
+
+       try (
+           Connection connection = getConnection();
+           PreparedStatement statement =
+                   connection.prepareStatement(sql)
+       ) {
+
+           statement.setInt(1, tripID);
+
+           return statement.executeUpdate() > 0;
+
+       } catch (SQLException exception) {
+           throw new RuntimeException(
+                   "Unable to delete trip with ID " + tripID + ".",
+                   exception
+           );
+       }
+   }
 }
