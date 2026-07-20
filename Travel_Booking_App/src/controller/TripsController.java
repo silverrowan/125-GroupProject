@@ -178,4 +178,14 @@ public class TripsController {
             );
         }
     }
+    
+    public boolean deleteTrip(int tripID) {
+        if (tripID <= 0) {
+            throw new IllegalArgumentException(
+                    "A valid trip ID is required."
+            );
+        }
+
+        return tripsDAO.deleteTrip(tripID);
+    }
 }

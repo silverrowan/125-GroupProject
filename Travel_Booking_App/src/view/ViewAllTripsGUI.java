@@ -38,6 +38,7 @@ public class ViewAllTripsGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         backBtn = new javax.swing.JButton();
@@ -45,6 +46,7 @@ public class ViewAllTripsGUI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tripsTbl = new javax.swing.JTable();
         addBtn = new javax.swing.JButton();
+        removeBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,6 +74,9 @@ public class ViewAllTripsGUI extends javax.swing.JFrame {
         addBtn.setText("Add Trip");
         addBtn.addActionListener(this::addBtnActionPerformed);
 
+        removeBtn.setText("Remove Trip");
+        removeBtn.addActionListener(this::removeBtnActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -85,8 +90,10 @@ public class ViewAllTripsGUI extends javax.swing.JFrame {
                                 .addComponent(backBtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(addBtn)
-                                .addGap(177, 177, 177)
-                                .addComponent(editBtn))
+                                .addGap(44, 44, 44)
+                                .addComponent(editBtn)
+                                .addGap(35, 35, 35)
+                                .addComponent(removeBtn))
                             .addComponent(jSeparator1)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
@@ -107,7 +114,8 @@ public class ViewAllTripsGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backBtn)
                     .addComponent(editBtn)
-                    .addComponent(addBtn))
+                    .addComponent(addBtn)
+                    .addComponent(removeBtn))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -150,6 +158,43 @@ public class ViewAllTripsGUI extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_addBtnActionPerformed
 
+    private void removeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBtnActionPerformed
+        // TODO add your handling code here:
+        try {
+            int tripID = Integer.parseInt(
+                    tripsTbl.getValueAt(selectedRow, 0).toString()
+            );
+
+            boolean removed = tripsController.deleteTrip(tripID);
+
+            if (removed) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Trip removed successfully."
+                );
+
+                loadTrips();
+
+            } else {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "The trip could not be removed.",
+                        "Removal Failed",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
+
+        } catch (RuntimeException exception) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "The trip could not be removed. It may already have "
+                            + "bookings connected to it.",
+                    "Removal Failed",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        }
+    }//GEN-LAST:event_removeBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -179,9 +224,11 @@ public class ViewAllTripsGUI extends javax.swing.JFrame {
     private javax.swing.JButton addBtn;
     private javax.swing.JButton backBtn;
     private javax.swing.JButton editBtn;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton removeBtn;
     private javax.swing.JTable tripsTbl;
     // End of variables declaration//GEN-END:variables
     
