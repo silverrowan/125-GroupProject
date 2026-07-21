@@ -8,6 +8,7 @@ package view;
  *
  * @author kalei
  */
+
 import controller.TripsController;
 import model.Trips;
 
