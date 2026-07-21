@@ -58,12 +58,6 @@ public class DashboardControl extends GenericControl{
     private User user;
     private User cust; 
 
-
-//    private ListMenu menuB;
-//    private LinkedList<Card> menuList = new LinkedList<Card>();
-    
-//    public DashboardControl(){}
-//    public DashboardControl( AppContext context, DashboardMenu menu ){
     public DashboardControl( AppContext context, GenericView dash, int never ){
         super( context, dash );
         this.user = context.getCurrentUser();
