@@ -33,14 +33,6 @@ public class DashPanelCustomer extends javax.swing.JPanel {
         this.btnSearchDest = btnSearchDest;
     }
 
-//    public ButtonBase getBtnLatestBooking() {
-//        return btnLatestBooking;
-//    }
-//
-//    public void setBtnLatestBooking(ButtonBase lblLatestBooking) {
-//        this.btnLatestBooking = lblLatestBooking;
-//    }
-
     public JLabel getLblUser() {
         return lblUser;
     }
