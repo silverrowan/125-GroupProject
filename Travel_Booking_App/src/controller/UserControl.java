@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import model.Customer;
 import model.Employee;
 import dao.UserDAO;
+import view.FilterUsersFrameGUIExperiment;
 
 
 /**
@@ -21,6 +22,7 @@ public class UserControl {
     private AppContext context;
     private UserDAO userDAO;
     private AddUserGUIPage1 userView;
+    private FilterUsersFrameGUIExperiment usersView;
 //    private UserService userService;
     
 //    public UserControl( UserDAO userDao, AddUserGUIPage1 userView, UserService userService ) {
@@ -37,6 +39,16 @@ public class UserControl {
         userDAO = context.getUserDao();
         
         this.userView.addNextBtnListener( new AddUserRecord() );
+    }
+
+    public UserControl( AppContext context, FilterUsersFrameGUIExperiment usersView ) {
+        this.context = context;
+        this.usersView = usersView;
+        userDAO = context.getUserDao();
+        
+        this.userView.addNextBtnListener( new AddUserRecord() );
+        //****** IMPORTANT****** if active user is customer or agent only show/ allow customers option
+        //****** IMPORTANT****** if active user is admin, show/allow role drop-down
     }
    
     class AddUserRecord implements ActionListener {

@@ -1,9 +1,9 @@
 
 package model;
 
-import controller.Session;
+
 import utility.AppContext;
-import view.ViewLogin;
+
 import view.components.AppWindow;
 
 /**

@@ -32,21 +32,21 @@ public class DashPanelAdmin extends javax.swing.JPanel {
         this.btnDestinations = btnDestinations;
     }
 
-    public ButtonBase getBtnPackages() {
-        return btnPackages;
-    }
-
-    public void setBtnPackages(ButtonBase btnPackages) {
-        this.btnPackages = btnPackages;
-    }
-
-    public ButtonBase getBtnProducts() {
-        return btnProducts;
-    }
-
-    public void setBtnProducts(ButtonBase btnProducts) {
-        this.btnProducts = btnProducts;
-    }
+//    public ButtonBase getBtnPackages() {
+//        return btnPackages;
+//    }
+//
+//    public void setBtnPackages(ButtonBase btnPackages) {
+//        this.btnPackages = btnPackages;
+//    }
+//
+//    public ButtonBase getBtnProducts() {
+//        return btnProducts;
+//    }
+//
+//    public void setBtnProducts(ButtonBase btnProducts) {
+//        this.btnProducts = btnProducts;
+//    }
 
     public ButtonBase getBtnTrips() {
         return btnTrips;
@@ -74,32 +74,14 @@ public class DashPanelAdmin extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnPackages = new view.models.ButtonBase();
         lblUser = new javax.swing.JLabel();
-        btnProducts = new view.models.ButtonBase();
         btnBooking = new view.models.ButtonBase();
         btnDestinations = new view.models.ButtonBase();
         btnTrips = new view.models.ButtonBase();
 
         setOpaque(false);
 
-        btnPackages.setActionCommand("searchPackages");
-        btnPackages.setLabel("Packages");
-        btnPackages.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPackagesActionPerformed(evt);
-            }
-        });
-
         lblUser.setText("Search & Edit");
-
-        btnProducts.setActionCommand("searchProducts");
-        btnProducts.setLabel("Products");
-        btnProducts.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProductsActionPerformed(evt);
-            }
-        });
 
         btnBooking.setActionCommand("searchBooking");
         btnBooking.setLabel("Booking");
@@ -135,9 +117,7 @@ public class DashPanelAdmin extends javax.swing.JPanel {
                     .addComponent(btnTrips, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnBooking, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblUser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDestinations, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
-                    .addComponent(btnPackages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnProducts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnDestinations, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
@@ -145,10 +125,6 @@ public class DashPanelAdmin extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(lblUser, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
-                .addComponent(btnProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
-                .addComponent(btnPackages, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addComponent(btnDestinations, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
@@ -158,14 +134,6 @@ public class DashPanelAdmin extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnPackagesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPackagesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPackagesActionPerformed
-
-    private void btnProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnProductsActionPerformed
 
     private void btnBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookingActionPerformed
         // TODO add your handling code here:
@@ -183,8 +151,6 @@ public class DashPanelAdmin extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private view.models.ButtonBase btnBooking;
     private view.models.ButtonBase btnDestinations;
-    private view.models.ButtonBase btnPackages;
-    private view.models.ButtonBase btnProducts;
     private view.models.ButtonBase btnTrips;
     private javax.swing.JLabel lblUser;
     // End of variables declaration//GEN-END:variables

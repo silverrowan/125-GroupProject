@@ -69,8 +69,8 @@ public class AppWindowCust extends GenericView {
         getPnlDashCust().getPnlDashCust().getBtnCustProfile().addActionListener( loginListener ); }
     public void addListenerToBtnSearchDest( ActionListener loginListener ) {
         getPnlDashCust().getPnlDashCust().getBtnSearchDest().addActionListener( loginListener ); }
-    public void addListenerToBtnLatestBooking( ActionListener loginListener ) {
-        getPnlDashCust().getPnlDashCust().getBtnLatestBooking().addActionListener( loginListener ); }
+//    public void addListenerToBtnLatestBooking( ActionListener loginListener ) {
+//        getPnlDashCust().getPnlDashCust().getBtnLatestBooking().addActionListener( loginListener ); }
     public void addListenerToBtnAllBooking( ActionListener loginListener ) {
         getPnlDashCust().getPnlDashCust().getBtnViewBooking().addActionListener( loginListener ); }
     public void addListenerToLogoutCust( ActionListener loginListener ) {

@@ -1,5 +1,8 @@
 package controller;
 
+import Template_ControllerAndRelatedElsewhere.AppContextPlaceholder;
+import Template_ControllerAndRelatedElsewhere.ProductControlDemo;
+import controller.BookingsController;
 import java.awt.Button;
 import utility.AppContext;
 import utility.DuplicateTargetException;
@@ -8,14 +11,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.nio.file.AccessDeniedException;
 import java.util.LinkedList;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import model.User;
 import utility.AppWindowAdmin;
 import utility.AppWindowAgent;
 import utility.GenericView;
 import utility.AppWindowCust;
+import utility.GenericView.Crud;
+import view.AddBookingGUI;
+import view.FilterUsersFrameGUIExperiment;
 import view.models.Card;
 import view.Login;
 import view.ProductsGUI;
+import view.ViewAllTripsGUI;
 import view.ViewCustomerGUI;
 import view.components.GradientPanel;
 
@@ -53,6 +62,9 @@ public class DashboardControl extends GenericControl{
     private Button btnAllBooking;
 
     private Button btnLogout;
+    
+    private User user;
+    private User cust; 
 
 
 //    private ListMenu menuB;
@@ -62,6 +74,8 @@ public class DashboardControl extends GenericControl{
 //    public DashboardControl( AppContext context, DashboardMenu menu ){
     public DashboardControl( AppContext context, GenericView dash, int never ){
         super( context, dash );
+        this.user = context.getCurrentUser();
+        this.cust = context.getCurrentCustomerUser();
     }
 
     public DashboardControl( AppContext context, AppWindowCust dashCust ){
@@ -69,7 +83,7 @@ public class DashboardControl extends GenericControl{
         this.dashCust = (AppWindowCust) getView();        
         this.dashCust.addListenerToBtnCustProfile( new CustProfile() );
         this.dashCust.addListenerToBtnSearchDest( new SearchDest() );
-        this.dashCust.addListenerToBtnLatestBooking( new LatestBooking() );
+//        this.dashCust.addListenerToBtnLatestBooking( new LatestBooking() );
         this.dashCust.addListenerToBtnAllBooking( new AllBooking() );
         this.dashCust.addListenerToLogoutCust( new Logout() );
     }
@@ -80,7 +94,7 @@ public class DashboardControl extends GenericControl{
         //--cust section--
         this.dashAgent.addListenerToBtnCustProfile( new CustProfile() );
         this.dashAgent.addListenerToBtnSearchDest( new SearchDest() );
-        this.dashAgent.addListenerToBtnLatestBooking( new LatestBooking() );
+//        this.dashAgent.addListenerToBtnLatestBooking( new LatestBooking() );
         this.dashAgent.addListenerToBtnAllBooking( new AllBooking() );
         //--agent section--
         this.dashAgent.addListenerToBtnAgentProfile( new AgentProfile() );        
@@ -95,7 +109,7 @@ public class DashboardControl extends GenericControl{
         //--cust section--
         this.dashAdmin.addListenerToBtnCustProfile( new CustProfile() );
         this.dashAdmin.addListenerToBtnSearchDest( new SearchDest() );
-        this.dashAdmin.addListenerToBtnLatestBooking( new LatestBooking() );
+//        this.dashAdmin.addListenerToBtnLatestBooking( new LatestBooking() );
         this.dashAdmin.addListenerToBtnAllBooking( new AllBooking() );
         //--agent section--
         this.dashAdmin.addListenerToBtnAdminProfile( new AdminProfile() );        
@@ -103,9 +117,9 @@ public class DashboardControl extends GenericControl{
         this.dashAdmin.addListenerToBtnLogoutAgent( new Logout() );        
         this.dashAdmin.addListenerToBtnClearCust( new ClearCust() );
         //--admin section--
-        this.dashAdmin.addListenerToBtnSearchProduct( new SearchProduct() );    
-        this.dashAdmin.addListenerToBtnSearchPackage( new SearchPackage() );    
-        this.dashAdmin.addListenerToBtnSearchDestAdmin( new SearchDestAdmin() );    
+//        this.dashAdmin.addListenerToBtnSearchProduct( new SearchProduct() );    
+//        this.dashAdmin.addListenerToBtnSearchPackage( new SearchPackage() );    
+        this.dashAdmin.addListenerToBtnSearchDestAdmin( new SearchDest() );    
         this.dashAdmin.addListenerToBtnSearchTrips( new SearchTrip() );    
         this.dashAdmin.addListenerToBtnSearchBook( new SearchBooking() );    
     }
@@ -120,20 +134,19 @@ public class DashboardControl extends GenericControl{
 //-----------------------------------------------------------------------------
         //Cust section
         class SearchDest implements ActionListener {
-
             @Override
             public void actionPerformed(ActionEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                makeViewDestSearch(context);
             }
         }
 
-        class LatestBooking implements ActionListener {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-            }
-        }
+//        class LatestBooking implements ActionListener {
+//            
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                makeSingleBookingView( context, GenericView.Crud.REQUEST );
+//            }
+//        }
 
         class AllBooking implements ActionListener {
 
@@ -147,7 +160,7 @@ public class DashboardControl extends GenericControl{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                logoutUser();
             }
         }
 
@@ -168,11 +181,11 @@ public class DashboardControl extends GenericControl{
             }
         }
 
-        class SearchCust implements ActionListener {
+        class SearchCust implements ActionListener { //to makeFindUserView
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                makeFindUserView( context );
             }
         }
 
@@ -180,6 +193,8 @@ public class DashboardControl extends GenericControl{
 
             @Override
             public void actionPerformed(ActionEvent e) {
+                context.getCurrentSession().setCurrentCustomer( null );
+                refresh();
                 throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
             }
         }
@@ -225,18 +240,8 @@ public class DashboardControl extends GenericControl{
             }
         }
 
-    public void initialize() { 
-//        menuA.addListSelectionListener( new MenuSelect() ); //menu listener
-//        menuB.addListSelectionListener( new MenuSelect() ); //menu listener
-//        buildMenu(); 
-    }
-        
-//    public void startView( context, view ) {
-//        GenericView view = new GenericView( context ); //make target window/dashboard: This is Menu AND beside contents.
-//        GenericControl dash = new GenericControl( context, view ); 
-////        dash.initialize();
-//        view.setVisible(true);        
-//    }
+//    public void initialize() { 
+
 
 
 //            case "Admin":
@@ -260,9 +265,7 @@ public class DashboardControl extends GenericControl{
 ////                addToMenuList(new Card("id-card", "Customer Profile", Card.CardType.MENU, "ViewCustomerProfile"));
 //                buildSharedMenu();
 //                break;
-    
 
-//    }
     
     private void addAdminTargetItems() throws AccessDeniedException, DuplicateTargetException{
         User loggedIn = context.getCurrentSession().getCurrentUser();
@@ -318,7 +321,9 @@ public class DashboardControl extends GenericControl{
 //        this.dispose();  
 //    }
 
-    private void logoutUser( AppContext context ) {
+    
+    //------USER actions-------
+    private void logoutUser() {
         System.out.println("logout");
         context.getCurrentSession().clearSession();
         
@@ -330,49 +335,63 @@ public class DashboardControl extends GenericControl{
         loginView.setVisible(true);
     }
     
+    private void makeFindUserView( AppContext context ) {
+        FilterUsersFrameGUIExperiment view = new FilterUsersFrameGUIExperiment( ); // views *shouldnt* need context, controller should tell it everything it needs
+        view.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
+        UserControl userControl = new UserControl( context, view ); 
+        view.setVisible(true); //make it visible
+    }
+    
+    private void makeViewProfile( AppContext context, boolean isEmployeeProfile ) {
+        System.out.println("Need User Profiles");
+//        make user profile of current USER
+        // Make new view & set up
+        //==========================
+        //get the data & apply it? not sure if before or after creating the view/control
+//        ViewCustomerGUI view = new ViewCustomerGUI(); //new view
+//        view.setDefaultCloseOperation(GenericView.DISPOSE_ON_CLOSE); 
+//        view.setVisible(true); //make it visible
+//        UserControl userControl = new UserControl( context, view ); 
+//        view.setVisible(true); //make it visible
+    }
+    
+    //-------BOOKING actions-------
     private void makeViewCustomerBookings( AppContext context ) {
         System.out.println("view bookings");
         // open/create multi-booking view for current customer
     }
 
-    private void makeViewCustomerLastBooking( AppContext context ) {
-        System.out.println("view a booking");
-        // open/create single-booking view for current customer's last booking
+    private void makeViewSingleBooking( AppContext context, Crud crud ) {
+        AddBookingGUI bookView = new AddBookingGUI( ); // views *shouldnt* need context, controller should tell it everything it needs
+        bookView.setCrud( crud );
+        bookView.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
+        BookingsController bookControl = new BookingsController( context, bookView ); 
+        bookView.setVisible(true); //make it visible
+// view existing booking matching booking ID
+//            bookView.setCrud( GenericView.Crud.REQUEST );
+//            pass booking ID to dao to get matching booking object
     }
     
-    private void makeViewPackageSearch( AppContext context ) {
+    // Any other functions your controller uses, eg helpers, validation, buis logic & rules
+
+    
+    private void makeViewDestSearch( AppContext context ) {
         System.out.println("search products");
-        //get the data & apply it? not sure if before or after creating the view/control
+        System.out.println("NEEDS REAL CONTROLLER");
         ProductsGUI view = new ProductsGUI(); //new view
         view.setDefaultCloseOperation(GenericView.DISPOSE_ON_CLOSE); 
-
-        //associated controller
-//        DestinationsController packageControl = new DestinationsController( context, view ); 
+        ProductsControlPLACEHOLDER destsControl = new ProductsControlPLACEHOLDER( context, view ); 
         view.setVisible(true); //make it visible
     }
-
-        
-    private void makeViewProfile( AppContext context, boolean isEmployeeProfile ) {
-        System.out.println("view profile; for employee? " + isEmployeeProfile );
-        
-        // Make new view & set up
-        //==========================
-        //get the data & apply it? not sure if before or after creating the view/control
-        ViewCustomerGUI view = new ViewCustomerGUI(); //new view
-        //set to NOT close app when this window closes
+    
+    private void makeViewTripSearch( AppContext context ){
+        ViewAllTripsGUI view = new ViewAllTripsGUI(); //new view
         view.setDefaultCloseOperation(GenericView.DISPOSE_ON_CLOSE); 
-        //associated controller
-//        AddUserGUIPage1 userControl = new AddUserGUIPage1( context, view ); 
+        TripsController tripControl = new TripsController( context, view ); 
         view.setVisible(true); //make it visible
-        // Close preceeding window & clean up
-        //==========================
-//        clear any data that needs to be cleared/reset
-//dispose of opening window UNLESS DASHBOARD; otherwise leave it along *logout is a special case*
-//      this.dispose();  
+        
     }
-
-
-    
     
 
+    private void refresh(){} //update dashboard view
 }

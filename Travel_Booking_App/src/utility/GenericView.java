@@ -8,11 +8,26 @@ import javax.swing.JFrame;
  */
 public class GenericView extends JFrame {
     private AppContext context;
+    private Crud crud;
+    
+    public enum Crud {
+        CREATE,
+        REQUEST,
+        UPDATE,
+        DELETE
+    }
+    
+    public GenericView( ) {}
     
     public GenericView( AppContext context ) {
         initComponents();
         this.context = context;
     }
+
+    public Crud getCrud() { return crud; }
+    public void setCrud(Crud crud) { this.crud = crud; }
+    
+    
     
     /**
      * This method is called from within the constructor to initialize the form.

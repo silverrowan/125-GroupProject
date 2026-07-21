@@ -55,8 +55,8 @@ public class AppWindowAdmin extends GenericView {
         pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnCustProfile().addActionListener( loginListener ); }
     public void addListenerToBtnSearchDest( ActionListener loginListener ) {
         pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnSearchDest().addActionListener( loginListener ); }
-    public void addListenerToBtnLatestBooking( ActionListener loginListener ) {
-        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnLatestBooking().addActionListener( loginListener ); }
+//    public void addListenerToBtnLatestBooking( ActionListener loginListener ) {
+//        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnLatestBooking().addActionListener( loginListener ); }
     public void addListenerToBtnAllBooking( ActionListener loginListener ) {
         pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnViewBooking().addActionListener( loginListener ); }
         
@@ -71,10 +71,10 @@ public class AppWindowAdmin extends GenericView {
         pnlDashAdmin.getPnlDashAgent().getBtnClearCust().addActionListener( loginListener ); }
                 
     //----------------Admin Section-------------------
-    public void addListenerToBtnSearchProduct( ActionListener loginListener ) {
-        pnlDashAdmin.getPnlDashAdmin().getBtnProducts().addActionListener( loginListener ); }
-    public void addListenerToBtnSearchPackage( ActionListener loginListener ) {
-        pnlDashAdmin.getPnlDashAdmin().getBtnPackages().addActionListener( loginListener ); }
+//    public void addListenerToBtnSearchProduct( ActionListener loginListener ) {
+//        pnlDashAdmin.getPnlDashAdmin().getBtnProducts().addActionListener( loginListener ); }
+//    public void addListenerToBtnSearchPackage( ActionListener loginListener ) {
+//        pnlDashAdmin.getPnlDashAdmin().getBtnPackages().addActionListener( loginListener ); }
     public void addListenerToBtnSearchDestAdmin( ActionListener loginListener ) {
         pnlDashAdmin.getPnlDashAdmin().getBtnDestinations().addActionListener( loginListener ); }
     public void addListenerToBtnSearchTrips( ActionListener loginListener ) {

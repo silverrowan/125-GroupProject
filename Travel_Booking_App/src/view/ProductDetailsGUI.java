@@ -1,5 +1,6 @@
 package view;
 import controller.DestinationsController;
+import java.awt.event.ActionListener;
 import model.Destinations;
 import javax.swing.JOptionPane;
 /**
@@ -26,6 +27,13 @@ public class ProductDetailsGUI extends javax.swing.JFrame {
         loadDestinationDetails(destinationID);
     }
 
+    
+    // Setters and Getters
+    
+    // Listeners
+
+    // Utility
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
