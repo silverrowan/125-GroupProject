@@ -23,15 +23,6 @@ public class UserControl {
     private UserDAO userDAO;
     private AddUserGUIPage1 userView;
     private FilterUsersFrameGUIExperiment usersView;
-//    private UserService userService;
-    
-//    public UserControl( UserDAO userDao, AddUserGUIPage1 userView, UserService userService ) {
-//        this.userDao = userDao;
-//        this.userView = userView;
-////        this.userService = userService;
-//        
-//        this.userView.addNextBtnListener( new AddUserRecord() );
-//    }
    
     public UserControl( AppContext context, AddUserGUIPage1 userView ) {
         this.context = context;
