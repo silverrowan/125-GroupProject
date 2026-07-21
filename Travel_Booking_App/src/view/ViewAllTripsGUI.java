@@ -131,11 +131,11 @@ public class ViewAllTripsGUI extends javax.swing.JFrame {
         int selectedRow = tripsTbl.getSelectedRow();
 
         if (selectedRow == -1) {
-            JOptionPane.showMessageDialog(
+            javax.swing.JOptionPane.showMessageDialog(
                     this,
-                    "Please select a trip first.",
+                    "Please select a trip to edit.",
                     "No Trip Selected",
-                    JOptionPane.WARNING_MESSAGE
+                    javax.swing.JOptionPane.WARNING_MESSAGE
             );
             return;
         }
@@ -144,10 +144,10 @@ public class ViewAllTripsGUI extends javax.swing.JFrame {
                 ((Number) tripsTbl.getValueAt(selectedRow, 0))
                         .intValue();
 
-        //AddEditTripGUI tripGUI =
-               // new AddEditTripGUI(tripID);
+        AddEditTripGUI editTripGUI =
+                new AddEditTripGUI(tripID);
 
-       // tripGUI.setVisible(true);
+        editTripGUI.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_editBtnActionPerformed
 
