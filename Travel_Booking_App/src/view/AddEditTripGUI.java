@@ -3,12 +3,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
+import controller.TripsController;
+import model.Trips;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.swing.JOptionPane;
 /**
  *
  * @author kalei
  */
 public class AddEditTripGUI extends javax.swing.JFrame {
+    
+    private TripsController tripsController;
+    private Integer editingTripID;
+
+    private final SimpleDateFormat dateFormat =
+            new SimpleDateFormat("yyyy-MM-dd");
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AddEditTripGUI.class.getName());
 
@@ -17,7 +30,26 @@ public class AddEditTripGUI extends javax.swing.JFrame {
      */
     public AddEditTripGUI() {
         initComponents();
+        tripsController = new TripsController();
+        editingTripID = null;
+
+        configureForm();
+        configureAddMode();
     }
+    
+    /**
+    * Opens the form in Edit mode.
+    */
+   public AddEditTripGUI(int tripID) {
+       initComponents();
+
+       tripsController = new TripsController();
+       editingTripID = tripID;
+
+       configureForm();
+       configureEditMode();
+       loadTrip();
+   }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -176,6 +208,7 @@ public class AddEditTripGUI extends javax.swing.JFrame {
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_saveBtnActionPerformed
 
     /**
@@ -223,4 +256,175 @@ public class AddEditTripGUI extends javax.swing.JFrame {
     private javax.swing.JLabel tripnameLbl;
     private javax.swing.JTextField tripnameTxt;
     // End of variables declaration//GEN-END:variables
+    
+    private void configureForm() {
+        dateFormat.setLenient(false);
+
+        departureTxt.setToolTipText("Enter date as yyyy-MM-dd");
+        returnTxt.setToolTipText("Enter date as yyyy-MM-dd");
+
+        /*
+         * Temporary combo-box values.
+         *
+         * The number at the beginning must be the actual database ID.
+         * Replace these examples with IDs that exist in your database.
+         */
+        destinationCb.removeAllItems();
+        destinationCb.addItem("1 - Destination 1");
+        destinationCb.addItem("2 - Destination 2");
+
+        tourguideCB.removeAllItems();
+        tourguideCB.addItem("0 - No guide assigned");
+        tourguideCB.addItem("1 - Tour Guide 1");
+        tourguideCB.addItem("2 - Tour Guide 2");
+    }
+    
+    private void configureAddMode() {
+        setTitle("Add Trip");
+        addTripLbl.setText("Add Trip");
+
+        statusTxt.setText("Upcoming");
+    }
+
+
+    private void configureEditMode() {
+        setTitle("Edit Trip");
+        addTripLbl.setText("Edit Trip");
+    }
+    
+    private int getSelectedID(
+        javax.swing.JComboBox<String> comboBox,
+        String fieldName) {
+
+        Object selectedItem = comboBox.getSelectedItem();
+
+        if (selectedItem == null) {
+            throw new IllegalArgumentException(
+                    "Please select a " + fieldName + "."
+            );
+        }
+
+        String selectedText = selectedItem.toString().trim();
+
+        int separatorPosition = selectedText.indexOf(" - ");
+
+        String idText;
+
+        if (separatorPosition >= 0) {
+            idText = selectedText.substring(
+                    0,
+                    separatorPosition
+            ).trim();
+        } else {
+            idText = selectedText;
+        }
+
+        try {
+            return Integer.parseInt(idText);
+
+        } catch (NumberFormatException exception) {
+            throw new IllegalArgumentException(
+                    "The selected " + fieldName
+                            + " does not contain a valid ID."
+            );
+        }
+    }
+    
+    private Date parseDate(
+        String dateText,
+        String fieldName) {
+
+        if (dateText == null || dateText.isBlank()) {
+            throw new IllegalArgumentException(
+                    fieldName + " is required."
+            );
+        }
+
+        try {
+            return dateFormat.parse(dateText.trim());
+
+        } catch (ParseException exception) {
+            throw new IllegalArgumentException(
+                    fieldName
+                            + " must use the format yyyy-MM-dd."
+            );
+        }
+    }
+    
+    private Trips createTripFromForm() {
+
+        String tripTitle = tripnameTxt.getText().trim();
+
+        if (tripTitle.isBlank()) {
+            throw new IllegalArgumentException(
+                    "Trip name is required."
+            );
+        }
+
+        int destinationID =
+                getSelectedID(
+                        destinationCb,
+                        "destination"
+                );
+
+        int guideID =
+                getSelectedID(
+                        tourguideCB,
+                        "tour guide"
+                );
+
+        Date departureDate =
+                parseDate(
+                        departureTxt.getText(),
+                        "Departure date"
+                );
+
+        Date returnDate =
+                parseDate(
+                        returnTxt.getText(),
+                        "Return date"
+                );
+
+        int maxTravelers;
+
+        try {
+            maxTravelers = Integer.parseInt(
+                    maxTravelerTxt.getText().trim()
+            );
+
+        } catch (NumberFormatException exception) {
+            throw new IllegalArgumentException(
+                    "Maximum travelers must be a whole number."
+            );
+        }
+
+        if (maxTravelers <= 0) {
+            throw new IllegalArgumentException(
+                    "Maximum travelers must be greater than zero."
+            );
+        }
+
+        String status = statusTxt.getText().trim();
+
+        if (status.isBlank()) {
+            status = "Upcoming";
+        }
+
+        Trips trip = new Trips(
+                destinationID,
+                guideID,
+                tripTitle,
+                departureDate,
+                returnDate,
+                maxTravelers,
+                status
+        );
+
+        if (editingTripID != null) {
+            trip.setTripID(editingTripID);
+        }
+
+        return trip;
+    }
+    
 }
