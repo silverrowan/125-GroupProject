@@ -43,6 +43,7 @@ public class ProfileControl {
     public ProfileControl(AppContext context, EditEmployeeGUI editEmployeeView) {
         this(editEmployeeView, context);
     }
+    
     private ProfileControl(AbstractEditUserView editProfileView, AppContext context) {
         this.editProfileView = editProfileView;
         this.context = context;

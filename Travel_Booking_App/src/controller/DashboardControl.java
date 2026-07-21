@@ -139,8 +139,11 @@ public class DashboardControl extends GenericControl{
             
             @Override
             public void actionPerformed(ActionEvent e) {
-                if ( isSelf ) { makeViewProfile( context, true ); }
-                else { makeViewProfile( context, false ); }
+                User user = context.getCurrentUser();
+                User focusUser = context.getCurrentSession().getFocusUser();
+                
+                if ( isSelf ) { makeViewProfile( context, user ); }
+                else { makeViewProfile( context, focusUser ); }
             }
         }
         
@@ -303,20 +306,15 @@ public class DashboardControl extends GenericControl{
         view.setVisible(true); //make it visible
     }
         
-    private void makeViewProfile( AppContext context, boolean isSelf ) { // OR isEmployeeProfile
+    private void makeViewProfile( AppContext context, User viewUser ) { // OR isEmployeeProfile
         User currUser = context.getCurrentUser();
         String currURole = currUser.getRole();
         
-        User focusUser = context.getCurrentSession().getFocusUser();
-        String focusRole = focusUser.getRole();
+        String viewUserRole = viewUser.getRole();
 
-        if ( currURole.equals("Customer") && focusRole != null ) { 
-            context.getCurrentSession().clearFoci();
-            makeViewProfile(context, isSelf);
-        }
-        if ( currURole.equals("Customer") ) { makeEditCustomerView(); } // Customer should always have isSelf=true on view profile buttons
-        else if ( isSelf == true ) { makeEditEmployeeView(); } 
-        else if ( focusRole.equals("Customer") ) { makeEditCustomerView(); }
+        if ( currURole.equals("Customer") || viewUserRole.equals("Customer")) { 
+            makeEditCustomerView(); 
+        } // Customer should always have isSelf=true on view profile buttons
         else { makeEditEmployeeView(); }
     }
         
@@ -358,9 +356,10 @@ public class DashboardControl extends GenericControl{
         bookView.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
         BookingsController bookControl = new BookingsController( context, bookView ); 
         bookView.setVisible(true); //make it visible
-// view existing booking matching booking ID
-//            bookView.setCrud( GenericView.Crud.REQUEST );
-//            pass booking ID to dao to get matching booking object
+        
+    // view existing booking matching booking ID
+    //            bookView.setCrud( GenericView.Crud.REQUEST );
+    //            pass booking ID to dao to get matching booking object
     }
     
     // Any other functions your controller uses, eg helpers, validation, buis logic & rules
