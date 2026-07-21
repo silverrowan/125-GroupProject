@@ -4,6 +4,10 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author c0541856
@@ -17,6 +21,80 @@ public class EditUserGUIPage1 extends javax.swing.JFrame {
         initComponents();
     }
 
+    // getters and setters
+    public JButton getBtnCancel() {
+        return btnCancel;
+    }
+
+    public void setBtnCancel(JButton btnCancel) {
+        this.btnCancel = btnCancel;
+    }
+
+    public JButton getBtnNext() {
+        return btnNext;
+    }
+
+    public void setBtnNext(JButton btnNext) {
+        this.btnNext = btnNext;
+    }
+
+    public JTextField getInputEmail() {
+        return inputEmail;
+    }
+
+    public void setInputEmail(JTextField inputEmail) {
+        this.inputEmail = inputEmail;
+    }
+
+    public JTextField getInputFirstName() {
+        return inputFirstName;
+    }
+
+    public void setInputFirstName(JTextField inputFirstName) {
+        this.inputFirstName = inputFirstName;
+    }
+
+    public JTextField getInputLastName() {
+        return inputLastName;
+    }
+
+    public void setInputLastName(JTextField inputLastName) {
+        this.inputLastName = inputLastName;
+    }
+
+    public JTextField getInputPassword() {
+        return inputPassword;
+    }
+
+    public void setInputPassword(JTextField inputPassword) {
+        this.inputPassword = inputPassword;
+    }
+
+    public JTextField getInputPhone() {
+        return inputPhone;
+    }
+
+    public void setInputPhone(JTextField inputPhone) {
+        this.inputPhone = inputPhone;
+    }
+
+    public JTextField getInputUsername() {
+        return inputUsername;
+    }
+
+    public void setInputUsername(JTextField inputUsername) {
+        this.inputUsername = inputUsername;
+    }
+    
+    // listeners
+    public void addCancelBtnListener(ActionListener cancelListener) {
+        btnCancel.addActionListener(cancelListener);
+    }
+    
+    public void addNextBtnListener(ActionListener nextListener) {
+        btnNext.addActionListener(nextListener);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,7 +123,6 @@ public class EditUserGUIPage1 extends javax.swing.JFrame {
         btnNext = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -126,9 +203,6 @@ public class EditUserGUIPage1 extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 0, 0));
         jLabel1.setText("*");
 
-        jLabel2.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel2.setText("*");
-
         jLabel15.setForeground(new java.awt.Color(255, 0, 0));
         jLabel15.setText("*");
 
@@ -157,10 +231,7 @@ public class EditUserGUIPage1 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1))
                     .addComponent(inputUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2))
+                    .addComponent(jLabel5)
                     .addComponent(inputPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -204,9 +275,7 @@ public class EditUserGUIPage1 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel2))
+                .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(inputPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -262,10 +331,6 @@ public class EditUserGUIPage1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputUsernameActionPerformed
 
-    private void inputPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputPasswordActionPerformed
-
     private void inputFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputFirstNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputFirstNameActionPerformed
@@ -285,6 +350,10 @@ public class EditUserGUIPage1 extends javax.swing.JFrame {
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void inputPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputPasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -343,7 +412,6 @@ public class EditUserGUIPage1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

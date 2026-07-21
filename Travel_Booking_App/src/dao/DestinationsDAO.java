@@ -455,7 +455,7 @@ public class DestinationsDAO {
 
         statement.setString(
             22,
-            destination.getDestinationStatus()
+            destination.getDestinationStatus().toString()
         );
     }
 

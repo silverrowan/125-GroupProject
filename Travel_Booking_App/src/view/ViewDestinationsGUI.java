@@ -1,15 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 import model.*;
+import view.subViews.EDestinationSummary;
+import view.subViews.VAddress;
+import view.subViews.VTravelMethod;
+import view.subViews.VActivities;
 
 /**
  *
  * @author rowan
  */
 public class ViewDestinationsGUI extends javax.swing.JFrame {
+//    private final eSummarySubview summarySubview = new eSummarySubview();
+//    private final vAddressSubview addressSubview = new vAddressSubview();
+//    private final vTravelSubview travelSubview = new vTravelSubview();
+//    private final vActivitiesSubview activitiesSubview = new vActivitiesSubview();
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ViewDestinationsGUI.class.getName());
 
@@ -20,6 +24,11 @@ public class ViewDestinationsGUI extends javax.swing.JFrame {
         initComponents();
     }
 
+    public EDestinationSummary getSummarySubview() { return eSummarySubview; }
+    public VAddress getAddressSubview() { return vAddressSubview; }
+    public VTravelMethod getTravelSubview() { return vTravelSubview; }
+    public VActivities getActivitiesSubview() { return vActivitiesSubview; }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,11 +42,11 @@ public class ViewDestinationsGUI extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jTextField1 = new javax.swing.JTextField();
         pnlDestinationCombined = new javax.swing.JPanel();
-        btnBookNow = new javax.swing.JButton();
-        vHotelInfo1 = new view.subViews.vAddress();
-        vTravelMethod1 = new view.subViews.vTravelMethod();
-        vActivities1 = new view.subViews.vActivities();
-        eDestinationSummary1 = new view.subViews.eDestinationSummary();
+        btnFindTrips = new javax.swing.JButton();
+        vAddressSubview = new view.subViews.VAddress();
+        vTravelSubview = new view.subViews.VTravelMethod();
+        vActivitiesSubview = new view.subViews.VActivities();
+        eSummarySubview = new view.subViews.EDestinationSummary();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -48,32 +57,33 @@ public class ViewDestinationsGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("frameDestination"); // NOI18N
 
-        btnBookNow.setBackground(new java.awt.Color(204, 255, 204));
-        btnBookNow.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
-        btnBookNow.setText("Book!");
+        btnFindTrips.setBackground(new java.awt.Color(204, 255, 204));
+        btnFindTrips.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
+        btnFindTrips.setText("See Available Trips");
+        btnFindTrips.addActionListener(this::btnFindTripsActionPerformed);
 
         javax.swing.GroupLayout pnlDestinationCombinedLayout = new javax.swing.GroupLayout(pnlDestinationCombined);
         pnlDestinationCombined.setLayout(pnlDestinationCombinedLayout);
         pnlDestinationCombinedLayout.setHorizontalGroup(
             pnlDestinationCombinedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnBookNow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(vHotelInfo1, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
-            .addComponent(vTravelMethod1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(vActivities1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(eDestinationSummary1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnFindTrips, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(vAddressSubview, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
+            .addComponent(vTravelSubview, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(vActivitiesSubview, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(eSummarySubview, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnlDestinationCombinedLayout.setVerticalGroup(
             pnlDestinationCombinedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDestinationCombinedLayout.createSequentialGroup()
-                .addComponent(eDestinationSummary1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(eSummarySubview, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnBookNow)
+                .addComponent(btnFindTrips)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(vHotelInfo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(vAddressSubview, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(vTravelMethod1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(vTravelSubview, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(vActivities1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(vActivitiesSubview, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -91,6 +101,10 @@ public class ViewDestinationsGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnFindTripsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindTripsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFindTripsActionPerformed
 
     
     
@@ -120,14 +134,14 @@ public class ViewDestinationsGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBookNow;
-    private view.subViews.eDestinationSummary eDestinationSummary1;
+    private javax.swing.JButton btnFindTrips;
+    private view.subViews.EDestinationSummary eSummarySubview;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel pnlDestinationCombined;
-    private view.subViews.vActivities vActivities1;
-    private view.subViews.vAddress vHotelInfo1;
-    private view.subViews.vTravelMethod vTravelMethod1;
+    private view.subViews.VActivities vActivitiesSubview;
+    private view.subViews.VAddress vAddressSubview;
+    private view.subViews.VTravelMethod vTravelSubview;
     // End of variables declaration//GEN-END:variables
 }

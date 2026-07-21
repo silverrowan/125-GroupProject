@@ -64,31 +64,31 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="btnBookNow" max="32767" attributes="0"/>
-              <Component id="vHotelInfo1" pref="458" max="32767" attributes="0"/>
-              <Component id="vTravelMethod1" alignment="0" max="32767" attributes="0"/>
-              <Component id="vActivities1" max="32767" attributes="0"/>
-              <Component id="eDestinationSummary1" alignment="0" max="32767" attributes="0"/>
+              <Component id="btnFindTrips" max="32767" attributes="0"/>
+              <Component id="vAddressSubview" pref="458" max="32767" attributes="0"/>
+              <Component id="vTravelSubview" alignment="0" max="32767" attributes="0"/>
+              <Component id="vActivitiesSubview" max="32767" attributes="0"/>
+              <Component id="eSummarySubview" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="eDestinationSummary1" min="-2" max="-2" attributes="0"/>
+                  <Component id="eSummarySubview" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnBookNow" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnFindTrips" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="vHotelInfo1" min="-2" max="-2" attributes="0"/>
+                  <Component id="vAddressSubview" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="vTravelMethod1" min="-2" max="-2" attributes="0"/>
+                  <Component id="vTravelSubview" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="vActivities1" min="-2" max="-2" attributes="0"/>
+                  <Component id="vActivitiesSubview" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="btnBookNow">
+        <Component class="javax.swing.JButton" name="btnFindTrips">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="ff" red="cc" type="rgb"/>
@@ -96,16 +96,19 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Noto Sans" size="18" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Book!"/>
+            <Property name="text" type="java.lang.String" value="See Available Trips"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFindTripsActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="view.subViews.vAddress" name="vHotelInfo1">
+        <Component class="view.subViews.VAddress" name="vAddressSubview">
         </Component>
-        <Component class="view.subViews.vTravelMethod" name="vTravelMethod1">
+        <Component class="view.subViews.VTravelMethod" name="vTravelSubview">
         </Component>
-        <Component class="view.subViews.vActivities" name="vActivities1">
+        <Component class="view.subViews.VActivities" name="vActivitiesSubview">
         </Component>
-        <Component class="view.subViews.eDestinationSummary" name="eDestinationSummary1">
+        <Component class="view.subViews.EDestinationSummary" name="eSummarySubview">
         </Component>
       </SubComponents>
     </Container>

@@ -40,6 +40,9 @@ public class Trips {
         this.tripStatus = tripStatus;
     }
     
+    //emum field options
+    public static enum tripStatusType { Upcoming, Active, Completed, Cancelled }
+    
     //GETTERS 
     /**
      * @return the tripID

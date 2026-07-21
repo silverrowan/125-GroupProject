@@ -16,19 +16,27 @@ public class Employee {
     private String employeeStatus;
 
     // full constructor
-    public Employee(int employeeID, int userID, String jobTitle, Date hireDate, String employeeStatus) {
-        this(employeeID, userID, employeeStatus);
+    public Employee(int userID, String jobTitle, Date hireDate, String employeeStatus) {
+        this(userID);
         this.jobTitle = jobTitle;
         this.hireDate = hireDate;
-    }
-
-    // required constructor
-    public Employee(int employeeID, int userID, String employeeStatus) {
-        this.employeeID = employeeID;
-        this.userID = userID;
         this.employeeStatus = employeeStatus;
     }
 
+    // required constructor
+    public Employee(int userID) {
+        this.userID = userID;
+    }
+
+    // required constructor
+    public Employee(int employeeID, int userID) {
+        this.employeeID = employeeID;
+        this.userID = userID;
+    }
+    
+    //emum field options
+    public static enum statusType { Active, Inactive }    
+    
     // getters and setters
     public int getEmployeeID() {
         return employeeID;

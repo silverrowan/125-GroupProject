@@ -5,6 +5,7 @@ package model;
  * @author Mariah Malczewska
  */
 public class Destinations {
+    //Database Fields
     private int DestinationID;
     private String DestinationName;
     private String countryRegion;
@@ -28,7 +29,7 @@ public class Destinations {
     private float activityFees;
     private float totalEstimatedCost;
     private String destinationStatus;
-    
+    //Composite Fields (not passed to database)
     private String fullAddress;
 
     //CONSTRUCTORS
@@ -60,13 +61,12 @@ public class Destinations {
         this.durationNights = durationNights;
         this.basePrice = basePrice;
         this.activityFees = activityFees;
-        this.totalEstimatedCost = basePrice + activityFees;
+        this.totalEstimatedCost = basePrice + activityFees;            
         this.destinationStatus = destinationStatus;
     }
 
     public Destinations(String DestinationName, String countryRegion, 
-            int durationDays, int durationNights, float basePrice, 
-            String destinationStatus) {
+            int durationDays, int durationNights, float basePrice) {
         this.DestinationName = DestinationName;
         this.countryRegion = countryRegion;
         this.durationDays = durationDays;
@@ -74,9 +74,11 @@ public class Destinations {
         this.basePrice = basePrice;
         this.activityFees = 0;
         this.totalEstimatedCost = basePrice + activityFees;
-        this.destinationStatus = destinationStatus;
     }
 
+    //emum field options
+    public static enum StatusType { Active, Inactive } 
+    
     //GETTERS     
     /**
      * @return the DestinationID
