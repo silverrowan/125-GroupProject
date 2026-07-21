@@ -209,8 +209,63 @@ public class AddEditTripGUI extends javax.swing.JFrame {
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_saveBtnActionPerformed
+        try {
+            Trips trip = createTripFromForm();
 
+            boolean saved;
+
+            if (editingTripID == null) {
+                saved = tripsController.addTrip(trip);
+            } else {
+                saved = tripsController.updateTrip(trip);
+            }
+
+            if (!saved) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "The trip could not be saved.",
+                        "Save Failed",
+                        JOptionPane.ERROR_MESSAGE
+                );
+
+                return;
+            }
+
+            String successMessage;
+
+            if (editingTripID == null) {
+                successMessage = "Trip added successfully.";
+            } else {
+                successMessage = "Trip updated successfully.";
+            }
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    successMessage
+            );
+
+            openViewAllTrips();
+
+        } catch (IllegalArgumentException exception) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    exception.getMessage(),
+                    "Invalid Trip",
+                    JOptionPane.WARNING_MESSAGE
+            );
+
+        } catch (RuntimeException exception) {
+            exception.printStackTrace();
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "The trip could not be saved.\n"
+                            + exception.getMessage(),
+                    "Database Error",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        }
+    }//GEN-LAST:event_saveBtnActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -427,4 +482,115 @@ public class AddEditTripGUI extends javax.swing.JFrame {
         return trip;
     }
     
+    private void loadTrip() {
+        try {
+            Trips trip =
+                    tripsController.getTripByID(editingTripID);
+
+            if (trip == null) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "The selected trip could not be found.",
+                        "Trip Not Found",
+                        JOptionPane.ERROR_MESSAGE
+                );
+
+                openViewAllTrips();
+                return;
+            }
+
+            tripnameTxt.setText(
+                    trip.getTripTitle()
+            );
+
+            departureTxt.setText(
+                    dateFormat.format(
+                            trip.getDepartureDate()
+                    )
+            );
+
+            returnTxt.setText(
+                    dateFormat.format(
+                            trip.getReturnDate()
+                    )
+            );
+
+            maxTravelerTxt.setText(
+                    String.valueOf(
+                            trip.getMaxTravelers()
+                    )
+            );
+
+            statusTxt.setText(
+                    trip.getTripStatus()
+            );
+
+            selectComboItemByID(
+                    destinationCb,
+                    trip.getDestinationID()
+            );
+
+            selectComboItemByID(
+                    tourguideCB,
+                    trip.getAssignedGuideEmployeeID()
+            );
+
+        } catch (RuntimeException exception) {
+            exception.printStackTrace();
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "The trip could not be loaded.\n"
+                            + exception.getMessage(),
+                    "Database Error",
+                    JOptionPane.ERROR_MESSAGE
+            );
+
+            openViewAllTrips();
+        }
+    }
+    
+    private void selectComboItemByID(
+        javax.swing.JComboBox<String> comboBox,
+        int wantedID) {
+
+        for (int index = 0;
+                index < comboBox.getItemCount();
+                index++) {
+
+            String item = comboBox.getItemAt(index);
+
+            int separatorPosition = item.indexOf(" - ");
+
+            String idText;
+
+            if (separatorPosition >= 0) {
+                idText = item.substring(
+                        0,
+                        separatorPosition
+                ).trim();
+            } else {
+                idText = item.trim();
+            }
+
+            try {
+                int itemID = Integer.parseInt(idText);
+
+                if (itemID == wantedID) {
+                    comboBox.setSelectedIndex(index);
+                    return;
+                }
+
+            } catch (NumberFormatException exception) {
+                // Ignore invalid combo-box items.
+            }
+        }
+    }
+    
+    private void openViewAllTrips() {
+        ViewAllTripsGUI tripsGUI = new ViewAllTripsGUI();
+
+        tripsGUI.setVisible(true);
+        this.dispose();
+    }
 }
