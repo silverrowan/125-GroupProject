@@ -1,13 +1,12 @@
 package view.components;
 
-import controller.Session;
+import utility.Session;
 import controller.UserControl;
 import dao.UserDAO;
 import java.awt.Color;
 import model.User;
 import utility.AppContext;
 import view.AddUserGUIPage1;
-import view.EditUserGUIPage1;
 import view.components.CardMenuRenderer;
 
 /**

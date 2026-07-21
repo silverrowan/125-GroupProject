@@ -8,11 +8,10 @@ import javax.swing.JOptionPane;
 import model.User;
 import utility.AppWindowAdmin;
 import utility.AppWindowAgent;
-import view.AddUserGUIPage1;
-import view.EditUserGUIPage1;
 import view.Login;
 import utility.AppWindowCust;
 import utility.GenericView;
+import view.profile.EditCustomerGUI;
 
 /**
  *
@@ -52,9 +51,9 @@ public class LoginControl {
     // make it visible
 //                TO DO 
                 //close login window
-            }
+            
         }
-    
+    }
     class AddNewCustomer implements ActionListener {
 
         @Override

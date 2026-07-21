@@ -1,31 +1,589 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package view;
+
+package view.profile;
 
 import java.awt.event.ActionListener;
+import javax.accessibility.AccessibleContext;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRootPane;
+import javax.swing.JTextField;
 
 /**
  *
- * @author c0350261
+ * @author Mariah, Max
  */
-public class EditCustomerGUI extends javax.swing.JFrame {
+public class EditEmployeeGUI extends AbstractEditUserView {
 
     /**
      * Creates new form ViewCustomerGUI
      */
-    public EditCustomerGUI() {
+    public EditEmployeeGUI() {
         initComponents();
     }
+
+    @Override
+    public JButton getBtnCancel() {
+        return btnCancel;
+    }
+
+    public void setBtnCancel(JButton btnCancel) {
+        this.btnCancel = btnCancel;
+    }
+
+    public JButton getBtnDeleteAccount() {
+        return btnDeleteAccount;
+    }
+
+    public void setBtnDeleteAccount(JButton btnDeleteAccount) {
+        this.btnDeleteAccount = btnDeleteAccount;
+    }
+
+    @Override
+    public JButton getBtnSave() {
+        return btnSave;
+    }
+
+    public void setBtnSave(JButton btnSave) {
+        this.btnSave = btnSave;
+    }
+
+    @Override
+    public JTextField getInputCity() {
+        return inputCity;
+    }
+
+    public void setInputCity(JTextField inputCity) {
+        this.inputCity = inputCity;
+    }
+
+    @Override
+    public JTextField getInputCountry() {
+        return inputCountry;
+    }
+
+    public void setInputCountry(JTextField inputCountry) {
+        this.inputCountry = inputCountry;
+    }
+
+    @Override
+    public JTextField getInputEmail() {
+        return inputEmail;
+    }
+
+    public void setInputEmail(JTextField inputEmail) {
+        this.inputEmail = inputEmail;
+    }
+
+    @Override
+    public JTextField getInputFirstName() {
+        return inputFirstName;
+    }
+
+    public void setInputFirstName(JTextField inputFirstName) {
+        this.inputFirstName = inputFirstName;
+    }
+
+    public JTextField getInputHireDate() {
+        return inputHireDate;
+    }
+
+    public void setInputHireDate(JTextField inputHireDate) {
+        this.inputHireDate = inputHireDate;
+    }
+
+    public JTextField getInputJobTitle() {
+        return inputJobTitle;
+    }
+
+    public void setInputJobTitle(JTextField inputJobTitle) {
+        this.inputJobTitle = inputJobTitle;
+    }
+
+    @Override
+    public JTextField getInputLastName() {
+        return inputLastName;
+    }
+
+    public void setInputLastName(JTextField inputLastName) {
+        this.inputLastName = inputLastName;
+    }
+
+    @Override
+    public JTextField getInputPassword() {
+        return inputPassword;
+    }
+
+    public void setInputPassword(JTextField inputPassword) {
+        this.inputPassword = inputPassword;
+    }
+
+    @Override
+    public JTextField getInputPhone() {
+        return inputPhone;
+    }
+
+    public void setInputPhone(JTextField inputPhone) {
+        this.inputPhone = inputPhone;
+    }
+
+    @Override
+    public JTextField getInputPost() {
+        return inputPost;
+    }
+
+    public void setInputPost(JTextField inputPost) {
+        this.inputPost = inputPost;
+    }
+
+    @Override
+    public JTextField getInputProvince() {
+        return inputProvince;
+    }
+
+    public void setInputProvince(JTextField inputProvince) {
+        this.inputProvince = inputProvince;
+    }
+
+    @Override
+    public JTextField getInputStreet() {
+        return inputStreet;
+    }
+
+    public void setInputStreet(JTextField inputStreet) {
+        this.inputStreet = inputStreet;
+    }
+
+    @Override
+    public JTextField getInputStreetNumber() {
+        return inputStreetNumber;
+    }
+
+    public void setInputStreetNumber(JTextField inputStreetNumber) {
+        this.inputStreetNumber = inputStreetNumber;
+    }
+
+    @Override
+    public JTextField getInputUsername() {
+        return inputUsername;
+    }
+
+    public void setInputUsername(JTextField inputUsername) {
+        this.inputUsername = inputUsername;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getjLabel10() {
+        return jLabel10;
+    }
+
+    public void setjLabel10(JLabel jLabel10) {
+        this.jLabel10 = jLabel10;
+    }
+
+    public JLabel getjLabel11() {
+        return jLabel11;
+    }
+
+    public void setjLabel11(JLabel jLabel11) {
+        this.jLabel11 = jLabel11;
+    }
+
+    public JLabel getjLabel12() {
+        return jLabel12;
+    }
+
+    public void setjLabel12(JLabel jLabel12) {
+        this.jLabel12 = jLabel12;
+    }
+
+    public JLabel getjLabel13() {
+        return jLabel13;
+    }
+
+    public void setjLabel13(JLabel jLabel13) {
+        this.jLabel13 = jLabel13;
+    }
+
+    public JLabel getjLabel14() {
+        return jLabel14;
+    }
+
+    public void setjLabel14(JLabel jLabel14) {
+        this.jLabel14 = jLabel14;
+    }
+
+    public JLabel getjLabel15() {
+        return jLabel15;
+    }
+
+    public void setjLabel15(JLabel jLabel15) {
+        this.jLabel15 = jLabel15;
+    }
+
+    public JLabel getjLabel16() {
+        return jLabel16;
+    }
+
+    public void setjLabel16(JLabel jLabel16) {
+        this.jLabel16 = jLabel16;
+    }
+
+    public JLabel getjLabel17() {
+        return jLabel17;
+    }
+
+    public void setjLabel17(JLabel jLabel17) {
+        this.jLabel17 = jLabel17;
+    }
+
+    public JLabel getjLabel18() {
+        return jLabel18;
+    }
+
+    public void setjLabel18(JLabel jLabel18) {
+        this.jLabel18 = jLabel18;
+    }
+
+    public JLabel getjLabel19() {
+        return jLabel19;
+    }
+
+    public void setjLabel19(JLabel jLabel19) {
+        this.jLabel19 = jLabel19;
+    }
+
+    public JLabel getjLabel20() {
+        return jLabel20;
+    }
+
+    public void setjLabel20(JLabel jLabel20) {
+        this.jLabel20 = jLabel20;
+    }
+
+    public JLabel getjLabel21() {
+        return jLabel21;
+    }
+
+    public void setjLabel21(JLabel jLabel21) {
+        this.jLabel21 = jLabel21;
+    }
+
+    public JLabel getjLabel22() {
+        return jLabel22;
+    }
+
+    public void setjLabel22(JLabel jLabel22) {
+        this.jLabel22 = jLabel22;
+    }
+
+    public JLabel getjLabel23() {
+        return jLabel23;
+    }
+
+    public void setjLabel23(JLabel jLabel23) {
+        this.jLabel23 = jLabel23;
+    }
+
+    public JLabel getjLabel24() {
+        return jLabel24;
+    }
+
+    public void setjLabel24(JLabel jLabel24) {
+        this.jLabel24 = jLabel24;
+    }
+
+    public JLabel getjLabel25() {
+        return jLabel25;
+    }
+
+    public void setjLabel25(JLabel jLabel25) {
+        this.jLabel25 = jLabel25;
+    }
+
+    public JLabel getjLabel26() {
+        return jLabel26;
+    }
+
+    public void setjLabel26(JLabel jLabel26) {
+        this.jLabel26 = jLabel26;
+    }
+
+    public JLabel getjLabel27() {
+        return jLabel27;
+    }
+
+    public void setjLabel27(JLabel jLabel27) {
+        this.jLabel27 = jLabel27;
+    }
+
+    public JLabel getjLabel28() {
+        return jLabel28;
+    }
+
+    public void setjLabel28(JLabel jLabel28) {
+        this.jLabel28 = jLabel28;
+    }
+
+    public JLabel getjLabel29() {
+        return jLabel29;
+    }
+
+    public void setjLabel29(JLabel jLabel29) {
+        this.jLabel29 = jLabel29;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    public JLabel getjLabel30() {
+        return jLabel30;
+    }
+
+    public void setjLabel30(JLabel jLabel30) {
+        this.jLabel30 = jLabel30;
+    }
+
+    public JLabel getjLabel31() {
+        return jLabel31;
+    }
+
+    public void setjLabel31(JLabel jLabel31) {
+        this.jLabel31 = jLabel31;
+    }
+
+    public JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public void setjLabel4(JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    public JLabel getjLabel5() {
+        return jLabel5;
+    }
+
+    public void setjLabel5(JLabel jLabel5) {
+        this.jLabel5 = jLabel5;
+    }
+
+    public JLabel getjLabel7() {
+        return jLabel7;
+    }
+
+    public void setjLabel7(JLabel jLabel7) {
+        this.jLabel7 = jLabel7;
+    }
+
+    public JLabel getjLabel8() {
+        return jLabel8;
+    }
+
+    public void setjLabel8(JLabel jLabel8) {
+        this.jLabel8 = jLabel8;
+    }
+
+    public JLabel getjLabel9() {
+        return jLabel9;
+    }
+
+    public void setjLabel9(JLabel jLabel9) {
+        this.jLabel9 = jLabel9;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public void setjPanel1(JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    public JPanel getjPanel2() {
+        return jPanel2;
+    }
+
+    public void setjPanel2(JPanel jPanel2) {
+        this.jPanel2 = jPanel2;
+    }
+
+    public JLabel getLblDestinationCountry() {
+        return lblDestinationCountry;
+    }
+
+    public void setLblDestinationCountry(JLabel lblDestinationCountry) {
+        this.lblDestinationCountry = lblDestinationCountry;
+    }
+
+    public JLabel getLblDestinationName() {
+        return lblDestinationName;
+    }
+
+    public void setLblDestinationName(JLabel lblDestinationName) {
+        this.lblDestinationName = lblDestinationName;
+    }
+
+    public JLabel getLblDestinationName1() {
+        return lblDestinationName1;
+    }
+
+    public void setLblDestinationName1(JLabel lblDestinationName1) {
+        this.lblDestinationName1 = lblDestinationName1;
+    }
+
+    public JLabel getLblDestinationName2() {
+        return lblDestinationName2;
+    }
+
+    public void setLblDestinationName2(JLabel lblDestinationName2) {
+        this.lblDestinationName2 = lblDestinationName2;
+    }
+
+    public JLabel getLblDestinationName3() {
+        return lblDestinationName3;
+    }
+
+    public void setLblDestinationName3(JLabel lblDestinationName3) {
+        this.lblDestinationName3 = lblDestinationName3;
+    }
+
+    public JLabel getLblDestinationName4() {
+        return lblDestinationName4;
+    }
+
+    public void setLblDestinationName4(JLabel lblDestinationName4) {
+        this.lblDestinationName4 = lblDestinationName4;
+    }
+
+    public JPanel getPnlAccount() {
+        return pnlAccount;
+    }
+
+    public void setPnlAccount(JPanel pnlAccount) {
+        this.pnlAccount = pnlAccount;
+    }
+
+    public JPanel getPnlAddress() {
+        return pnlAddress;
+    }
+
+    public void setPnlAddress(JPanel pnlAddress) {
+        this.pnlAddress = pnlAddress;
+    }
+
+    public JPanel getPnlCountry() {
+        return pnlCountry;
+    }
+
+    public void setPnlCountry(JPanel pnlCountry) {
+        this.pnlCountry = pnlCountry;
+    }
+
+    public JPanel getPnlEmergency() {
+        return pnlEmergency;
+    }
+
+    public void setPnlEmergency(JPanel pnlEmergency) {
+        this.pnlEmergency = pnlEmergency;
+    }
+
+    public JPanel getPnlPersInfo() {
+        return pnlPersInfo;
+    }
+
+    public void setPnlPersInfo(JPanel pnlPersInfo) {
+        this.pnlPersInfo = pnlPersInfo;
+    }
+
+    public JPanel getPnlRegion() {
+        return pnlRegion;
+    }
+
+    public void setPnlRegion(JPanel pnlRegion) {
+        this.pnlRegion = pnlRegion;
+    }
+
+    public JPanel getPnlStreet() {
+        return pnlStreet;
+    }
+
+    public void setPnlStreet(JPanel pnlStreet) {
+        this.pnlStreet = pnlStreet;
+    }
+
+    @Override
+    public JCheckBox getRadioStatus() {
+        return radioStatus;
+    }
+
+    public void setRadioStatus(JCheckBox radioStatus) {
+        this.radioStatus = radioStatus;
+    }
+
+    @Override
+    public JComboBox<String> getSelectionRole() {
+        return selectionRole;
+    }
+
+    public void setSelectionRole(JComboBox<String> selectionRole) {
+        this.selectionRole = selectionRole;
+    }
+
+//    public JRootPane getRootPane() {
+//        return rootPane;
+//    }
+//
+//    public void setRootPane(JRootPane rootPane) {
+//        this.rootPane = rootPane;
+//    }
+//
+//    public boolean isRootPaneCheckingEnabled() {
+//        return rootPaneCheckingEnabled;
+//    }
+//
+//    public void setRootPaneCheckingEnabled(boolean rootPaneCheckingEnabled) {
+//        this.rootPaneCheckingEnabled = rootPaneCheckingEnabled;
+//    }
+//
+//    public AccessibleContext getAccessibleContext() {
+//        return accessibleContext;
+//    }
+
+    public void setAccessibleContext(AccessibleContext accessibleContext) {
+        this.accessibleContext = accessibleContext;
+    }
+    
+    
     
     // listeners
+    @Override
     public void addCancelBtnListener(ActionListener cancelListener) {
         btnCancel.addActionListener(cancelListener);
     }
     
-    public void addNextBtnListener(ActionListener nextListener) {
-        btnSave.addActionListener(nextListener);
+    @Override
+    public void addSaveBtnListener(ActionListener saveListener) {
+        btnSave.addActionListener(saveListener);
+    }
+    
+    @Override
+    public void addDeleteAccountBtnListener(ActionListener deleteAccountListener) {
+        btnDeleteAccount.addActionListener(deleteAccountListener);
     }
 
     /**
@@ -88,9 +646,9 @@ public class EditCustomerGUI extends javax.swing.JFrame {
         lblDestinationName2 = new javax.swing.JLabel();
         pnlEmergency = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
-        inputEmergencyContactPhone = new javax.swing.JTextField();
+        inputHireDate = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
-        inputEmergencyContactName = new javax.swing.JTextField();
+        inputJobTitle = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         lblDestinationName3 = new javax.swing.JLabel();
         lblDestinationName1 = new javax.swing.JLabel();
@@ -517,27 +1075,27 @@ public class EditCustomerGUI extends javax.swing.JFrame {
 
         jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel29.setText("(778) 999-8888");
+        jLabel29.setText("yyyy--MM--dd");
 
-        inputEmergencyContactPhone.addActionListener(new java.awt.event.ActionListener() {
+        inputHireDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputEmergencyContactPhoneActionPerformed(evt);
+                inputHireDateActionPerformed(evt);
             }
         });
 
-        jLabel28.setText("Emergency Contact Phone");
+        jLabel28.setText("Hire Date");
 
-        inputEmergencyContactName.addActionListener(new java.awt.event.ActionListener() {
+        inputJobTitle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputEmergencyContactNameActionPerformed(evt);
+                inputJobTitleActionPerformed(evt);
             }
         });
 
-        jLabel27.setText("Emergency Contact Name");
+        jLabel27.setText("Job Title");
 
         lblDestinationName3.setFont(new java.awt.Font("Noto Sans", 3, 14)); // NOI18N
         lblDestinationName3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblDestinationName3.setText("Emergency Contact");
+        lblDestinationName3.setText("Job Information");
         lblDestinationName3.setToolTipText("");
 
         javax.swing.GroupLayout pnlEmergencyLayout = new javax.swing.GroupLayout(pnlEmergency);
@@ -550,11 +1108,11 @@ public class EditCustomerGUI extends javax.swing.JFrame {
                     .addComponent(jLabel28)
                     .addComponent(jLabel29)
                     .addGroup(pnlEmergencyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(inputEmergencyContactPhone, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(inputHireDate, javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlEmergencyLayout.createSequentialGroup()
                             .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGap(69, 69, 69))
-                        .addComponent(inputEmergencyContactName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(inputJobTitle, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblDestinationName3, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -566,11 +1124,11 @@ public class EditCustomerGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel27)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inputEmergencyContactName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inputJobTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel28)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inputEmergencyContactPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inputHireDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel29)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -578,7 +1136,7 @@ public class EditCustomerGUI extends javax.swing.JFrame {
 
         lblDestinationName1.setFont(new java.awt.Font("Noto Sans", 2, 18)); // NOI18N
         lblDestinationName1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDestinationName1.setText("Customer Profile");
+        lblDestinationName1.setText("Employee Profile");
         lblDestinationName1.setToolTipText("");
 
         btnSave.setBackground(new java.awt.Color(204, 255, 204));
@@ -589,6 +1147,7 @@ public class EditCustomerGUI extends javax.swing.JFrame {
             }
         });
 
+        btnCancel.setBackground(new java.awt.Color(243, 243, 243));
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -707,14 +1266,6 @@ public class EditCustomerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_radioStatusActionPerformed
 
-    private void inputEmergencyContactPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEmergencyContactPhoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputEmergencyContactPhoneActionPerformed
-
-    private void inputEmergencyContactNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEmergencyContactNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputEmergencyContactNameActionPerformed
-
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelActionPerformed
@@ -771,6 +1322,14 @@ public class EditCustomerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeleteAccountActionPerformed
 
+    private void inputJobTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputJobTitleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputJobTitleActionPerformed
+
+    private void inputHireDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputHireDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputHireDateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -788,21 +1347,23 @@ public class EditCustomerGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditCustomerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditEmployeeGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditCustomerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditEmployeeGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditCustomerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditEmployeeGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EditCustomerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditEmployeeGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EditCustomerGUI().setVisible(true);
+                new EditEmployeeGUI().setVisible(true);
             }
         });
     }
@@ -814,9 +1375,9 @@ public class EditCustomerGUI extends javax.swing.JFrame {
     private javax.swing.JTextField inputCity;
     private javax.swing.JTextField inputCountry;
     private javax.swing.JTextField inputEmail;
-    private javax.swing.JTextField inputEmergencyContactName;
-    private javax.swing.JTextField inputEmergencyContactPhone;
     private javax.swing.JTextField inputFirstName;
+    private javax.swing.JTextField inputHireDate;
+    private javax.swing.JTextField inputJobTitle;
     private javax.swing.JTextField inputLastName;
     private javax.swing.JTextField inputPassword;
     private javax.swing.JTextField inputPhone;

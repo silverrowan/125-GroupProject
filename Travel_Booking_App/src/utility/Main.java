@@ -2,9 +2,16 @@
 package utility;
 
 import controller.DashboardControl;
-
+import controller.LoginControl;
+import controller.ProfileControl;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import model.User;
-
+import utility.AppWindowCust;
+import view.profile.EditCustomerGUI;
+import view.profile.EditEmployeeGUI;
 import view.Login;
 
 /**
@@ -33,7 +40,9 @@ public class Main {
     public static void directToDash(AppContext context) {
         User activeUser;
         User loginUser;
-        String username = "s";           
+//        String username = "mzhang";           
+//        String password = "12341234";
+        String username = "cchen";           
         String password = "123123123";
 
         activeUser = context.getUserDao().getUserFromUsername(username, password);
@@ -65,6 +74,19 @@ public class Main {
             DashboardControl dash = new DashboardControl( context, view );
 //            dash.initialize();
             view.setVisible(true);
+        }
+        
+        // Edit customer & employees testing code (TEMPORARY)
+        if (context.getCurrentUser().getRole().equals("Customer")) {
+            EditCustomerGUI viewEdit = new EditCustomerGUI();
+            viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            ProfileControl pc = new ProfileControl(context, viewEdit);
+            viewEdit.setVisible(true);
+        } else {
+            EditEmployeeGUI viewEdit = new EditEmployeeGUI();
+            viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            ProfileControl pc = new ProfileControl(context, viewEdit);
+            viewEdit.setVisible(true);
         }
     }
 }
