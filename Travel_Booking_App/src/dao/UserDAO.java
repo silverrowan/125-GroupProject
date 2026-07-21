@@ -112,6 +112,36 @@ public class UserDAO {
         return null;
     }
     
+    public boolean deleteUser(int userID) {
+        
+        // statement
+        String statement = """
+                           DELETE FROM users
+                           WHERE user_id = ?;
+                           """;
+        
+        // open connection
+        try (Connection connection = DBConnection.getConnection();
+                PreparedStatement p = connection.prepareStatement(statement);) {
+            
+            p.setInt(1, userID); // set userID
+            
+            int rows = p.executeUpdate();
+            
+            if (rows != 1) {
+                throw new SQLException("Fatal: something went wrong with delete!");
+            }
+            
+            return true; // success
+        } catch (SQLException e) {
+            System.out.println("Error when connecting to database: " + e);
+        } catch (Exception e) {
+            System.out.println("Error when connecting to Database: " + e);
+        }
+        
+        return false;
+    }
+    
 //    activeUser = UserDAO.getUserFromUsername(username, password);\
     
     public User getUserFromUsername(String username, String password){ //rename to CHECK LOGIN 

@@ -42,8 +42,10 @@ public class Main {
         User loginUser;
 //        String username = "mzhang";           
 //        String password = "12341234";
-        String username = "cchen";           
-        String password = "123123123";
+//        String username = "cchen";           
+//        String password = "123123123";
+        String username = "ezhang";
+        String password = "12341234";
 
         activeUser = context.getUserDao().getUserFromUsername(username, password);
         loginUser = null;

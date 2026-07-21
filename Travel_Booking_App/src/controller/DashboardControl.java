@@ -318,7 +318,7 @@ public class DashboardControl extends GenericControl{
 //        this.dispose();  
 //    }
 
-    private void logoutUser( AppContext context ) {
+    public void logoutUser( AppContext context ) {
         System.out.println("logout");
         context.getCurrentSession().clearSession();
         

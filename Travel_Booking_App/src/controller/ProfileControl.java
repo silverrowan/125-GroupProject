@@ -1,10 +1,13 @@
 package controller;
 
 import dao.CustomerDAO;
+import dao.EmployeeDAO;
 import dao.UserDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 import model.Customer;
+import model.Employee;
 import model.User;
 import utility.AppContext;
 import utility.PropertyValidator;
@@ -38,10 +41,50 @@ public class ProfileControl {
         
         // save button listener
         editCustomerView.addSaveBtnListener(new CustomerSaver(editCustomerView, currentCustomer, customerDAO));
+        
+        // delete account button listener
+        editCustomerView.addDeleteAccountBtnListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                customerDAO.deleteCustomer(currentCustomer.getCustomerID()); // delete customer first
+                userDAO.deleteUser(currentUser.getUserID()); // then delete user
+                
+                // dispose view
+                editCustomerView.dispose();
+            }
+        });
     }
     
+    // employee view constructor
     public ProfileControl(AppContext context, EditEmployeeGUI editEmployeeView) {
-        this(editEmployeeView, context);
+        this(editEmployeeView, context); // update generic user information
+        
+        // get DAO
+        EmployeeDAO employeeDAO = context.getEmployeeDao();
+        
+        // get current employee
+        Employee currentEmployee = employeeDAO.getEmployeeFromUserID(context.getCurrentUser().getUserID());
+        
+        // set fields on form
+        editEmployeeView.getInputHireDate().setText((currentEmployee.getHireDate() == null) ? "" : currentEmployee.getHireDate().toString()); // hire date
+        editEmployeeView.getInputJobTitle().setText(currentEmployee.getJobTitle()); // job title
+        
+        // save button listener
+        editEmployeeView.addSaveBtnListener(new EmployeeSaver(editEmployeeView, currentEmployee, employeeDAO));
+        
+        // delete account button listener
+        editEmployeeView.addDeleteAccountBtnListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                employeeDAO.deleteEmployee(currentEmployee.getEmployeeID()); // delete employee first
+                userDAO.deleteUser(currentUser.getUserID()); // then delete user
+                
+                // dispose view
+                editEmployeeView.dispose();
+                
+                // in progress: log out if you delete yourself
+            }
+        });
     }
     private ProfileControl(AbstractEditUserView editProfileView, AppContext context) {
         this.editProfileView = editProfileView;
@@ -188,4 +231,40 @@ public class ProfileControl {
         }
     }
     
+    class EmployeeSaver implements ActionListener {
+        
+        // view
+        private EditEmployeeGUI editEmployeeView;
+        
+        // employee
+        private Employee currentEmployee;
+        
+        // DAO
+        private EmployeeDAO employeeDAO;
+        
+        // fields to update
+        private String jobTitle;
+        private String hireDate;
+        
+        // constructor
+        public EmployeeSaver(EditEmployeeGUI editEmployeeView, Employee currentEmployee, EmployeeDAO employeeDAO) {
+            this.editEmployeeView = editEmployeeView;
+            this.currentEmployee = currentEmployee;
+            this.employeeDAO = employeeDAO;
+        }
+        
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // get info from form
+            this.jobTitle = this.editEmployeeView.getInputJobTitle().getText();
+            this.hireDate = this.editEmployeeView.getInputHireDate().getText();
+            
+            // set employee info
+            currentEmployee.setJobTitle(jobTitle);
+            currentEmployee.setHireDate(Date.valueOf(hireDate));
+            
+            // update employee
+            employeeDAO.updateEmployee(currentEmployee);
+        }
+    }
 }
