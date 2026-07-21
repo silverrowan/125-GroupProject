@@ -51,36 +51,30 @@ public class AppWindowAdmin extends GenericView {
     
     // ---------------Listeners--------------------------
     //----------------Customer Section-------------------
-    public void addListenerToBtnCustProfile( ActionListener loginListener ) {
-        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnCustProfile().addActionListener( loginListener ); }
-    public void addListenerToBtnSearchDest( ActionListener loginListener ) {
-        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnSearchDest().addActionListener( loginListener ); }
-//    public void addListenerToBtnLatestBooking( ActionListener loginListener ) {
-//        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnLatestBooking().addActionListener( loginListener ); }
-    public void addListenerToBtnAllBooking( ActionListener loginListener ) {
-        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnViewBooking().addActionListener( loginListener ); }
+    public void addListenerToBtnCustProfile( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnCustProfile().addActionListener( listener ); }
+    public void addListenerToBtnSearchDest( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnSearchDest().addActionListener( listener ); }
+    public void addListenerToBtnAllBooking( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnViewBooking().addActionListener( listener ); }
         
     //----------------Agent Section-------------------
-    public void addListenerToBtnAdminProfile( ActionListener loginListener ) {
-        pnlDashAdmin.getPnlDashAgent().getBtnAgentProfile().addActionListener( loginListener ); }
-    public void addListenerToBtnSearchCust( ActionListener loginListener ) {
-        pnlDashAdmin.getPnlDashAgent().getBtnSearchCust().addActionListener( loginListener ); }
-    public void addListenerToBtnLogoutAgent( ActionListener loginListener ) {
-        pnlDashAdmin.getPnlDashAgent().getBtnLogout().addActionListener( loginListener ); }
-    public void addListenerToBtnClearCust( ActionListener loginListener ) {
-        pnlDashAdmin.getPnlDashAgent().getBtnClearCust().addActionListener( loginListener ); }
+    public void addListenerToBtnAdminProfile( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAgent().getBtnAgentProfile().addActionListener( listener ); }
+    public void addListenerToBtnSearchCust( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAgent().getBtnSearchCust().addActionListener( listener ); }
+    public void addListenerToBtnLogoutAgent( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAgent().getBtnLogout().addActionListener( listener ); }
+    public void addListenerToBtnClearCust( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAgent().getBtnClearCust().addActionListener( listener ); }
                 
     //----------------Admin Section-------------------
-//    public void addListenerToBtnSearchProduct( ActionListener loginListener ) {
-//        pnlDashAdmin.getPnlDashAdmin().getBtnProducts().addActionListener( loginListener ); }
-//    public void addListenerToBtnSearchPackage( ActionListener loginListener ) {
-//        pnlDashAdmin.getPnlDashAdmin().getBtnPackages().addActionListener( loginListener ); }
-    public void addListenerToBtnSearchDestAdmin( ActionListener loginListener ) {
-        pnlDashAdmin.getPnlDashAdmin().getBtnDestinations().addActionListener( loginListener ); }
-    public void addListenerToBtnSearchTrips( ActionListener loginListener ) {
-        pnlDashAdmin.getPnlDashAdmin().getBtnTrips().addActionListener( loginListener ); }
-    public void addListenerToBtnSearchBook( ActionListener loginListener ) {
-        pnlDashAdmin.getPnlDashAdmin().getBtnBooking().addActionListener( loginListener ); }
+    public void addListenerToBtnSearchDestAdmin( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAdmin().getBtnDestinations().addActionListener( listener ); }
+    public void addListenerToBtnSearchTrips( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAdmin().getBtnTrips().addActionListener( listener ); }
+    public void addListenerToBtnSearchBook( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAdmin().getBtnBooking().addActionListener( listener ); }
     
     
     /**

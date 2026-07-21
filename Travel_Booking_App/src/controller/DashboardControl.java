@@ -27,8 +27,6 @@ import view.profile.EditEmployeeGUI;
  * @author Mariah Malczewska
  */
 public class DashboardControl extends GenericControl{
-//    private menuDAO menuDao;
-//    private ListMenu listMenu;
     private AppContext context;
 
     private AppWindowAdmin dashAdmin;
@@ -57,8 +55,8 @@ public class DashboardControl extends GenericControl{
 //
 //    private Button btnLogout;
 //    
-//    private User user;
-//    private User cust; 
+    private User user;
+    private User cust; 
 
 
 //    private ListMenu menuB;
@@ -68,8 +66,8 @@ public class DashboardControl extends GenericControl{
 //    public DashboardControl( AppContext context, DashboardMenu menu ){
     public DashboardControl( AppContext context, GenericView dash, int never ){
         super( context, dash );
-//        this.user = context.getCurrentUser();
-//        this.cust = context.getCurrentCustomerUser();
+        this.user = context.getCurrentUser();
+        this.cust = context.getCurrentCustomerUser();
     }
     
 //    logged in user = Customer
@@ -78,7 +76,6 @@ public class DashboardControl extends GenericControl{
         this.dashCust = (AppWindowCust) getView();        
         this.dashCust.addListenerToBtnCustProfile( new Profile( true ) );
         this.dashCust.addListenerToBtnSearchDest( new SearchDest() );
-//        this.dashCust.addListenerToBtnLatestBooking( new LatestBooking() );
         this.dashCust.addListenerToBtnAllBooking( new AllBooking() );
         this.dashCust.addListenerToLogoutCust( new Logout() );
     }
@@ -90,7 +87,6 @@ public class DashboardControl extends GenericControl{
         //--cust section--
         this.dashAgent.addListenerToBtnCustProfile( new Profile( false ) );
         this.dashAgent.addListenerToBtnSearchDest( new SearchDest() );
-//        this.dashAgent.addListenerToBtnLatestBooking( new LatestBooking() );
         this.dashAgent.addListenerToBtnAllBooking( new AllBooking() );
         //--agent section--
         this.dashAgent.addListenerToBtnAgentProfile( new Profile( true ) );        
@@ -106,7 +102,6 @@ public class DashboardControl extends GenericControl{
         //--cust section--
         this.dashAdmin.addListenerToBtnCustProfile( new Profile( false ) );
         this.dashAdmin.addListenerToBtnSearchDest( new SearchDest() );
-//        this.dashAdmin.addListenerToBtnLatestBooking( new LatestBooking() );
         this.dashAdmin.addListenerToBtnAllBooking( new AllBooking() );
         //--agent section--
         this.dashAdmin.addListenerToBtnAdminProfile( new Profile( true ) );        
@@ -114,8 +109,6 @@ public class DashboardControl extends GenericControl{
         this.dashAdmin.addListenerToBtnLogoutAgent( new Logout() );        
         this.dashAdmin.addListenerToBtnClearCust( new ClearCust() );
         //--admin section--
-//        this.dashAdmin.addListenerToBtnSearchProduct( new SearchProduct() );    
-//        this.dashAdmin.addListenerToBtnSearchPackage( new SearchPackage() );    
         this.dashAdmin.addListenerToBtnSearchDestAdmin( new SearchDest() );    
         this.dashAdmin.addListenerToBtnSearchTrips( new SearchTrip() );    
         this.dashAdmin.addListenerToBtnSearchBook( new SearchBooking() );    
@@ -305,35 +298,23 @@ public class DashboardControl extends GenericControl{
 
         if ( currURole.equals("Customer") || viewUserRole.equals("Customer")) { 
             makeEditCustomerView(); 
-        } // Customer should always have isSelf=true on view profile buttons
+        } 
         else { makeEditEmployeeView(); }
     }
-        
-        
-//        make user profile of current USER
-        // Make new view & set up
-        //==========================
-        //get the data & apply it? not sure if before or after creating the view/control
-//        ViewCustomerGUI view = new ViewCustomerGUI(); //new view
-//        view.setDefaultCloseOperation(GenericView.DISPOSE_ON_CLOSE); 
-//        view.setVisible(true); //make it visible
-//        UserControl userControl = new UserControl( context, view ); 
-//        view.setVisible(true); //make it visible
-    
 
-        private void makeEditCustomerView() {
-            EditCustomerGUI viewEdit = new EditCustomerGUI();
-            viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            ProfileControl pc = new ProfileControl(context, viewEdit);
-            viewEdit.setVisible(true);
-        }
-        
-        private void makeEditEmployeeView() {
-            EditEmployeeGUI viewEdit = new EditEmployeeGUI();
-            viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            ProfileControl pc = new ProfileControl(context, viewEdit);
-            viewEdit.setVisible(true);
-        }
+    private void makeEditCustomerView() {
+        EditCustomerGUI viewEdit = new EditCustomerGUI();
+        viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        ProfileControl pc = new ProfileControl(context, viewEdit);
+        viewEdit.setVisible(true);
+    }
+
+    private void makeEditEmployeeView() {
+        EditEmployeeGUI viewEdit = new EditEmployeeGUI();
+        viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        ProfileControl pc = new ProfileControl(context, viewEdit);
+        viewEdit.setVisible(true);
+    }
 
     //-------BOOKING actions-------
     private void makeViewCustomerBookings( AppContext context ) {
