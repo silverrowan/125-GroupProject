@@ -27,6 +27,8 @@ import view.ProductsGUI;
 import view.ViewAllTripsGUI;
 import view.ViewCustomerGUI;
 import view.components.GradientPanel;
+import view.profile.EditCustomerGUI;
+import view.profile.EditEmployeeGUI;
 
 /**
  *
@@ -45,26 +47,26 @@ public class DashboardControl extends GenericControl{
     private GradientPanel dashDisplay;
     private GradientPanel dashList;
 
-    private Button btnAdminProfile;
-    private Button btnSearchCust;
-    private Button btnSearchDestAdmin;
-    private Button btnSearchProduct;
-    private Button btnSearchPackage;
-    private Button btnSearchTrip;
-    private Button btnSearchBooking;
-
-    private Button btnAgentProfile;
-    private Button btnClearUser;
-
-    private Button btnCustProfile;
-    private Button btnSearchDest;
-    private Button btnLatestBooking;
-    private Button btnAllBooking;
-
-    private Button btnLogout;
-    
-    private User user;
-    private User cust; 
+//    private Button btnAdminProfile;
+//    private Button btnSearchCust;
+//    private Button btnSearchDestAdmin;
+//    private Button btnSearchProduct;
+//    private Button btnSearchPackage;
+//    private Button btnSearchTrip;
+//    private Button btnSearchBooking;
+//
+//    private Button btnAgentProfile;
+//    private Button btnClearUser;
+//
+//    private Button btnCustProfile;
+//    private Button btnSearchDest;
+//    private Button btnLatestBooking;
+//    private Button btnAllBooking;
+//
+//    private Button btnLogout;
+//    
+//    private User user;
+//    private User cust; 
 
 
 //    private ListMenu menuB;
@@ -74,45 +76,48 @@ public class DashboardControl extends GenericControl{
 //    public DashboardControl( AppContext context, DashboardMenu menu ){
     public DashboardControl( AppContext context, GenericView dash, int never ){
         super( context, dash );
-        this.user = context.getCurrentUser();
-        this.cust = context.getCurrentCustomerUser();
+//        this.user = context.getCurrentUser();
+//        this.cust = context.getCurrentCustomerUser();
     }
-
+    
+//    logged in user = Customer
     public DashboardControl( AppContext context, AppWindowCust dashCust ){
         this( context, dashCust, 99 );
         this.dashCust = (AppWindowCust) getView();        
-        this.dashCust.addListenerToBtnCustProfile( new CustProfile() );
+        this.dashCust.addListenerToBtnCustProfile( new Profile( true ) );
         this.dashCust.addListenerToBtnSearchDest( new SearchDest() );
 //        this.dashCust.addListenerToBtnLatestBooking( new LatestBooking() );
         this.dashCust.addListenerToBtnAllBooking( new AllBooking() );
         this.dashCust.addListenerToLogoutCust( new Logout() );
     }
     
+    //Logged in user == agent
     public DashboardControl( AppContext context, AppWindowAgent dashAgent ){
         this( context, dashAgent, 99 );
         this.dashAgent = (AppWindowAgent) getView();        
         //--cust section--
-        this.dashAgent.addListenerToBtnCustProfile( new CustProfile() );
+        this.dashAgent.addListenerToBtnCustProfile( new Profile( false ) );
         this.dashAgent.addListenerToBtnSearchDest( new SearchDest() );
 //        this.dashAgent.addListenerToBtnLatestBooking( new LatestBooking() );
         this.dashAgent.addListenerToBtnAllBooking( new AllBooking() );
         //--agent section--
-        this.dashAgent.addListenerToBtnAgentProfile( new AgentProfile() );        
+        this.dashAgent.addListenerToBtnAgentProfile( new Profile( true ) );        
         this.dashAgent.addListenerToBtnSearchCust( new SearchCust() );        
         this.dashAgent.addListenerToBtnLogoutAgent( new Logout() );        
         this.dashAgent.addListenerToBtnClearCust( new ClearCust() );        
     }
     
+//    Loggen in user == admin
     public DashboardControl( AppContext contextOuter, AppWindowAdmin dashAdminOuter ){
         this( contextOuter, dashAdminOuter, 99 );
         this.dashAdmin = (AppWindowAdmin) getView();
         //--cust section--
-        this.dashAdmin.addListenerToBtnCustProfile( new CustProfile() );
+        this.dashAdmin.addListenerToBtnCustProfile( new Profile( false ) );
         this.dashAdmin.addListenerToBtnSearchDest( new SearchDest() );
 //        this.dashAdmin.addListenerToBtnLatestBooking( new LatestBooking() );
         this.dashAdmin.addListenerToBtnAllBooking( new AllBooking() );
         //--agent section--
-        this.dashAdmin.addListenerToBtnAdminProfile( new AdminProfile() );        
+        this.dashAdmin.addListenerToBtnAdminProfile( new Profile( true ) );        
         this.dashAdmin.addListenerToBtnSearchCust( new SearchCust() );        
         this.dashAdmin.addListenerToBtnLogoutAgent( new Logout() );        
         this.dashAdmin.addListenerToBtnClearCust( new ClearCust() );
@@ -124,14 +129,21 @@ public class DashboardControl extends GenericControl{
         this.dashAdmin.addListenerToBtnSearchBook( new SearchBooking() );    
     }
     
-        class CustProfile implements ActionListener {
+//--------------------------Listener Classes & Function------------------------
+//-----------------------------------------------------------------------------
+        
+        class Profile implements ActionListener {
+            Boolean isSelf;
+            
+            public Profile( Boolean isSelf ){ this.isSelf = isSelf; }
+            
             @Override
             public void actionPerformed(ActionEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                if ( isSelf ) { makeViewProfile( context, true ); }
+                else { makeViewProfile( context, false ); }
             }
         }
-//----------------------------Listener Implementation--------------------------
-//-----------------------------------------------------------------------------
+        
         //Cust section
         class SearchDest implements ActionListener {
             @Override
@@ -139,14 +151,6 @@ public class DashboardControl extends GenericControl{
                 makeViewDestSearch(context);
             }
         }
-
-//        class LatestBooking implements ActionListener {
-//            
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                makeSingleBookingView( context, GenericView.Crud.REQUEST );
-//            }
-//        }
 
         class AllBooking implements ActionListener {
 
@@ -165,22 +169,6 @@ public class DashboardControl extends GenericControl{
         }
 
         //Agent section
-        class AgentProfile implements ActionListener {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-            }
-        }
-
-        class AdminProfile implements ActionListener {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-            }
-        }
-
         class SearchCust implements ActionListener { //to makeFindUserView
 
             @Override
@@ -240,33 +228,6 @@ public class DashboardControl extends GenericControl{
             }
         }
 
-//    public void initialize() { 
-
-
-
-//            case "Admin":
-//                
-//                addToMenuList(new ImgCard("id-card", "My Profile", Card.CardType.MENU, "ViewAdminProfile"));
-//                addToMenuList(new ImgCard("add_location_alt", "Search Products", Card.CardType.MENU, "SearchProducts"));
-//                addToMenuList(new ImgCard("add_location_alt", "Search Packages", Card.CardType.MENU, "SearchPackages"));
-//                addToMenuList(new ImgCard("add_location_alt", "Search Destinations", Card.CardType.MENU, "SearchDestinations"));
-//                             
-//                addToMenuList(new ImgCard("user-search-line", "Search Users", Card.CardType.MENU, "SearchForUser"));
-//                addToMenuList(new ImgCard("user-search-line", "Search Bookings", Card.CardType.MENU, "SearchForBooking"));
-//                try { addAdminTargetItems(); }
-//                buildSharedMenu();
-//                break;
-    
-//            case "Travel Agent":
-
-//                addToMenuList(new ImgCard("id-card", "My Profile", Card.CardType.MENU, "ViewEmployeeProfile"));
-//                addToMenuList(new ImgCard("user-search-line", "Search Customers", Card.CardType.MENU, "SearchForCustomer"));
-//                addToMenuList(new ImgCard("id-card", "Customer Profile", Card.CardType.MENU, "ViewCustomerProfile"));
-////                addToMenuList(new Card("id-card", "Customer Profile", Card.CardType.MENU, "ViewCustomerProfile"));
-//                buildSharedMenu();
-//                break;
-
-    
     private void addAdminTargetItems() throws AccessDeniedException, DuplicateTargetException{
         User loggedIn = context.getCurrentSession().getCurrentUser();
         User customer = context.getCurrentSession().getCurrentCustomer();
@@ -274,8 +235,8 @@ public class DashboardControl extends GenericControl{
         
         if ( !loggedIn.getRole().equals("Admin") ) { throw new AccessDeniedException("User cannot access Admin functions"); }
         if ( customer != null && employee != null ) { 
-            context.getCurrentSession().clearTargets();
-            throw new DuplicateTargetException("Cannot have two active targets. Clearing both. Retry");
+            context.getCurrentSession().clearFoci();
+            throw new DuplicateTargetException("Cannot have two active focuss. Clearing both. Retry");
         } 
         else if ( employee != null ) {
 //            addToMenuList( new JLabel( "Active Employee: " + employee.getUsername(), Card.CardType.HEADER, "" ));
@@ -341,9 +302,25 @@ public class DashboardControl extends GenericControl{
         UserControl userControl = new UserControl( context, view ); 
         view.setVisible(true); //make it visible
     }
-    
-    private void makeViewProfile( AppContext context, boolean isEmployeeProfile ) {
-        System.out.println("Need User Profiles");
+        
+    private void makeViewProfile( AppContext context, boolean isSelf ) { // OR isEmployeeProfile
+        User currUser = context.getCurrentUser();
+        String currURole = currUser.getRole();
+        
+        User focusUser = context.getCurrentSession().getFocusUser();
+        String focusRole = focusUser.getRole();
+
+        if ( currURole.equals("Customer") && focusRole != null ) { 
+            context.getCurrentSession().clearFoci();
+            makeViewProfile(context, isSelf);
+        }
+        if ( currURole.equals("Customer") ) { makeEditCustomerView(); } // Customer should always have isSelf=true on view profile buttons
+        else if ( isSelf == true ) { makeEditEmployeeView(); } 
+        else if ( focusRole.equals("Customer") ) { makeEditCustomerView(); }
+        else { makeEditEmployeeView(); }
+    }
+        
+        
 //        make user profile of current USER
         // Make new view & set up
         //==========================
@@ -353,8 +330,22 @@ public class DashboardControl extends GenericControl{
 //        view.setVisible(true); //make it visible
 //        UserControl userControl = new UserControl( context, view ); 
 //        view.setVisible(true); //make it visible
-    }
     
+
+        private void makeEditCustomerView() {
+            EditCustomerGUI viewEdit = new EditCustomerGUI();
+            viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            ProfileControl pc = new ProfileControl(context, viewEdit);
+            viewEdit.setVisible(true);
+        }
+        
+        private void makeEditEmployeeView() {
+            EditEmployeeGUI viewEdit = new EditEmployeeGUI();
+            viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            ProfileControl pc = new ProfileControl(context, viewEdit);
+            viewEdit.setVisible(true);
+        }
+
     //-------BOOKING actions-------
     private void makeViewCustomerBookings( AppContext context ) {
         System.out.println("view bookings");

@@ -42,8 +42,10 @@ public class Main {
         User loginUser;
 //        String username = "mzhang";           
 //        String password = "12341234";
-        String username = "cchen";           
-        String password = "123123123";
+//        String username = "cchen";           
+//        String password = "123123123";
+        String username = "s";           
+        String password = "123123123";        
 
         activeUser = context.getUserDao().getUserFromUsername(username, password);
         loginUser = null;
@@ -75,20 +77,20 @@ public class Main {
 //            dash.initialize();
             view.setVisible(true);
         }
-        
-        // Edit customer & employees testing code (TEMPORARY)
-        if (context.getCurrentUser().getRole().equals("Customer")) {
-            EditCustomerGUI viewEdit = new EditCustomerGUI();
-            viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            ProfileControl pc = new ProfileControl(context, viewEdit);
-            viewEdit.setVisible(true);
-        } else {
-            EditEmployeeGUI viewEdit = new EditEmployeeGUI();
-            viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            ProfileControl pc = new ProfileControl(context, viewEdit);
-            viewEdit.setVisible(true);
-        }
     }
 }
+
+        // Edit customer & employees testing code (TEMPORARY)
+//        if (context.getCurrentUser().getRole().equals("Customer")) {
+//            EditCustomerGUI viewEdit = new EditCustomerGUI();
+//            viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//            ProfileControl pc = new ProfileControl(context, viewEdit);
+//            viewEdit.setVisible(true);
+//        } else {
+//            EditEmployeeGUI viewEdit = new EditEmployeeGUI();
+//            viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//            ProfileControl pc = new ProfileControl(context, viewEdit);
+//            viewEdit.setVisible(true);
+//        }
 
 

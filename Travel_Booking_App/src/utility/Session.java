@@ -47,10 +47,26 @@ public class Session {
         currentCustomer.setPassword( null );
     }
     
+    public User getFocusUser() {
+        User user = getCurrentUser();
+        User custUser = getCurrentCustomer();
+        User empUser = getCurrentEmployee();
+        
+        if ( user.getRole() != "Admin" && empUser != null ) { 
+            clearCurrentEmployee(); 
+        }
+        
+        User focusUser;
+        if ( custUser != null ) { focusUser = custUser; } 
+        else { focusUser = empUser; }
+        
+        return focusUser;
+    }
+    
     public void clearCurrentUser() { this.currentUser = null; }
     public void clearCurrentCustomer() { this.currentCustomer = null; }
     public void clearCurrentEmployee() { this.currentEmployee = null; }
-    public void clearTargets() {
+    public void clearFoci() {
         clearCurrentCustomer();
         clearCurrentEmployee();
     }
