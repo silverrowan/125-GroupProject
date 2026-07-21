@@ -1,8 +1,10 @@
 package controller;
 
+import dao.CustomerDAO;
 import dao.UserDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import model.Customer;
 import model.User;
 import utility.AppContext;
 import utility.PropertyValidator;
@@ -20,8 +22,22 @@ public class ProfileControl {
     private final User currentUser;
     private final UserDAO userDAO;
 
+    // customer view contructor
     public ProfileControl(AppContext context, EditCustomerGUI editCustomerView) {
-        this(editCustomerView, context);
+        this(editCustomerView, context); // update generic user information
+        
+        // get DAO
+        CustomerDAO customerDAO = context.getCustomerDao();
+        
+        // get current customer
+        Customer currentCustomer = customerDAO.getCustomerFromUserID(context.getCurrentUser().getUserID());
+        
+        // set fields on form
+        editCustomerView.getInputEmergencyContactName().setText(currentCustomer.getEmergencyContactName()); // emergency contact
+        editCustomerView.getInputEmergencyContactPhone().setText(currentCustomer.getEmergencyContactPhone()); // emergency contact
+        
+        // save button listener
+        editCustomerView.addSaveBtnListener(new CustomerSaver(editCustomerView, currentCustomer, customerDAO));
     }
     
     public ProfileControl(AppContext context, EditEmployeeGUI editEmployeeView) {
@@ -97,6 +113,14 @@ public class ProfileControl {
             role = editProfileView.getSelectionRole().getSelectedItem().toString();
             status = (editProfileView.getRadioStatus().isSelected()) ? "Active" : "Inactive";
             
+            // address
+            city = editProfileView.getInputCity().getText();
+            country = editProfileView.getInputCountry().getText();
+            postalCode = editProfileView.getInputPost().getText();
+            province = editProfileView.getInputProvince().getText();
+            streetName = editProfileView.getInputStreet().getText();
+            streetNumber = editProfileView.getInputStreetNumber().getText();
+            
             if (this.password == null || this.password.isEmpty()) {
                 this.password = currentUser.getPassword(); // no change
             }
@@ -118,12 +142,50 @@ public class ProfileControl {
                 // address
                 currentUser.setUserAddress(streetNumber, streetName, city, province, postalCode, country);
                 
-                userDAO.updateUser(currentUser);
+                userDAO.updateUser(currentUser); // update database
+                editProfileView.dispose(); // close window
+            } else {
+                // display error message?
             }
-            
-            editProfileView.dispose(); // close window
         }
         
+    }
+    
+    class CustomerSaver implements ActionListener {
+        
+        // view
+        private EditCustomerGUI editCustomerView;
+        
+        // customer
+        private Customer currentCustomer;
+        
+        // DAO
+        private CustomerDAO customerDAO;
+        
+        // fields to update
+        private String emergencyContactName;
+        private String emergencyContactPhone;
+        
+        // constructor
+        public CustomerSaver(EditCustomerGUI editCustomerView, Customer currentCustomer, CustomerDAO customerDAO) {
+            this.editCustomerView = editCustomerView;
+            this.currentCustomer = currentCustomer;
+            this.customerDAO = customerDAO;
+        }
+        
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // get info from form
+            this.emergencyContactName = this.editCustomerView.getInputEmergencyContactName().getText();
+            this.emergencyContactPhone = this.editCustomerView.getInputEmergencyContactPhone().getText();
+            
+            // set customer info
+            currentCustomer.setEmergencyContactName(emergencyContactName);
+            currentCustomer.setEmergencyContactPhone(emergencyContactPhone);
+            
+            // update customer
+            customerDAO.updateCustomer(currentCustomer);
+        }
     }
     
 }

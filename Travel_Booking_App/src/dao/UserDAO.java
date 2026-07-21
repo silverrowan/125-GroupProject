@@ -102,13 +102,14 @@ public class UserDAO {
             if (row > 0) {
                 return user; // success
             }
+            throw new SQLException("Update failed");
         } catch (SQLException e) {
             System.out.println("Error when connecting to database: " + e);
         } catch (Exception e) {
             System.out.println("Error when connecting to Database: " + e);
-        } finally {
-            return null;
         }
+        
+        return null;
     }
     
 //    activeUser = UserDAO.getUserFromUsername(username, password);\
