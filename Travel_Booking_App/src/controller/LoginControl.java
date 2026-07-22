@@ -39,10 +39,10 @@ public class LoginControl {
             loginUser();                
             getDashboard();
 
-            AppWindowCust view = new AppWindowCust( context ); //make target window/dashboard: This is Menu AND beside contents.
-            DashboardControl dash = new DashboardControl( context, view ); 
+//            AppWindowCust view = new AppWindowCust( context ); //make target window/dashboard: This is Menu AND beside contents.
+//            DashboardControl dash = new DashboardControl( context, view ); 
 //            dash.initialize();
-            view.setVisible(true);
+//            view.setVisible(true);
                 
 
 //                DashboardMenu dashboard = new DashboardMenu(); // can't use this one - MENU is an x of gradient which is of JPanel not Frame
@@ -105,7 +105,8 @@ public class LoginControl {
     }
 
     public void getDashboard() {
-        String role = context.getCurrentUser().getRole();
+        User user = context.getCurrentUser();
+        String role = user.getRole();
         System.out.println("role: " + role);
 //        GenericView view;
 
@@ -123,6 +124,7 @@ public class LoginControl {
 //            //later
         } else {
             System.out.println("entered Cust/Other if");
+            context.getCurrentSession().setCurrentCustomer( user );
             AppWindowCust view = new AppWindowCust( context );
             DashboardControl dash = new DashboardControl( context, view );
             view.setVisible(true); 

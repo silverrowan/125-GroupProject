@@ -274,7 +274,7 @@ public class DashboardControl extends GenericControl{
             window.dispose();
         }
         Login loginView = new Login();
-        GenericControl loginControl = new GenericControl(getAppContext(), loginView);
+        LoginControl loginControl = new LoginControl(getAppContext(), loginView);
         loginView.setVisible(true);
     }
     
