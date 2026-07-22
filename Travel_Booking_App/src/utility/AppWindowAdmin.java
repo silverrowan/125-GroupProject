@@ -21,19 +21,19 @@ public class AppWindowAdmin extends GenericView {
     }
     
      //Getter and Setters
-    public DashboardAdmin getDashboardList() {
-        return pnlDashAdmin;
-    }
-    public void setDashboardList(DashboardAdmin pnlDashAdmin) {
-        this.pnlDashAdmin = pnlDashAdmin;
-    }
-
-    public PanelBorder getPnlAppWindow() {
-        return pnlDashWind;
-    }
-    public void setPnlAppWindow(PanelBorder pnlAppWindow) {
-        this.pnlDashWind = pnlAppWindow;
-    }
+//    public DashboardAdmin getDashboardList() {
+//        return pnlDashAdmin;
+//    }
+//    public void setDashboardList(DashboardAdmin pnlDashAdmin) {
+//        this.pnlDashAdmin = pnlDashAdmin;
+//    }
+//
+//    public PanelBorder getPnlAppWindow() {
+//        return pnlDashWind;
+//    }
+//    public void setPnlAppWindow(PanelBorder pnlAppWindow) {
+//        this.pnlDashWind = pnlAppWindow;
+//    }
 
     public DashboardAdmin getPnlDashAdmin() {
         return pnlDashAdmin;

@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import model.User;
+import utility.AppWindowAgent;
 import utility.AppWindowCust;
 import view.profile.EditCustomerGUI;
 import view.profile.EditEmployeeGUI;
@@ -77,10 +78,10 @@ public class Main {
 //            dash.initialize();
             view.setVisible(true);
         }
-    }
-}
+//    }
+//}
 
-        // Edit customer & employees testing code (TEMPORARY)
+//         Edit customer & employees testing code (TEMPORARY)
 //        if (context.getCurrentUser().getRole().equals("Customer")) {
 //            EditCustomerGUI viewEdit = new EditCustomerGUI();
 //            viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -92,5 +93,5 @@ public class Main {
 //            ProfileControl pc = new ProfileControl(context, viewEdit);
 //            viewEdit.setVisible(true);
 //        }
-
-
+    }
+}
