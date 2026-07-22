@@ -4,6 +4,10 @@
  */
 package view.subViews;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+
 /**
  *
  * @author rowan
@@ -17,6 +21,40 @@ public class VSearchBarUsers extends javax.swing.JPanel {
         initComponents();
     }
 
+    public JButton getBtnNewUser() {
+        return btnNewUser;
+    }
+
+    public void setBtnNewUser(JButton btnNewUser) {
+        this.btnNewUser = btnNewUser;
+    }
+
+    public JButton getBtnSearch() {
+        return btnSearch;
+    }
+
+    public void setBtnSearch(JButton btnSearch) {
+        this.btnSearch = btnSearch;
+    }
+
+    public JComboBox<String> getComboUserRole() {
+        return comboUserRole;
+    }
+
+    public void setComboUserRole(JComboBox<String> comboUserRole) {
+        this.comboUserRole = comboUserRole;
+    }
+
+    public JTextField getTxtSearchField() {
+        return txtSearchField;
+    }
+
+    public void setTxtSearchField(JTextField txtSearchField) {
+        this.txtSearchField = txtSearchField;
+    }
+    
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,27 +64,27 @@ public class VSearchBarUsers extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        txtSearchField = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        comboUserRole = new javax.swing.JComboBox<>();
+        btnNewUser = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(483, 35));
         setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(500, 35));
 
-        jTextField1.setToolTipText("Search users...");
-        jTextField1.addActionListener(this::jTextField1ActionPerformed);
+        txtSearchField.setToolTipText("Search users...");
+        txtSearchField.addActionListener(this::txtSearchFieldActionPerformed);
 
         btnSearch.setBackground(new java.awt.Color(204, 255, 204));
         btnSearch.setText("Search");
         btnSearch.addActionListener(this::btnSearchActionPerformed);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All roles", "Admin", "Agent", "Tour guide", "Customer" }));
+        comboUserRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All roles", "Admin", "Agent", "Tour guide", "Customer" }));
 
-        jButton1.setBackground(new java.awt.Color(51, 51, 51));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("new");
+        btnNewUser.setBackground(new java.awt.Color(51, 51, 51));
+        btnNewUser.setForeground(new java.awt.Color(255, 255, 255));
+        btnNewUser.setText("new");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -54,13 +92,13 @@ public class VSearchBarUsers extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboUserRole, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSearch)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnNewUser)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -68,17 +106,17 @@ public class VSearchBarUsers extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearch)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(comboUserRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnNewUser))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtSearchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtSearchFieldActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
@@ -86,9 +124,9 @@ public class VSearchBarUsers extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnNewUser;
     private javax.swing.JButton btnSearch;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JComboBox<String> comboUserRole;
+    private javax.swing.JTextField txtSearchField;
     // End of variables declaration//GEN-END:variables
 }

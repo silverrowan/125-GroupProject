@@ -33,7 +33,8 @@ public class UserControl {
         this.usersView = usersView;
         userDAO = context.getUserDao();
         
-        this.userView.addNextBtnListener( new AddUserRecord() );
+        this.usersView.addNewUserBtnListener( new AddUserRecord() );
+//        this.usersView.addSearchBtnListener( new SearchUsers() );
         //****** IMPORTANT****** if active user is customer or agent only show/ allow customers option
         //****** IMPORTANT****** if active user is admin, show/allow role drop-down
     }
@@ -89,7 +90,6 @@ public class UserControl {
             return true; 
         } else { return false; }
     }
-    
     public boolean validateUsername(String username) { 
         return !( username == null || username.isEmpty() ); 
     }
@@ -102,15 +102,9 @@ public class UserControl {
     public boolean validateEmail(String email) { 
         return !( email == null || email.isEmpty() ); 
     }
-
     public boolean validatePassword(String password) { 
         return !(password == null || password.isEmpty() || password.length() < 8);
-    }
-    
-       //        if ( !"Active".equals(__) && !"Inactive".equals(__) ) { throw new IllegalArgumentException("Status must be Active or Inactive"); }
-    //        if ( email == LETTERS@LETTERS.LETTERS -- note where 'letters' incl _-.) { throw new IllegalArgumentException("Please enter a valid email"); }
-
-    
+    }    
     public boolean validatePhone(String phone) { return true; }
     
 }
