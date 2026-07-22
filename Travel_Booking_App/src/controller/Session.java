@@ -22,20 +22,17 @@ public class Session {
     
     public Session( User currentUser ) {
         this.currentUser = currentUser;
-        currentUser.setPassword( null );
     }
 
     public User getCurrentUser() { return currentUser; }
     public void setCurrentUser(User currentUser) { 
         this.currentUser = currentUser;
-        currentUser.setPassword( null );
     }
 
     public User getCurrentCustomer() { return currentCustomer; }
     public void setCurrentCustomer(User currentCustomer) {
         this.currentEmployee = null;
         this.currentCustomer = currentCustomer;
-        currentCustomer.setPassword( null );
     }
     
     public User getCurrentEmployee() { return currentEmployee; }

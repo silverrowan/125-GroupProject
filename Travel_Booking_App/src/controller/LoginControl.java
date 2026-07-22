@@ -99,6 +99,7 @@ public class LoginControl {
         else {
             activeUser = loginUser;
             loginUser = null;
+            activeUser.setPassword( null );
             context.getCurrentSession().setCurrentUser(activeUser);
             System.out.println("Successful Login");        
         }
