@@ -270,7 +270,7 @@ public class DashboardControl extends GenericControl{
         System.out.println("logout");
         getAppContext().getCurrentSession().clearSession();
         
-        for ( Window window : Window.getWindows() ) {
+        for ( Window window : Window.getWindows() ) { //closes all open windows
             window.dispose();
         }
         Login loginView = new Login();

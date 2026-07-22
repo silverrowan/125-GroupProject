@@ -27,7 +27,7 @@ public class LoginControl {
         this.loginView = loginView;
         
         this.loginView.addLoginBtnListener( new LogInUser() );
-        this.loginView.addNewCustomerBtnListener( new AddNewCustomer() );
+//        this.loginView.addNewCustomerBtnListener( new AddNewCustomer() );
     }
     
     class LogInUser implements ActionListener {
@@ -54,15 +54,15 @@ public class LoginControl {
             
         }
     }
-    class AddNewCustomer implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            //open add new customer window
-
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        }
-    }
+//    class AddNewCustomer implements ActionListener {
+//
+//        @Override
+//        public void actionPerformed(ActionEvent e) {
+//            //open add new customer window
+//
+//            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//        }
+//    }
  
     public void clearPassArray(char[] pass) {
         for (int i = pass.length -1 ; i >= 0 ; i--) {
