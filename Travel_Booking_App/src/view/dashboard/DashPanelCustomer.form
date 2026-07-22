@@ -28,7 +28,6 @@
                   <Component id="btnCustProfile" alignment="0" pref="310" max="32767" attributes="0"/>
                   <Component id="lblUser" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnSearchDest" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnLatestBooking" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnViewBooking" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
@@ -45,10 +44,8 @@
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Component id="btnSearchDest" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Component id="btnLatestBooking" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Component id="btnViewBooking" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+              <EmptySpace pref="62" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -72,12 +69,6 @@
           <Color blue="99" green="cc" red="ff" type="rgb"/>
         </Property>
         <Property name="label" type="java.lang.String" value="Search Destinations"/>
-      </Properties>
-    </Component>
-    <Component class="view.models.ButtonBase" name="btnLatestBooking">
-      <Properties>
-        <Property name="actionCommand" type="java.lang.String" value="LastBooking"/>
-        <Property name="label" type="java.lang.String" value="Latest Booking"/>
       </Properties>
     </Component>
     <Component class="view.models.ButtonBase" name="btnViewBooking">

@@ -60,7 +60,7 @@ public class ProfileControl {
                 
                 // if user deleted is current user, log out
                 if (user.getUserID() == context.getCurrentUser().getUserID()) {
-                    dc.logoutUser(context);
+                    dc.logoutUser();
                 }
             }
         });
@@ -101,7 +101,7 @@ public class ProfileControl {
                 
                 // if user deleted is current user, log out
                 if (user.getUserID() == context.getCurrentUser().getUserID()) {
-                    dc.logoutUser(context);
+                    dc.logoutUser();
                 }
             }
         });

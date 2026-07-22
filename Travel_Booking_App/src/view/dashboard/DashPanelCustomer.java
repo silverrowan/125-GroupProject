@@ -33,14 +33,6 @@ public class DashPanelCustomer extends javax.swing.JPanel {
         this.btnSearchDest = btnSearchDest;
     }
 
-    public ButtonBase getBtnLatestBooking() {
-        return btnLatestBooking;
-    }
-
-    public void setBtnLatestBooking(ButtonBase lblLatestBooking) {
-        this.btnLatestBooking = lblLatestBooking;
-    }
-
     public JLabel getLblUser() {
         return lblUser;
     }
@@ -71,7 +63,6 @@ public class DashPanelCustomer extends javax.swing.JPanel {
         lblUser = new javax.swing.JLabel();
         btnCustProfile = new view.models.ButtonBase();
         btnSearchDest = new view.models.ButtonBase();
-        btnLatestBooking = new view.models.ButtonBase();
         btnViewBooking = new view.models.ButtonBase();
 
         setOpaque(false);
@@ -86,9 +77,6 @@ public class DashPanelCustomer extends javax.swing.JPanel {
         btnSearchDest.setBackground(new java.awt.Color(255, 204, 153));
         btnSearchDest.setLabel("Search Destinations");
 
-        btnLatestBooking.setActionCommand("LastBooking");
-        btnLatestBooking.setLabel("Latest Booking");
-
         btnViewBooking.setActionCommand("AllBooking");
         btnViewBooking.setLabel("All Bookings");
 
@@ -102,7 +90,6 @@ public class DashPanelCustomer extends javax.swing.JPanel {
                     .addComponent(btnCustProfile, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
                     .addComponent(lblUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnSearchDest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLatestBooking, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnViewBooking, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
         );
@@ -116,17 +103,14 @@ public class DashPanelCustomer extends javax.swing.JPanel {
                 .addGap(14, 14, 14)
                 .addComponent(btnSearchDest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
-                .addComponent(btnLatestBooking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
                 .addComponent(btnViewBooking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private view.models.ButtonBase btnCustProfile;
-    private view.models.ButtonBase btnLatestBooking;
     private view.models.ButtonBase btnSearchDest;
     private view.models.ButtonBase btnViewBooking;
     private javax.swing.JLabel lblUser;

@@ -15,13 +15,22 @@ import model.Trips;
 
 import java.util.Date;
 import java.util.List;
+import utility.AppContext;
+import view.ViewAllTripsGUI;
 
 public class TripsController {
 
-    private final TripsDAO tripsDAO;
+    private TripsDAO tripsDAO; // final in this sort of spot caused a really awkward bug
+    private AppContext context;
+    private ViewAllTripsGUI view;
 
     public TripsController() {
         this.tripsDAO = new TripsDAO();
+    }
+
+    public TripsController( AppContext context, ViewAllTripsGUI view ) {
+        this.context = context;
+        this.view = view;
     }
 
     public TripsController(TripsDAO tripsDAO) {
@@ -177,5 +186,15 @@ public class TripsController {
                     + "Completed, or Cancelled."
             );
         }
+    }
+    
+    public boolean deleteTrip(int tripID) {
+        if (tripID <= 0) {
+            throw new IllegalArgumentException(
+                    "A valid trip ID is required."
+            );
+        }
+
+        return tripsDAO.deleteTrip(tripID);
     }
 }

@@ -1,6 +1,7 @@
 
 package utility;
 
+import view.dashboard.AppWindowAdmin;
 import controller.DashboardControl;
 import controller.LoginControl;
 import controller.ProfileControl;
@@ -9,7 +10,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import model.User;
-import utility.AppWindowCust;
+import view.dashboard.AppWindowAgent;
+import view.dashboard.AppWindowCust;
 import view.profile.EditCustomerGUI;
 import view.profile.EditEmployeeGUI;
 import view.Login;
@@ -26,7 +28,7 @@ public class Main {
     public static void main(String[] args) {
         
         AppContext context = new AppContext();
-        Login loginView = new Login();
+//        Login loginView = new Login();
         Session currentSession = new Session();
         
 //        Bypassing Login & setting username manually
@@ -35,6 +37,7 @@ public class Main {
 //        LoginControl loginControl = new LoginControl(context, loginView);
 //        loginView.setVisible(true);
         directToDash(context);
+        setFocusCustomerBypass(context);
     }  
 
     public static void directToDash(AppContext context) {
@@ -42,10 +45,6 @@ public class Main {
         User loginUser;
         String username = "mzhang";           
         String password = "12341234";
-//        String username = "cchen";           
-//        String password = "123123123";
-//        String username = "ezhang";
-//        String password = "12341234";
 
         activeUser = context.getUserDao().getUserFromUsername(username, password);
         loginUser = null;
@@ -59,22 +58,26 @@ public class Main {
         if ( role.equals( "Admin" ) ) {
             System.out.println("entered admin if");
             AppWindowAdmin view = new AppWindowAdmin( context ); //make target window/dashboard: This is Menu AND beside contents.
+
             DashboardControl dash = dc = new DashboardControl( context, view ); 
-            dash.initialize();
+//            dash.initialize();
+
             view.setVisible(true); 
         } else if ( role.equals("Travel Agent") ) {
             System.out.println("entered Agent if");
             AppWindowAgent view = new AppWindowAgent( context );
             DashboardControl dash = dc = new DashboardControl( context, view );
-            dash.initialize();
+//            dash.initialize();
+
             view.setVisible(true); 
 //        } else if ( role.equals("Travel Guide") ) {
 //            //later
         } else {
             System.out.println("entered Cust/Other if");
             AppWindowCust view = new AppWindowCust( context );
+
             DashboardControl dash = dc = new DashboardControl( context, view );
-            dash.initialize();
+//            dash.initialize();
             view.setVisible(true);
         }
         
@@ -91,6 +94,14 @@ public class Main {
             viewEdit.setVisible(true);
         }
     }
+    
+    public static void setFocusCustomerBypass( AppContext context ) {
+        String username = "a";           
+        String password = "123123123";        
+
+        User focusUser = context.getUserDao().getUserFromUsername(username, password);
+        context.getCurrentSession().setCurrentCustomer(focusUser);
+        System.out.println("Successful focus on customer");
+//        JFrame view;        
+    }
 }
-
-

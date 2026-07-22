@@ -1,6 +1,8 @@
-package utility;
+package view.dashboard;
 
 import java.awt.event.ActionListener;
+import utility.AppContext;
+import utility.GenericView;
 import view.components.PanelBorder;
 import view.dashboard.DashboardAgent;
 
@@ -69,8 +71,8 @@ public class AppWindowAgent extends GenericView {
         getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnCustProfile().addActionListener( loginListener ); }
     public void addListenerToBtnSearchDest( ActionListener loginListener ) {
         getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnSearchDest().addActionListener( loginListener ); }
-    public void addListenerToBtnLatestBooking( ActionListener loginListener ) {
-        getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnLatestBooking().addActionListener( loginListener ); }
+//    public void addListenerToBtnLatestBooking( ActionListener loginListener ) {
+//        getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnLatestBooking().addActionListener( loginListener ); }
     public void addListenerToBtnAllBooking( ActionListener loginListener ) {
         getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnViewBooking().addActionListener( loginListener ); }
         

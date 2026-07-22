@@ -26,8 +26,6 @@
                   <Component id="btnBooking" alignment="0" max="32767" attributes="0"/>
                   <Component id="lblUser" alignment="1" max="32767" attributes="0"/>
                   <Component id="btnDestinations" alignment="0" pref="253" max="32767" attributes="0"/>
-                  <Component id="btnPackages" max="32767" attributes="0"/>
-                  <Component id="btnProducts" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
           </Group>
@@ -38,10 +36,6 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Component id="lblUser" min="-2" pref="47" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Component id="btnProducts" min="-2" pref="40" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Component id="btnPackages" min="-2" pref="40" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Component id="btnDestinations" min="-2" pref="40" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
@@ -54,28 +48,10 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="view.models.ButtonBase" name="btnPackages">
-      <Properties>
-        <Property name="actionCommand" type="java.lang.String" value="searchPackages"/>
-        <Property name="label" type="java.lang.String" value="Packages"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPackagesActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="lblUser">
       <Properties>
         <Property name="text" type="java.lang.String" value="Search &amp; Edit"/>
       </Properties>
-    </Component>
-    <Component class="view.models.ButtonBase" name="btnProducts">
-      <Properties>
-        <Property name="actionCommand" type="java.lang.String" value="searchProducts"/>
-        <Property name="label" type="java.lang.String" value="Products"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProductsActionPerformed"/>
-      </Events>
     </Component>
     <Component class="view.models.ButtonBase" name="btnBooking">
       <Properties>

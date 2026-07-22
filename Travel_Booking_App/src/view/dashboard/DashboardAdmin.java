@@ -8,7 +8,6 @@ import model.User;
 import view.ViewCustomerGUI;
 import view.ViewDestinationsGUI;
 import view.ViewTripFrame;
-import utility.AppWindowCust;
 import view.components.GradientPanel;
 import view.components.ListMenu;
 
@@ -20,11 +19,8 @@ public class DashboardAdmin extends GradientPanel {
         Color topColor;
         Color bottomColor;
         Color selectColor;
-//        private AppContext context;
         private AppWindowCust topView;
         private AppContext context;
-//        ListMenu menuList = new ListMenu();
-
 
     /**
      * Creates new form MenuCustomer
@@ -32,14 +28,6 @@ public class DashboardAdmin extends GradientPanel {
     public DashboardAdmin( ) {
         super(new Color(204,255,204), new Color( 255,150,46 ), 0);
         initComponents();
-        
-//        menuListB.setOpaque(false);
-//        menuListB.refresh();
-//        menuListB.setVisible(true);
-//        
-//        menuListA.setOpaque(false);
-//        menuListA.refresh();
-//        menuListA.setVisible(true);
     }
         
     //getters and setters
@@ -53,15 +41,6 @@ public class DashboardAdmin extends GradientPanel {
     public void setLblLogo(JLabel lblLogo) {
         this.lblLogo = lblLogo;
     }
-
-//    public ListMenu getMenuListA() { return menuListB; }
-//    public void setMenuListA(ListMenu menuList) {
-//        this.menuListB = menuList;
-//    }
-//    public ListMenu getMenuListB() { return menuListA; }
-//    public void setMenuListB(ListMenu menuList) {
-//        this.menuListA = menuList;
-//    }
 
     public JPanel getPnlLogo() { return pnlLogo; }
     public void setPnlLogo(JPanel pnlLogo) {
@@ -83,26 +62,7 @@ public class DashboardAdmin extends GradientPanel {
     public void setPnlDashAgent(DashPanelAgent pnlDashAgent) {
         this.pnlDashAgent = pnlDashAgent;
     }
-    
-    
-    
-//    public void setBasics(AppWindowCust topView, AppContext context) {
-//    this.topView = topView;
-//    this.context = context;
-//    repaint();
-//    }
 
-
-//    public ListMenu<String> getListMenuCustomer() {
-//        return menuList;
-//    }
-//
-//    public void setListMenuCustomer(ListMenu<String> menuList) {
-//        this.menuList = menuList;
-//    }
-    
-
-// FUNCTIONAL
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -130,16 +90,16 @@ public class DashboardAdmin extends GradientPanel {
         pnlLogoLayout.setHorizontalGroup(
             pnlLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLogoLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6))
         );
         pnlLogoLayout.setVerticalGroup(
             pnlLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLogoLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
+                .addGap(20, 20, 20)
                 .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(6, 6, 6))
+                .addGap(0, 0, 0))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -162,26 +122,13 @@ public class DashboardAdmin extends GradientPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(64, 64, 64)
                         .addComponent(pnlDashAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 195, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(pnlDashAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addGap(44, 152, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pnlDashAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0))))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-//    @Override
-//    protected void paintChildren(Graphics grphcs){
-//        Graphics2D g2 = (Graphics2D)grphcs;
-//        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-//        GradientPaint g=new GradientPaint(0, 0, Color.decode(gradientTop), 0, getHeight(), Color.decode(gradientBottom));
-//        g2.setPaint(g);
-    ////        g2.fillRoundRect(0, 0, getWidth(), getHeight(), 15, 15);
-//        g2.fillRect(0, 0, getWidth(), getHeight());
-//        
-//        super.paintChildren(grphcs);
-//    }
-
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lblLogo;

@@ -4,6 +4,11 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import view.subViews.VSearchBarUsers;
+
 /**
  *
  * @author c0541856
@@ -16,6 +21,43 @@ public class FilterUsersFrameGUIExperiment extends javax.swing.JFrame {
     public FilterUsersFrameGUIExperiment() {
         initComponents();
     }
+    
+    //getters and setters
+
+    public JScrollPane getScrollUsers() {
+        return scrollUsers;
+    }
+
+    public void setScrollUsers(JScrollPane scrollUsers) {
+        this.scrollUsers = scrollUsers;
+    }
+
+    public JTable getTblUsers() {
+        return tblUsers;
+    }
+
+    public void setTblUsers(JTable tblUsers) {
+        this.tblUsers = tblUsers;
+    }
+
+    public VSearchBarUsers getvSearchBarUsers() {
+        return vSearchBarUsers;
+    }
+
+    public void setvSearchBarUsers(VSearchBarUsers vSearchBarUsers) {
+        this.vSearchBarUsers = vSearchBarUsers;
+    }
+    
+    
+    
+    //Listeners
+    public void addNewUserBtnListener(ActionListener nextListener) {
+        vSearchBarUsers.getBtnNewUser().addActionListener(nextListener);
+    }
+    public void addSearchBtnListener(ActionListener nextListener) {
+        vSearchBarUsers.getBtnSearch().addActionListener(nextListener);
+    }
+    //not 100% sure on how to get combo box and textfield values
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,15 +69,15 @@ public class FilterUsersFrameGUIExperiment extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlFilterUsers = new javax.swing.JPanel();
-        tblUsers = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        vSearchBarUsers1 = new view.subViews.VSearchBarUsers();
+        scrollUsers = new javax.swing.JScrollPane();
+        tblUsers = new javax.swing.JTable();
+        vSearchBarUsers = new view.subViews.VSearchBarUsers();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        tblUsers.setPreferredSize(new java.awt.Dimension(534, 260));
+        scrollUsers.setPreferredSize(new java.awt.Dimension(534, 260));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -61,7 +103,7 @@ public class FilterUsersFrameGUIExperiment extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tblUsers.setViewportView(jTable1);
+        scrollUsers.setViewportView(tblUsers);
 
         javax.swing.GroupLayout pnlFilterUsersLayout = new javax.swing.GroupLayout(pnlFilterUsers);
         pnlFilterUsers.setLayout(pnlFilterUsersLayout);
@@ -70,17 +112,17 @@ public class FilterUsersFrameGUIExperiment extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFilterUsersLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addGroup(pnlFilterUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(vSearchBarUsers1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tblUsers, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE))
+                    .addComponent(vSearchBarUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(scrollUsers, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE))
                 .addGap(38, 38, 38))
         );
         pnlFilterUsersLayout.setVerticalGroup(
             pnlFilterUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlFilterUsersLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(vSearchBarUsers1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(vSearchBarUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
-                .addComponent(tblUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
@@ -98,52 +140,10 @@ public class FilterUsersFrameGUIExperiment extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FilterUsersFrameGUIExperiment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FilterUsersFrameGUIExperiment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FilterUsersFrameGUIExperiment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FilterUsersFrameGUIExperiment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FilterUsersFrameGUIExperiment().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable jTable1;
     private javax.swing.JPanel pnlFilterUsers;
-    private javax.swing.JScrollPane tblUsers;
-    private view.subViews.VSearchBarUsers vSearchBarUsers1;
+    private javax.swing.JScrollPane scrollUsers;
+    private javax.swing.JTable tblUsers;
+    private view.subViews.VSearchBarUsers vSearchBarUsers;
     // End of variables declaration//GEN-END:variables
 }

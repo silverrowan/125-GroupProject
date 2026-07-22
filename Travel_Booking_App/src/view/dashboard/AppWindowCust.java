@@ -1,6 +1,8 @@
-package utility;
+package view.dashboard;
 
 import java.awt.event.ActionListener;
+import utility.AppContext;
+import utility.GenericView;
 import view.components.PanelBorder;
 import view.dashboard.DashboardCustomer;
 
@@ -69,8 +71,8 @@ public class AppWindowCust extends GenericView {
         getPnlDashCust().getPnlDashCust().getBtnCustProfile().addActionListener( loginListener ); }
     public void addListenerToBtnSearchDest( ActionListener loginListener ) {
         getPnlDashCust().getPnlDashCust().getBtnSearchDest().addActionListener( loginListener ); }
-    public void addListenerToBtnLatestBooking( ActionListener loginListener ) {
-        getPnlDashCust().getPnlDashCust().getBtnLatestBooking().addActionListener( loginListener ); }
+//    public void addListenerToBtnLatestBooking( ActionListener loginListener ) {
+//        getPnlDashCust().getPnlDashCust().getBtnLatestBooking().addActionListener( loginListener ); }
     public void addListenerToBtnAllBooking( ActionListener loginListener ) {
         getPnlDashCust().getPnlDashCust().getBtnViewBooking().addActionListener( loginListener ); }
     public void addListenerToLogoutCust( ActionListener loginListener ) {
@@ -102,7 +104,7 @@ public class AppWindowCust extends GenericView {
         );
         pnlDashWindLayout.setVerticalGroup(
             pnlDashWindLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlDashCust, javax.swing.GroupLayout.DEFAULT_SIZE, 451, Short.MAX_VALUE)
+            .addComponent(pnlDashCust, javax.swing.GroupLayout.PREFERRED_SIZE, 451, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
