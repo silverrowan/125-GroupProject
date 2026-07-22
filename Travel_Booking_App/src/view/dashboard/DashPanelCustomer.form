@@ -29,6 +29,7 @@
                   <Component id="lblUser" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnSearchDest" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnViewBooking" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnCustSearch" alignment="0" pref="310" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
           </Group>
@@ -41,11 +42,13 @@
               <Component id="lblUser" min="-2" pref="47" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnCustProfile" min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnCustSearch" min="-2" pref="40" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Component id="btnSearchDest" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Component id="btnViewBooking" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="62" max="32767" attributes="0"/>
+              <EmptySpace pref="60" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -75,6 +78,12 @@
       <Properties>
         <Property name="actionCommand" type="java.lang.String" value="AllBooking"/>
         <Property name="label" type="java.lang.String" value="All Bookings"/>
+      </Properties>
+    </Component>
+    <Component class="view.models.ButtonBase" name="btnCustSearch">
+      <Properties>
+        <Property name="actionCommand" type="java.lang.String" value="searchTrips"/>
+        <Property name="label" type="java.lang.String" value="Search for Customer"/>
       </Properties>
     </Component>
   </SubComponents>

@@ -69,10 +69,10 @@ public class AppWindowAgent extends GenericView {
     //----------------Customer Section-------------------
     public void addListenerToBtnCustProfile( ActionListener loginListener ) {
         getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnCustProfile().addActionListener( loginListener ); }
+    public void addListenerToBtnSearchCustFocus( ActionListener loginListener ) {
+        getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnCustSearch().addActionListener( loginListener ); }
     public void addListenerToBtnSearchDest( ActionListener loginListener ) {
         getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnSearchDest().addActionListener( loginListener ); }
-//    public void addListenerToBtnLatestBooking( ActionListener loginListener ) {
-//        getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnLatestBooking().addActionListener( loginListener ); }
     public void addListenerToBtnAllBooking( ActionListener loginListener ) {
         getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnViewBooking().addActionListener( loginListener ); }
         

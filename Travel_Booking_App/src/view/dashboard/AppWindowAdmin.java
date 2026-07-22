@@ -55,6 +55,8 @@ public class AppWindowAdmin extends GenericView {
     //----------------Customer Section-------------------
     public void addListenerToBtnCustProfile( ActionListener listener ) {
         pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnCustProfile().addActionListener( listener ); }
+    public void addListenerToBtnSearchCustFocus( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnCustSearch().addActionListener( listener ); }
     public void addListenerToBtnSearchDest( ActionListener listener ) {
         pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnSearchDest().addActionListener( listener ); }
     public void addListenerToBtnAllBooking( ActionListener listener ) {
