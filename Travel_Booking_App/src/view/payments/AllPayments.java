@@ -37,7 +37,7 @@ public class AllPayments extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Date", "Method", "Status", "Amount"
+                "Date", "Amount", "Method", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
