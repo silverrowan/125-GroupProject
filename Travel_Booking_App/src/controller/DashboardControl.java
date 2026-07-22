@@ -127,7 +127,7 @@ public class DashboardControl extends GenericControl{
         this.dashAdmin = (AppWindowAdmin) getView();
         //--cust section listeners--
         this.dashAdmin.addListenerToBtnCustProfile( new Profile( false ) );
-        this.dashAgent.addListenerToBtnSearchCustFocus( new SearchUser( false ));
+        this.dashAdmin.addListenerToBtnSearchCustFocus( new SearchUser( false ));
         this.dashAdmin.addListenerToBtnSearchDest( new SearchDest() );
         this.dashAdmin.addListenerToBtnAllBooking( new AllBooking() );
         //--agent section listeners--
@@ -269,14 +269,14 @@ public class DashboardControl extends GenericControl{
             getAppContext().getCurrentSession().clearFoci();
             JOptionPane.showMessageDialog(null, "Cannot have two active focuss. Clearing both. Retry");
         } 
-        if ( loggedIn.getRole().equals("Customer") ) { 
+        else if ( loggedIn.getRole().equals("Customer") ) { 
             String focusLabelText = "Welcome " + loggedIn.getUsername() + "!";
             changeLabelToHeader( focusLabel, headerFont, focusLabelText ); 
             
             focusBtn.setVisible(true);
             findFocusBtn.setVisible(false);              
         }
-        if ( loggedIn.getRole().equals("Agent") ) {
+        else if ( loggedIn.getRole().equals("Agent") ) {
             if ( customer == null ) {
                 String focusLabelText = "No Customer set";
                 changeLabelToHeader( focusLabel, headerFont, focusLabelText );

@@ -37,7 +37,7 @@ public class Main {
 //        LoginControl loginControl = new LoginControl(context, loginView);
 //        loginView.setVisible(true);
         directToDash(context);
-        setFocusCustomerBypass(context);
+        setFocusUserBypass(context);
     }  
 
     public static void directToDash(AppContext context) {
@@ -52,6 +52,7 @@ public class Main {
 
         activeUser = context.getUserDao().getUserFromUsername(username, password);
         loginUser = null;
+        activeUser.setPassword( null );
         context.getCurrentSession().setCurrentUser(activeUser);
         System.out.println("Successful Login");
 
@@ -97,13 +98,17 @@ public class Main {
 //        }
     }
     
-    public static void setFocusCustomerBypass( AppContext context ) {
+    public static void setFocusUserBypass( AppContext context ) {
         String username = "a";           
         String password = "123123123";        
 
         User focusUser = context.getUserDao().getUserFromUsername(username, password);
-        context.getCurrentSession().setCurrentCustomer(focusUser);
-        System.out.println("Successful focus on customer");
+        if ( focusUser.getRole().equals( "Customer" ) ) {
+            context.getCurrentSession().setCurrentCustomer(focusUser);
+        } else {
+            context.getCurrentSession().setCurrentEmployee(focusUser);
+        }
+        System.out.println("Successful focus on user " + focusUser.getUsername());
 //        JFrame view;        
     }
 }

@@ -3,8 +3,6 @@ package utility;
 
 import model.Customer;
 import model.User;
-import view.ViewCustomerGUI;
-import view.dashboard.AppWindowCust;
 
 /**
  *
@@ -24,27 +22,23 @@ public class Session {
     
     public Session( User currentUser ) {
         this.currentUser = currentUser;
-        currentUser.setPassword( null );
     }
 
     public User getCurrentUser() { return currentUser; }
     public void setCurrentUser(User currentUser) { 
         this.currentUser = currentUser;
-        currentUser.setPassword( null );
     }
 
     public User getCurrentCustomer() { return currentCustomer; }
     public void setCurrentCustomer(User currentCustomer) {
         this.currentEmployee = null;
         this.currentCustomer = currentCustomer;
-        currentCustomer.setPassword( null );
     }
     
     public User getCurrentEmployee() { return currentEmployee; }
     public void setCurrentEmployee(User currentEmployee) {
         this.currentCustomer = null;
         this.currentEmployee = currentEmployee;
-        currentCustomer.setPassword( null );
     }
     
     public User getFocusUser() {
