@@ -1,15 +1,11 @@
 package controller;
 
 import utility.AppContext;
-import dao.UserDAO;
 import view.AddUserGUIPage1;
 import model.User;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-import model.Customer;
-import model.Employee;
 import dao.UserDAO;
 import view.FilterUsersFrameGUIExperiment;
 

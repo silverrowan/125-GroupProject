@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.nio.file.AccessDeniedException;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import model.User;
 import utility.AppWindowAdmin;
 import utility.AppWindowAgent;
@@ -27,7 +28,7 @@ import view.profile.EditEmployeeGUI;
  * @author Mariah Malczewska
  */
 public class DashboardControl extends GenericControl{
-    private AppContext context;
+//    private AppContext context;
 
     private AppWindowAdmin dashAdmin;
     private AppWindowAgent dashAgent;
@@ -118,11 +119,11 @@ public class DashboardControl extends GenericControl{
             
             @Override
             public void actionPerformed(ActionEvent e) {
-                User user = context.getCurrentUser();
-                User focusUser = context.getCurrentSession().getFocusUser();
+                User user = getAppContext().getCurrentUser();
+                User focusUser = getAppContext().getCurrentSession().getFocusUser();
                 
-                if ( isSelf ) { makeViewProfile( context, user ); }
-                else { makeViewProfile( context, focusUser ); }
+                if ( isSelf ) { makeViewProfile( getAppContext(), user ); }
+                else { makeViewProfile( getAppContext(), focusUser ); }
             }
         }
         
@@ -130,7 +131,7 @@ public class DashboardControl extends GenericControl{
         class SearchDest implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
-                makeViewDestSearch(context);
+                makeViewDestSearch(getAppContext());
             }
         }
 
@@ -155,7 +156,7 @@ public class DashboardControl extends GenericControl{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                makeFindUserView( context );
+                makeFindUserView( getAppContext() );
             }
         }
 
@@ -163,7 +164,7 @@ public class DashboardControl extends GenericControl{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                context.getCurrentSession().clearCurrentCustomer();
+                getAppContext().getCurrentSession().clearCurrentCustomer();
                 refresh();
             }
         }
@@ -210,13 +211,13 @@ public class DashboardControl extends GenericControl{
         }
 
     private void addAdminTargetItems() throws AccessDeniedException, DuplicateTargetException{
-        User loggedIn = context.getCurrentSession().getCurrentUser();
-        User customer = context.getCurrentSession().getCurrentCustomer();
-        User employee = context.getCurrentSession().getCurrentEmployee();
+        User loggedIn = getAppContext().getCurrentSession().getCurrentUser();
+        User customer = getAppContext().getCurrentSession().getCurrentCustomer();
+        User employee = getAppContext().getCurrentSession().getCurrentEmployee();
         
         if ( !loggedIn.getRole().equals("Admin") ) { throw new AccessDeniedException("User cannot access Admin functions"); }
         if ( customer != null && employee != null ) { 
-            context.getCurrentSession().clearFoci();
+            getAppContext().getCurrentSession().clearFoci();
             throw new DuplicateTargetException("Cannot have two active focuss. Clearing both. Retry");
         } 
         else if ( employee != null ) {
@@ -267,13 +268,13 @@ public class DashboardControl extends GenericControl{
     //------USER actions-------
     private void logoutUser() {
         System.out.println("logout");
-        context.getCurrentSession().clearSession();
+        getAppContext().getCurrentSession().clearSession();
         
         for ( Window window : Window.getWindows() ) {
             window.dispose();
         }
         Login loginView = new Login();
-        GenericControl loginControl = new GenericControl(context, loginView);
+        GenericControl loginControl = new GenericControl(getAppContext(), loginView);
         loginView.setVisible(true);
     }
     
@@ -285,11 +286,14 @@ public class DashboardControl extends GenericControl{
     }
         
     private void makeViewProfile( AppContext context, User viewUser ) { // OR isEmployeeProfile
+        if ( viewUser == null ) { 
+            JOptionPane.showMessageDialog( null, "There is no user in focus to display" ); 
+        }        
         User currUser = context.getCurrentUser();
         String currURole = currUser.getRole();
         
         String viewUserRole = viewUser.getRole();
-
+        
         if ( currURole.equals("Customer") || viewUserRole.equals("Customer")) { 
             makeEditCustomerView(); 
         } 
@@ -299,14 +303,14 @@ public class DashboardControl extends GenericControl{
     private void makeEditCustomerView() {
         EditCustomerGUI viewEdit = new EditCustomerGUI();
         viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        ProfileControl pc = new ProfileControl(context, viewEdit);
+        ProfileControl pc = new ProfileControl(getAppContext(), viewEdit);
         viewEdit.setVisible(true);
     }
 
     private void makeEditEmployeeView() {
         EditEmployeeGUI viewEdit = new EditEmployeeGUI();
         viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        ProfileControl pc = new ProfileControl(context, viewEdit);
+        ProfileControl pc = new ProfileControl(getAppContext(), viewEdit);
         viewEdit.setVisible(true);
     }
 

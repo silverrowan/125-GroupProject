@@ -36,6 +36,7 @@ public class Main {
 //        LoginControl loginControl = new LoginControl(context, loginView);
 //        loginView.setVisible(true);
         directToDash(context);
+        setFocusCustomerBypass(context);
     }  
 
     public static void directToDash(AppContext context) {
@@ -93,5 +94,15 @@ public class Main {
 //            ProfileControl pc = new ProfileControl(context, viewEdit);
 //            viewEdit.setVisible(true);
 //        }
+    }
+    
+    public static void setFocusCustomerBypass( AppContext context ) {
+        String username = "a";           
+        String password = "123123123";        
+
+        User focusUser = context.getUserDao().getUserFromUsername(username, password);
+        context.getCurrentSession().setCurrentCustomer(focusUser);
+        System.out.println("Successful focus on customer");
+//        JFrame view;        
     }
 }
