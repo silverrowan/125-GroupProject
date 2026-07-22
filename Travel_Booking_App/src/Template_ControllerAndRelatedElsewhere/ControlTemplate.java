@@ -7,7 +7,7 @@ import javax.swing.SingleSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import view.ProductsGUI;
-import utility.AppWindowCust;
+import view.dashboard.AppWindowCust;
 import utility.GenericView;
 
 /**

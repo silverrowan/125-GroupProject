@@ -1,6 +1,8 @@
-package utility;
+package view.dashboard;
 
 import java.awt.event.ActionListener;
+import utility.AppContext;
+import utility.GenericView;
 import view.components.PanelBorder;
 import view.dashboard.DashboardAgent;
 

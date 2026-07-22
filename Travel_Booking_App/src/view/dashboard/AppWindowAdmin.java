@@ -1,80 +1,83 @@
-package utility;
+package view.dashboard;
 
 import java.awt.event.ActionListener;
+import utility.AppContext;
+import utility.GenericView;
 import view.components.PanelBorder;
-import view.dashboard.DashboardCustomer;
+import view.dashboard.DashboardAdmin;
 
 /**
  *
  * @author rowan
  */
-public class AppWindowCust extends GenericView {
-    private AppContext context;
+public class AppWindowAdmin extends GenericView {
     
-    public AppWindowCust( AppContext context ) {
+    public AppWindowAdmin( AppContext context ) {
         super( context );
         initComponents();
-        pnlDashCust.revalidate();
-        pnlDashCust.repaint();
+        pnlDashAdmin.revalidate();
+        pnlDashAdmin.repaint();
         
 //        this.session = session;
 //        setBackground( new Color(0, 0, 0, 0) ); //only works with undecorated frame
     }
     
      //Getter and Setters
+//    public DashboardAdmin getDashboardList() {
+//        return pnlDashAdmin;
+//    }
+//    public void setDashboardList(DashboardAdmin pnlDashAdmin) {
+//        this.pnlDashAdmin = pnlDashAdmin;
+//    }
+//
+//    public PanelBorder getPnlAppWindow() {
+//        return pnlDashWind;
+//    }
+//    public void setPnlAppWindow(PanelBorder pnlAppWindow) {
+//        this.pnlDashWind = pnlAppWindow;
+//    }
 
-    public DashboardCustomer getDashboardList() {
-        return pnlDashCust;
+    public DashboardAdmin getPnlDashAdmin() {
+        return pnlDashAdmin;
     }
-
-    public void setDashboardList(DashboardCustomer pnlDashCust) {
-        this.pnlDashCust = pnlDashCust;
-    }
-
-    public AppContext getContext() {
-        return context;
-    }
-
-    public void setContext(AppContext context) {
-        this.context = context;
-    }
-
-    public PanelBorder getPnlAppWindow() {
-        return pnlDashWind;
-    }
-
-    public void setPnlAppWindow(PanelBorder pnlAppWindow) {
-        this.pnlDashWind = pnlAppWindow;
-    }
-
-    public DashboardCustomer getPnlDashCust() {
-        return pnlDashCust;
-    }
-
-    public void setPnlDashCust(DashboardCustomer pnlDashCust) {
-        this.pnlDashCust = pnlDashCust;
+    public void setPnlDashAdmin(DashboardAdmin pnlDashAdmin) {
+        this.pnlDashAdmin = pnlDashAdmin;
     }
 
     public PanelBorder getPnlDashWind() {
         return pnlDashWind;
     }
-
     public void setPnlDashWind(PanelBorder pnlDashWind) {
         this.pnlDashWind = pnlDashWind;
     }
     
     // ---------------Listeners--------------------------
     //----------------Customer Section-------------------
-    public void addListenerToBtnCustProfile( ActionListener loginListener ) {               
-        getPnlDashCust().getPnlDashCust().getBtnCustProfile().addActionListener( loginListener ); }
-    public void addListenerToBtnSearchDest( ActionListener loginListener ) {
-        getPnlDashCust().getPnlDashCust().getBtnSearchDest().addActionListener( loginListener ); }
-//    public void addListenerToBtnLatestBooking( ActionListener loginListener ) {
-//        getPnlDashCust().getPnlDashCust().getBtnLatestBooking().addActionListener( loginListener ); }
-    public void addListenerToBtnAllBooking( ActionListener loginListener ) {
-        getPnlDashCust().getPnlDashCust().getBtnViewBooking().addActionListener( loginListener ); }
-    public void addListenerToLogoutCust( ActionListener loginListener ) {
-        getPnlDashCust().getBtnLogout().addActionListener( loginListener ); }
+    public void addListenerToBtnCustProfile( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnCustProfile().addActionListener( listener ); }
+    public void addListenerToBtnSearchDest( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnSearchDest().addActionListener( listener ); }
+    public void addListenerToBtnAllBooking( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnViewBooking().addActionListener( listener ); }
+        
+    //----------------Agent Section-------------------
+    public void addListenerToBtnAdminProfile( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAgent().getBtnAgentProfile().addActionListener( listener ); }
+    public void addListenerToBtnSearchCust( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAgent().getBtnSearchCust().addActionListener( listener ); }
+    public void addListenerToBtnLogoutAgent( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAgent().getBtnLogout().addActionListener( listener ); }
+    public void addListenerToBtnClearCust( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAgent().getBtnClearCust().addActionListener( listener ); }
+                
+    //----------------Admin Section-------------------
+    public void addListenerToBtnSearchDestAdmin( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAdmin().getBtnDestinations().addActionListener( listener ); }
+    public void addListenerToBtnSearchTrips( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAdmin().getBtnTrips().addActionListener( listener ); }
+    public void addListenerToBtnSearchBook( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAdmin().getBtnBooking().addActionListener( listener ); }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -86,7 +89,7 @@ public class AppWindowCust extends GenericView {
     private void initComponents() {
 
         pnlDashWind = new view.components.PanelBorder();
-        pnlDashCust = new view.dashboard.DashboardCustomer();
+        pnlDashAdmin = new view.dashboard.DashboardAdmin();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -96,13 +99,13 @@ public class AppWindowCust extends GenericView {
         pnlDashWind.setLayout(pnlDashWindLayout);
         pnlDashWindLayout.setHorizontalGroup(
             pnlDashWindLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDashWindLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(pnlDashCust, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pnlDashWindLayout.createSequentialGroup()
+                .addComponent(pnlDashAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlDashWindLayout.setVerticalGroup(
             pnlDashWindLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlDashCust, javax.swing.GroupLayout.DEFAULT_SIZE, 451, Short.MAX_VALUE)
+            .addComponent(pnlDashAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -113,7 +116,7 @@ public class AppWindowCust extends GenericView {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlDashWind, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlDashWind, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -145,7 +148,7 @@ public class AppWindowCust extends GenericView {
 //        java.awt.EventQueue.invokeLater(() -> {
 //            
 //            AppContext session = new AppContext();
-//            AppWindowCust app = new AppWindowCust( session );
+//            AppWindow app = new AppWindow( session );
 //            app.setVisible(true);
 //            
 //            /*temporary while working on things - add user GUI */
@@ -158,7 +161,7 @@ public class AppWindowCust extends GenericView {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private view.dashboard.DashboardCustomer pnlDashCust;
+    private view.dashboard.DashboardAdmin pnlDashAdmin;
     private view.components.PanelBorder pnlDashWind;
     // End of variables declaration//GEN-END:variables
 }

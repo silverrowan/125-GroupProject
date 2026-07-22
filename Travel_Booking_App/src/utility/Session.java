@@ -4,7 +4,7 @@ package utility;
 import model.Customer;
 import model.User;
 import view.ViewCustomerGUI;
-import utility.AppWindowCust;
+import view.dashboard.AppWindowCust;
 
 /**
  *

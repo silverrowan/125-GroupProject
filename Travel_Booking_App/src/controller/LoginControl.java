@@ -6,10 +6,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import model.User;
-import utility.AppWindowAdmin;
-import utility.AppWindowAgent;
+import view.dashboard.AppWindowAdmin;
+import view.dashboard.AppWindowAgent;
 import view.Login;
-import utility.AppWindowCust;
+import view.dashboard.AppWindowCust;
 import utility.GenericView;
 import view.profile.EditCustomerGUI;
 

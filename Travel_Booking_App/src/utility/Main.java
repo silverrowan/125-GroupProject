@@ -1,6 +1,7 @@
 
 package utility;
 
+import view.dashboard.AppWindowAdmin;
 import controller.DashboardControl;
 import controller.LoginControl;
 import controller.ProfileControl;
@@ -9,8 +10,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import model.User;
-import utility.AppWindowAgent;
-import utility.AppWindowCust;
+import view.dashboard.AppWindowAgent;
+import view.dashboard.AppWindowCust;
 import view.profile.EditCustomerGUI;
 import view.profile.EditEmployeeGUI;
 import view.Login;

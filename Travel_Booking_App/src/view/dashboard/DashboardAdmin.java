@@ -8,7 +8,6 @@ import model.User;
 import view.ViewCustomerGUI;
 import view.ViewDestinationsGUI;
 import view.ViewTripFrame;
-import utility.AppWindowCust;
 import view.components.GradientPanel;
 import view.components.ListMenu;
 
