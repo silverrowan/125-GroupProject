@@ -1,5 +1,7 @@
 package controller;
 
+import java.awt.Button;
+import java.awt.Font;
 import utility.AppContext;
 import utility.DuplicateTargetException;
 import java.awt.Window;
@@ -7,7 +9,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.nio.file.AccessDeniedException;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JButton;
 import model.User;
 import view.dashboard.AppWindowAdmin;
 import view.dashboard.AppWindowAgent;
@@ -20,6 +24,7 @@ import view.Login;
 import view.ProductsGUI;
 import view.ViewAllTripsGUI;
 import view.components.GradientPanel;
+import view.models.ButtonBase;
 import view.profile.EditCustomerGUI;
 import view.profile.EditEmployeeGUI;
 
@@ -57,12 +62,15 @@ public class DashboardControl extends GenericControl{
 //    private Button btnLogout;
 //    
     private User user;
-    private User cust; 
+    private User cust;
+    private User focus;
 
     public DashboardControl( AppContext context, GenericView dash, int never ){
         super( context, dash );
         this.user = context.getCurrentUser();
         this.cust = context.getCurrentCustomerUser();
+        this.focus = context.getCurrentFocusUser();
+        
     }
     
 //    logged in user = Customer
@@ -79,34 +87,54 @@ public class DashboardControl extends GenericControl{
     public DashboardControl( AppContext context, AppWindowAgent dashAgent ){
         this( context, dashAgent, 99 );
         this.dashAgent = (AppWindowAgent) getView();        
-        //--cust section--
+        //--cust section listeners--
         this.dashAgent.addListenerToBtnCustProfile( new Profile( false ) );
         this.dashAgent.addListenerToBtnSearchDest( new SearchDest() );
         this.dashAgent.addListenerToBtnAllBooking( new AllBooking() );
-        //--agent section--
+        //--agent section listeners--
         this.dashAgent.addListenerToBtnAgentProfile( new Profile( true ) );        
         this.dashAgent.addListenerToBtnSearchCust( new SearchCust() );        
         this.dashAgent.addListenerToBtnLogoutAgent( new Logout() );        
         this.dashAgent.addListenerToBtnClearCust( new ClearCust() );        
+        JLabel userLabel = dashAgent.getPnlDashAgent().getDashPanelAgent().getLblUser();
+        JLabel focusLabel = dashAgent.getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getLblUser();
+        Button focusBtn = dashAgent.getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnCustProfile();
+        //adjust them
+        userLabel.setText( "Welcome " + user.getUsername() +"!" );
     }
     
 //    Loggen in user == admin
     public DashboardControl( AppContext contextOuter, AppWindowAdmin dashAdminOuter ){
         this( contextOuter, dashAdminOuter, 99 );
         this.dashAdmin = (AppWindowAdmin) getView();
-        //--cust section--
+        //--cust section listeners--
         this.dashAdmin.addListenerToBtnCustProfile( new Profile( false ) );
         this.dashAdmin.addListenerToBtnSearchDest( new SearchDest() );
         this.dashAdmin.addListenerToBtnAllBooking( new AllBooking() );
-        //--agent section--
+        //--agent section listeners--
         this.dashAdmin.addListenerToBtnAdminProfile( new Profile( true ) );        
         this.dashAdmin.addListenerToBtnSearchCust( new SearchCust() );        
         this.dashAdmin.addListenerToBtnLogoutAgent( new Logout() );        
         this.dashAdmin.addListenerToBtnClearCust( new ClearCust() );
-        //--admin section--
+        //--admin section listeners--
         this.dashAdmin.addListenerToBtnSearchDestAdmin( new SearchDest() );    
         this.dashAdmin.addListenerToBtnSearchTrips( new SearchTrip() );    
-        this.dashAdmin.addListenerToBtnSearchBook( new SearchBooking() );    
+        this.dashAdmin.addListenerToBtnSearchBook( new SearchBooking() );
+        //Get labels and buttons to adjust
+
+        JLabel searchLabel = dashAdmin.getPnlDashAdmin().getPnlDashAdmin().getLblUser();
+        JLabel userLabel = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getLblUser();
+        JLabel focusLabel = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getPnlDashCust().getLblUser();
+        Button focusBtn = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getPnlDashCust().getBtnCustProfile();
+        //adjust them
+        Font standardFont = searchLabel.getFont();
+        Font headerFont = standardFont.deriveFont(Font.BOLD, 24);
+        
+        changeLabelToHeader( userLabel, headerFont, "Welcome " + user.getUsername() +"!" );
+        changeLabelToHeader( searchLabel, headerFont, "Search & Edit" );
+        changeFocusUserInfo();
+        changeLabelToHeader( focusLabel, headerFont, "Search & Edit" );
+
     }
     
 //--------------------------Listener Classes & Function------------------------
@@ -210,22 +238,56 @@ public class DashboardControl extends GenericControl{
             }
         }
 
-    private void addAdminTargetItems() throws AccessDeniedException, DuplicateTargetException{
+    private void changeSessionFocusObjects( JButton focusBtn, JButton findFocusBtn, JLabel focusLabel, Font headerFont ) throws AccessDeniedException, DuplicateTargetException{
         User loggedIn = getAppContext().getCurrentSession().getCurrentUser();
         User customer = getAppContext().getCurrentSession().getCurrentCustomer();
         User employee = getAppContext().getCurrentSession().getCurrentEmployee();
+        User focus = getAppContext().getCurrentFocusUser();
         
-        if ( !loggedIn.getRole().equals("Admin") ) { throw new AccessDeniedException("User cannot access Admin functions"); }
         if ( customer != null && employee != null ) { 
             getAppContext().getCurrentSession().clearFoci();
-            throw new DuplicateTargetException("Cannot have two active focuss. Clearing both. Retry");
+            JOptionPane.showMessageDialog(null, "Cannot have two active focuss. Clearing both. Retry");
         } 
+        if ( loggedIn.getRole().equals("Customer") ) { 
+            String focusLabelText = "Welcome " + loggedIn.getUsername() + "!";
+            changeLabelToHeader( focusLabel, headerFont, focusLabelText ); 
+        }
+        if ( loggedIn.getRole().equals("Agent") ) {
+            if ( customer == null ) {
+                String focusLabelText = "No Customer set";
+                changeLabelToHeader( focusLabel, headerFont, focusLabelText );
+
+                focusBtn.setVisible(false);
+                findFocusBtn.setText("Search for Customer");
+                findFocusBtn.setVisible(true);
+                        
+            }
+            String focusLabelText = "Focus Employee" + focus.getUsername();
+            changeLabelToHeader( focusLabel, headerFont, focusLabelText );             
+        }
+        if ( loggedIn.getRole().equals("Admin") ) { throw new AccessDeniedException("User cannot access Admin functions"); }
         else if ( employee != null ) {
+            String focusLabelText = "Focus Employee" + focus.getUsername();
+            changeLabelToHeader( focusLabel, headerFont, focusLabelText ); 
 //            addToMenuList( new JLabel( "Active Employee: " + employee.getUsername(), Card.CardType.HEADER, "" ));
 //            addToMenuList(new ImgCard("id-card", "Employee Profile", Card.CardType.MENU, "ViewEmployeeProfile"));
         } 
         else { addAgentTargetItems( customer ); }
 
+        
+                   JLabel searchLabel = dashAdmin.getPnlDashAdmin().getPnlDashAdmin().getLblUser();
+        JLabel userLabel = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getLblUser();
+        JLabel focusLabel = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getPnlDashCust().getLblUser();
+        Button focusBtn = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getPnlDashCust().getBtnCustProfile();
+        //adjust them
+        Font standardFont = searchLabel.getFont();
+        Font headerFont = standardFont.deriveFont(Font.BOLD, 24);
+        
+        changeLabelToHeader( userLabel, headerFont, "Welcome " + user.getUsername() +"!" );
+        changeLabelToHeader( searchLabel, headerFont, "Search & Edit" );
+        changeFocusUserInfo();
+        
+        
     }
     
     private void addAgentTargetItems( User customer ) {
@@ -239,6 +301,8 @@ public class DashboardControl extends GenericControl{
 //            addToMenuList(new ImgCard("id-card", "New User", Card.CardType.MENU, "New User"));
         }   
     }
+    
+
     
 // ===========================================================================
 // ===========================================================================
@@ -350,6 +414,12 @@ public class DashboardControl extends GenericControl{
         TripsController tripControl = new TripsController( context, view ); 
         view.setVisible(true); //make it visible
         
+    }
+    
+    private void changeLabelToHeader( JLabel label, Font font, String text){
+        label.setText( text );
+        label.setFont( font );
+        label.setHorizontalAlignment( JLabel.CENTER );        
     }
     
 

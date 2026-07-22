@@ -67,4 +67,8 @@ public class AppContext {
     public User getCurrentCustomerUser() { //make the string shorter helpers
         return getCurrentSession().getCurrentCustomer();
     }
+    
+    public User getCurrentFocusUser() {
+        return getCurrentSession().getFocusUser();
+    }
 }
