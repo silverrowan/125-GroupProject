@@ -26,11 +26,7 @@ public class GenericView extends JFrame {
 
     public Crud getCrud() { return crud; }
     public void setCrud(Crud crud) { this.crud = crud; }
-    
-    
-    
-    public GenericView() {}
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
