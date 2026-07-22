@@ -499,4 +499,33 @@ public class DestinationsDAO {
 
         return destination;
     }
+    
+    /**
+    * Deletes a destination using its primary key.
+    */
+   public boolean deleteDestination(int destinationID) {
+
+       String sql = """
+           DELETE FROM destinations
+           WHERE destination_id = ?
+           """;
+
+       try (
+           Connection connection = getConnection();
+           PreparedStatement statement =
+                   connection.prepareStatement(sql)
+       ) {
+
+           statement.setInt(1, destinationID);
+
+           return statement.executeUpdate() > 0;
+
+       } catch (SQLException exception) {
+           throw new RuntimeException(
+                   "Unable to delete destination with ID "
+                           + destinationID + ".",
+                   exception
+           );
+       }
+   }
 }
