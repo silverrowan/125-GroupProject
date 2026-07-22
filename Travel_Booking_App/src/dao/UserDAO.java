@@ -20,8 +20,13 @@ public class UserDAO {
     public UserDAO(){}
 
     public User addNewUser(User user) {
-        String query = "INSERT INTO users (username, password, first_name, last_name, email, role, phone) VALUES (?,?,?,?,?,?,?);";
-        
+        String query = """
+                INSERT INTO users (
+                       username, password, first_name, last_name, email, 
+                       role, phone
+                       ) 
+                    VALUES (?,?,?,?,?,?,?);";
+                """;
         try ( Connection link = DBConnection.getConnection(); 
             PreparedStatement p = link.prepareStatement(query, Statement.RETURN_GENERATED_KEYS); )
         {
