@@ -34,6 +34,8 @@ public class EditPayment extends javax.swing.JFrame {
         comboMethod = new javax.swing.JComboBox<>();
         lblStatus = new javax.swing.JLabel();
         comboStatus = new javax.swing.JComboBox<>();
+        lblDate = new javax.swing.JLabel();
+        txtDate = new javax.swing.JTextField();
         btnCancel = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
@@ -107,6 +109,9 @@ public class EditPayment extends javax.swing.JFrame {
                 .addGap(6, 6, 6))
         );
 
+        lblDate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDate.setText("Date of Payment");
+
         javax.swing.GroupLayout pnlPmtLayout = new javax.swing.GroupLayout(pnlPmt);
         pnlPmt.setLayout(pnlPmtLayout);
         pnlPmtLayout.setHorizontalGroup(
@@ -115,13 +120,19 @@ public class EditPayment extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(pnlPmtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlSelects, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlAmount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pnlAmount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtDate)
+                    .addComponent(lblDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
         );
         pnlPmtLayout.setVerticalGroup(
             pnlPmtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlPmtLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
+                .addComponent(lblDate)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(pnlAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlSelects, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -194,6 +205,7 @@ public class EditPayment extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboMethod;
     private javax.swing.JComboBox<String> comboStatus;
     private javax.swing.JLabel lblAmount;
+    private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblMethod;
     private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblTitle;
@@ -202,5 +214,6 @@ public class EditPayment extends javax.swing.JFrame {
     private javax.swing.JPanel pnlSelects;
     private javax.swing.JSeparator sep02;
     private javax.swing.JTextField txtAmt;
+    private javax.swing.JTextField txtDate;
     // End of variables declaration//GEN-END:variables
 }
