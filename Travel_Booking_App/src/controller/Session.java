@@ -42,7 +42,6 @@ public class Session {
     public void setCurrentEmployee(User currentEmployee) {
         this.currentCustomer = null;
         this.currentEmployee = currentEmployee;
-        currentCustomer.setPassword( null );
     }
     
     public void clearCurrentUser() { this.currentUser = null; }
