@@ -40,12 +40,12 @@ public class Main {
     public static void directToDash(AppContext context) {
         User activeUser;
         User loginUser;
-//        String username = "mzhang";           
-//        String password = "12341234";
+        String username = "mzhang";           
+        String password = "12341234";
 //        String username = "cchen";           
 //        String password = "123123123";
-        String username = "ezhang";
-        String password = "12341234";
+//        String username = "ezhang";
+//        String password = "12341234";
 
         activeUser = context.getUserDao().getUserFromUsername(username, password);
         loginUser = null;
@@ -55,17 +55,17 @@ public class Main {
         String role = context.getCurrentUser().getRole();
         System.out.println("role: " + role);
 //        JFrame view;
-        
+        DashboardControl dc; // TEMPORARY CODE TO OBTAIN CONTRoLLER
         if ( role.equals( "Admin" ) ) {
             System.out.println("entered admin if");
             AppWindowAdmin view = new AppWindowAdmin( context ); //make target window/dashboard: This is Menu AND beside contents.
-            DashboardControl dash = new DashboardControl( context, view ); 
+            DashboardControl dash = dc = new DashboardControl( context, view ); 
             dash.initialize();
             view.setVisible(true); 
         } else if ( role.equals("Travel Agent") ) {
             System.out.println("entered Agent if");
             AppWindowAgent view = new AppWindowAgent( context );
-            DashboardControl dash = new DashboardControl( context, view );
+            DashboardControl dash = dc = new DashboardControl( context, view );
             dash.initialize();
             view.setVisible(true); 
 //        } else if ( role.equals("Travel Guide") ) {
@@ -73,7 +73,7 @@ public class Main {
         } else {
             System.out.println("entered Cust/Other if");
             AppWindowCust view = new AppWindowCust( context );
-            DashboardControl dash = new DashboardControl( context, view );
+            DashboardControl dash = dc = new DashboardControl( context, view );
             dash.initialize();
             view.setVisible(true);
         }
@@ -82,12 +82,12 @@ public class Main {
         if (context.getCurrentUser().getRole().equals("Customer")) {
             EditCustomerGUI viewEdit = new EditCustomerGUI();
             viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            ProfileControl pc = new ProfileControl(context, viewEdit);
+            ProfileControl pc = new ProfileControl(context, dc, context.getUserDao().getUserFromUsername(context.getCurrentUser().getUsername()), viewEdit);
             viewEdit.setVisible(true);
         } else {
             EditEmployeeGUI viewEdit = new EditEmployeeGUI();
             viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            ProfileControl pc = new ProfileControl(context, viewEdit);
+            ProfileControl pc = new ProfileControl(context, dc, context.getUserDao().getUserFromUsername(context.getCurrentUser().getUsername()), viewEdit);
             viewEdit.setVisible(true);
         }
     }

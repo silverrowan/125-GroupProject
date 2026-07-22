@@ -25,15 +25,21 @@ public class ProfileControl {
     private final User currentUser;
     private final UserDAO userDAO;
 
-    // customer view contructor
-    public ProfileControl(AppContext context, EditCustomerGUI editCustomerView) {
-        this(editCustomerView, context); // update generic user information
+    /**
+     * constructor for viewing customer profiles
+     * @param context context of current user and session
+     * @param dc DashboardControl used to log out
+     * @param user the user whose profile is to be displayed
+     * @param editCustomerView the view to display the profile
+     */
+    public ProfileControl(AppContext context, DashboardControl dc, User user, EditCustomerGUI editCustomerView) {
+        this(editCustomerView, context, user); // update generic user information
         
         // get DAO
         CustomerDAO customerDAO = context.getCustomerDao();
         
         // get current customer
-        Customer currentCustomer = customerDAO.getCustomerFromUserID(context.getCurrentUser().getUserID());
+        Customer currentCustomer = customerDAO.getCustomerFromUserID(user.getUserID());
         
         // set fields on form
         editCustomerView.getInputEmergencyContactName().setText(currentCustomer.getEmergencyContactName()); // emergency contact
@@ -51,19 +57,30 @@ public class ProfileControl {
                 
                 // dispose view
                 editCustomerView.dispose();
+                
+                // if user deleted is current user, log out
+                if (user.getUserID() == context.getCurrentUser().getUserID()) {
+                    dc.logoutUser(context);
+                }
             }
         });
     }
     
-    // employee view constructor
-    public ProfileControl(AppContext context, EditEmployeeGUI editEmployeeView) {
-        this(editEmployeeView, context); // update generic user information
+    /**
+     * constructor for viewing employee profiles
+     * @param context context of current user and session
+     * @param dc DashboardControl used to log out
+     * @param user the user whose profile is to be displayed
+     * @param editEmployeeView the view to display the profile
+     */
+    public ProfileControl(AppContext context, DashboardControl dc, User user, EditEmployeeGUI editEmployeeView) {
+        this(editEmployeeView, context, user); // update generic user information
         
         // get DAO
         EmployeeDAO employeeDAO = context.getEmployeeDao();
         
         // get current employee
-        Employee currentEmployee = employeeDAO.getEmployeeFromUserID(context.getCurrentUser().getUserID());
+        Employee currentEmployee = employeeDAO.getEmployeeFromUserID(user.getUserID());
         
         // set fields on form
         editEmployeeView.getInputHireDate().setText((currentEmployee.getHireDate() == null) ? "" : currentEmployee.getHireDate().toString()); // hire date
@@ -82,11 +99,14 @@ public class ProfileControl {
                 // dispose view
                 editEmployeeView.dispose();
                 
-                // in progress: log out if you delete yourself
+                // if user deleted is current user, log out
+                if (user.getUserID() == context.getCurrentUser().getUserID()) {
+                    dc.logoutUser(context);
+                }
             }
         });
     }
-    private ProfileControl(AbstractEditUserView editProfileView, AppContext context) {
+    private ProfileControl(AbstractEditUserView editProfileView, AppContext context, User user) {
         this.editProfileView = editProfileView;
         this.context = context;
         
@@ -94,7 +114,7 @@ public class ProfileControl {
         userDAO = context.getUserDao();
         
         // get current user
-        this.currentUser = userDAO.getUserFromUsername(context.getCurrentUser().getUsername());
+        this.currentUser = user;
  
         // populate form with existing data
         
@@ -261,7 +281,7 @@ public class ProfileControl {
             
             // set employee info
             currentEmployee.setJobTitle(jobTitle);
-            currentEmployee.setHireDate(Date.valueOf(hireDate));
+            currentEmployee.setHireDate((hireDate.isEmpty() || hireDate.isBlank() || hireDate == null) ? null : Date.valueOf(hireDate));
             
             // update employee
             employeeDAO.updateEmployee(currentEmployee);
