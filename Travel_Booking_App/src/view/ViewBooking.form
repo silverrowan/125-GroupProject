@@ -24,37 +24,24 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jSeparator1" alignment="1" min="-2" pref="615" max="-2" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Component id="jSeparator2" max="32767" attributes="0"/>
-                              <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="295" max="-2" attributes="0"/>
-                      <Component id="addBookingTitle" min="-2" pref="73" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
-                          <Component id="allPayments1" alignment="1" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="amountLbl1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="amountTxt1" min="-2" pref="212" max="-2" attributes="0"/>
-                          </Group>
+                  <Component id="jSeparator1" alignment="1" min="-2" pref="615" max="-2" attributes="0"/>
+                  <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
+                  <Component id="pnlBtns" alignment="0" max="32767" attributes="0"/>
+                  <Component id="pnlBookingOverview" alignment="0" max="32767" attributes="0"/>
+                  <Component id="addBookingTitle" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="pnlPrices" alignment="1" max="32767" attributes="0"/>
+                      <Component id="pnlAllPayments" alignment="1" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="lblDue" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="txtDue" min="-2" pref="212" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -66,20 +53,20 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <Component id="pnlBookingOverview" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jSeparator2" min="-2" pref="15" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <Component id="pnlPrices" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="allPayments1" min="-2" max="-2" attributes="0"/>
+              <Component id="pnlAllPayments" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="amountLbl1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="amountTxt1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblDue" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtDue" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-              <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+              <Component id="pnlBtns" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -88,14 +75,13 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="addBookingTitle">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Add Booking"/>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="View and Pay For Booking"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
     </Component>
-    <Component class="javax.swing.JSeparator" name="jSeparator2">
-    </Component>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="pnlBookingOverview">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -273,7 +259,9 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Component class="javax.swing.JSeparator" name="jSeparator2">
+    </Component>
+    <Container class="javax.swing.JPanel" name="pnlPrices">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -452,14 +440,26 @@
         </Container>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel3">
+    <Component class="view.payments.AllPayments" name="pnlAllPayments">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblDue">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Remainder Due"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtDue">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDueActionPerformed"/>
+      </Events>
+    </Component>
+    <Container class="javax.swing.JPanel" name="pnlBtns">
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="backBtn" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnClose" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="saveBtn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -471,7 +471,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="backBtn" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnClose" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="saveBtn" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -480,17 +480,18 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="backBtn">
+        <Component class="javax.swing.JButton" name="btnClose">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Back"/>
+            <Property name="text" type="java.lang.String" value="Close"/>
+            <Property name="actionCommand" type="java.lang.String" value="close"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backBtnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCloseActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="saveBtn">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Save"/>
+            <Property name="text" type="java.lang.String" value="Save Changes"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveBtnActionPerformed"/>
@@ -498,17 +499,5 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="view.payments.AllPayments" name="allPayments1">
-    </Component>
-    <Component class="javax.swing.JTextField" name="amountTxt1">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="amountTxt1ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="amountLbl1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Remainder Due"/>
-      </Properties>
-    </Component>
   </SubComponents>
 </Form>
