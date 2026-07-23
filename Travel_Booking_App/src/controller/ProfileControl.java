@@ -39,7 +39,7 @@ public class ProfileControl {
         CustomerDAO customerDAO = context.getCustomerDao();
         
         // get current customer
-        Customer currentCustomer = customerDAO.getCustomerFromUserID(user.getUserID());
+        Customer currentCustomer = customerDAO.getCustomerFromUserID(this.currentUser.getUserID());
         
         // set fields on form
         editCustomerView.getInputEmergencyContactName().setText(currentCustomer.getEmergencyContactName()); // emergency contact
@@ -59,7 +59,7 @@ public class ProfileControl {
                 editCustomerView.dispose();
                 
                 // if user deleted is current user, log out
-                if (user.getUserID() == context.getCurrentUser().getUserID()) {
+                if (currentUser.getUserID() == context.getCurrentUser().getUserID()) {
                     dc.logoutUser();
                 }
             }
@@ -80,7 +80,7 @@ public class ProfileControl {
         EmployeeDAO employeeDAO = context.getEmployeeDao();
         
         // get current employee
-        Employee currentEmployee = employeeDAO.getEmployeeFromUserID(user.getUserID());
+        Employee currentEmployee = employeeDAO.getEmployeeFromUserID(this.currentUser.getUserID());
         
         // set fields on form
         editEmployeeView.getInputHireDate().setText((currentEmployee.getHireDate() == null) ? "" : currentEmployee.getHireDate().toString()); // hire date
@@ -100,7 +100,7 @@ public class ProfileControl {
                 editEmployeeView.dispose();
                 
                 // if user deleted is current user, log out
-                if (user.getUserID() == context.getCurrentUser().getUserID()) {
+                if (currentUser.getUserID() == context.getCurrentUser().getUserID()) {
                     dc.logoutUser();
                 }
             }
@@ -114,7 +114,7 @@ public class ProfileControl {
         userDAO = context.getUserDao();
         
         // get current user
-        this.currentUser = user;
+        this.currentUser = userDAO.getUserFromUsername(user.getUsername());
  
         // populate form with existing data
         
