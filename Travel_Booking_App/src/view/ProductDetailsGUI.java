@@ -27,13 +27,6 @@ public class ProductDetailsGUI extends javax.swing.JFrame {
         loadDestinationDetails(destinationID);
     }
 
-    
-    // Setters and Getters
-    
-    // Listeners
-
-    // Utility
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -422,8 +415,6 @@ public class ProductDetailsGUI extends javax.swing.JFrame {
             );
 
         } catch (RuntimeException exception) {
-            exception.printStackTrace();
-
             JOptionPane.showMessageDialog(
                     this,
                     "Could not load package details.\n"

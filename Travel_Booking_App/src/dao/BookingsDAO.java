@@ -22,7 +22,7 @@ import java.util.List;
  *
  * @author kalei
  */
-public class BookingDAO {
+public class BookingsDAO {
     
      public List<Bookings> getAllBookings() {
         List<Bookings> bookings = new ArrayList<>();

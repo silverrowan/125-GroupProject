@@ -1,7 +1,5 @@
 package controller;
 
-
-
 /**
  *
  * @author kalei
@@ -208,7 +206,7 @@ public class DestinationsController {
             );
         }
 
-        String status = destination.getDestinationStatus().toString();
+        String status = destination.getDestinationStatus();
 
         if (status != null
                 && !status.isBlank()
