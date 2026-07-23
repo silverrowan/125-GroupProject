@@ -4,13 +4,12 @@
  */
 package view;
 
-import utility.GenericView;
 
 /**
  *
  * @author kalei
  */
-public class AddBookingGUI extends GenericView {
+public class AddBookingGUI {
     
     /**
      * Creates new form AddBookingGUI
@@ -19,9 +18,6 @@ public class AddBookingGUI extends GenericView {
         initComponents();
     }
     
-    public AddBookingGUI ( Crud crud ) {
-        
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,9 +29,8 @@ public class AddBookingGUI extends GenericView {
     private void initComponents() {
 
         customerLbl = new javax.swing.JLabel();
-        tripLbl = new javax.swing.JLabel();
+        countrylbl = new javax.swing.JLabel();
         bookingDateLbl = new javax.swing.JLabel();
-        tripCb = new javax.swing.JComboBox<>();
         bookingDateTxt = new javax.swing.JTextField();
         addBookingTitle = new javax.swing.JLabel();
         customerTxt = new javax.swing.JTextField();
@@ -47,31 +42,22 @@ public class AddBookingGUI extends GenericView {
         bookingNotesLbl = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         bookingNotesTxt = new javax.swing.JTextArea();
-        costSummaryLbl = new javax.swing.JLabel();
-        baseLbl = new javax.swing.JLabel();
-        baseTxt = new javax.swing.JTextField();
-        actFeeLbl = new javax.swing.JLabel();
-        actFeeTxt = new javax.swing.JTextField();
-        taxLbl = new javax.swing.JLabel();
-        taxTxt = new javax.swing.JTextField();
-        amountLbl = new javax.swing.JLabel();
-        amountTxt = new javax.swing.JTextField();
         backBtn = new javax.swing.JButton();
         saveBtn = new javax.swing.JButton();
-        costBtn = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        countryTxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         customerLbl.setText("Customer:");
 
-        tripLbl.setText("Trip:");
+        countrylbl.setText("Country:");
 
         bookingDateLbl.setText("Booking Date: ");
-
-        tripCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        tripCb.addActionListener(this::tripCbActionPerformed);
 
         bookingDateTxt.addActionListener(this::bookingDateTxtActionPerformed);
 
@@ -95,28 +81,26 @@ public class AddBookingGUI extends GenericView {
         bookingNotesTxt.setRows(5);
         jScrollPane2.setViewportView(bookingNotesTxt);
 
-        costSummaryLbl.setText("COST SUMMARY");
-
-        baseLbl.setText("Base Price:");
-
-        actFeeLbl.setText("Activity Fees:");
-
-        taxLbl.setText("Tax (12%):");
-
-        taxTxt.addActionListener(this::taxTxtActionPerformed);
-
-        amountLbl.setText("Total Amount:");
-
-        amountTxt.addActionListener(this::amountTxtActionPerformed);
-
         backBtn.setText("Back");
         backBtn.addActionListener(this::backBtnActionPerformed);
 
         saveBtn.setText("Save");
         saveBtn.addActionListener(this::saveBtnActionPerformed);
 
-        costBtn.setText("Calculate Cost");
-        costBtn.addActionListener(this::costBtnActionPerformed);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Trip ID", "Country", "Departure", "Return"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable1);
+
+        jLabel1.setText("Please Select a Trip with your Preferred Dates");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -127,68 +111,54 @@ public class AddBookingGUI extends GenericView {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(34, 34, 34))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(tripLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(29, 29, 29)
-                                        .addComponent(tripCb, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(customerLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(customerTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(costSummaryLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(baseLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(baseTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(amountLbl)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(amountTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(44, 44, 44)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(costBtn)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(actFeeLbl)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(actFeeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(49, 49, 49)
-                                                .addComponent(taxLbl)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(taxTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(specialReqLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(111, 111, 111)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(bookingNotesLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel6)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(numTravelersTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(bookingDateLbl)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(bookingDateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(backBtn)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(saveBtn)
-                                        .addGap(21, 21, 21))))))
+                                        .addGap(13, 13, 13)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(specialReqLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addGap(105, 105, 105)
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(bookingNotesLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addComponent(jLabel6)
+                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                            .addComponent(numTravelersTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addComponent(bookingDateLbl)
+                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                            .addComponent(bookingDateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(backBtn)
+                                                    .addGap(451, 451, 451)
+                                                    .addComponent(saveBtn))
+                                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addContainerGap()
+                                            .addComponent(countryTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addGap(35, 35, 35)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(countrylbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(customerLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(customerTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(21, 21, 21))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(295, 295, 295)
                         .addComponent(addBookingTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(38, 47, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,10 +176,10 @@ public class AddBookingGUI extends GenericView {
                         .addComponent(bookingDateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tripCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tripLbl)
+                    .addComponent(countrylbl)
                     .addComponent(jLabel6)
-                    .addComponent(numTravelersTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(numTravelersTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(countryTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(specialReqLbl)
@@ -218,40 +188,24 @@ public class AddBookingGUI extends GenericView {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
+                .addGap(37, 37, 37)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(costSummaryLbl)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(baseLbl)
-                    .addComponent(baseTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(actFeeLbl)
-                    .addComponent(actFeeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(taxLbl)
-                    .addComponent(taxTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(amountLbl)
-                    .addComponent(amountTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(costBtn))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
+                        .addGap(10, 10, 10)
                         .addComponent(backBtn)
-                        .addContainerGap(38, Short.MAX_VALUE))
+                        .addContainerGap(42, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(saveBtn)
                         .addGap(46, 46, 46))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void tripCbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tripCbActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tripCbActionPerformed
 
     private void customerTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerTxtActionPerformed
         // TODO add your handling code here:
@@ -261,25 +215,13 @@ public class AddBookingGUI extends GenericView {
         // TODO add your handling code here:
     }//GEN-LAST:event_numTravelersTxtActionPerformed
 
-    private void amountTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amountTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_amountTxtActionPerformed
-
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_backBtnActionPerformed
 
-    private void costBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_costBtnActionPerformed
-
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_saveBtnActionPerformed
-
-    private void taxTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taxTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_taxTxtActionPerformed
 
     private void bookingDateTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingDateTxtActionPerformed
         // TODO add your handling code here:
@@ -288,34 +230,27 @@ public class AddBookingGUI extends GenericView {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel actFeeLbl;
-    private javax.swing.JTextField actFeeTxt;
     private javax.swing.JLabel addBookingTitle;
-    private javax.swing.JLabel amountLbl;
-    private javax.swing.JTextField amountTxt;
     private javax.swing.JButton backBtn;
-    private javax.swing.JLabel baseLbl;
-    private javax.swing.JTextField baseTxt;
     private javax.swing.JLabel bookingDateLbl;
     private javax.swing.JTextField bookingDateTxt;
     private javax.swing.JLabel bookingNotesLbl;
     private javax.swing.JTextArea bookingNotesTxt;
-    private javax.swing.JButton costBtn;
-    private javax.swing.JLabel costSummaryLbl;
+    private javax.swing.JTextField countryTxt;
+    private javax.swing.JLabel countrylbl;
     private javax.swing.JLabel customerLbl;
     private javax.swing.JTextField customerTxt;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField numTravelersTxt;
     private javax.swing.JButton saveBtn;
     private javax.swing.JLabel specialReqLbl;
     private javax.swing.JTextArea specialReqTxt;
-    private javax.swing.JLabel taxLbl;
-    private javax.swing.JTextField taxTxt;
-    private javax.swing.JComboBox<String> tripCb;
-    private javax.swing.JLabel tripLbl;
     // End of variables declaration//GEN-END:variables
 }

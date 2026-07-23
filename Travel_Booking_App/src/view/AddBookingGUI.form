@@ -28,81 +28,65 @@
                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                       <Component id="jSeparator1" alignment="1" min="-2" pref="615" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="tripLbl" min="-2" pref="37" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                                      <Component id="tripCb" min="-2" pref="172" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="customerLbl" min="-2" pref="70" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="customerTxt" min="-2" pref="162" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane3" min="-2" pref="595" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="costSummaryLbl" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="baseLbl" min="-2" pref="66" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="baseTxt" min="-2" pref="71" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="amountLbl" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="amountTxt" min="-2" pref="71" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="costBtn" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="actFeeLbl" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="actFeeTxt" min="-2" pref="71" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                                              <Component id="taxLbl" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="taxTxt" min="-2" pref="71" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="jSeparator2" min="-2" pref="616" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="jScrollPane1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="specialReqLbl" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="bookingNotesLbl" min="-2" pref="109" max="-2" attributes="0"/>
+                                                      <Component id="jScrollPane2" min="-2" pref="257" max="-2" attributes="0"/>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                          <Component id="numTravelersTxt" min="-2" pref="91" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="bookingDateLbl" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                          <Component id="bookingDateTxt" min="-2" pref="120" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="backBtn" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="451" max="-2" attributes="0"/>
+                                                  <Component id="saveBtn" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="jLabel1" alignment="0" min="-2" pref="426" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jScrollPane1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="specialReqLbl" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="countryTxt" min="-2" pref="162" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="bookingNotesLbl" min="-2" pref="109" max="-2" attributes="0"/>
-                                          <Component id="jScrollPane2" min="-2" pref="257" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="numTravelersTxt" min="-2" pref="91" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="countrylbl" alignment="1" min="-2" pref="70" max="-2" attributes="0"/>
+                                              <Component id="customerLbl" min="-2" pref="70" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="bookingDateLbl" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="bookingDateTxt" min="-2" pref="120" max="-2" attributes="0"/>
-                                          </Group>
+                                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                                          <Component id="customerTxt" min="-2" pref="162" max="-2" attributes="0"/>
                                       </Group>
-                                  </Group>
-                                  <Component id="jSeparator2" min="-2" pref="616" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="backBtn" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="saveBtn" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -111,7 +95,7 @@
                       <Component id="addBookingTitle" min="-2" pref="73" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="38" pref="47" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -133,10 +117,10 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="tripCb" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tripLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="countrylbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="numTravelersTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="countryTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -148,33 +132,19 @@
                   <Component id="jScrollPane1" min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="jScrollPane2" min="-2" pref="100" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jScrollPane3" min="-2" pref="169" max="-2" attributes="0"/>
+              <EmptySpace pref="27" max="32767" attributes="0"/>
               <Component id="jSeparator2" min="-2" pref="15" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="costSummaryLbl" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="baseLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="baseTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="actFeeLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="actFeeTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="taxLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="taxTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="amountLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="amountTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="costBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Component id="backBtn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="38" max="32767" attributes="0"/>
+                      <EmptySpace pref="42" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="saveBtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                   </Group>
@@ -189,33 +159,15 @@
         <Property name="text" type="java.lang.String" value="Customer:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="tripLbl">
+    <Component class="javax.swing.JLabel" name="countrylbl">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Trip:"/>
+        <Property name="text" type="java.lang.String" value="Country:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="bookingDateLbl">
       <Properties>
         <Property name="text" type="java.lang.String" value="Booking Date: "/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="tripCb">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tripCbActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="bookingDateTxt">
       <Events>
@@ -276,45 +228,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="costSummaryLbl">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="COST SUMMARY"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="baseLbl">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Base Price:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="baseTxt">
-    </Component>
-    <Component class="javax.swing.JLabel" name="actFeeLbl">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Activity Fees:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="actFeeTxt">
-    </Component>
-    <Component class="javax.swing.JLabel" name="taxLbl">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Tax (12%):"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="taxTxt">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="taxTxtActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="amountLbl">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Total Amount:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="amountTxt">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="amountTxtActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="backBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Back"/>
@@ -331,17 +244,64 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveBtnActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="costBtn">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Calculate Cost"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="costBtnActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator2">
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="jTable1">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="4" rowCount="4">
+                <Column editable="true" title="Trip ID" type="java.lang.Object"/>
+                <Column editable="true" title="Country" type="java.lang.Object"/>
+                <Column editable="true" title="Departure" type="java.lang.Object"/>
+                <Column editable="true" title="Return" type="java.lang.Object"/>
+              </Table>
+            </Property>
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+              <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+              </TableColumnModel>
+            </Property>
+            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Please Select a Trip with your Preferred Dates"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="countryTxt">
     </Component>
   </SubComponents>
 </Form>
