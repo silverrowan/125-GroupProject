@@ -29,6 +29,7 @@ public class DestinationsDAO {
     /**
      * Returns every destination, including inactive destinations.
      * Mainly used by the administrator destination-management GUI.
+     * @return 
      */
     public List<Destinations> getAllDestinations() {
 
@@ -63,6 +64,7 @@ public class DestinationsDAO {
     /**
      * Returns only destinations with Available status.
      * Used by ProductsGUI and Add/EditTripGUI.
+     * @return 
      */
     public List<Destinations> getAvailableDestinations() {
 
@@ -97,6 +99,8 @@ public class DestinationsDAO {
 
     /**
      * Returns one destination using its primary key.
+     * @param destinationID
+     * @return 
      */
     public Destinations getDestinationByID(int destinationID) {
 
@@ -134,6 +138,8 @@ public class DestinationsDAO {
     /**
      * Searches available destinations by destination name,
      * country/region, hotel name, or hotel city.
+     * @param searchTerm
+     * @return 
      */
     public List<Destinations> searchDestinations(String searchTerm) {
 
@@ -186,6 +192,8 @@ public class DestinationsDAO {
     /**
      * Adds a destination and sets the generated destination ID
      * on the model object.
+     * @param destination
+     * @return 
      */
     public boolean addDestination(Destinations destination) {
 
@@ -258,6 +266,8 @@ public class DestinationsDAO {
 
     /**
      * Updates every editable field for an existing destination.
+     * @param destination
+     * @return 
      */
     public boolean updateDestination(Destinations destination) {
 
@@ -312,6 +322,9 @@ public class DestinationsDAO {
 
     /**
      * Changes only the Available/Inactive status.
+     * @param destinationID
+     * @param status
+     * @return 
      */
     public boolean updateDestinationStatus(
             int destinationID,
@@ -453,9 +466,8 @@ public class DestinationsDAO {
             destination.getTotalEstimatedCost()
         );
 
-        statement.setString(
-            22,
-            destination.getDestinationStatus().toString()
+        statement.setString(22,
+                destination.getDestinationStatus()
         );
     }
 
@@ -502,6 +514,8 @@ public class DestinationsDAO {
     
     /**
     * Deletes a destination using its primary key.
+     * @param destinationID
+     * @return 
     */
    public boolean deleteDestination(int destinationID) {
 

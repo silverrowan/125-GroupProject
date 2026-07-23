@@ -108,6 +108,11 @@ public class Bookings {
     }
 
     //SETTERS
+    
+    public void setBookingID(int bookingID) {
+        this.bookingID = bookingID;
+    }
+    
     /**
      * @param customerID the customerID to set
      */
