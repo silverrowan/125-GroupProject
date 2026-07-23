@@ -1,6 +1,7 @@
 
 package utility;
 
+import controller.DashboardControl;
 import model.Customer;
 import model.User;
 
@@ -17,6 +18,7 @@ public class Session {
     private User currentUser;
     private User currentCustomer; 
     private User currentEmployee; // only used by Admin 
+    private DashboardControl dashControl;
 
     public Session() { }
     
@@ -40,6 +42,13 @@ public class Session {
         this.currentCustomer = null;
         this.currentEmployee = currentEmployee;
     }
+
+    public DashboardControl getDashControl() { return dashControl; }
+    public void setDashControl(DashboardControl dashControl) { 
+        this.dashControl = dashControl; 
+    }
+    
+    
     
     public User getFocusUser() {
         User user = getCurrentUser();

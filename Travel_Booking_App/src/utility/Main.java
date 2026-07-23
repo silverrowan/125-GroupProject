@@ -63,25 +63,29 @@ public class Main {
         
         if ( role.equals( "Admin" ) ) {
             System.out.println("entered admin if");
-            AppWindowAdmin view = new AppWindowAdmin( context ); //make target window/dashboard: This is Menu AND beside contents.
+            AppWindowAdmin view = new AppWindowAdmin( context );
+            DashboardControl dash = new DashboardControl( context, view );
             view.setVisible(true); 
-            DashboardControl dash = new DashboardControl( context, view ); 
-//            dash.initialize();
+            context.getCurrentSession().setDashControl( dash );
+            //make target window/dashboard: This is Menu AND beside contents.
         } else if ( role.equals("Travel Agent") ) {
             System.out.println("entered Agent if");
             AppWindowAgent view = new AppWindowAgent( context );
             DashboardControl dash = new DashboardControl( context, view );
-//            dash.initialize();
             view.setVisible(true); 
+            context.getCurrentSession().setDashControl( dash );
 //        } else if ( role.equals("Travel Guide") ) {
 //            //later
         } else {
             System.out.println("entered Cust/Other if");
             AppWindowCust view = new AppWindowCust( context );
             DashboardControl dash = new DashboardControl( context, view );
-//            dash.initialize();
             view.setVisible(true);
+            context.getCurrentSession().setDashControl( dash );
         }
+         //pass dashboard into context
+
+        
 //    }
 //}
 
