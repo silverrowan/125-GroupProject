@@ -28,7 +28,7 @@ public class Main {
     public static void main(String[] args) {
         
         AppContext context = new AppContext();
-//        Login loginView = new Login();
+        Login loginView = new Login();
         Session currentSession = new Session();
         
 //        Bypassing Login & setting username manually
@@ -37,71 +37,78 @@ public class Main {
 //        LoginControl loginControl = new LoginControl(context, loginView);
 //        loginView.setVisible(true);
         directToDash(context);
-        setFocusCustomerBypass(context);
+        setFocusUserBypass(context);
     }  
 
     public static void directToDash(AppContext context) {
         User activeUser;
         User loginUser;
-        String username = "mzhang";           
-        String password = "12341234";
+//        String username = "mzhang";           
+//        String password = "12341234";
+//        String username = "cchen";           
+//        String password = "123123123";
+        String username = "s";           
+        String password = "123123123";        
 
         activeUser = context.getUserDao().getUserFromUsername(username, password);
         loginUser = null;
+        activeUser.setPassword( null );
         context.getCurrentSession().setCurrentUser(activeUser);
         System.out.println("Successful Login");
 
         String role = context.getCurrentUser().getRole();
         System.out.println("role: " + role);
 //        JFrame view;
-        DashboardControl dc; // TEMPORARY CODE TO OBTAIN CONTRoLLER
+        
         if ( role.equals( "Admin" ) ) {
             System.out.println("entered admin if");
             AppWindowAdmin view = new AppWindowAdmin( context ); //make target window/dashboard: This is Menu AND beside contents.
-
-            DashboardControl dash = dc = new DashboardControl( context, view ); 
+            DashboardControl dash = new DashboardControl( context, view ); 
 //            dash.initialize();
-
             view.setVisible(true); 
         } else if ( role.equals("Travel Agent") ) {
             System.out.println("entered Agent if");
             AppWindowAgent view = new AppWindowAgent( context );
-            DashboardControl dash = dc = new DashboardControl( context, view );
+            DashboardControl dash = new DashboardControl( context, view );
 //            dash.initialize();
-
             view.setVisible(true); 
 //        } else if ( role.equals("Travel Guide") ) {
 //            //later
         } else {
             System.out.println("entered Cust/Other if");
             AppWindowCust view = new AppWindowCust( context );
-
-            DashboardControl dash = dc = new DashboardControl( context, view );
+            DashboardControl dash = new DashboardControl( context, view );
 //            dash.initialize();
             view.setVisible(true);
         }
-        
-        // Edit customer & employees testing code (TEMPORARY)
-        if (context.getCurrentUser().getRole().equals("Customer")) {
-            EditCustomerGUI viewEdit = new EditCustomerGUI();
-            viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            ProfileControl pc = new ProfileControl(context, dc, context.getUserDao().getUserFromUsername(context.getCurrentUser().getUsername()), viewEdit);
-            viewEdit.setVisible(true);
-        } else {
-            EditEmployeeGUI viewEdit = new EditEmployeeGUI();
-            viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            ProfileControl pc = new ProfileControl(context, dc, context.getUserDao().getUserFromUsername(context.getCurrentUser().getUsername()), viewEdit);
-            viewEdit.setVisible(true);
-        }
+//    }
+//}
+
+//         Edit customer & employees testing code (TEMPORARY)
+//        if (context.getCurrentUser().getRole().equals("Customer")) {
+//            EditCustomerGUI viewEdit = new EditCustomerGUI();
+//            viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//            ProfileControl pc = new ProfileControl(context, viewEdit);
+//            viewEdit.setVisible(true);
+//        } else {
+//            EditEmployeeGUI viewEdit = new EditEmployeeGUI();
+//            viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//            ProfileControl pc = new ProfileControl(context, viewEdit);
+//            viewEdit.setVisible(true);
+//        }
     }
     
-    public static void setFocusCustomerBypass( AppContext context ) {
+    public static void setFocusUserBypass( AppContext context ) {
         String username = "a";           
         String password = "123123123";        
 
         User focusUser = context.getUserDao().getUserFromUsername(username, password);
-        context.getCurrentSession().setCurrentCustomer(focusUser);
-        System.out.println("Successful focus on customer");
+        if ( focusUser.getRole().equals( "Customer" ) ) {
+            context.getCurrentSession().setCurrentCustomer(focusUser);
+        } else {
+            context.getCurrentSession().setCurrentEmployee(focusUser);
+        }
+        System.out.println("Successful focus on user " + focusUser.getUsername());
 //        JFrame view;        
     }
 }
