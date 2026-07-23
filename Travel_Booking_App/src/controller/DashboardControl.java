@@ -351,7 +351,7 @@ public class DashboardControl extends GenericControl{
 
     
     //------USER actions-------
-    private void logoutUser() {
+    public void logoutUser() {
         System.out.println("logout");
         getAppContext().getCurrentSession().clearSession();
         
@@ -390,14 +390,14 @@ public class DashboardControl extends GenericControl{
     private void makeEditCustomerView() {
         EditCustomerGUI viewEdit = new EditCustomerGUI();
         viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        ProfileControl pc = new ProfileControl(getAppContext(), viewEdit);
+        ProfileControl pc = new ProfileControl(getAppContext(), this, getAppContext().getUserDao().getUserFromUsername(getAppContext().getCurrentUser().getUsername()), viewEdit);
         viewEdit.setVisible(true);
     }
 
     private void makeEditEmployeeView() {
         EditEmployeeGUI viewEdit = new EditEmployeeGUI();
         viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        ProfileControl pc = new ProfileControl(getAppContext(), viewEdit);
+        ProfileControl pc = new ProfileControl(getAppContext(), this, getAppContext().getUserDao().getUserFromUsername(getAppContext().getCurrentUser().getUsername()), viewEdit);
         viewEdit.setVisible(true);
     }
 

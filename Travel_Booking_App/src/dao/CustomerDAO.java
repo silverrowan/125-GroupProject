@@ -76,9 +76,42 @@ public class CustomerDAO {
         } catch (Exception e) {
             System.out.println("An error occured when connecting to database");
             System.out.println(e.getMessage());
-        } finally {
-            return null;
         }
+        
+        return null;
+    }
+    
+    public boolean deleteCustomer(int customerID) {
+        
+        // SQL Statement
+        String statement = """
+                           DELETE FROM customers
+                           WHERE customer_id = ?;
+                           """;
+        
+        // open connection
+        try (Connection connection = DBConnection.getConnection();
+                PreparedStatement p = connection.prepareStatement(statement);) {
+            
+            p.setInt(1, customerID); // set parameter to customerID
+            
+            int rows = p.executeUpdate();
+            
+            // supposed to delete only one row
+            if (rows != 1) {
+                throw new SQLException("Something went wrong with delete!");
+            }
+            
+            return true; // success
+            
+        } catch (SQLException e) {
+            System.out.println("An error occured when connecting to database");
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        return false;
     }
     
     public Customer getCustomerFromUserID(int userID) {
