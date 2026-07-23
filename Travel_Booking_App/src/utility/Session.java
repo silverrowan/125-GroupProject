@@ -46,7 +46,7 @@ public class Session {
         User custUser = getCurrentCustomer();
         User empUser = getCurrentEmployee();
         
-        if ( user.getRole() != "Admin" && empUser != null ) { 
+        if ( !user.getRole().equals("Admin") && empUser != null ) { 
             clearCurrentEmployee(); 
         }
         

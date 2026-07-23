@@ -37,7 +37,7 @@ public class Main {
 //        LoginControl loginControl = new LoginControl(context, loginView);
 //        loginView.setVisible(true);
         directToDash(context);
-        setFocusUserBypass(context);
+        
     }  
 
     public static void directToDash(AppContext context) {
@@ -59,13 +59,14 @@ public class Main {
         String role = context.getCurrentUser().getRole();
         System.out.println("role: " + role);
 //        JFrame view;
+        setFocusUserBypass(context);
         
         if ( role.equals( "Admin" ) ) {
             System.out.println("entered admin if");
             AppWindowAdmin view = new AppWindowAdmin( context ); //make target window/dashboard: This is Menu AND beside contents.
+            view.setVisible(true); 
             DashboardControl dash = new DashboardControl( context, view ); 
 //            dash.initialize();
-            view.setVisible(true); 
         } else if ( role.equals("Travel Agent") ) {
             System.out.println("entered Agent if");
             AppWindowAgent view = new AppWindowAgent( context );
@@ -109,6 +110,6 @@ public class Main {
             context.getCurrentSession().setCurrentEmployee(focusUser);
         }
         System.out.println("Successful focus on user " + focusUser.getUsername());
-//        JFrame view;        
+//        JFrame view;
     }
 }
