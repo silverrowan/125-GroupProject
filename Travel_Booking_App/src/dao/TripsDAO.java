@@ -98,7 +98,9 @@ public class TripsDAO {
 
     /**
      * Gets upcoming trips belonging to one destination/package.
-     * This is useful in AddBookingGUI.
+     * Used in AddBookingsGUI
+     * @param destinationID
+     * @return a list of upcoming trips for that destination
      */
     public List<Trips> getTripsByDestination(int destinationID) {
         List<Trips> trips = new ArrayList<>();
@@ -224,6 +226,8 @@ public class TripsDAO {
 
     /**
      * Updates all editable values for an existing trip.
+     * @param trip
+     * @return 
      */
     public boolean updateTrip(Trips trip) {
         String sql = """
@@ -260,10 +264,11 @@ public class TripsDAO {
 
     /**
      * Updates only the trip status.
+     * @param tripID
+     * @param status
+     * @return 
      */
-    public boolean updateTripStatus(
-            int tripID,
-            String status) {
+    public boolean updateTripStatus(int tripID, String status) {
 
         String sql = """
             UPDATE trips
@@ -293,9 +298,7 @@ public class TripsDAO {
     /**
      * Sets the seven values shared by INSERT and UPDATE.
      */
-    private void setTripParameters(
-            PreparedStatement statement,
-            Trips trip) throws SQLException {
+    private void setTripParameters(PreparedStatement statement, Trips trip) throws SQLException {
 
         statement.setInt(
                 1,
@@ -386,6 +389,8 @@ public class TripsDAO {
     
     /**
     * Deletes a trip using its primary key.
+     * @param tripID
+     * @return 
     */
    public boolean deleteTrip(int tripID) {
        String sql = """
@@ -410,4 +415,5 @@ public class TripsDAO {
            );
        }
    }
+ 
 }

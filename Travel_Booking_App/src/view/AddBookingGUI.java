@@ -3,22 +3,242 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
+import controller.BookingsReworkedController;
+import controller.TripsController;
 
+import java.util.Date;
+import java.util.List;
+
+import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
+
+import model.Bookings;
+import model.Trips;
 
 /**
  *
  * @author kalei
  */
-public class AddBookingGUI {
+public class AddBookingGUI{
     
+    private final int destinationID;
+    private final int customerID;
+    private final int createdByUserID;
+
+    private final String customerName;
+    private final String country;
+
+    private final TripsController tripsController;
+    private final BookingsReworkedController bookingsController;
+
     /**
-     * Creates new form AddBookingGUI
+     * Keep this constructor so the NetBeans GUI designer can open the form.
+     * Not used during the real booking workflow.
      */
     public AddBookingGUI() {
+        this(0, 0, 0, "", "");
+    }
+
+    /**
+     * Opens the Add Booking screen with the required booking information.
+     *
+     * @param destinationID selected destination ID
+     * @param customerID customer table ID
+     * @param createdByUserID logged-in user ID
+     * @param customerName customer display name
+     * @param country destination country
+     */
+    public AddBookingGUI(
+            int destinationID,
+            int customerID,
+            int createdByUserID,
+            String customerName,
+            String country) {
+        
         initComponents();
+
+        this.destinationID = destinationID;
+        this.customerID = customerID;
+        this.createdByUserID = createdByUserID;
+        this.customerName = customerName;
+        this.country = country;
+
+        this.tripsController = new TripsController();
+        this.bookingsController =
+                new BookingsReworkedController();
+
+        configureForm();
+        loadBookingInformation();
+        loadTrips();
+
+        setLocationRelativeTo(null);
     }
     
+    //My Methods
+    private void configureForm() {
+        customerTxt.setEditable(false);
+        countryTxt.setEditable(false);
+        bookingDateTxt.setEditable(false);
 
+        jTable1.setModel(
+                new DefaultTableModel(
+                        new Object[][] {},
+                        new String[] {
+                            "Trip ID",
+                            "Trip Name",
+                            "Departure",
+                            "Return"
+                        }
+                ) {
+                    @Override
+                    public boolean isCellEditable(
+                            int row,
+                            int column
+                    ) {
+                        return false;
+                    }
+                }
+        );
+
+        jTable1.setRowSelectionAllowed(true);
+        jTable1.setColumnSelectionAllowed(false);
+
+        jTable1.setSelectionMode(
+                ListSelectionModel.SINGLE_SELECTION
+        );
+    }
+    
+    private void loadBookingInformation() {
+        customerTxt.setText(customerName);
+        countryTxt.setText(country);
+
+        bookingDateTxt.setText(
+                new java.sql.Date(
+                        System.currentTimeMillis()
+                ).toString()
+        );
+    }
+    
+    private void loadTrips() {
+        DefaultTableModel tableModel = (DefaultTableModel) jTable1.getModel();
+
+        tableModel.setRowCount(0);
+
+        if (destinationID <= 0) {
+            return;
+        }
+
+        try {
+            List<Trips> trips =
+                    tripsController.getTripsByDestination(
+                            destinationID
+                    );
+
+            for (Trips trip : trips) {
+
+                tableModel.addRow(new Object[] {
+                    trip.getTripID(),
+                    trip.getTripTitle(),
+                    trip.getDepartureDate(),
+                    trip.getReturnDate()
+                });
+            }
+
+            if (trips.isEmpty()) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "There are no upcoming trips available "
+                                + "for this destination.",
+                        "No Trips Available",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+            }
+
+        } catch (RuntimeException exception) {
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    exception.getMessage(),
+                    "Unable to Load Trips",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        }
+    }
+    
+    private int getSelectedTripID() {
+        int selectedRow = jTable1.getSelectedRow();
+
+        if (selectedRow == -1) {
+            throw new IllegalArgumentException(
+                    "Please select a trip from the table."
+            );
+        }
+
+        Object tripIDValue =
+                jTable1.getValueAt(selectedRow, 0);
+
+        return Integer.parseInt(
+                tripIDValue.toString()
+        );
+    }
+    
+    private int getNumberOfTravelers() {
+        String travelersText = numTravelersTxt.getText().trim();
+
+        if (travelersText.isEmpty()) {
+            throw new IllegalArgumentException(
+                    "Please enter the number of travelers."
+            );
+        }
+
+        int numberOfTravelers;
+
+        try {
+            numberOfTravelers =
+                    Integer.parseInt(travelersText);
+
+        } catch (NumberFormatException exception) {
+            throw new IllegalArgumentException(
+                    "The number of travelers must be "
+                            + "a whole number."
+            );
+        }
+
+        if (numberOfTravelers <= 0) {
+            throw new IllegalArgumentException(
+                    "The number of travelers must be "
+                            + "at least 1."
+            );
+        }
+
+        return numberOfTravelers;
+    }
+    
+    private Bookings createBookingFromForm() {
+
+        int selectedTripID = getSelectedTripID();
+
+        int numberOfTravelers = getNumberOfTravelers();
+
+        Bookings booking = new Bookings(
+                customerID,
+                selectedTripID,
+                new Date(),
+                numberOfTravelers
+        );
+
+        booking.setCreatedByUserID(createdByUserID);
+
+        booking.setBookingStatus("Upcoming");
+
+        booking.setSpecialRequests(specialReqTxt.getText().trim());
+
+        booking.setBookingNotes(bookingNotesTxt.getText().trim());
+
+        return booking;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -217,6 +437,11 @@ public class AddBookingGUI {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
+        ProductDetailsGUI productDetailsGUI =
+            new ProductDetailsGUI(destinationID);
+        productDetailsGUI.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed

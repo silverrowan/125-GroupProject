@@ -39,9 +39,7 @@ public class ProductsGUI extends javax.swing.JFrame {
 
         searchTxt = new javax.swing.JTextField();
         searchLbl = new javax.swing.JLabel();
-        countryLbl = new javax.swing.JLabel();
         searchBtn = new javax.swing.JButton();
-        countryCB = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         packagesTbl = new javax.swing.JTable();
         backBtn = new javax.swing.JButton();
@@ -53,12 +51,7 @@ public class ProductsGUI extends javax.swing.JFrame {
 
         searchLbl.setText("Search:");
 
-        countryLbl.setText("Country:");
-
         searchBtn.setText("Search");
-
-        countryCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        countryCB.addActionListener(this::countryCBActionPerformed);
 
         packagesTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -110,10 +103,6 @@ public class ProductsGUI extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(countryLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(countryCB, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(backBtn)
@@ -138,18 +127,12 @@ public class ProductsGUI extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(titleLbl)
                 .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(searchLbl)
-                            .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchBtn)
-                            .addComponent(resetBtn))
-                        .addGap(34, 34, 34))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(countryCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(countryLbl)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchLbl)
+                    .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchBtn)
+                    .addComponent(resetBtn))
+                .addGap(34, 34, 34)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -172,14 +155,8 @@ public class ProductsGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_detailsBtnActionPerformed
 
-    private void countryCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countryCBActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_countryCBActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
-    private javax.swing.JComboBox<String> countryCB;
-    private javax.swing.JLabel countryLbl;
     private javax.swing.JButton detailsBtn;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable packagesTbl;
