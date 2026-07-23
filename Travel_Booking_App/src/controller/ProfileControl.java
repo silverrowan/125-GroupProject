@@ -1,10 +1,13 @@
 package controller;
 
 import dao.CustomerDAO;
+import dao.EmployeeDAO;
 import dao.UserDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 import model.Customer;
+import model.Employee;
 import model.User;
 import utility.AppContext;
 import utility.PropertyValidator;
@@ -22,15 +25,21 @@ public class ProfileControl {
     private final User currentUser;
     private final UserDAO userDAO;
 
-    // customer view contructor
-    public ProfileControl(AppContext context, EditCustomerGUI editCustomerView) {
-        this(editCustomerView, context); // update generic user information
+    /**
+     * constructor for viewing customer profiles
+     * @param context context of current user and session
+     * @param dc DashboardControl used to log out
+     * @param user the user whose profile is to be displayed
+     * @param editCustomerView the view to display the profile
+     */
+    public ProfileControl(AppContext context, DashboardControl dc, User user, EditCustomerGUI editCustomerView) {
+        this(editCustomerView, context, user); // update generic user information
         
         // get DAO
         CustomerDAO customerDAO = context.getCustomerDao();
         
         // get current customer
-        Customer currentCustomer = customerDAO.getCustomerFromUserID(context.getCurrentUser().getUserID());
+        Customer currentCustomer = customerDAO.getCustomerFromUserID(this.currentUser.getUserID());
         
         // set fields on form
         editCustomerView.getInputEmergencyContactName().setText(currentCustomer.getEmergencyContactName()); // emergency contact
@@ -38,13 +47,66 @@ public class ProfileControl {
         
         // save button listener
         editCustomerView.addSaveBtnListener(new CustomerSaver(editCustomerView, currentCustomer, customerDAO));
+        
+        // delete account button listener
+        editCustomerView.addDeleteAccountBtnListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                customerDAO.deleteCustomer(currentCustomer.getCustomerID()); // delete customer first
+                userDAO.deleteUser(currentUser.getUserID()); // then delete user
+                
+                // dispose view
+                editCustomerView.dispose();
+                
+                // if user deleted is current user, log out
+                if (currentUser.getUserID() == context.getCurrentUser().getUserID()) {
+                    dc.logoutUser();
+                }
+            }
+        });
     }
     
-    public ProfileControl(AppContext context, EditEmployeeGUI editEmployeeView) {
-        this(editEmployeeView, context);
+    /**
+     * constructor for viewing employee profiles
+     * @param context context of current user and session
+     * @param dc DashboardControl used to log out
+     * @param user the user whose profile is to be displayed
+     * @param editEmployeeView the view to display the profile
+     */
+    public ProfileControl(AppContext context, DashboardControl dc, User user, EditEmployeeGUI editEmployeeView) {
+        this(editEmployeeView, context, user); // update generic user information
+        
+        // get DAO
+        EmployeeDAO employeeDAO = context.getEmployeeDao();
+        
+        // get current employee
+        Employee currentEmployee = employeeDAO.getEmployeeFromUserID(this.currentUser.getUserID());
+        
+        // set fields on form
+        editEmployeeView.getInputHireDate().setText((currentEmployee.getHireDate() == null) ? "" : currentEmployee.getHireDate().toString()); // hire date
+        editEmployeeView.getInputJobTitle().setText(currentEmployee.getJobTitle()); // job title
+        
+        // save button listener
+        editEmployeeView.addSaveBtnListener(new EmployeeSaver(editEmployeeView, currentEmployee, employeeDAO));
+        
+        // delete account button listener
+        editEmployeeView.addDeleteAccountBtnListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                employeeDAO.deleteEmployee(currentEmployee.getEmployeeID()); // delete employee first
+                userDAO.deleteUser(currentUser.getUserID()); // then delete user
+                
+                // dispose view
+                editEmployeeView.dispose();
+                
+                // if user deleted is current user, log out
+                if (currentUser.getUserID() == context.getCurrentUser().getUserID()) {
+                    dc.logoutUser();
+                }
+            }
+        });
     }
-    
-    private ProfileControl(AbstractEditUserView editProfileView, AppContext context) {
+    private ProfileControl(AbstractEditUserView editProfileView, AppContext context, User user) {
         this.editProfileView = editProfileView;
         this.context = context;
         
@@ -52,7 +114,7 @@ public class ProfileControl {
         userDAO = context.getUserDao();
         
         // get current user
-        this.currentUser = userDAO.getUserFromUsername(context.getCurrentUser().getUsername());
+        this.currentUser = userDAO.getUserFromUsername(user.getUsername());
  
         // populate form with existing data
         
@@ -189,4 +251,40 @@ public class ProfileControl {
         }
     }
     
+    class EmployeeSaver implements ActionListener {
+        
+        // view
+        private EditEmployeeGUI editEmployeeView;
+        
+        // employee
+        private Employee currentEmployee;
+        
+        // DAO
+        private EmployeeDAO employeeDAO;
+        
+        // fields to update
+        private String jobTitle;
+        private String hireDate;
+        
+        // constructor
+        public EmployeeSaver(EditEmployeeGUI editEmployeeView, Employee currentEmployee, EmployeeDAO employeeDAO) {
+            this.editEmployeeView = editEmployeeView;
+            this.currentEmployee = currentEmployee;
+            this.employeeDAO = employeeDAO;
+        }
+        
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // get info from form
+            this.jobTitle = this.editEmployeeView.getInputJobTitle().getText();
+            this.hireDate = this.editEmployeeView.getInputHireDate().getText();
+            
+            // set employee info
+            currentEmployee.setJobTitle(jobTitle);
+            currentEmployee.setHireDate((hireDate.isEmpty() || hireDate.isBlank() || hireDate == null) ? null : Date.valueOf(hireDate));
+            
+            // update employee
+            employeeDAO.updateEmployee(currentEmployee);
+        }
+    }
 }
