@@ -230,7 +230,7 @@ public class ProfileControl {
 
                 User user = userDAO.updateUser(currentUser); // update database
                 if (user == null) {
-                    JOptionPane.showMessageDialog( null , "An unexpected error occured when updating. Check that you have a unique username.");
+                    JOptionPane.showMessageDialog( null , "Changes were not saved for an unknown reason. Check that you have a unique username and email address.");
                     return;
                 }
                 editProfileView.dispose(); // close window
