@@ -12,7 +12,7 @@ import view.FilterUsersGUI;
 
 /**
  *
- * @author rowan
+ * @author rowan (Mariah Malczewska), Max Zhang
  */
 public class UserControl {
     private AppContext context;
@@ -34,9 +34,16 @@ public class UserControl {
         userDAO = context.getUserDao();
         
         this.usersView.addNewUserBtnListener( new AddUserRecord() );
-//        this.usersView.addSearchBtnListener( new SearchUsers() );
+        this.usersView.addSearchBtnListener( new SearchUsers() );
         //****** IMPORTANT****** if active user is customer or agent only show/ allow customers option
         //****** IMPORTANT****** if active user is admin, show/allow role drop-down
+        if (context.getCurrentUser().getRole().equals("Customer")) {
+            return; // customers cannot search other users!
+        }
+        if (!context.getCurrentUser().getRole().equals("Admin")) {
+            usersView.getvSearchBarUsers().getComboUserRole().setSelectedItem("Customer"); // set customer search only
+            usersView.getvSearchBarUsers().getComboUserRole().setEnabled(false); // disable it
+        }
     }
    
     class AddUserRecord implements ActionListener {
@@ -73,6 +80,23 @@ public class UserControl {
             if ( !(user == null) ) { JOptionPane.showMessageDialog(null, "User created successfully"); }
             else { JOptionPane.showMessageDialog(null, "User was not created"); }
         }
+    }
+    
+    class SearchUsers implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            search();
+        }
+        
+        public void initialSearch() {
+            search();
+        }
+        
+        private void search() {
+            
+        }
+        
     }
 
 
