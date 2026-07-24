@@ -193,40 +193,50 @@ public class ProfileControl {
             streetNumber = editProfileView.getInputStreetNumber().getText();
             
             try {
-                if ( password != null || password.equals("") ) {
-                    if ( !PropertyValidator.validatePassword(password) ) { throw new InvalidAttributeValueException( "must have a valid password, minimum 8 characters");
-                    }
-                }
-                if ( !PropertyValidator.validatePassword(email) ) { throw new InvalidAttributeValueException( "must have a valid email"); }
                 if (this.password == null || this.password.isEmpty()) {
                     this.password = currentUser.getPassword(); // no change
                 }
-                if (PropertyValidator.validateUsername(username)
-                        && PropertyValidator.validateFirstName(firstName)
-                        && PropertyValidator.validateLastName(lastName)
-                        && PropertyValidator.validateEmail(email)) {
-                    // account & personal info
-                    currentUser.setUsername(username);
-                    currentUser.setPassword(password);
-                    currentUser.setFirstName(firstName);
-                    currentUser.setLastName(lastName);
-                    currentUser.setEmail(email);
-                    currentUser.setPhone(phone);
-                    currentUser.setAccountStatus(status);
-                    currentUser.setRole(role);
-
-                    // address
-                    currentUser.setUserAddress(streetNumber, streetName, city, province, postalCode, country);
-
-                    userDAO.updateUser(currentUser); // update database
-                    editProfileView.dispose(); // close window
-                } else {
-                    // display error message?
+                
+                // validate password
+                if ( !PropertyValidator.validatePassword(password) ) {
+                    throw new InvalidAttributeValueException("must have a valid password, minimum 8 characters");
                 }
+                // validate email
+                if ( !PropertyValidator.validateEmail(email) ) {
+                    throw new InvalidAttributeValueException( "must have a valid email");
+                }
+                // validate first name
+                if ( !PropertyValidator.validateFirstName(firstName) ) {
+                    throw new InvalidAttributeValueException( "must have a valid first name");
+                }
+                // validate last name
+                if ( !PropertyValidator.validateLastName(lastName) ) {
+                    throw new InvalidAttributeValueException( "must have a valid last name");
+                }
+                
+                
+                // account & personal info
+                currentUser.setUsername(username);
+                currentUser.setPassword(password);
+                currentUser.setFirstName(firstName);
+                currentUser.setLastName(lastName);
+                currentUser.setEmail(email);
+                currentUser.setPhone(phone);
+                currentUser.setAccountStatus(status);
+                currentUser.setRole(role);
+
+                // address
+                currentUser.setUserAddress(streetNumber, streetName, city, province, postalCode, country);
+
+                User user = userDAO.updateUser(currentUser); // update database
+                if (user == null) {
+                    JOptionPane.showMessageDialog( null , "An unexpected error occured when updating. Check that you have a unique username.");
+                }
+                editProfileView.dispose(); // close window
             }
             catch ( InvalidAttributeValueException ex){
-                    JOptionPane.showMessageDialog( null , ex.getMessage() );
-                    }
+                JOptionPane.showMessageDialog( null , ex.getMessage() );
+            }
         }
         
     }
@@ -265,6 +275,7 @@ public class ProfileControl {
             
             // update customer
             customerDAO.updateCustomer(currentCustomer);
+            
         }
     }
     
