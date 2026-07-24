@@ -39,6 +39,10 @@ public class Bookings {
         this.specialRequests = specialRequests;
         this.bookingNotes = bookingNotes;
     }  
+
+    public Bookings() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     //emum field options
     public static enum bookingStatusType { Upcoming, Completed, Cancelled }
