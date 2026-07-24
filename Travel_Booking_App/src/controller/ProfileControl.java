@@ -127,6 +127,12 @@ public class ProfileControl {
         editProfileView.getSelectionRole().setSelectedItem(currentUser.getRole()); // role
         editProfileView.getRadioStatus().setSelected(currentUser.getAccountStatus().equals("Active")); // status
         
+        // only admins are allowed to edit role and status
+        if (!context.getCurrentUser().getRole().equals("Admin")) {
+            editProfileView.getSelectionRole().setEnabled(false);
+            editProfileView.getRadioStatus().setEnabled(false);
+        }
+        
         // address
         editProfileView.getInputCity().setText(currentUser.getCity()); // city
         editProfileView.getInputCountry().setText(currentUser.getCountry()); // country

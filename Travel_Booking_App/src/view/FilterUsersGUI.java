@@ -13,12 +13,12 @@ import view.subViews.VSearchBarUsers;
  *
  * @author c0541856
  */
-public class FilterUsersFrameGUIExperiment extends javax.swing.JFrame {
+public class FilterUsersGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form UsersGUI
      */
-    public FilterUsersFrameGUIExperiment() {
+    public FilterUsersGUI() {
         initComponents();
     }
     

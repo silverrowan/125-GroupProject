@@ -19,7 +19,7 @@ import utility.GenericView;
 import view.dashboard.AppWindowCust;
 import utility.GenericView.Crud;
 import view.AddBookingGUI;
-import view.FilterUsersFrameGUIExperiment;
+import view.FilterUsersGUI;
 import view.Login;
 import view.ProductsGUI;
 import view.ViewAllTripsGUI;
@@ -395,7 +395,7 @@ public class DashboardControl extends GenericControl{
     }
     
     private void makeFindUserView( AppContext context, Boolean onlyCustomers ) {
-        FilterUsersFrameGUIExperiment view = new FilterUsersFrameGUIExperiment( ); // views *shouldnt* need context, controller should tell it everything it needs
+        FilterUsersGUI view = new FilterUsersGUI( ); // views *shouldnt* need context, controller should tell it everything it needs
         view.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
         UserControl userControl = new UserControl( context, view ); 
         //Figure out how to filter

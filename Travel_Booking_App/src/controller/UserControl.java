@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import dao.UserDAO;
-import view.FilterUsersFrameGUIExperiment;
+import view.FilterUsersGUI;
 
 
 /**
@@ -18,7 +18,7 @@ public class UserControl {
     private AppContext context;
     private UserDAO userDAO;
     private AddUserGUIPage1 userView;
-    private FilterUsersFrameGUIExperiment usersView;
+    private FilterUsersGUI usersView;
    
     public UserControl( AppContext context, AddUserGUIPage1 userView ) {
         this.context = context;
@@ -28,7 +28,7 @@ public class UserControl {
         this.userView.addNextBtnListener( new AddUserRecord() );
     }
 
-    public UserControl( AppContext context, FilterUsersFrameGUIExperiment usersView ) {
+    public UserControl( AppContext context, FilterUsersGUI usersView ) {
         this.context = context;
         this.usersView = usersView;
         userDAO = context.getUserDao();
