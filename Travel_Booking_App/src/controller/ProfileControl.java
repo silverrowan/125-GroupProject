@@ -197,6 +197,11 @@ public class ProfileControl {
                     this.password = currentUser.getPassword(); // no change
                 }
                 
+                // validate username
+                if (!PropertyValidator.validateUsername(username)) {
+                    throw new InvalidAttributeValueException( "must have a valid username");
+                }
+                
                 // validate password
                 if ( !PropertyValidator.validatePassword(password) ) {
                     throw new InvalidAttributeValueException("must have a valid password, minimum 8 characters");
