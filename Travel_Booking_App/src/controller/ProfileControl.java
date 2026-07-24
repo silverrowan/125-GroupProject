@@ -231,6 +231,7 @@ public class ProfileControl {
                 User user = userDAO.updateUser(currentUser); // update database
                 if (user == null) {
                     JOptionPane.showMessageDialog( null , "An unexpected error occured when updating. Check that you have a unique username.");
+                    return;
                 }
                 editProfileView.dispose(); // close window
             }
