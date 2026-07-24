@@ -85,8 +85,8 @@ public class DashPanelCustomer extends javax.swing.JPanel {
         btnSearchDest.setBackground(new java.awt.Color(255, 204, 153));
         btnSearchDest.setLabel("Search Destinations");
 
+        btnViewBooking.setText("My Bookings");
         btnViewBooking.setActionCommand("AllBooking");
-        btnViewBooking.setLabel("All Bookings");
 
         btnCustSearch.setActionCommand("searchTrips");
         btnCustSearch.setLabel("Search for Customer");

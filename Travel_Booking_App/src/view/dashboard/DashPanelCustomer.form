@@ -67,17 +67,17 @@
     </Component>
     <Component class="view.models.ButtonBase" name="btnSearchDest">
       <Properties>
-        <Property name="actionCommand" type="java.lang.String" value="searchTrips"/>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="cc" red="ff" type="rgb"/>
         </Property>
+        <Property name="actionCommand" type="java.lang.String" value="searchTrips"/>
         <Property name="label" type="java.lang.String" value="Search Destinations"/>
       </Properties>
     </Component>
     <Component class="view.models.ButtonBase" name="btnViewBooking">
       <Properties>
+        <Property name="text" type="java.lang.String" value="My Bookings"/>
         <Property name="actionCommand" type="java.lang.String" value="AllBooking"/>
-        <Property name="label" type="java.lang.String" value="All Bookings"/>
       </Properties>
     </Component>
     <Component class="view.models.ButtonBase" name="btnCustSearch">
