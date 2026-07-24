@@ -311,7 +311,7 @@ public class DashboardControl extends GenericControl{
             findFocusBtn.setVisible(false);                  
     }
     
-    private void changeAgentFocusObjects( JButton focusBtn, JButton findFocusBtn, JButton chgTextBtn, JLabel focusLabel, Font headerFont ) {
+    private void changeAgentFocusObjects( JButton focusBtn, JButton findFocusBtn, JButton clearBtn, JLabel focusLabel, Font headerFont ) {
         ensureValidFocus();
         User customer = getAppContext().getCurrentSession().getCurrentCustomer();
         
@@ -320,7 +320,8 @@ public class DashboardControl extends GenericControl{
             changeLabelToHeader( focusLabel, headerFont, focusLabelText );
 
             focusBtn.setVisible(false);
-            findFocusBtn.setVisible(true);    
+            findFocusBtn.setVisible(true);
+            clearBtn.setEnabled( false );
         } else {
             String focusLabelText = "Customer: " + customer.getUsername();
             changeLabelToHeader( focusLabel, headerFont, focusLabelText );
@@ -331,7 +332,7 @@ public class DashboardControl extends GenericControl{
         }
     }
     
-    private void changeAdminFocusObjects( JButton focusBtn, JButton findFocusBtn, JButton chgTextBtn, JLabel focusLabel, Font headerFont ) {
+    private void changeAdminFocusObjects( JButton focusBtn, JButton findFocusBtn, JButton clearBtn, JLabel focusLabel, Font headerFont ) {
         ensureValidFocus();
         User focus = getAppContext().getCurrentFocusUser();
         
@@ -341,7 +342,8 @@ public class DashboardControl extends GenericControl{
 
             focusBtn.setVisible(false);
             findFocusBtn.setText("Search for Users");
-            findFocusBtn.setVisible(true);                 
+            findFocusBtn.setVisible(true);
+            clearBtn.setEnabled( false );
         } else {
             String focusLabelText = focus.getRole() + ": " + focus.getUsername();
             changeLabelToHeader( focusLabel, headerFont, focusLabelText );
@@ -349,7 +351,7 @@ public class DashboardControl extends GenericControl{
             focusBtn.setVisible(true);
             focusBtn.setText( focus.getUsername() + "'s Profile" );
             findFocusBtn.setVisible(false);
-            changeBtnText( chgTextBtn, "Clear Focus User" );
+            changeBtnText( clearBtn, "Clear Focus User" );
         }      
     }
     
