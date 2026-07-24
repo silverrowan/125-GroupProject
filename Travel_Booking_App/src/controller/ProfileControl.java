@@ -6,6 +6,8 @@ import dao.UserDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
+import javax.naming.directory.InvalidAttributeValueException;
+import javax.swing.JOptionPane;
 import model.Customer;
 import model.Employee;
 import model.User;
@@ -190,32 +192,41 @@ public class ProfileControl {
             streetName = editProfileView.getInputStreet().getText();
             streetNumber = editProfileView.getInputStreetNumber().getText();
             
-            if (this.password == null || this.password.isEmpty()) {
-                this.password = currentUser.getPassword(); // no change
+            try {
+                if ( password != null || password.equals("") ) {
+                    if ( !PropertyValidator.validatePassword(password) ) { throw new InvalidAttributeValueException( "must have a valid password, minimum 8 characters");
+                    }
+                }
+                if ( !PropertyValidator.validatePassword(email) ) { throw new InvalidAttributeValueException( "must have a valid email"); }
+                if (this.password == null || this.password.isEmpty()) {
+                    this.password = currentUser.getPassword(); // no change
+                }
+                if (PropertyValidator.validateUsername(username)
+                        && PropertyValidator.validateFirstName(firstName)
+                        && PropertyValidator.validateLastName(lastName)
+                        && PropertyValidator.validateEmail(email)) {
+                    // account & personal info
+                    currentUser.setUsername(username);
+                    currentUser.setPassword(password);
+                    currentUser.setFirstName(firstName);
+                    currentUser.setLastName(lastName);
+                    currentUser.setEmail(email);
+                    currentUser.setPhone(phone);
+                    currentUser.setAccountStatus(status);
+                    currentUser.setRole(role);
+
+                    // address
+                    currentUser.setUserAddress(streetNumber, streetName, city, province, postalCode, country);
+
+                    userDAO.updateUser(currentUser); // update database
+                    editProfileView.dispose(); // close window
+                } else {
+                    // display error message?
+                }
             }
-            if (PropertyValidator.validateUsername(username)
-                    && PropertyValidator.validatePassword(password)
-                    && PropertyValidator.validateFirstName(firstName)
-                    && PropertyValidator.validateLastName(lastName)
-                    && PropertyValidator.validateEmail(email)) {
-                // account & personal info
-                currentUser.setUsername(username);
-                currentUser.setPassword(password);
-                currentUser.setFirstName(firstName);
-                currentUser.setLastName(lastName);
-                currentUser.setEmail(email);
-                currentUser.setPhone(phone);
-                currentUser.setAccountStatus(status);
-                currentUser.setRole(role);
-                
-                // address
-                currentUser.setUserAddress(streetNumber, streetName, city, province, postalCode, country);
-                
-                userDAO.updateUser(currentUser); // update database
-                editProfileView.dispose(); // close window
-            } else {
-                // display error message?
-            }
+            catch ( InvalidAttributeValueException ex){
+                    JOptionPane.showMessageDialog( null , ex.getMessage() );
+                    }
         }
         
     }
