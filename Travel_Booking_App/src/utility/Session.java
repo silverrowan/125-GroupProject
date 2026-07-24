@@ -2,6 +2,7 @@
 package utility;
 
 import controller.DashboardControl;
+import javax.swing.JOptionPane;
 import model.Customer;
 import model.User;
 
@@ -64,6 +65,17 @@ public class Session {
         else { focusUser = empUser; }
         
         return focusUser;
+    }
+        public void setFocusUser( User user) {
+            if ( user.getRole().equals( "Admin") ||
+                    user.getRole().equals( "Travel Agent") ||
+                    user.getRole().equals( "Tour Guide") ) {
+                setCurrentEmployee( user );
+            } else if ( user.getRole().equals( "Customer") ) {
+                setCurrentCustomer( user );
+            } else {
+                JOptionPane.showMessageDialog( null , user.getUsername() + " does not have a vaild role." );
+            }
     }
     
     public void clearCurrentUser() { this.currentUser = null; }

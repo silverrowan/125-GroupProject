@@ -75,4 +75,7 @@ public class AppContext {
     public User getCurrentFocusUser() {
         return getCurrentSession().getFocusUser();
     }
+    public void setCurrentFocusUser( User user ){
+        getCurrentSession().setFocusUser(user);
+    }
 }
