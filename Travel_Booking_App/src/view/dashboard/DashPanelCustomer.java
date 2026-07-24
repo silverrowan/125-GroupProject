@@ -37,7 +37,6 @@ public class DashPanelCustomer extends javax.swing.JPanel {
     public JLabel getLblUser() {
         return lblUser;
     }
-
     public void setLblUser(JLabel lblUser) {
         this.lblUser = lblUser;
     }
@@ -45,7 +44,6 @@ public class DashPanelCustomer extends javax.swing.JPanel {
     public ButtonBase getBtnViewBooking() {
         return btnViewBooking;
     }
-
     public void setBtnViewBooking(ButtonBase lblViewBooking) {
         this.btnViewBooking = lblViewBooking;
     }
@@ -53,7 +51,6 @@ public class DashPanelCustomer extends javax.swing.JPanel {
     public ButtonBase getBtnCustSearch() {
         return btnCustSearch;
     }
-
     public void setBtnCustSearch(ButtonBase btnCustSearch) {
         this.btnCustSearch = btnCustSearch;
     }
