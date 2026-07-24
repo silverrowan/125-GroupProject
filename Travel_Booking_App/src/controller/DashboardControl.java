@@ -326,7 +326,7 @@ public class DashboardControl extends GenericControl{
             changeLabelToHeader( focusLabel, headerFont, focusLabelText );
 
             focusBtn.setVisible(true);
-            focusBtn.setText( customer.getUsername() + "Profile" );
+            focusBtn.setText( customer.getUsername() + "'s Profile" );
             findFocusBtn.setVisible(false);                  
         }
     }
@@ -343,11 +343,11 @@ public class DashboardControl extends GenericControl{
             findFocusBtn.setText("Search for Users");
             findFocusBtn.setVisible(true);                 
         } else {
-            String focusLabelText = focus.getRole() + " " + focus.getUsername();
+            String focusLabelText = focus.getRole() + ": " + focus.getUsername();
             changeLabelToHeader( focusLabel, headerFont, focusLabelText );
 
             focusBtn.setVisible(true);
-            focusBtn.setText( focus.getUsername() + "Profile" );
+            focusBtn.setText( focus.getUsername() + "'s Profile" );
             findFocusBtn.setVisible(false);
             changeBtnText( chgTextBtn, "Clear Focus User" );
         }      
