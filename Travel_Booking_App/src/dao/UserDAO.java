@@ -109,9 +109,9 @@ public class UserDAO {
             }
             throw new SQLException("Update failed");
         } catch (SQLException e) {
-            System.out.println("Error when connecting to database: " + e);
+            System.out.println("Update failed: " + e);
         } catch (Exception e) {
-            System.out.println("Error when connecting to Database: " + e);
+            System.out.println("Update failed: " + e);
         }
         
         return null;
