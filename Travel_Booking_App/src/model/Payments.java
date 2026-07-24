@@ -126,6 +126,12 @@ public class Payments {
     }
 
     //SETTERS
+
+    public void setPaymentID(int paymentID) {
+        this.paymentID = paymentID;
+    }
+    
+    
     /**
      * @param bookingID the bookingID to set
      */

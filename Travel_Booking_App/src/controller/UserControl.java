@@ -1,37 +1,24 @@
 package controller;
 
 import utility.AppContext;
-import dao.UserDAO;
 import view.AddUserGUIPage1;
 import model.User;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-import model.Customer;
-import model.Employee;
 import dao.UserDAO;
-import view.FilterUsersFrameGUIExperiment;
+import view.FilterUsersGUI;
 
 
 /**
  *
- * @author rowan
+ * @author rowan (Mariah Malczewska), Max Zhang
  */
 public class UserControl {
     private AppContext context;
     private UserDAO userDAO;
     private AddUserGUIPage1 userView;
-    private FilterUsersFrameGUIExperiment usersView;
-//    private UserService userService;
-    
-//    public UserControl( UserDAO userDao, AddUserGUIPage1 userView, UserService userService ) {
-//        this.userDao = userDao;
-//        this.userView = userView;
-////        this.userService = userService;
-//        
-//        this.userView.addNextBtnListener( new AddUserRecord() );
-//    }
+    private FilterUsersGUI usersView;
    
     public UserControl( AppContext context, AddUserGUIPage1 userView ) {
         this.context = context;
@@ -41,14 +28,22 @@ public class UserControl {
         this.userView.addNextBtnListener( new AddUserRecord() );
     }
 
-    public UserControl( AppContext context, FilterUsersFrameGUIExperiment usersView ) {
+    public UserControl( AppContext context, FilterUsersGUI usersView ) {
         this.context = context;
         this.usersView = usersView;
         userDAO = context.getUserDao();
         
-        this.userView.addNextBtnListener( new AddUserRecord() );
+        this.usersView.addNewUserBtnListener( new AddUserRecord() );
+        this.usersView.addSearchBtnListener( new SearchUsers() );
         //****** IMPORTANT****** if active user is customer or agent only show/ allow customers option
         //****** IMPORTANT****** if active user is admin, show/allow role drop-down
+        if (context.getCurrentUser().getRole().equals("Customer")) {
+            return; // customers cannot search other users!
+        }
+        if (!context.getCurrentUser().getRole().equals("Admin")) {
+            usersView.getvSearchBarUsers().getComboUserRole().setSelectedItem("Customer"); // set customer search only
+            usersView.getvSearchBarUsers().getComboUserRole().setEnabled(false); // disable it
+        }
     }
    
     class AddUserRecord implements ActionListener {
@@ -86,6 +81,23 @@ public class UserControl {
             else { JOptionPane.showMessageDialog(null, "User was not created"); }
         }
     }
+    
+    class SearchUsers implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            search();
+        }
+        
+        public void initialSearch() {
+            search();
+        }
+        
+        private void search() {
+            
+        }
+        
+    }
 
 
 // Validation Helper Functions
@@ -102,7 +114,6 @@ public class UserControl {
             return true; 
         } else { return false; }
     }
-    
     public boolean validateUsername(String username) { 
         return !( username == null || username.isEmpty() ); 
     }
@@ -115,15 +126,9 @@ public class UserControl {
     public boolean validateEmail(String email) { 
         return !( email == null || email.isEmpty() ); 
     }
-
     public boolean validatePassword(String password) { 
         return !(password == null || password.isEmpty() || password.length() < 8);
-    }
-    
-       //        if ( !"Active".equals(__) && !"Inactive".equals(__) ) { throw new IllegalArgumentException("Status must be Active or Inactive"); }
-    //        if ( email == LETTERS@LETTERS.LETTERS -- note where 'letters' incl _-.) { throw new IllegalArgumentException("Please enter a valid email"); }
-
-    
+    }    
     public boolean validatePhone(String phone) { return true; }
     
 }

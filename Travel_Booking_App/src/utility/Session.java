@@ -1,10 +1,9 @@
 
 package utility;
 
+import controller.DashboardControl;
 import model.Customer;
 import model.User;
-import view.ViewCustomerGUI;
-import utility.AppWindowCust;
 
 /**
  *
@@ -19,38 +18,58 @@ public class Session {
     private User currentUser;
     private User currentCustomer; 
     private User currentEmployee; // only used by Admin 
+    private DashboardControl dashControl;
 
     public Session() { }
     
     public Session( User currentUser ) {
         this.currentUser = currentUser;
-        currentUser.setPassword( null );
     }
 
     public User getCurrentUser() { return currentUser; }
     public void setCurrentUser(User currentUser) { 
         this.currentUser = currentUser;
-        currentUser.setPassword( null );
     }
 
     public User getCurrentCustomer() { return currentCustomer; }
     public void setCurrentCustomer(User currentCustomer) {
         this.currentEmployee = null;
         this.currentCustomer = currentCustomer;
-        currentCustomer.setPassword( null );
     }
     
     public User getCurrentEmployee() { return currentEmployee; }
     public void setCurrentEmployee(User currentEmployee) {
         this.currentCustomer = null;
         this.currentEmployee = currentEmployee;
-        currentCustomer.setPassword( null );
+    }
+
+    public DashboardControl getDashControl() { return dashControl; }
+    public void setDashControl(DashboardControl dashControl) { 
+        this.dashControl = dashControl; 
+    }
+    
+    
+    
+    public User getFocusUser() {
+        User user = getCurrentUser();
+        User custUser = getCurrentCustomer();
+        User empUser = getCurrentEmployee();
+        
+        if ( !user.getRole().equals("Admin") && empUser != null ) { 
+            clearCurrentEmployee(); 
+        }
+        
+        User focusUser;
+        if ( custUser != null ) { focusUser = custUser; } 
+        else { focusUser = empUser; }
+        
+        return focusUser;
     }
     
     public void clearCurrentUser() { this.currentUser = null; }
     public void clearCurrentCustomer() { this.currentCustomer = null; }
     public void clearCurrentEmployee() { this.currentEmployee = null; }
-    public void clearTargets() {
+    public void clearFoci() {
         clearCurrentCustomer();
         clearCurrentEmployee();
     }

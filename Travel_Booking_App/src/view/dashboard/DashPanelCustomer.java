@@ -15,6 +15,7 @@ public class DashPanelCustomer extends javax.swing.JPanel {
      */
     public DashPanelCustomer() {
         initComponents();
+        btnCustSearch.setVisible(false);
     }
 
     public ButtonBase getBtnCustProfile() {
@@ -33,18 +34,9 @@ public class DashPanelCustomer extends javax.swing.JPanel {
         this.btnSearchDest = btnSearchDest;
     }
 
-//    public ButtonBase getBtnLatestBooking() {
-//        return btnLatestBooking;
-//    }
-//
-//    public void setBtnLatestBooking(ButtonBase lblLatestBooking) {
-//        this.btnLatestBooking = lblLatestBooking;
-//    }
-
     public JLabel getLblUser() {
         return lblUser;
     }
-
     public void setLblUser(JLabel lblUser) {
         this.lblUser = lblUser;
     }
@@ -52,11 +44,18 @@ public class DashPanelCustomer extends javax.swing.JPanel {
     public ButtonBase getBtnViewBooking() {
         return btnViewBooking;
     }
-
     public void setBtnViewBooking(ButtonBase lblViewBooking) {
         this.btnViewBooking = lblViewBooking;
     }
 
+    public ButtonBase getBtnCustSearch() {
+        return btnCustSearch;
+    }
+    public void setBtnCustSearch(ButtonBase btnCustSearch) {
+        this.btnCustSearch = btnCustSearch;
+    }
+
+    
     
     
     /**
@@ -72,6 +71,7 @@ public class DashPanelCustomer extends javax.swing.JPanel {
         btnCustProfile = new view.models.ButtonBase();
         btnSearchDest = new view.models.ButtonBase();
         btnViewBooking = new view.models.ButtonBase();
+        btnCustSearch = new view.models.ButtonBase();
 
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(350, 303));
@@ -85,8 +85,11 @@ public class DashPanelCustomer extends javax.swing.JPanel {
         btnSearchDest.setBackground(new java.awt.Color(255, 204, 153));
         btnSearchDest.setLabel("Search Destinations");
 
+        btnViewBooking.setText("My Bookings");
         btnViewBooking.setActionCommand("AllBooking");
-        btnViewBooking.setLabel("All Bookings");
+
+        btnCustSearch.setActionCommand("searchTrips");
+        btnCustSearch.setLabel("Search for Customer");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -98,7 +101,8 @@ public class DashPanelCustomer extends javax.swing.JPanel {
                     .addComponent(btnCustProfile, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
                     .addComponent(lblUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnSearchDest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnViewBooking, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnViewBooking, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCustSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
@@ -108,17 +112,20 @@ public class DashPanelCustomer extends javax.swing.JPanel {
                 .addComponent(lblUser, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCustProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCustSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addComponent(btnSearchDest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addComponent(btnViewBooking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private view.models.ButtonBase btnCustProfile;
+    private view.models.ButtonBase btnCustSearch;
     private view.models.ButtonBase btnSearchDest;
     private view.models.ButtonBase btnViewBooking;
     private javax.swing.JLabel lblUser;

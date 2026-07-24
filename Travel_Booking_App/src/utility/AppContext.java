@@ -2,11 +2,12 @@
 package utility;
 
 import dao.CustomerDAO;
+import dao.DestinationsDAO;
 import dao.EmployeeDAO;
+import dao.PaymentsDAO;
+import dao.TripsDAO;
 import dao.UserDAO;
 import model.User;
-import view.ViewCustomerGUI;
-import utility.AppWindowCust;
 
 /**
  *
@@ -14,27 +15,19 @@ import utility.AppWindowCust;
  * Database states
  */
 public class AppContext {
-    // Current User and Customer inside
-    Session currentSession = new Session();
-    
+    // Session information inside: Current DashboardControl, User, Customer, Employee
+    Session currentSession = new Session();  
     // DAOs
     UserDAO userDao = new UserDAO();
     EmployeeDAO employeeDao = new EmployeeDAO(); 
     CustomerDAO customerDao = new CustomerDAO();
-    
-    //Open Windows
-    private AppWindowCust appWindow;
-    private ViewCustomerGUI customerView;
-//    private ViewBookingsGUI bookingsView;
-//    private SearchProductsGUI searchView; 
+    DestinationsDAO destDao = new DestinationsDAO();
+    PaymentsDAO pmtDao = new PaymentsDAO();
+    TripsDAO tripsDao = new TripsDAO();
+
 
 //Constructor    
-    public AppContext() {
-        this.currentSession = new Session();
-        this.userDao = new UserDAO();
-        this.employeeDao = new EmployeeDAO();
-        this.customerDao = new CustomerDAO();
-    }
+    public AppContext() {}
 
     // DAO Getters & Setters
     //========================================================================    
@@ -52,6 +45,17 @@ public class AppContext {
     public void setCustomerDao(CustomerDAO customerDao) {
         this.customerDao = customerDao;
     }
+
+    public DestinationsDAO getDestDao() { return destDao; }
+    public void setDestDao(DestinationsDAO destDao) { this.destDao = destDao; }
+
+    public PaymentsDAO getPmtDao() { return pmtDao; }
+    public void setPmtDao(PaymentsDAO pmtDao) { this.pmtDao = pmtDao; }
+
+    public TripsDAO getTripsDao() { return tripsDao; }
+    public void setTripsDao(TripsDAO tripsDao) { this.tripsDao = tripsDao; }
+    
+    
     
     // Session Getter & Setter Helpers
     //========================================================================    
@@ -66,5 +70,9 @@ public class AppContext {
     
     public User getCurrentCustomerUser() { //make the string shorter helpers
         return getCurrentSession().getCurrentCustomer();
+    }
+    
+    public User getCurrentFocusUser() {
+        return getCurrentSession().getFocusUser();
     }
 }

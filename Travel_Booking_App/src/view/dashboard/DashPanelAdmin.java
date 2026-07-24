@@ -32,22 +32,6 @@ public class DashPanelAdmin extends javax.swing.JPanel {
         this.btnDestinations = btnDestinations;
     }
 
-//    public ButtonBase getBtnPackages() {
-//        return btnPackages;
-//    }
-//
-//    public void setBtnPackages(ButtonBase btnPackages) {
-//        this.btnPackages = btnPackages;
-//    }
-//
-//    public ButtonBase getBtnProducts() {
-//        return btnProducts;
-//    }
-//
-//    public void setBtnProducts(ButtonBase btnProducts) {
-//        this.btnProducts = btnProducts;
-//    }
-
     public ButtonBase getBtnTrips() {
         return btnTrips;
     }

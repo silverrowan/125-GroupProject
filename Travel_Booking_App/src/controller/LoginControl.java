@@ -6,13 +6,12 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import model.User;
-import utility.AppWindowAdmin;
-import utility.AppWindowAgent;
-import view.AddUserGUIPage1;
-import view.EditUserGUIPage1;
+import view.dashboard.AppWindowAdmin;
+import view.dashboard.AppWindowAgent;
 import view.Login;
-import utility.AppWindowCust;
+import view.dashboard.AppWindowCust;
 import utility.GenericView;
+import view.profile.EditCustomerGUI;
 
 /**
  *
@@ -28,7 +27,7 @@ public class LoginControl {
         this.loginView = loginView;
         
         this.loginView.addLoginBtnListener( new LogInUser() );
-        this.loginView.addNewCustomerBtnListener( new AddNewCustomer() );
+//        this.loginView.addNewCustomerBtnListener( new AddNewCustomer() );
     }
     
     class LogInUser implements ActionListener {
@@ -40,10 +39,10 @@ public class LoginControl {
             loginUser();                
             getDashboard();
 
-            AppWindowCust view = new AppWindowCust( context ); //make target window/dashboard: This is Menu AND beside contents.
-            DashboardControl dash = new DashboardControl( context, view ); 
+//            AppWindowCust view = new AppWindowCust( context ); //make target window/dashboard: This is Menu AND beside contents.
+//            DashboardControl dash = new DashboardControl( context, view ); 
 //            dash.initialize();
-            view.setVisible(true);
+//            view.setVisible(true);
                 
 
 //                DashboardMenu dashboard = new DashboardMenu(); // can't use this one - MENU is an x of gradient which is of JPanel not Frame
@@ -52,18 +51,18 @@ public class LoginControl {
     // make it visible
 //                TO DO 
                 //close login window
-            }
-        }
-    
-    class AddNewCustomer implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            //open add new customer window
-
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            
         }
     }
+//    class AddNewCustomer implements ActionListener {
+//
+//        @Override
+//        public void actionPerformed(ActionEvent e) {
+//            //open add new customer window
+//
+//            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//        }
+//    }
  
     public void clearPassArray(char[] pass) {
         for (int i = pass.length -1 ; i >= 0 ; i--) {
@@ -100,13 +99,15 @@ public class LoginControl {
         else {
             activeUser = loginUser;
             loginUser = null;
+            activeUser.setPassword( null );
             context.getCurrentSession().setCurrentUser(activeUser);
             System.out.println("Successful Login");        
         }
     }
 
     public void getDashboard() {
-        String role = context.getCurrentUser().getRole();
+        User user = context.getCurrentUser();
+        String role = user.getRole();
         System.out.println("role: " + role);
 //        GenericView view;
 
@@ -124,6 +125,7 @@ public class LoginControl {
 //            //later
         } else {
             System.out.println("entered Cust/Other if");
+            context.getCurrentSession().setCurrentCustomer( user );
             AppWindowCust view = new AppWindowCust( context );
             DashboardControl dash = new DashboardControl( context, view );
             view.setVisible(true); 
