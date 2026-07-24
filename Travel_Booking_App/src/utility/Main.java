@@ -37,18 +37,18 @@ public class Main {
 //        LoginControl loginControl = new LoginControl(context, loginView);
 //        loginView.setVisible(true);
         directToDash(context);
-        setFocusUserBypass(context);
+        
     }  
 
     public static void directToDash(AppContext context) {
         User activeUser;
         User loginUser;
-        String username = "mzhang";           
-        String password = "12341234";
+//        String username = "mzhang";           
+//        String password = "12341234";
 //        String username = "cchen";           
 //        String password = "123123123";
-//        String username = "s";           
-//        String password = "123123123";        
+        String username = "s";           
+        String password = "123123123";        
 
         activeUser = context.getUserDao().getUserFromUsername(username, password);
         loginUser = null;
@@ -59,28 +59,33 @@ public class Main {
         String role = context.getCurrentUser().getRole();
         System.out.println("role: " + role);
 //        JFrame view;
+        setFocusUserBypass(context);
         
         if ( role.equals( "Admin" ) ) {
             System.out.println("entered admin if");
-            AppWindowAdmin view = new AppWindowAdmin( context ); //make target window/dashboard: This is Menu AND beside contents.
-            DashboardControl dash = new DashboardControl( context, view ); 
-//            dash.initialize();
+            AppWindowAdmin view = new AppWindowAdmin( context );
+            DashboardControl dash = new DashboardControl( context, view );
             view.setVisible(true); 
+            context.getCurrentSession().setDashControl( dash );
+            //make target window/dashboard: This is Menu AND beside contents.
         } else if ( role.equals("Travel Agent") ) {
             System.out.println("entered Agent if");
             AppWindowAgent view = new AppWindowAgent( context );
             DashboardControl dash = new DashboardControl( context, view );
-//            dash.initialize();
             view.setVisible(true); 
+            context.getCurrentSession().setDashControl( dash );
 //        } else if ( role.equals("Travel Guide") ) {
 //            //later
         } else {
             System.out.println("entered Cust/Other if");
             AppWindowCust view = new AppWindowCust( context );
             DashboardControl dash = new DashboardControl( context, view );
-//            dash.initialize();
             view.setVisible(true);
+            context.getCurrentSession().setDashControl( dash );
         }
+         //pass dashboard into context
+
+        
 //    }
 //}
 
@@ -109,6 +114,6 @@ public class Main {
             context.getCurrentSession().setCurrentEmployee(focusUser);
         }
         System.out.println("Successful focus on user " + focusUser.getUsername());
-//        JFrame view;        
+//        JFrame view;
     }
 }
