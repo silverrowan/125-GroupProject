@@ -113,7 +113,7 @@ public class FilterUsersGUI extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(pnlFilterUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(vSearchBarUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(scrollUsers, javax.swing.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE))
+                    .addComponent(scrollUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(38, 38, 38))
         );
         pnlFilterUsersLayout.setVerticalGroup(
