@@ -6,6 +6,8 @@ import dao.UserDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
+import javax.naming.directory.InvalidAttributeValueException;
+import javax.swing.JOptionPane;
 import model.Customer;
 import model.Employee;
 import model.User;
@@ -190,14 +192,29 @@ public class ProfileControl {
             streetName = editProfileView.getInputStreet().getText();
             streetNumber = editProfileView.getInputStreetNumber().getText();
             
-            if (this.password == null || this.password.isEmpty()) {
-                this.password = currentUser.getPassword(); // no change
-            }
-            if (PropertyValidator.validateUsername(username)
-                    && PropertyValidator.validatePassword(password)
-                    && PropertyValidator.validateFirstName(firstName)
-                    && PropertyValidator.validateLastName(lastName)
-                    && PropertyValidator.validateEmail(email)) {
+            try {
+                if (this.password == null || this.password.isEmpty()) {
+                    this.password = currentUser.getPassword(); // no change
+                }
+                
+                // validate password
+                if ( !PropertyValidator.validatePassword(password) ) {
+                    throw new InvalidAttributeValueException("must have a valid password, minimum 8 characters");
+                }
+                // validate email
+                if ( !PropertyValidator.validateEmail(email) ) {
+                    throw new InvalidAttributeValueException( "must have a valid email");
+                }
+                // validate first name
+                if ( !PropertyValidator.validateFirstName(firstName) ) {
+                    throw new InvalidAttributeValueException( "must have a valid first name");
+                }
+                // validate last name
+                if ( !PropertyValidator.validateLastName(lastName) ) {
+                    throw new InvalidAttributeValueException( "must have a valid last name");
+                }
+                
+                
                 // account & personal info
                 currentUser.setUsername(username);
                 currentUser.setPassword(password);
@@ -207,14 +224,19 @@ public class ProfileControl {
                 currentUser.setPhone(phone);
                 currentUser.setAccountStatus(status);
                 currentUser.setRole(role);
-                
+
                 // address
                 currentUser.setUserAddress(streetNumber, streetName, city, province, postalCode, country);
-                
-                userDAO.updateUser(currentUser); // update database
+
+                User user = userDAO.updateUser(currentUser); // update database
+                if (user == null) {
+                    JOptionPane.showMessageDialog( null , "Changes were not saved for an unknown reason. Check that you have a unique username and email address.");
+                    return;
+                }
                 editProfileView.dispose(); // close window
-            } else {
-                // display error message?
+            }
+            catch ( InvalidAttributeValueException ex){
+                JOptionPane.showMessageDialog( null , ex.getMessage() );
             }
         }
         
@@ -254,6 +276,7 @@ public class ProfileControl {
             
             // update customer
             customerDAO.updateCustomer(currentCustomer);
+            
         }
     }
     
