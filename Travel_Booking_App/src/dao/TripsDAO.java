@@ -98,7 +98,7 @@ public class TripsDAO {
 
     /**
      * Gets upcoming trips belonging to one destination/package.
-     * Used in AddBookingsGUI
+     * Used in AddBookingsGUI :P
      * @param destinationID
      * @return a list of upcoming trips for that destination
      */

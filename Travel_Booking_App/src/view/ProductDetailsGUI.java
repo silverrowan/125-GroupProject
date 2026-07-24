@@ -20,9 +20,23 @@ public class ProductDetailsGUI extends javax.swing.JFrame {
         
     }
 
-    ProductDetailsGUI(int destinationID) {
+    private int destinationID;
+    private int customerID;
+    private int createdByUserID;
+
+    public ProductDetailsGUI(
+            int destinationID,
+            int customerID,
+            int createdByUserID
+    ) {
         initComponents();
+
+        this.destinationID = destinationID;
+        this.customerID = customerID;
+        this.createdByUserID = createdByUserID;
+
         destinationsController = new DestinationsController();
+
         makeFieldsReadOnly();
         loadDestinationDetails(destinationID);
     }
@@ -156,6 +170,7 @@ public class ProductDetailsGUI extends javax.swing.JFrame {
         backBtn.addActionListener(this::backBtnActionPerformed);
 
         bookBtn.setText("Book Package");
+        bookBtn.addActionListener(this::bookBtnActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -491,6 +506,18 @@ public class ProductDetailsGUI extends javax.swing.JFrame {
     private void durationTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_durationTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_durationTxtActionPerformed
+
+    private void bookBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookBtnActionPerformed
+        // TODO add your handling code here:
+        AddBookingGUI bookingGUI =
+        new AddBookingGUI(
+                destinationID,
+                customerID,
+                createdByUserID
+        );
+        bookingGUI.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_bookBtnActionPerformed
 
     /**
      * @param args the command line arguments
