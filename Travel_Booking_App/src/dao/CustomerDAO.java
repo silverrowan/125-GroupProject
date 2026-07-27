@@ -34,8 +34,8 @@ public class CustomerDAO {
                 ResultSet rs = p.getGeneratedKeys();
                 if (rs.next()) {
                     int idGen = rs.getInt(1); // get int in column 1 of DB table
-                    
-                    Customer cust = new Customer(idGen);
+                    int userID = user.getUserID();
+                    Customer cust = new Customer( userID, idGen);
                     return cust;
                 }
             }
