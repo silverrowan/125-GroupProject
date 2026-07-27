@@ -297,7 +297,7 @@ public class DashboardControl extends GenericControl{
         
         if ( loggedIn.getRole().equals("Customer") ) { 
             changeCustFocusObjects( focusBtn, findFocusBtn, focusLabel, headerFont );
-        } else if ( loggedIn.getRole().equals("Agent") ) {
+        } else if ( loggedIn.getRole().equals("Travel Agent") ) {
             changeAgentFocusObjects( focusBtn, findFocusBtn, focusBookBtn, chgTextBtn, focusLabel, headerFont );
         } else if ( loggedIn.getRole().equals("Admin") ) {
             changeAdminFocusObjects( focusBtn, findFocusBtn, focusBookBtn, chgTextBtn, focusLabel, headerFont );
