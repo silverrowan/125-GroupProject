@@ -80,7 +80,6 @@ public class UserControl {
             // set the focus user
             if (userID != -1) {
                 context.setCurrentFocusUser(userDAO.getUsersFromID(userID).get(0));
-                System.out.println("Focus user set to " + context.getCurrentFocusUser().getUsername());
             }
         });
         
