@@ -7,6 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import dao.UserDAO;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 import view.FilterUsersGUI;
 
 
@@ -44,6 +46,14 @@ public class UserControl {
             usersView.getvSearchBarUsers().getComboUserRole().setSelectedItem("Customer"); // set customer search only
             usersView.getvSearchBarUsers().getComboUserRole().setEnabled(false); // disable it
         }
+        
+        SearchUsers su = new SearchUsers();
+        
+        // initial search
+        su.initialSearch();
+        
+        // add listeners
+        usersView.getvSearchBarUsers().getBtnSearch().addActionListener(su);
     }
    
     class AddUserRecord implements ActionListener {
@@ -83,6 +93,7 @@ public class UserControl {
     }
     
     class SearchUsers implements ActionListener {
+        
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -94,7 +105,68 @@ public class UserControl {
         }
         
         private void search() {
+            // get users
             
+            ArrayList<User> users;
+            
+            String role = usersView.getvSearchBarUsers().getComboUserRole().getSelectedItem().toString();
+            
+            String username = null;
+            int userID = -1;
+            
+            String searchTerm = usersView.getvSearchBarUsers().getTxtSearchField().getText().trim();
+            
+            // decide if searchTerm is ID or username
+            if (isInteger(searchTerm)) {
+                userID = Integer.parseInt(searchTerm);
+            } else if (searchTerm != null && !searchTerm.isEmpty()) {
+                username = searchTerm;
+            }
+            
+            // if a valid userID is given, search based on userID
+            if (userID >= 0) {
+                users = userDAO.getUsersByRoleAndID(role, userID);
+            } else if (username != null) {
+                users = userDAO.getUsersByRoleAndUsername(role, username); // search based on username
+            } else {
+                users = userDAO.getUsersByRole(role); // search based on role
+            }
+            
+            // get table
+            DefaultTableModel model = (DefaultTableModel) usersView.getTblUsers().getModel();
+            model.setRowCount(0);
+            
+            // populate table
+            for (User user : users) {
+                Object[] rowData = {
+                    user.getUserID(),
+                    user.getUsername(),
+                    user.getFirstName(),
+                    user.getLastName(),
+                    user.getRole(),
+                    user.getPhone(),
+                    user.getAccountStatus()
+                };
+
+                model.addRow(rowData);
+            }
+            
+        }
+        
+        private boolean isInteger(String s) {
+            if (s.isBlank() || s.isEmpty()) {
+                return false;
+            }
+            
+            String digits = "0123456789";
+            
+            boolean isInt = true;
+            
+            for (int c = 0; c < s.length(); c++) {
+                isInt = (digits.indexOf(s.charAt(c)) >= 0);
+            }
+            
+            return isInt;
         }
         
     }

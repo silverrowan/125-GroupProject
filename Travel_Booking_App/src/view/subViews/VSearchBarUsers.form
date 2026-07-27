@@ -27,12 +27,12 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtSearchField" min="-2" pref="277" max="-2" attributes="0"/>
+              <Component id="txtSearchField" min="-2" pref="331" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="comboUserRole" min="-2" pref="95" max="-2" attributes="0"/>
               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
               <Component id="btnSearch" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="36" max="32767" attributes="0"/>
+              <EmptySpace pref="41" max="32767" attributes="0"/>
               <Component id="btnNewUser" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -79,7 +79,7 @@
           <StringArray count="5">
             <StringItem index="0" value="All roles"/>
             <StringItem index="1" value="Admin"/>
-            <StringItem index="2" value="Agent"/>
+            <StringItem index="2" value="Travel Agent"/>
             <StringItem index="3" value="Tour guide"/>
             <StringItem index="4" value="Customer"/>
           </StringArray>
