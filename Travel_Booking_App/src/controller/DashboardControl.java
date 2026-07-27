@@ -33,7 +33,7 @@ import view.profile.EditEmployeeGUI;
  * @author Mariah Malczewska
  */
 public class DashboardControl extends GenericControl{
-//    private AppContext context;
+    private AppContext context;
 
     private AppWindowAdmin dashAdmin;
     private AppWindowAgent dashAgent;
@@ -280,7 +280,10 @@ public class DashboardControl extends GenericControl{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                //open searchTrip view
+                //open controller
+                makeViewDestSearch(context);
+                throw new UnsupportedOperationException("Not supported yet.");
             }
         }
 
@@ -468,8 +471,10 @@ public class DashboardControl extends GenericControl{
         System.out.println("search products");
         System.out.println("NEEDS REAL CONTROLLER");
         ProductsGUI view = new ProductsGUI(); //new view
-        view.setDefaultCloseOperation(GenericView.DISPOSE_ON_CLOSE); 
-        ProductsControlPLACEHOLDER destsControl = new ProductsControlPLACEHOLDER( context, view ); 
+        view.setDefaultCloseOperation(GenericView.DISPOSE_ON_CLOSE);
+        //no suitable constructor?
+//        DestinationsController destsControl = new DestinationsController(context, view);
+//        ProductsControlPLACEHOLDER destsControl = new ProductsControlPLACEHOLDER( context, view ); 
         view.setVisible(true); //make it visible
     }
     
@@ -478,6 +483,5 @@ public class DashboardControl extends GenericControl{
         view.setDefaultCloseOperation(GenericView.DISPOSE_ON_CLOSE); 
         TripsController tripControl = new TripsController( context, view ); 
         view.setVisible(true); //make it visible
-        
     }
 }
