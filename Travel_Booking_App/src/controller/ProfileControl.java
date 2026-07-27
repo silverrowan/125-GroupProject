@@ -23,9 +23,9 @@ import view.profile.*;
  */
 public class ProfileControl {
     private AppContext context;
-    private final AbstractEditUserView editProfileView;
-    private final User currentUser;
-    private final UserDAO userDAO;
+    private AbstractEditUserView editProfileView;
+    private User currentUser;
+    private UserDAO userDAO;
 
     /**
      * constructor for viewing customer profiles

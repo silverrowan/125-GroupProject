@@ -8,8 +8,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import dao.UserDAO;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import view.FilterUsersGUI;
+import view.profile.EditCustomerGUI;
+import view.profile.EditEmployeeGUI;
 
 
 /**
@@ -53,7 +56,62 @@ public class UserControl {
         su.initialSearch();
         
         // add listeners
-        usersView.getvSearchBarUsers().getBtnSearch().addActionListener(su);
+        usersView.addSearchBtnListener(su);
+        
+        usersView.addNewUserBtnListener((ActionEvent e) -> {
+            AddUserGUIPage1 addView = new AddUserGUIPage1();
+            addView.getComboRole().setSelectedItem("Customer");
+            addView.getComboRole().setEnabled(context.getCurrentUser().getRole().equals("Admin")); // only admin can make any user, agents can only make customers
+            addView.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            UserControl uc = new UserControl(context, addView);
+            addView.setVisible(true);
+        });
+        
+        // focus on a user
+        usersView.addFocusBtnListener((ActionEvent e) -> {
+            int selectedRow = usersView.getTblUsers().getSelectedRow(); // get selected row index
+            int userID = -1;
+            
+            // if a row is selected
+            if (selectedRow != -1) {
+                userID = Integer.parseInt(usersView.getTblUsers().getValueAt(selectedRow, 0).toString());
+            }
+            
+            // set the focus user
+            if (userID != -1) {
+                context.setCurrentFocusUser(userDAO.getUsersFromID(userID).get(0));
+                System.out.println("Focus user set to " + context.getCurrentFocusUser().getUsername());
+            }
+        });
+        
+        // open a user's profile
+        usersView.addOpenBtnListener((ActionEvent e) -> {
+            int selectedRow = usersView.getTblUsers().getSelectedRow(); // get selected row index
+            int userID = -1;
+            
+            // if a row is selected
+            if (selectedRow != -1) {
+                userID = Integer.parseInt(usersView.getTblUsers().getValueAt(selectedRow, 0).toString());
+            }
+            
+            // open the user's profile
+            if (userID != -1) {
+                User user = userDAO.getUsersFromID(userID).get(0);
+                String role = user.getRole();
+                
+                if (role.equals("Customer")) {
+                    EditCustomerGUI view = new EditCustomerGUI();
+                    view.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    ProfileControl pc = new ProfileControl(context, null, user, view);
+                    view.setVisible(true);
+                } else {
+                    EditEmployeeGUI view = new EditEmployeeGUI();
+                    view.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    ProfileControl pc = new ProfileControl(context, null, user, view);
+                    view.setVisible(true);
+                }
+            }
+        });
     }
    
     class AddUserRecord implements ActionListener {

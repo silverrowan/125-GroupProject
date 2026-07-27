@@ -5,6 +5,7 @@
 package view;
 
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import view.subViews.VSearchBarUsers;
@@ -47,6 +48,22 @@ public class FilterUsersGUI extends javax.swing.JFrame {
     public void setvSearchBarUsers(VSearchBarUsers vSearchBarUsers) {
         this.vSearchBarUsers = vSearchBarUsers;
     }
+
+    public JButton getBtnFocus() {
+        return btnFocus;
+    }
+
+    public void setBtnFocus(JButton btnFocus) {
+        this.btnFocus = btnFocus;
+    }
+
+    public JButton getBtnOpen() {
+        return btnOpen;
+    }
+
+    public void setBtnOpen(JButton btnOpen) {
+        this.btnOpen = btnOpen;
+    }
     
     
     
@@ -56,6 +73,12 @@ public class FilterUsersGUI extends javax.swing.JFrame {
     }
     public void addSearchBtnListener(ActionListener nextListener) {
         vSearchBarUsers.getBtnSearch().addActionListener(nextListener);
+    }
+    public void addFocusBtnListener(ActionListener nextListener) {
+        this.getBtnFocus().addActionListener(nextListener);
+    }
+    public void addOpenBtnListener(ActionListener nextListener) {
+        this.getBtnOpen().addActionListener(nextListener);
     }
     //not 100% sure on how to get combo box and textfield values
 
