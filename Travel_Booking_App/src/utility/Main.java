@@ -80,7 +80,6 @@ public class Main {
         
 //    }
 //}
-
 //         Edit customer & employees testing code (TEMPORARY)
 //        if (context.getCurrentUser().getRole().equals("Customer")) {
 //            EditCustomerGUI viewEdit = new EditCustomerGUI();

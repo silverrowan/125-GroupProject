@@ -71,7 +71,7 @@ public class DashboardControl extends GenericControl{
         this.dashCust.addListenerToLogoutCust( new Logout() );
         
         //adjust labels and buttons
-        changeSessionFocusObjects( );
+        refreshDash();
     }
     
     //Logged in user == agent
@@ -103,9 +103,9 @@ public class DashboardControl extends GenericControl{
         
         //adjust labels and buttons
         userLabel.setText( "Welcome " + user.getUsername() +"!" );
-        changeSessionFocusObjects( );       
+        refreshDash( );       
     }
-    
+   
 //    Loggen in user == admin
     public DashboardControl( AppContext contextOuter, AppWindowAdmin dashAdminOuter ){
         this( contextOuter, dashAdminOuter, 99 );
@@ -120,7 +120,7 @@ public class DashboardControl extends GenericControl{
         this.clearUserBtn = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getBtnClearCust();
         this.focusBookBtn = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getPnlDashCust().getBtnViewBooking();
 
-        Font headerFont = searchLabel.getFont().deriveFont(Font.BOLD, 24);
+        this.headerFont = focusLabel.getFont().deriveFont(Font.BOLD, 24);
         
         //--cust section listeners--
         this.dashAdmin.addListenerToBtnCustProfile( new Profile( false ) );
@@ -140,7 +140,7 @@ public class DashboardControl extends GenericControl{
         //adjust labels and buttons
         changeLabelToHeader( userLabel, headerFont, "Welcome " + user.getUsername() +"!" );
         changeLabelToHeader( searchLabel, headerFont, "Search & Edit" );
-        changeSessionFocusObjects( );
+        refreshDash( );
 
     }
     
@@ -204,8 +204,7 @@ public class DashboardControl extends GenericControl{
             public void actionPerformed(ActionEvent e) {
 
                 getAppContext().getCurrentSession().clearFoci();
-                changeSessionFocusObjects( );
-
+                refreshDash( );
             }
         }
 
