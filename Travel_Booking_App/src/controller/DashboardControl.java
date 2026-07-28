@@ -143,6 +143,9 @@ public class DashboardControl extends GenericControl{
         refreshDash( );
 
     }
+//--------------------------Listener Helper------------------------
+//-----------------------------------------------------------------------------
+    public AppContext getContext(){ return super.getAppContext(); }
     
 //--------------------------Listener Classes & Function------------------------
 //-----------------------------------------------------------------------------
@@ -154,8 +157,8 @@ public class DashboardControl extends GenericControl{
             
             @Override
             public void actionPerformed(ActionEvent e) {
-                User user = getAppContext().getCurrentUser();
-                User focusUser = getAppContext().getCurrentSession().getFocusUser();
+//                User user = getAppContext().getCurrentUser();
+                User focusUser = getContext().getCurrentSession().getFocusUser();
                 
                 if ( isSelf ) { makeViewProfile( getAppContext(), user ); }
                 else { makeViewProfile( getAppContext(), focusUser ); }
@@ -371,23 +374,23 @@ public class DashboardControl extends GenericControl{
         
         String viewUserRole = viewUser.getRole();
         
-        if ( currURole.equals("Customer") || viewUserRole.equals("Customer")) { 
-            makeEditCustomerView(); 
+        if ( viewUserRole.equals("Customer")) { 
+            makeEditCustomerView( viewUser ); 
         } 
-        else { makeEditEmployeeView(); }
+        else { makeEditEmployeeView( viewUser ); }
     }
 
-    private void makeEditCustomerView() {
+    private void makeEditCustomerView( User viewUser ) {
         EditCustomerGUI viewEdit = new EditCustomerGUI();
         viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        ProfileControl pc = new ProfileControl(getAppContext(), this, getAppContext().getUserDao().getUserFromUsername(getAppContext().getCurrentUser().getUsername()), viewEdit);
+        ProfileControl pc = new ProfileControl(getAppContext(), this, viewUser , viewEdit);
         viewEdit.setVisible(true);
     }
 
-    private void makeEditEmployeeView() {
+    private void makeEditEmployeeView( User viewUser ) {
         EditEmployeeGUI viewEdit = new EditEmployeeGUI();
         viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        ProfileControl pc = new ProfileControl(getAppContext(), this, getAppContext().getUserDao().getUserFromUsername(getAppContext().getCurrentUser().getUsername()), viewEdit);
+        ProfileControl pc = new ProfileControl(getAppContext(), this, viewUser, viewEdit);
         viewEdit.setVisible(true);
     }
 
