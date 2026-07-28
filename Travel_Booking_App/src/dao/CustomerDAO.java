@@ -13,13 +13,13 @@ import model.Customer;
 
 /**
  *
- * @author Mariah Malczewska
+ * @author Mariah Malczewska, Max Zhang
  */
 public class CustomerDAO {
     
     public CustomerDAO(){}
     
-    public static Customer addNewCustomer(User user) {
+    public Customer addNewCustomer(User user) {
 //        user = userDAO.addNewUser(user);
 
         String query = "INSERT INTO customers ( user_id ) VALUES (?,?);";
@@ -43,5 +43,111 @@ public class CustomerDAO {
         catch ( SQLException e ) { e.printStackTrace(); }
         catch ( Exception e ) { e.printStackTrace(); }
         return null;        
+    }
+    
+    public Customer updateCustomer(Customer customer) {
+        
+        // query
+        String query = """
+                       UPDATE customers
+                       SET emergency_contact_name = ?,
+                       emergency_contact_phone = ?
+                       WHERE customer_id = ?;
+                       """;
+        
+        // connect to database
+        try (Connection connection = DBConnection.getConnection();
+                PreparedStatement p = connection.prepareStatement(query);) {
+            
+            // prepare query
+            p.setString(1, customer.getEmergencyContactName());
+            p.setString(2, customer.getEmergencyContactPhone());
+            p.setInt(3, customer.getCustomerID());
+            
+            // execute statement
+            int row = p.executeUpdate();
+            
+            if (row <= 0 ) throw new SQLException("Update failed"); // update failed
+            
+            return customer; // success
+        } catch (SQLException e) {
+            System.out.println("An error occured when connecting to database");
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println("An error occured when connecting to database");
+            System.out.println(e.getMessage());
+        }
+        
+        return null;
+    }
+    
+    public boolean deleteCustomer(int customerID) {
+        
+        // SQL Statement
+        String statement = """
+                           DELETE FROM customers
+                           WHERE customer_id = ?;
+                           """;
+        
+        // open connection
+        try (Connection connection = DBConnection.getConnection();
+                PreparedStatement p = connection.prepareStatement(statement);) {
+            
+            p.setInt(1, customerID); // set parameter to customerID
+            
+            int rows = p.executeUpdate();
+            
+            // supposed to delete only one row
+            if (rows != 1) {
+                throw new SQLException("Something went wrong with delete!");
+            }
+            
+            return true; // success
+            
+        } catch (SQLException e) {
+            System.out.println("An error occured when connecting to database");
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        return false;
+    }
+    
+    public Customer getCustomerFromUserID(int userID) {
+        
+        // query
+        String query = "SELECT * FROM customers WHERE user_id = ?;";
+        
+        // open connection
+        try (Connection connection = DBConnection.getConnection();
+                PreparedStatement p = connection.prepareStatement(query); ) {
+            
+            p.setInt(1, userID); // set first field to userID
+            
+            ResultSet rs = p.executeQuery(); // execute query
+            
+            if (rs.next()) {
+                return makeCustomerObj(rs); // make customer object and return it
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        return null;
+    }
+    
+    private Customer makeCustomerObj(ResultSet rs) throws SQLException {
+        // create new customer and set all attributes
+        Customer customer = new Customer(rs.getInt("user_id"));
+        customer.setCustomerID(rs.getInt("customer_id"));
+        customer.setCustomerNotes(rs.getString("customer_notes"));
+        customer.setEmergencyContactName(rs.getString("emergency_contact_name"));
+        customer.setEmergencyContactPhone(rs.getString("emergency_contact_phone"));
+        
+        // return customer
+        return customer;
     }
 }

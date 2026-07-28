@@ -1,88 +1,85 @@
-package utility;
+package view.dashboard;
 
 import java.awt.event.ActionListener;
+import utility.AppContext;
+import utility.GenericView;
 import view.components.PanelBorder;
-import view.dashboard.DashboardAgent;
+import view.dashboard.DashboardAdmin;
 
 /**
  *
  * @author rowan
  */
-public class AppWindowAgent extends GenericView {
-    private AppContext context;
+public class AppWindowAdmin extends GenericView {
     
-    public AppWindowAgent( AppContext context ) {
+    public AppWindowAdmin( AppContext context ) {
         super( context );
         initComponents();
-        pnlDashAgent.revalidate();
-        pnlDashAgent.repaint();
+        pnlDashAdmin.revalidate();
+        pnlDashAdmin.repaint();
         
 //        this.session = session;
 //        setBackground( new Color(0, 0, 0, 0) ); //only works with undecorated frame
     }
     
      //Getter and Setters
+//    public DashboardAdmin getDashboardList() {
+//        return pnlDashAdmin;
+//    }
+//    public void setDashboardList(DashboardAdmin pnlDashAdmin) {
+//        this.pnlDashAdmin = pnlDashAdmin;
+//    }
+//
+//    public PanelBorder getPnlAppWindow() {
+//        return pnlDashWind;
+//    }
+//    public void setPnlAppWindow(PanelBorder pnlAppWindow) {
+//        this.pnlDashWind = pnlAppWindow;
+//    }
 
-    public DashboardAgent getDashboardList() {
-        return pnlDashAgent;
+    public DashboardAdmin getPnlDashAdmin() {
+        return pnlDashAdmin;
     }
-
-    public void setDashboardList(DashboardAgent pnlDashAgent) {
-        this.pnlDashAgent = pnlDashAgent;
-    }
-
-    public AppContext getContext() {
-        return context;
-    }
-
-    public void setContext(AppContext context) {
-        this.context = context;
-    }
-
-    public PanelBorder getPnlAppWindow() {
-        return pnlDashWind;
-    }
-
-    public void setPnlAppWindow(PanelBorder pnlAppWindow) {
-        this.pnlDashWind = pnlAppWindow;
-    }
-
-    public DashboardAgent getPnlDashAgent() {
-        return pnlDashAgent;
-    }
-
-    public void setPnlDashAgent(DashboardAgent pnlDashAgent) {
-        this.pnlDashAgent = pnlDashAgent;
+    public void setPnlDashAdmin(DashboardAdmin pnlDashAdmin) {
+        this.pnlDashAdmin = pnlDashAdmin;
     }
 
     public PanelBorder getPnlDashWind() {
         return pnlDashWind;
     }
-
     public void setPnlDashWind(PanelBorder pnlDashWind) {
         this.pnlDashWind = pnlDashWind;
     }
     
     // ---------------Listeners--------------------------
     //----------------Customer Section-------------------
-    public void addListenerToBtnCustProfile( ActionListener loginListener ) {
-        getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnCustProfile().addActionListener( loginListener ); }
-    public void addListenerToBtnSearchDest( ActionListener loginListener ) {
-        getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnSearchDest().addActionListener( loginListener ); }
-//    public void addListenerToBtnLatestBooking( ActionListener loginListener ) {
-//        getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnLatestBooking().addActionListener( loginListener ); }
-    public void addListenerToBtnAllBooking( ActionListener loginListener ) {
-        getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnViewBooking().addActionListener( loginListener ); }
+    public void addListenerToBtnCustProfile( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnCustProfile().addActionListener( listener ); }
+    public void addListenerToBtnSearchCustFocus( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnCustSearch().addActionListener( listener ); }
+    public void addListenerToBtnSearchDest( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnSearchDest().addActionListener( listener ); }
+    public void addListenerToBtnAllBooking( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAgent().getPnlDashCust().getBtnViewBooking().addActionListener( listener ); }
         
     //----------------Agent Section-------------------
-    public void addListenerToBtnAgentProfile( ActionListener loginListener ) {
-        getPnlDashAgent().getDashPanelAgent().getBtnAgentProfile().addActionListener( loginListener ); }
-    public void addListenerToBtnSearchCust( ActionListener loginListener ) {
-        getPnlDashAgent().getDashPanelAgent().getBtnSearchCust().addActionListener( loginListener ); }
-    public void addListenerToBtnLogoutAgent( ActionListener loginListener ) {
-        getPnlDashAgent().getDashPanelAgent().getBtnLogout().addActionListener( loginListener ); }
-    public void addListenerToBtnClearCust( ActionListener loginListener ) {
-        getPnlDashAgent().getDashPanelAgent().getBtnClearCust().addActionListener( loginListener ); }
+    public void addListenerToBtnAdminProfile( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAgent().getBtnAgentProfile().addActionListener( listener ); }
+    public void addListenerToBtnSearchCust( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAgent().getBtnSearchCust().addActionListener( listener ); }
+    public void addListenerToBtnLogoutAgent( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAgent().getBtnLogout().addActionListener( listener ); }
+    public void addListenerToBtnClearCust( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAgent().getBtnClearCust().addActionListener( listener ); }
+                
+    //----------------Admin Section-------------------
+    public void addListenerToBtnSearchDestAdmin( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAdmin().getBtnDestinations().addActionListener( listener ); }
+    public void addListenerToBtnSearchTrips( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAdmin().getBtnTrips().addActionListener( listener ); }
+    public void addListenerToBtnSearchBook( ActionListener listener ) {
+        pnlDashAdmin.getPnlDashAdmin().getBtnBooking().addActionListener( listener ); }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -94,7 +91,7 @@ public class AppWindowAgent extends GenericView {
     private void initComponents() {
 
         pnlDashWind = new view.components.PanelBorder();
-        pnlDashAgent = new view.dashboard.DashboardAgent();
+        pnlDashAdmin = new view.dashboard.DashboardAdmin();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -104,13 +101,13 @@ public class AppWindowAgent extends GenericView {
         pnlDashWind.setLayout(pnlDashWindLayout);
         pnlDashWindLayout.setHorizontalGroup(
             pnlDashWindLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDashWindLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(pnlDashAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pnlDashWindLayout.createSequentialGroup()
+                .addComponent(pnlDashAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlDashWindLayout.setVerticalGroup(
             pnlDashWindLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlDashAgent, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
+            .addComponent(pnlDashAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -121,7 +118,7 @@ public class AppWindowAgent extends GenericView {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlDashWind, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlDashWind, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -166,7 +163,7 @@ public class AppWindowAgent extends GenericView {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private view.dashboard.DashboardAgent pnlDashAgent;
+    private view.dashboard.DashboardAdmin pnlDashAdmin;
     private view.components.PanelBorder pnlDashWind;
     // End of variables declaration//GEN-END:variables
 }

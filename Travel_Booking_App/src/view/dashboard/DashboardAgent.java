@@ -10,7 +10,6 @@ import view.ProductDetailsGUI;
 import view.ViewTripFrame;
 import utility.AppWindowCust;
 import view.components.GradientPanel;
-import view.components.ListMenu;
 
 /**
  *
@@ -32,14 +31,6 @@ public class DashboardAgent extends GradientPanel {
     public DashboardAgent( ) {
         super(new Color(204,255,204), new Color( 255,150,46 ), 0);
         initComponents();
-        
-//        menuListB.setOpaque(false);
-//        menuListB.refresh();
-//        menuListB.setVisible(true);
-//        
-//        menuListA.setOpaque(false);
-//        menuListA.refresh();
-//        menuListA.setVisible(true);
     }
         
     //getters and setters
@@ -57,15 +48,6 @@ public class DashboardAgent extends GradientPanel {
     public DashPanelAgent getDashPanel(){ return dashPanelAgent; }
     public void DashPanelAgent( DashPanelAgent panel ){ this.dashPanelAgent = panel; }
 
-//    public ListMenu getMenuListA() { return menuListB; }
-//    public void setMenuListA(ListMenu menuList) {
-//        this.menuListB = menuList;
-//    }
-//    public ListMenu getMenuListB() { return menuListA; }
-//    public void setMenuListB(ListMenu menuList) {
-//        this.menuListA = menuList;
-//    }
-
     public JPanel getPnlLogo() { return pnlLogo; }
     public void setPnlLogo(JPanel pnlLogo) {
         this.pnlLogo = pnlLogo;
@@ -78,26 +60,6 @@ public class DashboardAgent extends GradientPanel {
     public void setDashPanelAgent(DashPanelAgent dashPanelAgent) {
         this.dashPanelAgent = dashPanelAgent;
     }
-    
-    
-    
-//    public void setBasics(AppWindowCust topView, AppContext context) {
-//    this.topView = topView;
-//    this.context = context;
-//    repaint();
-//    }
-
-
-//    public ListMenu<String> getListMenuCustomer() {
-//        return menuList;
-//    }
-//
-//    public void setListMenuCustomer(ListMenu<String> menuList) {
-//        this.menuList = menuList;
-//    }
-    
-
-// FUNCTIONAL
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -155,19 +117,6 @@ public class DashboardAgent extends GradientPanel {
                 .addGap(0, 0, 0))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-//    @Override
-//    protected void paintChildren(Graphics grphcs){
-//        Graphics2D g2 = (Graphics2D)grphcs;
-//        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-//        GradientPaint g=new GradientPaint(0, 0, Color.decode(gradientTop), 0, getHeight(), Color.decode(gradientBottom));
-//        g2.setPaint(g);
-    ////        g2.fillRoundRect(0, 0, getWidth(), getHeight(), 15, 15);
-//        g2.fillRect(0, 0, getWidth(), getHeight());
-//        
-//        super.paintChildren(grphcs);
-//    }
-
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private view.dashboard.DashPanelAgent dashPanelAgent;

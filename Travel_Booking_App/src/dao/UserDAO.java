@@ -20,8 +20,13 @@ public class UserDAO {
     public UserDAO(){}
 
     public User addNewUser(User user) {
-        String query = "INSERT INTO users (username, password, first_name, last_name, email, role, phone) VALUES (?,?,?,?,?,?,?);";
-        
+        String query = """
+                INSERT INTO users (
+                       username, password, first_name, last_name, email, 
+                       role, phone
+                       ) 
+                    VALUES (?,?,?,?,?,?,?);";
+                """;
         try ( Connection link = DBConnection.getConnection(); 
             PreparedStatement p = link.prepareStatement(query, Statement.RETURN_GENERATED_KEYS); )
         {
@@ -72,7 +77,6 @@ public class UserDAO {
                 + "postal_code = ?,"
                 + "country = ?,"
                 + "account_status = ?"
-                //+ "WHERE username = ? AND password = BINARY ?;";
                 + " WHERE user_id = ?;";
         
         // connect to database
@@ -103,13 +107,44 @@ public class UserDAO {
             if (row > 0) {
                 return user; // success
             }
+            throw new SQLException("Update failed");
         } catch (SQLException e) {
             System.out.println("Error when connecting to database: " + e);
         } catch (Exception e) {
             System.out.println("Error when connecting to Database: " + e);
-        } finally {
-            return null;
         }
+        
+        return null;
+    }
+    
+    public boolean deleteUser(int userID) {
+        
+        // statement
+        String statement = """
+                           DELETE FROM users
+                           WHERE user_id = ?;
+                           """;
+        
+        // open connection
+        try (Connection connection = DBConnection.getConnection();
+                PreparedStatement p = connection.prepareStatement(statement);) {
+            
+            p.setInt(1, userID); // set userID
+            
+            int rows = p.executeUpdate();
+            
+            if (rows != 1) {
+                throw new SQLException("Fatal: something went wrong with delete!");
+            }
+            
+            return true; // success
+        } catch (SQLException e) {
+            System.out.println("Error when connecting to database: " + e);
+        } catch (Exception e) {
+            System.out.println("Error when connecting to Database: " + e);
+        }
+        
+        return false;
     }
     
 //    activeUser = UserDAO.getUserFromUsername(username, password);\
