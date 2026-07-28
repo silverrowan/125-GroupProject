@@ -49,7 +49,9 @@ public class AddBookingGUI extends javax.swing.JFrame{
         tripsController = new TripsController();
         bookingsController =
                 new BookingsReworkedController();
-
+        
+        
+        
         configureTable();
         loadTrips();
     }
@@ -111,21 +113,6 @@ public class AddBookingGUI extends javax.swing.JFrame{
         }
     }
     
-    private void loadFormInformation() {
-        customerTxt.setText(
-                String.valueOf(customerID)
-        );
-
-        bookingDateTxt.setText(
-                new java.sql.Date(
-                        System.currentTimeMillis()
-                ).toString()
-        );
-
-        customerTxt.setEditable(false);
-        countryTxt.setEditable(false);
-        bookingDateTxt.setEditable(false);
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
