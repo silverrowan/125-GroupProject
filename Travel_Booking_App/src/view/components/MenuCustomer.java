@@ -9,7 +9,7 @@ import java.awt.RenderingHints;
 import javax.management.InvalidAttributeValueException;
 import model.gui.Model_MenuItem;
 import view.ViewCustomerGUI;
-import view.ViewDestinationsGUI;
+//import view.ViewDestinationsGUI; 
 import view.ViewTripFrame;
 
 /**
