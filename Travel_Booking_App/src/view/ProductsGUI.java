@@ -5,12 +5,13 @@
 package view;
 
 import java.awt.event.ActionListener;
+import utility.GenericView;
 
 /**
  *
  * @author kalei
  */
-public class ProductsGUI extends javax.swing.JFrame {
+public class ProductsGUI extends GenericView {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ProductsGUI.class.getName());
 

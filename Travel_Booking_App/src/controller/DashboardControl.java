@@ -360,17 +360,6 @@ public class DashboardControl extends GenericControl{
         System.out.println("view bookings");
         // open/create multi-booking view for current customer
     }
-
-    private void makeViewSingleBooking( AppContext context, Crud crud ) {
-        AddBookingGUI bookView = new AddBookingGUI( ); // views *shouldnt* need context, controller should tell it everything it needs
-        bookView.setCrud( crud );
-        bookView.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
-        BookingsController bookControl = new BookingsController( context, bookView ); 
-        bookView.setVisible(true); //make it visible
-// view existing booking matching booking ID
-//            bookView.setCrud( GenericView.Crud.REQUEST );
-//            pass booking ID to dao to get matching booking object
-    }
     
     // Any other functions your controller uses, eg helpers, validation, buis logic & rules
 
@@ -380,7 +369,7 @@ public class DashboardControl extends GenericControl{
         System.out.println("NEEDS REAL CONTROLLER");
         ProductsGUI view = new ProductsGUI(); //new view
         view.setDefaultCloseOperation(GenericView.DISPOSE_ON_CLOSE); 
-        ProductsControlPLACEHOLDER destsControl = new ProductsControlPLACEHOLDER( context, view ); 
+        DestinationsController destsControl = new DestinationsController(context, (GenericView) view ); 
         view.setVisible(true); //make it visible
     }
     

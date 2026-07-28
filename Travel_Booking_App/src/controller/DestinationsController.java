@@ -12,6 +12,8 @@ import dao.DestinationsDAO;
 import model.Destinations;
 
 import java.util.List;
+import utility.AppContext;
+import utility.GenericView;
 
 //import view.ViewDestinationsGUI;
 
@@ -19,7 +21,9 @@ public class DestinationsController {
 //    private final ViewDestinationsGUI view;
 //    private final AppContext context;
 
-    private final DestinationsDAO destinationsDAO;
+    private DestinationsDAO destinationsDAO;
+    private AppContext context;
+    private GenericView view;
 
     public DestinationsController() {
         this.destinationsDAO = new DestinationsDAO();
@@ -30,6 +34,11 @@ public class DestinationsController {
     public DestinationsController(DestinationsDAO destinationsDAO) {
         this.destinationsDAO = destinationsDAO;
     }
+
+    public DestinationsController(AppContext context, GenericView view) {
+        this.context = context;
+        this.view = view;
+    } 
 
     public List<Destinations> getAllDestinations() {
         return destinationsDAO.getAllDestinations();

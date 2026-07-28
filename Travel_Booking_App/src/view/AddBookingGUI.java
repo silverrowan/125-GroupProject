@@ -15,6 +15,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import utility.AppContext;
 /**
  *
  * @author kalei
@@ -45,6 +46,23 @@ public class AddBookingGUI extends javax.swing.JFrame{
         this.destinationID = destinationID;
         this.customerID = customerID;
         this.createdByUserID = createdByUserID;
+
+        tripsController = new TripsController();
+        bookingsController =
+                new BookingsReworkedController();
+        
+        
+        
+        configureTable();
+        loadTrips();
+    }
+
+    public AddBookingGUI(AppContext context, int destinationID) {
+        initComponents();
+
+        this.destinationID = destinationID;
+        this.customerID = context.getCurrentCustomerUser().getUserID();
+        this.createdByUserID = context.getCurrentUser().getUserID();
 
         tripsController = new TripsController();
         bookingsController =
@@ -469,7 +487,7 @@ public class AddBookingGUI extends javax.swing.JFrame{
                 }
             }
         } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
+//            logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
