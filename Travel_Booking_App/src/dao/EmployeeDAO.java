@@ -34,7 +34,7 @@ public class EmployeeDAO {
                 if (rs.next()) {
                     int idGen = rs.getInt(1); // get int in column 1 of DB table
                     
-                    Employee emp = new Employee(idGen);
+                    Employee emp = new Employee(idGen, user.getUserID());
                     return emp;
                 }
             }

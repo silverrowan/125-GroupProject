@@ -71,7 +71,7 @@ public class VSearchBarUsers extends javax.swing.JPanel {
 
         setMinimumSize(new java.awt.Dimension(483, 35));
         setName(""); // NOI18N
-        setPreferredSize(new java.awt.Dimension(500, 35));
+        setPreferredSize(new java.awt.Dimension(600, 35));
 
         txtSearchField.setToolTipText("Search users...");
         txtSearchField.addActionListener(this::txtSearchFieldActionPerformed);
@@ -80,7 +80,7 @@ public class VSearchBarUsers extends javax.swing.JPanel {
         btnSearch.setText("Search");
         btnSearch.addActionListener(this::btnSearchActionPerformed);
 
-        comboUserRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All roles", "Admin", "Agent", "Tour guide", "Customer" }));
+        comboUserRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All roles", "Admin", "Travel Agent", "Tour guide", "Customer" }));
 
         btnNewUser.setBackground(new java.awt.Color(51, 51, 51));
         btnNewUser.setForeground(new java.awt.Color(255, 255, 255));
@@ -92,12 +92,12 @@ public class VSearchBarUsers extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addComponent(txtSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(comboUserRole, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
+                .addGap(18, 18, 18)
                 .addComponent(btnSearch)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(btnNewUser)
                 .addContainerGap())
         );

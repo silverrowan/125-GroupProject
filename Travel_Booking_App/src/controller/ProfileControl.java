@@ -23,9 +23,9 @@ import view.profile.*;
  */
 public class ProfileControl {
     private AppContext context;
-    private final AbstractEditUserView editProfileView;
-    private final User currentUser;
-    private final UserDAO userDAO;
+    private AbstractEditUserView editProfileView;
+    private User currentUser;
+    private UserDAO userDAO;
 
     /**
      * constructor for viewing customer profiles
@@ -54,8 +54,16 @@ public class ProfileControl {
         editCustomerView.addDeleteAccountBtnListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                // confirm before delete
+                int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this account? This action cannot be undone.", "Delete Account", JOptionPane.YES_NO_OPTION);
+                if (result != JOptionPane.YES_OPTION) {
+                    return;
+                }
+                
                 customerDAO.deleteCustomer(currentCustomer.getCustomerID()); // delete customer first
                 userDAO.deleteUser(currentUser.getUserID()); // then delete user
+                
+                JOptionPane.showMessageDialog(null, "Account deleted");
                 
                 // dispose view
                 editCustomerView.dispose();
@@ -95,8 +103,16 @@ public class ProfileControl {
         editEmployeeView.addDeleteAccountBtnListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                // confirm before delete
+                int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this account? This action cannot be undone.", "Delete Account", JOptionPane.YES_NO_OPTION);
+                if (result != JOptionPane.YES_OPTION) {
+                    return;
+                }
+                
                 employeeDAO.deleteEmployee(currentEmployee.getEmployeeID()); // delete employee first
                 userDAO.deleteUser(currentUser.getUserID()); // then delete user
+                
+                JOptionPane.showMessageDialog(null, "Account deleted");
                 
                 // dispose view
                 editEmployeeView.dispose();
@@ -197,6 +213,11 @@ public class ProfileControl {
                     this.password = currentUser.getPassword(); // no change
                 }
                 
+                // validate username
+                if (!PropertyValidator.validateUsername(username)) {
+                    throw new InvalidAttributeValueException( "must have a valid username");
+                }
+                
                 // validate password
                 if ( !PropertyValidator.validatePassword(password) ) {
                     throw new InvalidAttributeValueException("must have a valid password, minimum 8 characters");
@@ -233,7 +254,9 @@ public class ProfileControl {
                     JOptionPane.showMessageDialog( null , "Changes were not saved for an unknown reason. Check that you have a unique username and email address.");
                     return;
                 }
+                JOptionPane.showMessageDialog( null , "Changes have been saved."); // show success message
                 editProfileView.dispose(); // close window
+
             }
             catch ( InvalidAttributeValueException ex){
                 JOptionPane.showMessageDialog( null , ex.getMessage() );

@@ -108,8 +108,8 @@ public class DashboardControl extends GenericControl{
         JLabel userLabel = dashAgent.getPnlDashAgent().getDashPanelAgent().getLblUser();
         JLabel focusLabel = dashAgent.getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getLblUser();
         JButton focusBtn = dashAgent.getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnCustProfile();
-        JButton findFocusBtn = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getPnlDashCust().getBtnCustSearch();
-        JButton clearUserBtn = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getBtnClearCust();
+        JButton findFocusBtn = dashAgent.getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnCustSearch();
+        JButton clearUserBtn = dashAgent.getPnlDashAgent().getDashPanelAgent().getBtnClearCust();
         JButton focusBookBtn = dashAgent.getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnViewBooking();
 
         Font standardFont = focusLabel.getFont();
