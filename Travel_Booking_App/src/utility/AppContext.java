@@ -1,6 +1,7 @@
 
 package utility;
 
+import controller.DashboardControl;
 import dao.CustomerDAO;
 import dao.DestinationsDAO;
 import dao.EmployeeDAO;
@@ -77,5 +78,13 @@ public class AppContext {
     }
     public void setCurrentFocusUser( User user ){
         getCurrentSession().setFocusUser(user);
+    }
+    
+    public DashboardControl getCurrentDashControl() {
+        return getCurrentSession().getDashControl();
+    }
+
+    public void refreshDashControl() {
+        getCurrentSession().getDashControl().refreshDash();
     }
 }
