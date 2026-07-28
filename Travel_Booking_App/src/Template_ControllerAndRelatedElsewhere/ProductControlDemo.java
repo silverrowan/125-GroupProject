@@ -1,5 +1,6 @@
 package Template_ControllerAndRelatedElsewhere;
 
+import utility.AppContext;
 import view.ProductsGUI;
 
 /**
@@ -7,10 +8,10 @@ import view.ProductsGUI;
  * @author Mariah Malczewska
  */
 public class ProductControlDemo { // Just to stop template from complaining (currently?)
-    private final AppContextPlaceholder context;
-    private final ProductsGUI prodView;
+    private AppContext context;
+    private ProductsGUI prodView;
 
-public ProductControlDemo( AppContextPlaceholder context, ProductsGUI prodView ) {
+public ProductControlDemo( AppContext context, ProductsGUI prodView ) {
     this.context = context;
     this.prodView = prodView;
     
