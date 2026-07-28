@@ -79,7 +79,9 @@ public class UserControl {
             
             // set the focus user
             if (userID != -1) {
-                context.setCurrentFocusUser(userDAO.getUsersFromID(userID).get(0));
+                User focusUser = userDAO.getUsersFromID(userID).get(0);
+                context.setCurrentFocusUser(focusUser);
+                JOptionPane.showMessageDialog(null, "User focused: " + focusUser.getUsername());
             }
         });
         
