@@ -6,7 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import model.User;
 import view.ViewCustomerGUI;
-import view.ViewDestinationsGUI;
+import view.ProductDetailsGUI;
 import view.ViewTripFrame;
 import utility.AppWindowCust;
 import view.components.GradientPanel;
