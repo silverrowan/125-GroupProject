@@ -227,7 +227,7 @@ public class DashboardControl extends GenericControl{
         }
     
         
-    private void refreshDash() {
+    public void refreshDash() {
         //focus objects
         changeSessionFocusObjects();
 //        everything else that might need refreshing

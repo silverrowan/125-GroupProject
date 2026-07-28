@@ -81,7 +81,7 @@ public class UserControl {
             if (userID != -1) {
                 User focusUser = userDAO.getUsersFromID(userID).get(0);
                 context.setCurrentFocusUser(focusUser);
-                context.getCurrentSession().getDashControl().
+                context.getCurrentSession().getDashControl().refreshDash();
                 JOptionPane.showMessageDialog(null, "User focused: " + focusUser.getUsername());
             }
         });
