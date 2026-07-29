@@ -21,7 +21,7 @@ public class Payments {
 
     //CONSTRUCTORS
 
-    public Payments() {
+    public Payments(int bookingID) {
         this.bookingID = bookingID;
         this.basePrice = 0;
         this.activityFees = 0;
@@ -126,12 +126,9 @@ public class Payments {
     }
 
     //SETTERS
-
     public void setPaymentID(int paymentID) {
         this.paymentID = paymentID;
     }
-    
-    
     /**
      * @param bookingID the bookingID to set
      */

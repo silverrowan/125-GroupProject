@@ -18,8 +18,13 @@ import javax.swing.table.DefaultTableModel;
 
 public class ViewAllTripsGUI extends javax.swing.JFrame {
     
+    //Logger
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ViewAllTripsGUI.class.getName());
+   
+    //Controller
     private TripsController tripsController;
+    
+    //Constructor
     /**
      * Creates new form ViewTravelPackagesGUI
      */
@@ -29,7 +34,68 @@ public class ViewAllTripsGUI extends javax.swing.JFrame {
         configureTable();
         loadTrips();
     }
+    
+    //My Methods
+    private void configureTable() {
+        tripsTbl.setModel(new DefaultTableModel(
+                new Object[][] {},
+                new String[] {
+                    "Trip ID",
+                    "Trip Name",
+                    "Tour Guide ID",
+                    "Departure",
+                    "Return",
+                    "Max Travelers",
+                    "Status"
+                }
+        ) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        });
 
+        tripsTbl.setRowSelectionAllowed(true);
+        tripsTbl.setColumnSelectionAllowed(false);
+        tripsTbl.setSelectionMode(
+                javax.swing.ListSelectionModel.SINGLE_SELECTION
+        );
+    }
+    
+    private void loadTrips() {
+        DefaultTableModel tableModel =
+                (DefaultTableModel) tripsTbl.getModel();
+
+        tableModel.setRowCount(0);
+
+        try {
+            List<Trips> trips =
+                    tripsController.getAllTrips();
+
+            for (Trips trip : trips) {
+                tableModel.addRow(new Object[] {
+                    trip.getTripID(),
+                    trip.getTripTitle(),
+                    trip.getAssignedGuideEmployeeID(),
+                    trip.getDepartureDate(),
+                    trip.getReturnDate(),
+                    trip.getMaxTravelers(),
+                    trip.getTripStatus()
+                });
+            }
+
+        } catch (RuntimeException exception) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Could not load trips.\n"
+                            + exception.getMessage(),
+                    "Database Error",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        }
+    }
+
+    //Netbeans Action buttons
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -256,65 +322,5 @@ public class ViewAllTripsGUI extends javax.swing.JFrame {
     private javax.swing.JButton removeBtn;
     private javax.swing.JTable tripsTbl;
     // End of variables declaration//GEN-END:variables
-    
-    private void configureTable() {
-        tripsTbl.setModel(new DefaultTableModel(
-                new Object[][] {},
-                new String[] {
-                    "Trip ID",
-                    "Trip Name",
-                    "Tour Guide ID",
-                    "Departure",
-                    "Return",
-                    "Max Travelers",
-                    "Status"
-                }
-        ) {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-        });
 
-        tripsTbl.setRowSelectionAllowed(true);
-        tripsTbl.setColumnSelectionAllowed(false);
-        tripsTbl.setSelectionMode(
-                javax.swing.ListSelectionModel.SINGLE_SELECTION
-        );
-    }
-    
-    private void loadTrips() {
-        DefaultTableModel tableModel =
-                (DefaultTableModel) tripsTbl.getModel();
-
-        tableModel.setRowCount(0);
-
-        try {
-            List<Trips> trips =
-                    tripsController.getAllTrips();
-
-            for (Trips trip : trips) {
-                tableModel.addRow(new Object[] {
-                    trip.getTripID(),
-                    trip.getTripTitle(),
-                    trip.getAssignedGuideEmployeeID(),
-                    trip.getDepartureDate(),
-                    trip.getReturnDate(),
-                    trip.getMaxTravelers(),
-                    trip.getTripStatus()
-                });
-            }
-
-        } catch (RuntimeException exception) {
-            exception.printStackTrace();
-
-            JOptionPane.showMessageDialog(
-                    this,
-                    "Could not load trips.\n"
-                            + exception.getMessage(),
-                    "Database Error",
-                    JOptionPane.ERROR_MESSAGE
-            );
-        }
-    }
 }
