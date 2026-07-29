@@ -169,7 +169,7 @@ public class DashboardControl extends GenericControl{
         class SearchDest implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
-                makeViewDestSearch(getAppContext());
+                makeViewDestSearch( getContext() );
             }
         }
 
@@ -218,7 +218,7 @@ public class DashboardControl extends GenericControl{
             public void actionPerformed(ActionEvent e) {
                 //open searchTrip view
                 //open controller
-                makeViewDestSearch(context);
+                makeViewDestSearch( getContext() );
                 throw new UnsupportedOperationException("Not supported yet.");
             }
         }
