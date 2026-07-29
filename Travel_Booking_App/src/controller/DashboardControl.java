@@ -55,17 +55,17 @@ public class DashboardControl extends GenericControl{
     public DashboardControl( AppContext context, AppWindowCust dashCust ){ 
         this( context, dashCust, 99 );
 
-        this.userLabel = dashAgent.getPnlDashAgent().getDashPanelAgent().getLblUser();
-        this.focusLabel = dashAgent.getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getLblUser();
-        this.focusBtn = dashAgent.getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnCustProfile();
-        this.findFocusBtn = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getPnlDashCust().getBtnCustSearch();
+        this.userLabel = dashCust.getPnlDashCust().getPnlDashCust().getLblUser();
+        this.focusLabel = dashCust.getPnlDashCust().getPnlDashCust().getLblUser();
+        this.focusBtn = dashCust.getPnlDashCust().getPnlDashCust().getBtnCustProfile();
+        this.findFocusBtn = dashCust.getPnlDashCust().getPnlDashCust().getBtnCustSearch();
         
         this.headerFont = focusLabel.getFont().deriveFont(Font.BOLD, 24);
         
         //listeners
         this.dashCust = (AppWindowCust) getView();        
         this.dashCust.addListenerToBtnCustProfile( new Profile( true ) );
-        this.dashAgent.addListenerToBtnSearchCustFocus( new SearchUser( true ) );
+        this.dashCust.addListenerToBtnSearchCustFocus( new SearchUser( true ) );
         this.dashCust.addListenerToBtnSearchDest( new SearchDest() );
         this.dashCust.addListenerToBtnAllBooking( new AllBooking() );
         this.dashCust.addListenerToLogoutCust( new Logout() );
@@ -268,23 +268,25 @@ public class DashboardControl extends GenericControl{
     
     private void changeAgentFocusObjects( ) {
         ensureValidFocus();
-        User customer = getAppContext().getCurrentSession().getCurrentCustomer();
-        
+        AppContext context = getAppContext();
+        User focus = context.getCurrentFocusUser();
+          
         focusBookBtn.setText( "Customer Bookings" );
-        if ( customer == null ) {
-            String focusLabelText = "No Customer set";
-            changeLabelToHeader( focusLabel, headerFont, focusLabelText );
+        if ( focus == null ) {
+            changeLabelToHeader( focusLabel, headerFont, "No Customer set" );
 
             focusBtn.setVisible(false);
             findFocusBtn.setVisible(true);
             clearUserBtn.setEnabled( false );
             focusBookBtn.setEnabled( false );
+        } else if ( !focus.getRole().equals("Customer") ){ 
+            JOptionPane.showMessageDialog( null, "Selected user is not a customer, Can only act for Customers" );
+            context.getCurrentSession().clearFoci();
         } else {
-            String focusLabelText = "Customer: " + customer.getUsername();
-            changeLabelToHeader( focusLabel, headerFont, focusLabelText );
+            changeLabelToHeader( focusLabel, headerFont, "Customer: " + focus.getUsername() );
 
             focusBtn.setVisible(true);
-            focusBtn.setText( customer.getUsername() + "'s Profile" );
+            focusBtn.setText( focus.getUsername() + "'s Profile" );
             findFocusBtn.setVisible(false);
             clearUserBtn.setEnabled( true );
             focusBookBtn.setEnabled( true );            
@@ -362,8 +364,6 @@ public class DashboardControl extends GenericControl{
         FilterUsersGUI view = new FilterUsersGUI( ); // views *shouldnt* need context, controller should tell it everything it needs
         view.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
         ProfileControl userControl = new ProfileControl( context, view ); 
-        //Figure out how to filter
-        //Apply customers only filter
         view.setVisible(true); //make it visible
     }
         

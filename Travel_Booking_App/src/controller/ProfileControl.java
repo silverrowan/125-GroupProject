@@ -240,7 +240,6 @@ public class ProfileControl {
         this.editProfileView.addSaveBtnListener(new UserSaver());
     }
     
-        
     class UserSaver implements ActionListener {
         // account & personal info
         private String username;
@@ -643,7 +642,6 @@ public class ProfileControl {
         }
         
     }
-
     
     public Boolean newDBCustomer( User user ){
         CustomerDAO custDao = new CustomerDAO();
@@ -674,7 +672,6 @@ public class ProfileControl {
             return false;
         }
     }
-    
     
     // Validation Helper Functions
     public boolean validateRole(Object roleObj) {

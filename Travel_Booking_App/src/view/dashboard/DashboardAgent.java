@@ -108,8 +108,7 @@ public class DashboardAgent extends GradientPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
-                .addComponent(dashPanelAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addComponent(dashPanelAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 550, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
     
