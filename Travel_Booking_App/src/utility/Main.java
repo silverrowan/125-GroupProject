@@ -3,6 +3,7 @@ package utility;
 
 import view.dashboard.AppWindowAdmin;
 import controller.DashboardControl;
+import controller.LoginControl;
 import model.User;
 import view.dashboard.AppWindowAgent;
 import view.dashboard.AppWindowCust;
@@ -20,10 +21,18 @@ public class Main {
     public static void main(String[] args) {
         
         AppContext context = new AppContext();
-        Login loginView = new Login();
         
-        directToDash(context);
-    }  
+        runLogin( context );
+        
+        
+//        directToDash(context);
+    }
+    
+    public static void runLogin( AppContext context ){
+        Login loginView = new Login();
+        LoginControl loginControl = new LoginControl( context, loginView);
+        loginView.setVisible(true);
+    }
 
     public static void directToDash(AppContext context) {
         User activeUser;
