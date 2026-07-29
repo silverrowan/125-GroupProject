@@ -454,17 +454,17 @@ public class DashboardControl extends GenericControl{
         // open/create multi-booking view for current customer
     }
 
-    private void makeViewSingleBooking( AppContext context, Crud crud ) {
-        AddBookingGUI bookView = new AddBookingGUI( ); // views *shouldnt* need context, controller should tell it everything it needs
-        bookView.setCrud( crud );
-        bookView.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
-        BookingsController bookControl = new BookingsController( context, bookView ); 
-        bookView.setVisible(true); //make it visible
-        
+//    private void makeViewSingleBooking( AppContext context, Crud crud ) {
+//        AddBookingGUI bookView = new AddBookingGUI( ); // views *shouldnt* need context, controller should tell it everything it needs
+//        bookView.setCrud( crud );
+//        bookView.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
+//        BookingsController bookControl = new BookingsController( context, bookView ); 
+//        bookView.setVisible(true); //make it visible
+//        
     // view existing booking matching booking ID
     //            bookView.setCrud( GenericView.Crud.REQUEST );
     //            pass booking ID to dao to get matching booking object
-    }
+//    }
 
     // ------------------Other Make & Set up Views------------------------------
     private void makeViewDestSearch( AppContext context ) {
