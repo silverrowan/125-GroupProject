@@ -22,11 +22,19 @@ public class Customer {
         this.emergencyContactPhone = emergencyContactPhone;
         this.customerNotes = customerNotes;
     }
+    
+    public Customer(int userID, int customerID) {
+        this(userID);
+        this.customerID = customerID;
+    }
+    
 
     // required constructor
     public Customer(int userID) {
         this.userID = userID;
     }
+    
+    
     
     // getters and setters
     public int getCustomerID() {

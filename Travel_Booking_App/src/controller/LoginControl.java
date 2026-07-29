@@ -19,8 +19,8 @@ import view.profile.EditCustomerGUI;
  * Handles the Logic and Validation for the Login Screen
  */
 public class LoginControl {
-    private final AppContext context;
-    private final Login loginView;
+    private AppContext context;
+    private Login loginView;
 
     public LoginControl( AppContext context, Login loginView ) {
         this.context = context;

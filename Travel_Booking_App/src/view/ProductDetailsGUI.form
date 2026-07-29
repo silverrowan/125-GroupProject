@@ -470,6 +470,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Book Package"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bookBtnActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -104,7 +104,9 @@ public class AppWindowCust extends GenericView {
         );
         pnlDashWindLayout.setVerticalGroup(
             pnlDashWindLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlDashCust, javax.swing.GroupLayout.PREFERRED_SIZE, 451, Short.MAX_VALUE)
+            .addGroup(pnlDashWindLayout.createSequentialGroup()
+                .addComponent(pnlDashCust, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

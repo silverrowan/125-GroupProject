@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -109,9 +110,9 @@ public class UserDAO {
             }
             throw new SQLException("Update failed");
         } catch (SQLException e) {
-            System.out.println("Error when connecting to database: " + e);
+            System.out.println("Update failed: " + e);
         } catch (Exception e) {
-            System.out.println("Error when connecting to Database: " + e);
+            System.out.println("Update failed: " + e);
         }
         
         return null;
@@ -172,7 +173,7 @@ public class UserDAO {
         return null; 
     }
     
-        public User getUserFromUsername(String username){
+    public User getUserFromUsername(String username){
         String query = "SELECT user_id, password, username, first_name, last_name," + 
                 "role, email, phone, street_number, street_name, city, province," +
                 "postal_code, country, account_status FROM users " +
@@ -192,6 +193,291 @@ public class UserDAO {
         catch ( SQLException e ) { e.printStackTrace(); }
         catch ( Exception e ) { e.printStackTrace(); }
         return null; 
+    }
+    
+    /**
+     * fetches all users with a certain role from database
+     * @param role Customer, Admin, Travel Agent
+     * @return ArrayList of all users
+     */
+    public ArrayList<User> getUsersByRole(String role) {
+        if (role.equals("All roles")) {
+            // searching for all roles
+            return this.getAllUsers();
+        }
+        
+        String query = """
+                       SELECT * FROM users
+                       WHERE role = ?;
+                       """;
+        
+        return getUsersByRole(query, role);
+    }
+    
+    private ArrayList<User> getUsersByRole(String query, String role) {
+        // connect to database
+        try (Connection connection = DBConnection.getConnection();
+                PreparedStatement p = connection.prepareStatement(query);) {
+
+            p.setString(1, role);
+            
+            ResultSet rs = p.executeQuery(); // execute query
+            
+            ArrayList<User> list = new ArrayList<>(); // create list
+            
+            // add each user to list
+            while (rs.next()) {
+                User user = makeUserObj(rs);
+                list.add(user);
+            }
+            
+            return list; // return list
+        } catch (SQLException e) {
+            System.out.println("Error when connecting to database: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
+        
+        return null;
+    }
+    
+    /**
+     * fetches all users regardless of role
+     * @return ArrayList of all users
+     */
+    public ArrayList<User> getAllUsers() {
+        String query = """
+                       SELECT * FROM users
+                       ;
+                       """;
+        
+        return getUsers(query);
+    }
+    
+    /**
+     * gets a user from a role and a user id
+     * @param role Admin, Travel Agent, Customer
+     * @param userID id of user
+     * @return ArrayList of user (there should just be one)
+     */
+    public ArrayList<User> getUsersByRoleAndID(String role, int userID) {
+        if (role.equals("All roles")) {
+            // searching for all roles
+            return this.getUsersFromID(userID);
+        }
+        
+        String query = """
+                       SELECT * FROM users
+                       WHERE role = ?
+                       AND user_id = ?;
+                       """;
+        
+        return getUsersByRoleAndID(query, role, userID);
+    }
+    
+    private ArrayList<User> getUsersByRoleAndID(String query, String role, int userID) {
+        // connect to database
+        try (Connection connection = DBConnection.getConnection();
+                PreparedStatement p = connection.prepareStatement(query);) {
+
+            p.setString(1, role);
+            p.setInt(2, userID);
+            
+            ResultSet rs = p.executeQuery(); // execute query
+            
+            ArrayList<User> list = new ArrayList<>(); // create list
+            
+            // add each user to list
+            while (rs.next()) {
+                User user = makeUserObj(rs);
+                list.add(user);
+            }
+            
+            // if size is not 1, something went wrong
+            if (list.size() > 1) {
+                throw new SQLException("Multiple users returned from one userID");
+            }
+            
+            return list; // return list
+        } catch (SQLException e) {
+            System.out.println("Error when connecting to database: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
+        
+        return null;
+    }
+    
+    /**
+     * gets a user from a user id
+     * @param userID
+     * @return ArrayList of user (there should just be one)
+     */
+    public ArrayList<User> getUsersFromID(int userID) {
+        String query = """
+                       SELECT * FROM users
+                       WHERE user_id = ?;
+                       """;
+        
+        return getUserFromID(query, userID);
+    }
+    
+    /**
+     * returns all users with a certain role who have a username similar to the one provided
+     * @param role Admin, Travel Agent, Customer
+     * @param username the complete or partial username
+     * @return ArrayList of all matching users
+     */
+    public ArrayList<User> getUsersByRoleAndUsername(String role, String username) {
+        if (role.equals("All roles")) {
+            // searching for all roles
+            return this.getAllUsersFromUsername(username);
+        }
+        
+        String query = """
+                       SELECT * FROM users
+                       WHERE role = ?
+                       AND username LIKE ?;
+                       """;
+        
+        return getUsersByRoleAndUsername(query, role, username);
+    }
+    
+    private ArrayList<User> getUsersByRoleAndUsername(String query, String role, String username) {
+        // connect to database
+        try (Connection connection = DBConnection.getConnection();
+                PreparedStatement p = connection.prepareStatement(query);) {
+            
+            StringBuilder sb = new StringBuilder("%");
+            for (int c = 0; c < username.length(); c++) {
+                sb.append(username.charAt(c));
+                sb.append("%");
+            }
+            
+            p.setString(1, role);
+            p.setString(2, sb.toString());
+            
+            ResultSet rs = p.executeQuery(); // execute query
+            
+            ArrayList<User> list = new ArrayList<>(); // create list
+            
+            // add each user to list
+            while (rs.next()) {
+                User user = makeUserObj(rs);
+                list.add(user);
+            }
+            
+            return list; // return list
+        } catch (SQLException e) {
+            System.out.println("Error when connecting to database: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
+        
+        return null;
+    }
+    
+    /**
+     * returns all users who have a username similar to the one provided
+     * @param username the complete or partial username
+     * @return ArrayList of all matching users
+     */
+    public ArrayList<User> getAllUsersFromUsername(String username) {
+        String query = """
+                       SELECT * FROM users
+                       WHERE username LIKE ?;
+                       """;
+        
+        return getUsersFromUsername(query, username);
+    }
+    
+    private ArrayList<User> getUsers(String query) {
+        // connect to database
+        try (Connection connection = DBConnection.getConnection();
+                PreparedStatement p = connection.prepareStatement(query);) {
+            
+            ResultSet rs = p.executeQuery(); // execute query
+            
+            ArrayList<User> list = new ArrayList<>(); // create list
+            
+            // add each user to list
+            while (rs.next()) {
+                User user = makeUserObj(rs);
+                list.add(user);
+            }
+            
+            return list; // return list
+        } catch (SQLException e) {
+            System.out.println("Error when connecting to database: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
+        
+        return null;
+    }
+    
+    private ArrayList<User> getUserFromID(String query, int userID) {
+        // connect to database
+        try (Connection connection = DBConnection.getConnection();
+                PreparedStatement p = connection.prepareStatement(query);) {
+
+            p.setInt(1, userID);
+            
+            ResultSet rs = p.executeQuery(); // execute query
+            
+            ArrayList<User> list = new ArrayList<>(); // create list
+            
+            // add each user to list
+            while (rs.next()) {
+                User user = makeUserObj(rs);
+                list.add(user);
+            }
+            
+            // if size is not 1, something went wrong
+            if (list.size() > 1) {
+                throw new SQLException("Multiple users returned from one userID");
+            }
+            
+            return list; // return list
+        } catch (SQLException e) {
+            System.out.println("Error when connecting to database: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
+        
+        return null;
+    }
+    
+    private ArrayList<User> getUsersFromUsername(String query, String username) {
+        // connect to database
+        try (Connection connection = DBConnection.getConnection();
+                PreparedStatement p = connection.prepareStatement(query);) {
+            
+            StringBuilder sb = new StringBuilder("%");
+            for (int c = 0; c < username.length(); c++) {
+                sb.append(username.charAt(c));
+                sb.append("%");
+            }
+            p.setString(1, sb.toString());
+            
+            ResultSet rs = p.executeQuery(); // execute query
+            
+            ArrayList<User> list = new ArrayList<>(); // create list
+            
+            // add each user to list
+            while (rs.next()) {
+                User user = makeUserObj(rs);
+                list.add(user);
+            }
+            
+            return list; // return list
+        } catch (SQLException e) {
+            System.out.println("Error when connecting to database: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
+        
+        return null;
     }
     
     public User makeUserObj(ResultSet rs) throws SQLException{

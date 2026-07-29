@@ -5,9 +5,10 @@
 package view;
 
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import view.subViews.VSearchBarUsers;
+import view.components.VSearchBarUsers;
 
 /**
  *
@@ -47,6 +48,22 @@ public class FilterUsersGUI extends javax.swing.JFrame {
     public void setvSearchBarUsers(VSearchBarUsers vSearchBarUsers) {
         this.vSearchBarUsers = vSearchBarUsers;
     }
+
+    public JButton getBtnFocus() {
+        return btnFocus;
+    }
+
+    public void setBtnFocus(JButton btnFocus) {
+        this.btnFocus = btnFocus;
+    }
+
+    public JButton getBtnOpen() {
+        return btnOpen;
+    }
+
+    public void setBtnOpen(JButton btnOpen) {
+        this.btnOpen = btnOpen;
+    }
     
     
     
@@ -56,6 +73,12 @@ public class FilterUsersGUI extends javax.swing.JFrame {
     }
     public void addSearchBtnListener(ActionListener nextListener) {
         vSearchBarUsers.getBtnSearch().addActionListener(nextListener);
+    }
+    public void addFocusBtnListener(ActionListener nextListener) {
+        this.getBtnFocus().addActionListener(nextListener);
+    }
+    public void addOpenBtnListener(ActionListener nextListener) {
+        this.getBtnOpen().addActionListener(nextListener);
     }
     //not 100% sure on how to get combo box and textfield values
 
@@ -71,7 +94,9 @@ public class FilterUsersGUI extends javax.swing.JFrame {
         pnlFilterUsers = new javax.swing.JPanel();
         scrollUsers = new javax.swing.JScrollPane();
         tblUsers = new javax.swing.JTable();
-        vSearchBarUsers = new view.subViews.VSearchBarUsers();
+        vSearchBarUsers = new view.components.VSearchBarUsers();
+        btnFocus = new javax.swing.JButton();
+        btnOpen = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,20 +104,20 @@ public class FilterUsersGUI extends javax.swing.JFrame {
 
         tblUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "username", "First Name", "Last Name", "Role", "Email", "Account Status"
+                "id", "username", "First Name", "Last Name", "Role", "Phone", "Account Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -103,49 +128,91 @@ public class FilterUsersGUI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblUsers.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         scrollUsers.setViewportView(tblUsers);
+
+        btnFocus.setBackground(new java.awt.Color(204, 255, 255));
+        btnFocus.setText("Focus on Selected User");
+        btnFocus.setMaximumSize(new java.awt.Dimension(151, 30));
+        btnFocus.setMinimumSize(new java.awt.Dimension(151, 30));
+        btnFocus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFocusActionPerformed(evt);
+            }
+        });
+
+        btnOpen.setBackground(new java.awt.Color(255, 204, 153));
+        btnOpen.setText("Open User");
+        btnOpen.setMaximumSize(new java.awt.Dimension(151, 30));
+        btnOpen.setMinimumSize(new java.awt.Dimension(151, 30));
+        btnOpen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOpenActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlFilterUsersLayout = new javax.swing.GroupLayout(pnlFilterUsers);
         pnlFilterUsers.setLayout(pnlFilterUsersLayout);
         pnlFilterUsersLayout.setHorizontalGroup(
             pnlFilterUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFilterUsersLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
                 .addGroup(pnlFilterUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(vSearchBarUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(scrollUsers, javax.swing.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE))
+                    .addGroup(pnlFilterUsersLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnFocus, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnOpen, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlFilterUsersLayout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(pnlFilterUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(scrollUsers, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(vSearchBarUsers, javax.swing.GroupLayout.DEFAULT_SIZE, 687, Short.MAX_VALUE))))
                 .addGap(38, 38, 38))
         );
         pnlFilterUsersLayout.setVerticalGroup(
             pnlFilterUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlFilterUsersLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(vSearchBarUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addGap(26, 26, 26)
+                .addComponent(vSearchBarUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(scrollUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlFilterUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnFocus, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                    .addComponent(btnOpen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pnlFilterUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(pnlFilterUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlFilterUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnlFilterUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnFocusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFocusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFocusActionPerformed
+
+    private void btnOpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOpenActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnFocus;
+    private javax.swing.JButton btnOpen;
     private javax.swing.JPanel pnlFilterUsers;
     private javax.swing.JScrollPane scrollUsers;
     private javax.swing.JTable tblUsers;
-    private view.subViews.VSearchBarUsers vSearchBarUsers;
+    private view.components.VSearchBarUsers vSearchBarUsers;
     // End of variables declaration//GEN-END:variables
 }

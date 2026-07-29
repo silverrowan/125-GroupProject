@@ -39,6 +39,10 @@ public class Bookings {
         this.specialRequests = specialRequests;
         this.bookingNotes = bookingNotes;
     }  
+
+    public Bookings() {
+        // empty - fields set via setters
+    }
     
     //emum field options
     public static enum bookingStatusType { Upcoming, Completed, Cancelled }
@@ -108,6 +112,11 @@ public class Bookings {
     }
 
     //SETTERS
+    
+    public void setBookingID(int bookingID) {
+        this.bookingID = bookingID;
+    }
+    
     /**
      * @param customerID the customerID to set
      */

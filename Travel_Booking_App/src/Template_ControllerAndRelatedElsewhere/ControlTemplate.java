@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.SingleSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import utility.AppContext;
 import view.ProductsGUI;
 import view.dashboard.AppWindowCust;
 import utility.GenericView;
@@ -15,7 +16,7 @@ import utility.GenericView;
  * @author Mariah Malczewska
  */
 public class ControlTemplate {
-    private AppContextPlaceholder context;
+    private AppContext context;
     //private filds for each related view, format:
     //private ViewClassName view;  eg:
     private AppWindowCust dashWindow;
@@ -26,7 +27,7 @@ public class ControlTemplate {
     private GenericView frameView; 
     
     // EACH view that this interacts with will need its own Constructor
-    public ControlTemplate( AppContextPlaceholder context, AppWindowCust dashWindow ) { 
+    public ControlTemplate( AppContext context, AppWindowCust dashWindow ) { 
         this.context = context;
         this.dashWindow = dashWindow;
         this.panelView = dashWindow.getDashboardList(); // helper - gets the subview
@@ -107,7 +108,7 @@ public class ControlTemplate {
     }
     
     // Make View - you'll need this for any views that the related views could lead to
-    private void makeViewTEMPLATE( AppContextPlaceholder context ) { // make and go to view template
+    private void makeViewTEMPLATE( AppContext context ) { // make and go to view template
 //        // Make new view & set up
 //        //==========================
 //        //get the data & apply it? not sure if before or after creating the view/control, still figuring that one out. will update

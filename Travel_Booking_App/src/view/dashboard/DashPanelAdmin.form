@@ -53,7 +53,7 @@
         <Property name="text" type="java.lang.String" value="Search &amp; Edit"/>
       </Properties>
     </Component>
-    <Component class="view.models.ButtonBase" name="btnBooking">
+    <Component class="view.components.ButtonBase" name="btnBooking">
       <Properties>
         <Property name="actionCommand" type="java.lang.String" value="searchBooking"/>
         <Property name="label" type="java.lang.String" value="Booking"/>
@@ -62,7 +62,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBookingActionPerformed"/>
       </Events>
     </Component>
-    <Component class="view.models.ButtonBase" name="btnDestinations">
+    <Component class="view.components.ButtonBase" name="btnDestinations">
       <Properties>
         <Property name="actionCommand" type="java.lang.String" value="searchDestinations"/>
         <Property name="label" type="java.lang.String" value="Destinations"/>
@@ -71,7 +71,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDestinationsActionPerformed"/>
       </Events>
     </Component>
-    <Component class="view.models.ButtonBase" name="btnTrips">
+    <Component class="view.components.ButtonBase" name="btnTrips">
       <Properties>
         <Property name="actionCommand" type="java.lang.String" value="searchTrips"/>
         <Property name="label" type="java.lang.String" value="Trips"/>
