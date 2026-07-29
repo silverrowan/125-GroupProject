@@ -24,7 +24,7 @@ public class Login extends javax.swing.JFrame {
         this.setSize(679,422);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        btnNewCustomer.setVisible(false);
+//        btnNewCustomer.setVisible(false);
     }
     
     //setters & getters

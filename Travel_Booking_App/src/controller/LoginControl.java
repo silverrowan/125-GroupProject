@@ -3,12 +3,14 @@ package controller;
 import utility.AppContext;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import model.User;
 import view.dashboard.AppWindowAdmin;
 import view.dashboard.AppWindowAgent;
 import view.Login;
 import view.dashboard.AppWindowCust;
+import view.profile.EditCustomerGUI;
 
 /**
  *
@@ -24,7 +26,7 @@ public class LoginControl {
         this.loginView = loginView;
         
         this.loginView.addLoginBtnListener( new LogInUser() );
-//        this.loginView.addNewCustomerBtnListener( new AddNewCustomer() );
+        this.loginView.addNewCustomerBtnListener( new addNewUser() );
     }
     
     class LogInUser implements ActionListener {
@@ -32,6 +34,18 @@ public class LoginControl {
         public void actionPerformed(ActionEvent e) {
             loginUser();
             loginView.dispose();           
+        }
+    }
+    
+    class addNewUser implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("entered new user");
+            EditCustomerGUI view = new EditCustomerGUI();
+            view.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//            ProfileControl newUControl = new ProfileControl( context, view );
+            view.setVisible(true);         
         }
     }
     

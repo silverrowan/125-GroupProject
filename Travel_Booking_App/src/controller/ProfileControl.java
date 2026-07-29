@@ -29,29 +29,7 @@ public class ProfileControl {
     private User currentUser;
     private UserDAO userDAO;
     
-    private AddNewUser userView;
     private FilterUsersGUI usersView;
-    
-    /**
-     * add new user view
-     * @param context context
-     * @param userView view
-     */
-    public ProfileControl ( AppContext context, AddNewUser userView ) { 
-        this.context = context;
-        this.userView = userView;
-        userDAO = context.getUserDao();
-        
-        // add listeners
-        
-        // Cancel button
-        this.userView.addCancelBtnListener((ActionEvent e) -> {
-            this.userView.dispose();
-        });
-        
-        // save
-        this.userView.addSaveBtnListener(new AddUserRecord());
-    }
     
     /**
      * Search for users
@@ -81,14 +59,14 @@ public class ProfileControl {
         // add listeners
         usersView.addSearchBtnListener(su);
         
-        usersView.addNewUserBtnListener((ActionEvent e) -> {
-            AddNewUser addView = new AddNewUser();
-            addView.getSelectionRole().setSelectedItem("Customer");
-            addView.getSelectionRole().setEnabled(context.getCurrentUser().getRole().equals("Admin")); // only admin can make any user, agents can only make customers
-            addView.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            ProfileControl pc = new ProfileControl(context, addView);
-            addView.setVisible(true);
-        });
+//        usersView.addNewUserBtnListener((ActionEvent e) -> {
+//            AddNewUser addView = new AddNewUser();
+//            addView.getSelectionRole().setSelectedItem("Customer");
+//            addView.getSelectionRole().setEnabled(context.getCurrentUser().getRole().equals("Admin")); // only admin can make any user, agents can only make customers
+//            addView.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//            ProfileControl pc = new ProfileControl(context, addView);
+//            addView.setVisible(true);
+//        });
         
         // focus on a user
         usersView.addFocusBtnListener((ActionEvent e) -> {
@@ -173,11 +151,9 @@ public class ProfileControl {
     }
     
     /**
-     * constructor for viewing employee profiles
-     * @param context context of current user and session
-     * @param dc DashboardControl used to log out
-     * @param user the user whose profile is to be displayed
-     * @param editEmployeeView the view to display the profile
+     * add new user view (login screen)
+     * @param context context
+     * @param userView view
      */
     public ProfileControl(AppContext context, DashboardControl dc, User user, EditEmployeeGUI editEmployeeView) {
         this(editEmployeeView, context, user); // update generic user information
@@ -505,88 +481,6 @@ public class ProfileControl {
         }
     }
 
-    class AddUserRecord implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            User user = newDBUser();
-            
-            Boolean isSuccess = false;
-            if ( user != null ) { 
-                if ( user.getRole().equals( "Customer" ) ) {
-                    isSuccess = newDBCustomer( user );
-                    if (!isSuccess) {
-                        userView.dispose();
-                        JOptionPane.showMessageDialog(null, "There was a problem making the Customer, but User was successful");
-                        return;
-                    }
-                } else {
-                    isSuccess = newDBEmployee( user );
-                    if (!isSuccess) {
-                        userView.dispose();
-                        JOptionPane.showMessageDialog(null, "There was a problem making the Employee, but User was successful");
-                        return;
-                    }
-                }
-                
-                // success
-                userView.dispose();
-                JOptionPane.showMessageDialog(null, "User created successfully");
-            } else { JOptionPane.showMessageDialog(null, "User was not created"); }    
-        }
-        
-        public User newDBUser( ) {
-            String username = userView.getInputUsername().getText();
-            char[] passwordChar = userView.getInputPassword().getPassword();
-            String firstName = userView.getInputFirstName().getText();
-            String lastName = userView.getInputLastName().getText();
-            String email = userView.getInputEmail().getText();
-            String phone = userView.getInputPhone().getText();
-            Object roleObj = userView.getSelectionRole().getSelectedItem();
-            
-            // convert password to string
-            StringBuilder sb = new StringBuilder();
-            for (char c : passwordChar) {
-                sb.append(c);
-            }
-            
-            String password = sb.toString();
-            try {
-                // validate username
-                if (!PropertyValidator.validateUsername(username)) {
-                    throw new InvalidAttributeValueException( "must have a valid username");
-                }
-                
-                // validate password
-                if ( !PropertyValidator.validatePassword(password) ) {
-                    throw new InvalidAttributeValueException("must have a valid password, minimum 8 characters");
-                }
-                // validate email
-                if ( !PropertyValidator.validateEmail(email) ) {
-                    throw new InvalidAttributeValueException( "must have a valid email");
-                }
-                // validate first name
-                if ( !PropertyValidator.validateFirstName(firstName) ) {
-                    throw new InvalidAttributeValueException( "must have a valid first name");
-                }
-                // validate last name
-                if ( !PropertyValidator.validateLastName(lastName) ) {
-                    throw new InvalidAttributeValueException( "must have a valid last name");
-                }
-                
-                String role = roleObj.toString();
-                User user = new User(username, password, firstName, lastName, email, role, phone);
-                user = userDAO.addNewUser(user);
-
-                return user;
-            } catch (InvalidAttributeValueException e) {
-                JOptionPane.showMessageDialog( null , e.getMessage() );
-            }
-
-            return null;
-        }
-    }
-    
     class SearchUsers implements ActionListener {
         
 
