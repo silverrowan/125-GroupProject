@@ -1,7 +1,6 @@
 package controller;
 
 import utility.AppContext;
-import view.AddUserGUIPage1;
 import model.User;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,6 +10,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import view.FilterUsersGUI;
+import view.profile.AddNewUser;
 import view.profile.EditCustomerGUI;
 import view.profile.EditEmployeeGUI;
 
@@ -22,15 +22,13 @@ import view.profile.EditEmployeeGUI;
 public class UserControl {
     private AppContext context;
     private UserDAO userDAO;
-    private AddUserGUIPage1 userView;
+    private AddNewUser userView;
     private FilterUsersGUI usersView;
    
-    public UserControl( AppContext context, AddUserGUIPage1 userView ) {
+    public UserControl( AppContext context, AddNewUser userView ) {
         this.context = context;
         this.userView = userView;
         userDAO = context.getUserDao();
-        
-        this.userView.addNextBtnListener( new AddUserRecord() );
     }
 
     public UserControl( AppContext context, FilterUsersGUI usersView ) {
@@ -59,9 +57,9 @@ public class UserControl {
         usersView.addSearchBtnListener(su);
         
         usersView.addNewUserBtnListener((ActionEvent e) -> {
-            AddUserGUIPage1 addView = new AddUserGUIPage1();
-            addView.getComboRole().setSelectedItem("Customer");
-            addView.getComboRole().setEnabled(context.getCurrentUser().getRole().equals("Admin")); // only admin can make any user, agents can only make customers
+            AddNewUser addView = new AddNewUser();
+            addView.getSelectionRole().setSelectedItem("Customer");
+            addView.getSelectionRole().setEnabled(context.getCurrentUser().getRole().equals("Admin")); // only admin can make any user, agents can only make customers
             addView.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             UserControl uc = new UserControl(context, addView);
             addView.setVisible(true);
@@ -120,13 +118,13 @@ public class UserControl {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            String username = userView.getTxtUsername().getText();
-            String password = userView.getTxtPassword().getText();
-            String firstName = userView.getTxtFirstName().getText();
-            String lastName = userView.getTxtLastName().getText();
-            String email = userView.getTxtEmail().getText();
-            String phone = userView.getTxtPhone().getText();
-            Object roleObj = userView.getComboRole().getSelectedItem();
+            String username = userView.getInputUsername().getText();
+            String password = userView.getInputPassword().getText();
+            String firstName = userView.getInputFirstName().getText();
+            String lastName = userView.getInputLastName().getText();
+            String email = userView.getInputEmail().getText();
+            String phone = userView.getInputPhone().getText();
+            Object roleObj = userView.getSelectionRole().getSelectedItem();
             
             if ( !validateUsername(username) ) { throw new IllegalArgumentException("a username is required"); }
             if ( !validatePassword(password) ) { throw new IllegalArgumentException("Password must be at least 8 characters"); }
