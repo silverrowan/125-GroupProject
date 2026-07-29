@@ -218,8 +218,7 @@ public class DashboardControl extends GenericControl{
             public void actionPerformed(ActionEvent e) {
                 //open searchTrip view
                 //open controller
-                makeViewDestSearch( getContext() );
-                throw new UnsupportedOperationException("Not supported yet.");
+                makeViewTripSearch( getContext() );
             }
         }
 
@@ -418,7 +417,6 @@ public class DashboardControl extends GenericControl{
     // ------------------Other Make & Set up Views------------------------------
     private void makeViewDestSearch( AppContext context ) {
         System.out.println("search products");
-        System.out.println("NEEDS REAL CONTROLLER");
         ProductsGUI view = new ProductsGUI(); //new view
         view.setDefaultCloseOperation(GenericView.DISPOSE_ON_CLOSE); 
         DestinationsController destsControl = new DestinationsController(context, (GenericView) view ); 
