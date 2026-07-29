@@ -55,17 +55,17 @@ public class DashboardControl extends GenericControl{
     public DashboardControl( AppContext context, AppWindowCust dashCust ){ 
         this( context, dashCust, 99 );
 
-        this.userLabel = dashAgent.getPnlDashAgent().getDashPanelAgent().getLblUser();
-        this.focusLabel = dashAgent.getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getLblUser();
-        this.focusBtn = dashAgent.getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnCustProfile();
-        this.findFocusBtn = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getPnlDashCust().getBtnCustSearch();
+        this.userLabel = dashCust.getPnlDashCust().getPnlDashCust().getLblUser();
+        this.focusLabel = dashCust.getPnlDashCust().getPnlDashCust().getLblUser();
+        this.focusBtn = dashCust.getPnlDashCust().getPnlDashCust().getBtnCustProfile();
+        this.findFocusBtn = dashCust.getPnlDashCust().getPnlDashCust().getBtnCustSearch();
         
         this.headerFont = focusLabel.getFont().deriveFont(Font.BOLD, 24);
         
         //listeners
         this.dashCust = (AppWindowCust) getView();        
         this.dashCust.addListenerToBtnCustProfile( new Profile( true ) );
-        this.dashAgent.addListenerToBtnSearchCustFocus( new SearchUser( true ) );
+        this.dashCust.addListenerToBtnSearchCustFocus( new SearchUser( true ) );
         this.dashCust.addListenerToBtnSearchDest( new SearchDest() );
         this.dashCust.addListenerToBtnAllBooking( new AllBooking() );
         this.dashCust.addListenerToLogoutCust( new Logout() );
