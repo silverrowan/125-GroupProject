@@ -28,6 +28,7 @@ public class ProfileControl {
     private AbstractEditUserView editProfileView;
     private User currentUser;
     private UserDAO userDAO;
+    private NewCustomerGUI newUserView;
     
     private FilterUsersGUI usersView;
     
@@ -155,6 +156,21 @@ public class ProfileControl {
      * @param context context
      * @param userView view
      */
+    public ProfileControl(AppContext context, NewCustomerGUI newUserView) {       
+        this.newUserView = newUserView;
+        this.context = context;
+
+        // save button listener
+        newUserView.addSaveBtnListener(new newUser());
+    }
+    
+    /**
+     * constructor for viewing employee profiles
+     * @param context context of current user and session
+     * @param dc DashboardControl used to log out
+     * @param user the user whose profile is to be displayed
+     * @param editEmployeeView the view to display the profile
+     */
     public ProfileControl(AppContext context, DashboardControl dc, User user, EditEmployeeGUI editEmployeeView) {
         this(editEmployeeView, context, user); // update generic user information
         
@@ -183,6 +199,10 @@ public class ProfileControl {
         this.editProfileView = editProfileView;
         this.context = context;
         
+        buildView( user );
+    }
+    
+    private void buildView( User user){
         // get DAO
         userDAO = context.getUserDao();
         
@@ -221,10 +241,10 @@ public class ProfileControl {
         });
         
         // save button
-        this.editProfileView.addSaveBtnListener(new UserSaver());
+        this.editProfileView.addSaveBtnListener(new UserSaver());        
     }
     
-    class UserSaver implements ActionListener {
+    class UserSaver implements ActionListener { 
         // account & personal info
         private String username;
         private String password;
@@ -324,8 +344,81 @@ public class ProfileControl {
             catch ( InvalidAttributeValueException ex){
                 JOptionPane.showMessageDialog( null , ex.getMessage() );
             }
+            
         }
+    }
+    
+    class newUser implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            makeNewUser();
+        }
+    }
+    
+    private void makeNewUser(){
+        User newUser = new User( );
+        context.getCurrentSession().setCurrentUser( newUser );          
         
+        try {           
+            //assign values from form to user object
+            // account and personal info
+            newUser.setUsername( editProfileView.getInputUsername().getText() );
+            char[] fieldPassw = editProfileView.getInputPassword().getPassword();
+            StringBuilder sb = new StringBuilder();
+            for (char c : fieldPassw) {
+                sb.append(c);
+            }            
+            newUser.setPassword( sb.toString() );
+            newUser.setFirstName( editProfileView.getInputFirstName().getText() );
+            newUser.setLastName( editProfileView.getInputLastName().getText() );
+            newUser.setEmail( editProfileView.getInputEmail().getText() );
+            newUser.setPhone( editProfileView.getInputPhone().getText() );
+            newUser.setAccountStatus( editProfileView.getSelectionRole().getSelectedItem().toString() );
+            newUser.setRole( editProfileView.getRadioStatus().isSelected() ? "Active" : "Inactive" );
+            
+            // address
+            String city = editProfileView.getInputCity().getText();
+            String country = editProfileView.getInputCountry().getText();
+            String postalCode = editProfileView.getInputPost().getText();
+            String province = editProfileView.getInputProvince().getText();
+            String streetName = editProfileView.getInputStreet().getText();
+            String streetNumber = editProfileView.getInputStreetNumber().getText();
+            
+            newUser.setUserAddress(streetNumber, streetName, city, province, postalCode, country);
+
+            // validate username
+            if (!PropertyValidator.validateUsername( newUser.getUsername() )) {
+                throw new InvalidAttributeValueException( "must have a valid username");
+            }
+            // validate password
+            if ( !PropertyValidator.validatePassword(newUser.getPassword() ) ) {
+                throw new InvalidAttributeValueException("must have a valid password, minimum 8 characters");
+            }
+            // validate email
+            if ( !PropertyValidator.validateEmail(newUser.getEmail() ) ) {
+                throw new InvalidAttributeValueException( "must have a valid email");
+            }
+            // validate first name
+            if ( !PropertyValidator.validateFirstName(newUser.getFirstName() ) ) {
+                throw new InvalidAttributeValueException( "must have a valid first name");
+            }
+            // validate last name
+            if ( !PropertyValidator.validateLastName(newUser.getLastName() ) ) {
+                throw new InvalidAttributeValueException( "must have a valid last name");
+            }
+
+            User user = userDAO.updateUser( newUser ); // update database
+            if (user == null) {
+                JOptionPane.showMessageDialog( null , "User was not saved for an unknown reason. Check that you have a unique username and email address.");
+                return;
+            }
+            JOptionPane.showMessageDialog( null , "User profile has been created."); // show success message
+            editProfileView.dispose(); // close window
+        }
+        catch ( InvalidAttributeValueException ex){
+            JOptionPane.showMessageDialog( null , ex.getMessage() );
+        }   
     }
     
     class CustomerSaver implements ActionListener {

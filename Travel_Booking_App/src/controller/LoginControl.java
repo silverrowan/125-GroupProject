@@ -10,7 +10,7 @@ import view.dashboard.AppWindowAdmin;
 import view.dashboard.AppWindowAgent;
 import view.Login;
 import view.dashboard.AppWindowCust;
-import view.profile.EditCustomerGUI;
+import view.profile.NewCustomerGUI;
 
 /**
  *
@@ -42,9 +42,9 @@ public class LoginControl {
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println("entered new user");
-            EditCustomerGUI view = new EditCustomerGUI();
+            NewCustomerGUI view = new NewCustomerGUI();
             view.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-//            ProfileControl newUControl = new ProfileControl( context, view );
+            ProfileControl newUControl = new ProfileControl( context, view );
             view.setVisible(true);         
         }
     }

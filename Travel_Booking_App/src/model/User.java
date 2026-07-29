@@ -45,14 +45,16 @@ public class User {
         this.email = email;
         this.role = role;        
     }
-
+    
+    // required + phone
     public User(String username, String password, String firstName, String lastName, String email, String role, String phone) {
         this(username, password, firstName, lastName, email, role);
         this.phone = phone;
     }
     
+    // empty
     public User(){
-       this("placeholder", "placeholder", "placeholder", "placeholder", "placeholder", "placeholder");
+       this("", "", "", "", "", "");
     }
     
     // getters and setters
