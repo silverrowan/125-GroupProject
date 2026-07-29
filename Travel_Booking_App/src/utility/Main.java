@@ -21,15 +21,8 @@ public class Main {
         
         AppContext context = new AppContext();
         Login loginView = new Login();
-        Session currentSession = new Session();
         
-//        Bypassing Login & setting username manually
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-//        LoginControl loginControl = new LoginControl(context, loginView);
-//        loginView.setVisible(true);
         directToDash(context);
-        
     }  
 
     public static void directToDash(AppContext context) {
@@ -39,7 +32,7 @@ public class Main {
 //        String password = "12341234";
 //        String username = "cchen";           
 //        String password = "123123123";
-        String username = "s";           
+        String username = "a";           
         String password = "123123123";
 
         activeUser = context.getUserDao().getUserFromUsername(username, password);
@@ -52,6 +45,8 @@ public class Main {
         System.out.println("role: " + role);
 //        JFrame view;
         setFocusUserBypass(context);
+        
+        System.out.println("role; " + role );
         
         if ( role.equals( "Admin" ) ) {
             System.out.println("entered admin if");
@@ -95,7 +90,7 @@ public class Main {
     }
     
     public static void setFocusUserBypass( AppContext context ) {
-        String username = "a";           
+        String username = "m";           
         String password = "123123123";        
 
         User focusUser = context.getUserDao().getUserFromUsername(username, password);
