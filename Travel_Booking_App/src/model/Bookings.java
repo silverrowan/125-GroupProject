@@ -41,7 +41,7 @@ public class Bookings {
     }  
 
     public Bookings() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        // empty - fields set via setters
     }
     
     //emum field options

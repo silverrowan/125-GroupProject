@@ -15,6 +15,8 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import model.Customer;
+import model.User;
 import utility.AppContext;
 /**
  *
@@ -30,6 +32,7 @@ public class AddBookingGUI extends javax.swing.JFrame{
     private int destinationID;
     private int customerID;
     private int createdByUserID;
+    
     
     //Constructor
     /**
@@ -59,16 +62,48 @@ public class AddBookingGUI extends javax.swing.JFrame{
 
     public AddBookingGUI(AppContext context, int destinationID) {
         initComponents();
-
+        
         this.destinationID = destinationID;
-        this.customerID = context.getCurrentCustomerUser().getUserID();
-        this.createdByUserID = context.getCurrentUser().getUserID();
 
-        tripsController = new TripsController();
-        bookingsController =
+        // Get the currently logged-in user
+        User currentUser = context.getCurrentUser();
+
+        // Save the user ID of whoever is creating the booking
+        this.createdByUserID = currentUser.getUserID();
+
+        // Start by assuming the current user is the customer
+        int customerUserID = currentUser.getUserID();
+
+        // If a customer user has already been selected,
+        // use that user's ID instead
+        if (context.getCurrentCustomerUser() != null) {
+            customerUserID =
+                    context.getCurrentCustomerUser().getUserID();
+        }
+
+        // Find the customer record connected to that user
+        Customer customer =
+                context.getCustomerDao()
+                        .getCustomerFromUserID(customerUserID);
+
+        // Make sure a customer record was found
+        if (customer == null) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "No customer record was found for this user.",
+                    "Customer Missing",
+                    JOptionPane.ERROR_MESSAGE
+            );
+
+            this.customerID = 0;
+        } else {
+            this.customerID = customer.getCustomerID();
+        }
+
+        // Create the controllers used by this GUI
+        this.tripsController = new TripsController();
+        this.bookingsController =
                 new BookingsReworkedController();
-        
-        
         
         configureTable();
         loadTrips();
