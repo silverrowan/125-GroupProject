@@ -31,7 +31,6 @@ public class LoginControl {
         @Override
         public void actionPerformed(ActionEvent e) {
             loginUser();
-
             loginView.dispose();           
         }
     }
@@ -66,27 +65,34 @@ public class LoginControl {
 
     public void getDashboard() {
         User user = context.getCurrentUser();
+        if ( user == null ) {
+            JOptionPane.showMessageDialog( null , "No current user set");
+            return;
+        }
         String role = user.getRole();
         System.out.println("role: " + role);
 
-        if ( role.equals( "Admin" ) ) {
+        if ( role.equals( "Admin" ) ) { //already checked for null role in calling function.
             System.out.println("entered admin if");
-            AppWindowAdmin view = new AppWindowAdmin( context ); //make target window/dashboard: This is Menu AND beside contents.
-            DashboardControl dash = new DashboardControl( context, view ); 
+            AppWindowAdmin view = new AppWindowAdmin( context );
+            DashboardControl dash = new DashboardControl( context, view );
             view.setVisible(true); 
+            context.getCurrentSession().setDashControl( dash );
         } else if ( role.equals("Travel Agent") ) {
             System.out.println("entered Agent if");
             AppWindowAgent view = new AppWindowAgent( context );
             DashboardControl dash = new DashboardControl( context, view );
             view.setVisible(true); 
+            context.getCurrentSession().setDashControl( dash );
 //        } else if ( role.equals("Travel Guide") ) {
 //            //later
         } else {
             System.out.println("entered Cust/Other if");
-            context.getCurrentSession().setCurrentCustomer( user );
+            context.getCurrentSession().setCurrentCustomer( user ); 
             AppWindowCust view = new AppWindowCust( context );
             DashboardControl dash = new DashboardControl( context, view );
             view.setVisible(true); 
+            context.getCurrentSession().setDashControl( dash );
         }   
     }
     
