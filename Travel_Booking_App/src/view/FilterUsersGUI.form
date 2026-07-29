@@ -47,9 +47,9 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="btnFocus" min="-2" pref="165" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnOpen" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="btnOpen" min="-2" pref="112" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="scrollUsers" alignment="1" max="32767" attributes="0"/>
@@ -69,9 +69,9 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="scrollUsers" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="btnFocus" pref="37" max="32767" attributes="0"/>
-                      <Component id="btnOpen" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnOpen" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="btnFocus" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="15" max="32767" attributes="0"/>
               </Group>
