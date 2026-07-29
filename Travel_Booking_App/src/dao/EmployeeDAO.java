@@ -18,7 +18,7 @@ import utility.DBConnection;
  */
 public class EmployeeDAO {
 
-    public Employee addNewEmployee(User user, int userID) {
+    public Employee addNewEmployee(User user ) {
 //        user = userDAO.addNewUser(user);
 
         String query = "INSERT INTO employees ( user_id ) VALUES (?,?);";

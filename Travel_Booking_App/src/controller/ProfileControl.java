@@ -440,15 +440,23 @@ public class ProfileControl {
         public void actionPerformed(ActionEvent e) {
             User user = newDBUser();
             
+            Boolean isSuccess = false;
             if ( user != null ) { 
                 if ( user.getRole().equals( "Customer" ) ) {
-                    newDBCustomer( user );
+                    isSuccess = newDBCustomer( user );
+                    if (!isSuccess) {
+                        JOptionPane.showMessageDialog(null, "There was a problem making the Customer, but User was successful");
+                        return;
+                    }
                 } else {
-                    newDBEmployee( user );
+                    isSuccess = newDBEmployee( user );
+                    if (!isSuccess) {
+                        JOptionPane.showMessageDialog(null, "There was a problem making the Employee, but User was successful");
+                        return;
+                    }
                 }
-                
-                JOptionPane.showMessageDialog(null, "User created successfully"); }
-            else { JOptionPane.showMessageDialog(null, "User was not created"); }
+                JOptionPane.showMessageDialog(null, "User created successfully");
+            } else { JOptionPane.showMessageDialog(null, "User was not created"); }    
         }
         
         public User newDBUser( ) {
@@ -474,9 +482,6 @@ public class ProfileControl {
             
             return user;
         }
-        public void newDBCustomer( User user ){
-            
-    }
     }
     
     class SearchUsers implements ActionListener {
@@ -558,6 +563,37 @@ public class ProfileControl {
         
     }
 
+    
+    public Boolean newDBCustomer( User user ){
+        CustomerDAO custDao = new CustomerDAO();
+        int userId = user.getUserID();
+
+        if ( userId > -1 ) {
+            Customer cust = custDao.addNewCustomer( user );
+            if ( cust != null ) { return true; }
+            else { return false; }
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "There was a problem making the customer account; could not get the related userID");
+            return false;
+        }
+    }
+
+    public Boolean newDBEmployee( User user ){
+        EmployeeDAO empDao = new EmployeeDAO();
+        int userId = user.getUserID();
+
+        if ( userId > -1 ) {
+            Employee emp = empDao.addNewEmployee( user );
+            if ( emp != null ) { return true; }
+            else { return false; }
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "There was a problem making the customer account; could not get the related userID");
+            return false;
+        }
+    }
+    
     
     // Validation Helper Functions
     public boolean validateRole(Object roleObj) {
