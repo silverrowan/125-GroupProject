@@ -2,7 +2,7 @@
 package view.dashboard;
 
 import javax.swing.JLabel;
-import view.models.ButtonBase;
+import view.components.ButtonBase;
 
 /**
  *
@@ -68,10 +68,10 @@ public class DashPanelCustomer extends javax.swing.JPanel {
     private void initComponents() {
 
         lblUser = new javax.swing.JLabel();
-        btnCustProfile = new view.models.ButtonBase();
-        btnSearchDest = new view.models.ButtonBase();
-        btnViewBooking = new view.models.ButtonBase();
-        btnCustSearch = new view.models.ButtonBase();
+        btnCustProfile = new view.components.ButtonBase();
+        btnSearchDest = new view.components.ButtonBase();
+        btnViewBooking = new view.components.ButtonBase();
+        btnCustSearch = new view.components.ButtonBase();
 
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(350, 303));
@@ -124,10 +124,10 @@ public class DashPanelCustomer extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private view.models.ButtonBase btnCustProfile;
-    private view.models.ButtonBase btnCustSearch;
-    private view.models.ButtonBase btnSearchDest;
-    private view.models.ButtonBase btnViewBooking;
+    private view.components.ButtonBase btnCustProfile;
+    private view.components.ButtonBase btnCustSearch;
+    private view.components.ButtonBase btnSearchDest;
+    private view.components.ButtonBase btnViewBooking;
     private javax.swing.JLabel lblUser;
     // End of variables declaration//GEN-END:variables
 }

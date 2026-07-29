@@ -108,7 +108,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="view.subViews.VSearchBarUsers" name="vSearchBarUsers">
+        <Component class="view.components.VSearchBarUsers" name="vSearchBarUsers">
         </Component>
         <Component class="javax.swing.JButton" name="btnFocus">
           <Properties>

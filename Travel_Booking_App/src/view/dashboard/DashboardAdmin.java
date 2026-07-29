@@ -4,12 +4,7 @@ import utility.AppContext;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import model.User;
-import view.ViewCustomerGUI;
-import view.ViewDestinationsGUI;
-import view.ViewTripFrame;
 import view.components.GradientPanel;
-import view.components.ListMenu;
 
 /**
  *

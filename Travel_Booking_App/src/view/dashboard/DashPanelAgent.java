@@ -1,7 +1,7 @@
 package view.dashboard;
 
 import javax.swing.JLabel;
-import view.models.ButtonBase;
+import view.components.ButtonBase;
 
 /**
  *
@@ -75,11 +75,11 @@ public class DashPanelAgent extends javax.swing.JPanel {
     private void initComponents() {
 
         lblUser = new javax.swing.JLabel();
-        btnAgentProfile = new view.models.ButtonBase();
-        btnSearchCust = new view.models.ButtonBase();
-        btnLogout = new view.models.ButtonBase();
+        btnAgentProfile = new view.components.ButtonBase();
+        btnSearchCust = new view.components.ButtonBase();
+        btnLogout = new view.components.ButtonBase();
         pnlDashCust = new view.dashboard.DashPanelCustomer();
-        btnClearCust = new view.models.ButtonBase();
+        btnClearCust = new view.components.ButtonBase();
 
         setOpaque(false);
 
@@ -136,10 +136,10 @@ public class DashPanelAgent extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private view.models.ButtonBase btnAgentProfile;
-    private view.models.ButtonBase btnClearCust;
-    private view.models.ButtonBase btnLogout;
-    private view.models.ButtonBase btnSearchCust;
+    private view.components.ButtonBase btnAgentProfile;
+    private view.components.ButtonBase btnClearCust;
+    private view.components.ButtonBase btnLogout;
+    private view.components.ButtonBase btnSearchCust;
     private javax.swing.JLabel lblUser;
     private view.dashboard.DashPanelCustomer pnlDashCust;
     // End of variables declaration//GEN-END:variables

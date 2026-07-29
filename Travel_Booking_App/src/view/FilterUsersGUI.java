@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import view.subViews.VSearchBarUsers;
+import view.components.VSearchBarUsers;
 
 /**
  *
@@ -94,7 +94,7 @@ public class FilterUsersGUI extends javax.swing.JFrame {
         pnlFilterUsers = new javax.swing.JPanel();
         scrollUsers = new javax.swing.JScrollPane();
         tblUsers = new javax.swing.JTable();
-        vSearchBarUsers = new view.subViews.VSearchBarUsers();
+        vSearchBarUsers = new view.components.VSearchBarUsers();
         btnFocus = new javax.swing.JButton();
         btnOpen = new javax.swing.JButton();
 
@@ -213,6 +213,6 @@ public class FilterUsersGUI extends javax.swing.JFrame {
     private javax.swing.JPanel pnlFilterUsers;
     private javax.swing.JScrollPane scrollUsers;
     private javax.swing.JTable tblUsers;
-    private view.subViews.VSearchBarUsers vSearchBarUsers;
+    private view.components.VSearchBarUsers vSearchBarUsers;
     // End of variables declaration//GEN-END:variables
 }

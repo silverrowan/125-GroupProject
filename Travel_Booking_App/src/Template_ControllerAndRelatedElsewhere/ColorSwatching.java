@@ -1,4 +1,4 @@
-package view.components;
+package Template_ControllerAndRelatedElsewhere;
 
 import java.awt.Color;
 
@@ -375,7 +375,6 @@ public class ColorSwatching extends javax.swing.JFrame {
     private view.components.GradientPanel gradientPanel2;
     private view.components.GradientPanel gradientPanel3;
     private view.components.GradientPanel gradientPanel4;
-    private view.components.GradientPanel gradientPanel5;
     private view.components.GradientPanel gradientPanel6;
     private view.components.GradientPanel gradientPanel7;
     private view.components.GradientPanel gradientPanel8;

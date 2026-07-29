@@ -5,7 +5,7 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import view.components.GradientPanel;
-import view.models.ButtonBase;
+import view.components.ButtonBase;
 
 /**
  *
@@ -70,14 +70,14 @@ public class DashboardCustomer extends GradientPanel {
 
         pnlLogo = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
-        btnLogout = new view.models.ButtonBase();
+        btnLogout = new view.components.ButtonBase();
         pnlDashCust = new view.dashboard.DashPanelCustomer();
 
         pnlLogo.setOpaque(false);
 
         lblLogo.setFont(new java.awt.Font("URW Bookman", 1, 36)); // NOI18N
         lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/graphics/travelBug70.png"))); // NOI18N
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/dashboard/travelBug70.png"))); // NOI18N
         lblLogo.setText("Travel Bug");
 
         javax.swing.GroupLayout pnlLogoLayout = new javax.swing.GroupLayout(pnlLogo);
@@ -97,8 +97,8 @@ public class DashboardCustomer extends GradientPanel {
                 .addGap(6, 6, 6))
         );
 
-        btnLogout.setActionCommand("Logout");
         btnLogout.setBackground(new java.awt.Color(189, 238, 239));
+        btnLogout.setActionCommand("Logout");
         btnLogout.setLabel("Logout");
         btnLogout.addActionListener(this::btnLogoutActionPerformed);
 
@@ -133,7 +133,7 @@ public class DashboardCustomer extends GradientPanel {
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private view.models.ButtonBase btnLogout;
+    private view.components.ButtonBase btnLogout;
     private javax.swing.JLabel lblLogo;
     private view.dashboard.DashPanelCustomer pnlDashCust;
     private javax.swing.JPanel pnlLogo;

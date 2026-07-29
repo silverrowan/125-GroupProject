@@ -1,7 +1,7 @@
 package view.dashboard;
 
 import javax.swing.JLabel;
-import view.models.ButtonBase;
+import view.components.ButtonBase;
 
 /**
  *
@@ -59,9 +59,9 @@ public class DashPanelAdmin extends javax.swing.JPanel {
     private void initComponents() {
 
         lblUser = new javax.swing.JLabel();
-        btnBooking = new view.models.ButtonBase();
-        btnDestinations = new view.models.ButtonBase();
-        btnTrips = new view.models.ButtonBase();
+        btnBooking = new view.components.ButtonBase();
+        btnDestinations = new view.components.ButtonBase();
+        btnTrips = new view.components.ButtonBase();
 
         setOpaque(false);
 
@@ -133,9 +133,9 @@ public class DashPanelAdmin extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private view.models.ButtonBase btnBooking;
-    private view.models.ButtonBase btnDestinations;
-    private view.models.ButtonBase btnTrips;
+    private view.components.ButtonBase btnBooking;
+    private view.components.ButtonBase btnDestinations;
+    private view.components.ButtonBase btnTrips;
     private javax.swing.JLabel lblUser;
     // End of variables declaration//GEN-END:variables
 }
