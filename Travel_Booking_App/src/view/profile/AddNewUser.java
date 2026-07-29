@@ -9,8 +9,10 @@ import javax.accessibility.AccessibleContext;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JRootPane;
 import javax.swing.JTextField;
 
@@ -18,7 +20,7 @@ import javax.swing.JTextField;
  *
  * @author c0350261
  */
-public class AddNewUser extends AbstractEditUserView {
+public class AddNewUser extends JFrame {
 
     /**
      * Creates new form ViewCustomerGUI
@@ -27,7 +29,7 @@ public class AddNewUser extends AbstractEditUserView {
         initComponents();
     }
 
-    @Override
+    
     public JButton getBtnCancel() {
         return btnCancel;
     }
@@ -36,15 +38,7 @@ public class AddNewUser extends AbstractEditUserView {
         this.btnCancel = btnCancel;
     }
 
-    public JButton getBtnDeleteAccount() {
-        return btnDeleteAccount;
-    }
-
-    public void setBtnDeleteAccount(JButton btnDeleteAccount) {
-        this.btnDeleteAccount = btnDeleteAccount;
-    }
-
-    @Override
+    
     public JButton getBtnSave() {
         return btnSave;
     }
@@ -53,7 +47,7 @@ public class AddNewUser extends AbstractEditUserView {
         this.btnSave = btnSave;
     }
 
-    @Override
+    
     public JTextField getInputCity() {
         return inputCity;
     }
@@ -62,7 +56,7 @@ public class AddNewUser extends AbstractEditUserView {
         this.inputCity = inputCity;
     }
 
-    @Override
+    
     public JTextField getInputCountry() {
         return inputCountry;
     }
@@ -71,7 +65,7 @@ public class AddNewUser extends AbstractEditUserView {
         this.inputCountry = inputCountry;
     }
 
-    @Override
+    
     public JTextField getInputEmail() {
         return inputEmail;
     }
@@ -80,7 +74,7 @@ public class AddNewUser extends AbstractEditUserView {
         this.inputEmail = inputEmail;
     }
 
-    @Override
+    
     public JTextField getInputFirstName() {
         return inputFirstName;
     }
@@ -89,7 +83,7 @@ public class AddNewUser extends AbstractEditUserView {
         this.inputFirstName = inputFirstName;
     }
 
-    @Override
+    
     public JTextField getInputLastName() {
         return inputLastName;
     }
@@ -98,16 +92,16 @@ public class AddNewUser extends AbstractEditUserView {
         this.inputLastName = inputLastName;
     }
 
-    @Override
-    public JTextField getInputPassword() {
+    
+    public JPasswordField getInputPassword() {
         return inputPassword;
     }
 
-    public void setInputPassword(JTextField inputPassword) {
+    public void setInputPassword(JPasswordField inputPassword) {
         this.inputPassword = inputPassword;
     }
 
-    @Override
+    
     public JTextField getInputPhone() {
         return inputPhone;
     }
@@ -116,7 +110,7 @@ public class AddNewUser extends AbstractEditUserView {
         this.inputPhone = inputPhone;
     }
 
-    @Override
+    
     public JTextField getInputPost() {
         return inputPost;
     }
@@ -125,7 +119,7 @@ public class AddNewUser extends AbstractEditUserView {
         this.inputPost = inputPost;
     }
 
-    @Override
+    
     public JTextField getInputProvince() {
         return inputProvince;
     }
@@ -134,7 +128,7 @@ public class AddNewUser extends AbstractEditUserView {
         this.inputProvince = inputProvince;
     }
 
-    @Override
+    
     public JTextField getInputStreet() {
         return inputStreet;
     }
@@ -143,7 +137,7 @@ public class AddNewUser extends AbstractEditUserView {
         this.inputStreet = inputStreet;
     }
 
-    @Override
+    
     public JTextField getInputStreetNumber() {
         return inputStreetNumber;
     }
@@ -152,7 +146,7 @@ public class AddNewUser extends AbstractEditUserView {
         this.inputStreetNumber = inputStreetNumber;
     }
 
-    @Override
+    
     public JTextField getInputUsername() {
         return inputUsername;
     }
@@ -209,7 +203,7 @@ public class AddNewUser extends AbstractEditUserView {
         this.pnlStreet = pnlStreet;
     }
 
-    @Override
+    
     public JCheckBox getRadioStatus() {
         return radioStatus;
     }
@@ -218,7 +212,7 @@ public class AddNewUser extends AbstractEditUserView {
         this.radioStatus = radioStatus;
     }
 
-    @Override
+    
     public JComboBox<String> getSelectionRole() {
         return selectionRole;
     }
@@ -247,26 +241,21 @@ public class AddNewUser extends AbstractEditUserView {
 //        return accessibleContext;
 //    }
 
-    public void setAccessibleContext(AccessibleContext accessibleContext) {
-        this.accessibleContext = accessibleContext;
-    }
+//    public void setAccessibleContext(AccessibleContext accessibleContext) {
+//        this.accessibleContext = accessibleContext;
+//    }
     
     
     
     // listeners
-    @Override
+    
     public void addCancelBtnListener(ActionListener cancelListener) {
         btnCancel.addActionListener(cancelListener);
     }
     
-    @Override
+    
     public void addSaveBtnListener(ActionListener saveListener) {
         btnSave.addActionListener(saveListener);
-    }
-    
-    @Override
-    public void addDeleteAccountBtnListener(ActionListener deleteAccountListener) {
-        btnDeleteAccount.addActionListener(deleteAccountListener);
     }
 
     /**
@@ -290,8 +279,8 @@ public class AddNewUser extends AbstractEditUserView {
         jLabel5 = new javax.swing.JLabel();
         radioStatus = new javax.swing.JCheckBox();
         jLabel30 = new javax.swing.JLabel();
-        inputPassword = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
+        inputPassword = new javax.swing.JPasswordField();
         pnlPersInfo = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -331,7 +320,6 @@ public class AddNewUser extends AbstractEditUserView {
         jPanel2 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
-        btnDeleteAccount = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
 
@@ -378,6 +366,8 @@ public class AddNewUser extends AbstractEditUserView {
         jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(102, 102, 102));
         jLabel31.setText("leave blank to keep current");
+
+        inputPassword.setText("jPasswordField1");
 
         javax.swing.GroupLayout pnlAccountLayout = new javax.swing.GroupLayout(pnlAccount);
         pnlAccount.setLayout(pnlAccountLayout);
@@ -751,7 +741,7 @@ public class AddNewUser extends AbstractEditUserView {
 
         lblDestinationName1.setFont(new java.awt.Font("Noto Sans", 2, 18)); // NOI18N
         lblDestinationName1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDestinationName1.setText("Customer Profile");
+        lblDestinationName1.setText("User Profile");
         lblDestinationName1.setToolTipText("");
 
         btnSave.setBackground(new java.awt.Color(204, 255, 204));
@@ -770,23 +760,12 @@ public class AddNewUser extends AbstractEditUserView {
             }
         });
 
-        btnDeleteAccount.setBackground(new java.awt.Color(255, 102, 102));
-        btnDeleteAccount.setForeground(new java.awt.Color(255, 255, 255));
-        btnDeleteAccount.setText("Delete Account");
-        btnDeleteAccount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteAccountActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnDeleteAccount)
-                .addGap(33, 33, 33)
+                .addGap(150, 150, 150)
                 .addComponent(btnCancel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSave)
@@ -798,8 +777,7 @@ public class AddNewUser extends AbstractEditUserView {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancel)
-                    .addComponent(btnSave)
-                    .addComponent(btnDeleteAccount))
+                    .addComponent(btnSave))
                 .addContainerGap())
         );
 
@@ -849,7 +827,6 @@ public class AddNewUser extends AbstractEditUserView {
                         .addComponent(pnlPersInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(15, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel19)
                             .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -930,20 +907,15 @@ public class AddNewUser extends AbstractEditUserView {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputUsernameActionPerformed
 
-    private void btnDeleteAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteAccountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDeleteAccountActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
-    private javax.swing.JButton btnDeleteAccount;
     private javax.swing.JButton btnSave;
     private javax.swing.JTextField inputCity;
     private javax.swing.JTextField inputCountry;
     private javax.swing.JTextField inputEmail;
     private javax.swing.JTextField inputFirstName;
     private javax.swing.JTextField inputLastName;
-    private javax.swing.JTextField inputPassword;
+    private javax.swing.JPasswordField inputPassword;
     private javax.swing.JTextField inputPhone;
     private javax.swing.JTextField inputPost;
     private javax.swing.JTextField inputProvince;
