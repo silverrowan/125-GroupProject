@@ -77,7 +77,7 @@ public class DashboardAdmin extends GradientPanel {
 
         lblLogo.setFont(new java.awt.Font("URW Bookman", 1, 36)); // NOI18N
         lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/graphics/travelBug70.png"))); // NOI18N
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/dashboard/travelBug70.png"))); // NOI18N
         lblLogo.setText("Travel Bug");
 
         javax.swing.GroupLayout pnlLogoLayout = new javax.swing.GroupLayout(pnlLogo);
@@ -117,11 +117,10 @@ public class DashboardAdmin extends GradientPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(64, 64, 64)
                         .addComponent(pnlDashAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 152, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pnlDashAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pnlDashAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
     }// </editor-fold>//GEN-END:initComponents
     

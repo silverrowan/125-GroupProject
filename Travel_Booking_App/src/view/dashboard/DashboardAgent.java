@@ -73,7 +73,7 @@ public class DashboardAgent extends GradientPanel {
 
         lblLogo.setFont(new java.awt.Font("URW Bookman", 1, 36)); // NOI18N
         lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/graphics/travelBug70.png"))); // NOI18N
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/dashboard/travelBug70.png"))); // NOI18N
         lblLogo.setText("Travel Bug");
 
         javax.swing.GroupLayout pnlLogoLayout = new javax.swing.GroupLayout(pnlLogo);
