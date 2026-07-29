@@ -365,9 +365,7 @@ public class AddNewUser extends JFrame {
 
         jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel31.setText("leave blank to keep current");
-
-        inputPassword.setText("jPasswordField1");
+        jLabel31.setText("must be at least 8 characters");
 
         javax.swing.GroupLayout pnlAccountLayout = new javax.swing.GroupLayout(pnlAccount);
         pnlAccount.setLayout(pnlAccountLayout);
@@ -806,7 +804,7 @@ public class AddNewUser extends JFrame {
                                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel19)
-                                .addGap(58, 58, 58))))
+                                .addGap(47, 47, 47))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(212, 212, 212)
                         .addComponent(lblDestinationName1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -830,7 +828,7 @@ public class AddNewUser extends JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel19)
                             .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35))))
         );

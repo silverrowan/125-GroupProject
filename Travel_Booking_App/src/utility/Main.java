@@ -46,8 +46,6 @@ public class Main {
 //        JFrame view;
         setFocusUserBypass(context);
         
-        System.out.println("role; " + role );
-        
         if ( role.equals( "Admin" ) ) {
             System.out.println("entered admin if");
             AppWindowAdmin view = new AppWindowAdmin( context );

@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import utility.AppContext;
 import utility.GenericView;
@@ -32,7 +33,7 @@ public abstract class AbstractEditUserView extends GenericView {
 
     public abstract JTextField getInputLastName();
 
-    public abstract JTextField getInputPassword();
+    public abstract JPasswordField getInputPassword();
 
     public abstract JTextField getInputPhone();
 

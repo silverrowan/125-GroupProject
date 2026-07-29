@@ -142,7 +142,7 @@ public class FilterUsersGUI extends javax.swing.JFrame {
         });
 
         btnOpen.setBackground(new java.awt.Color(255, 204, 153));
-        btnOpen.setText("Open User");
+        btnOpen.setText("Open Profile");
         btnOpen.setMaximumSize(new java.awt.Dimension(151, 30));
         btnOpen.setMinimumSize(new java.awt.Dimension(151, 30));
         btnOpen.addActionListener(new java.awt.event.ActionListener() {

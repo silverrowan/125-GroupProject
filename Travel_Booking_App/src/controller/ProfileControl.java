@@ -43,6 +43,14 @@ public class ProfileControl {
         userDAO = context.getUserDao();
         
         // add listeners
+        
+        // Cancel button
+        this.userView.addCancelBtnListener((ActionEvent e) -> {
+            this.userView.dispose();
+        });
+        
+        // save
+        this.userView.addSaveBtnListener(new AddUserRecord());
     }
     
     /**
@@ -263,13 +271,21 @@ public class ProfileControl {
         public void actionPerformed(ActionEvent e) {
             // account and personal info
             username = editProfileView.getInputUsername().getText();
-            password = editProfileView.getInputPassword().getText();
+            char[] passwordChars = editProfileView.getInputPassword().getPassword();
             firstName = editProfileView.getInputFirstName().getText();
             lastName = editProfileView.getInputLastName().getText();
             email = editProfileView.getInputEmail().getText();
             phone = editProfileView.getInputPhone().getText();
             role = editProfileView.getSelectionRole().getSelectedItem().toString();
             status = (editProfileView.getRadioStatus().isSelected()) ? "Active" : "Inactive";
+            
+            // convert password to string
+            StringBuilder sb = new StringBuilder();
+            for (char c : passwordChars) {
+                sb.append(c);
+            }
+            
+            password = sb.toString();
             
             // address
             city = editProfileView.getInputCity().getText();
@@ -500,16 +516,21 @@ public class ProfileControl {
                 if ( user.getRole().equals( "Customer" ) ) {
                     isSuccess = newDBCustomer( user );
                     if (!isSuccess) {
+                        userView.dispose();
                         JOptionPane.showMessageDialog(null, "There was a problem making the Customer, but User was successful");
                         return;
                     }
                 } else {
                     isSuccess = newDBEmployee( user );
                     if (!isSuccess) {
+                        userView.dispose();
                         JOptionPane.showMessageDialog(null, "There was a problem making the Employee, but User was successful");
                         return;
                     }
                 }
+                
+                // success
+                userView.dispose();
                 JOptionPane.showMessageDialog(null, "User created successfully");
             } else { JOptionPane.showMessageDialog(null, "User was not created"); }    
         }
@@ -552,15 +573,17 @@ public class ProfileControl {
                 if ( !PropertyValidator.validateLastName(lastName) ) {
                     throw new InvalidAttributeValueException( "must have a valid last name");
                 }
+                
+                String role = roleObj.toString();
+                User user = new User(username, password, firstName, lastName, email, role, phone);
+                user = userDAO.addNewUser(user);
+
+                return user;
             } catch (InvalidAttributeValueException e) {
                 JOptionPane.showMessageDialog( null , e.getMessage() );
             }
 
-            String role = roleObj.toString();
-            User user = new User(username, password, firstName, lastName, email, role, phone);
-            user = userDAO.addNewUser(user);
-            
-            return user;
+            return null;
         }
     }
     
