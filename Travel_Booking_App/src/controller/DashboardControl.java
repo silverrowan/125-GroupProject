@@ -359,7 +359,7 @@ public class DashboardControl extends GenericControl{
     private void makeFindUserView( AppContext context, Boolean onlyCustomers ) {
         FilterUsersGUI view = new FilterUsersGUI( ); // views *shouldnt* need context, controller should tell it everything it needs
         view.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
-        UserControl userControl = new UserControl( context, view ); 
+        ProfileControl userControl = new ProfileControl( context, view ); 
         //Figure out how to filter
         //Apply customers only filter
         view.setVisible(true); //make it visible
