@@ -1,6 +1,5 @@
 package controller;
 
-//import controller.UserControl.AddUserRecord.SearchUsers;
 import dao.CustomerDAO;
 import dao.EmployeeDAO;
 import dao.UserDAO;
@@ -33,18 +32,38 @@ public class ProfileControl {
     private AddNewUser userView;
     private FilterUsersGUI usersView;
     
+    /**
+     * add new user view
+     * @param context context
+     * @param userView view
+     */
     public ProfileControl ( AppContext context, AddNewUser userView ) { 
         this.context = context;
         this.userView = userView;
         userDAO = context.getUserDao();
+        
+        // add listeners
+        
+        // Cancel button
+        this.userView.addCancelBtnListener((ActionEvent e) -> {
+            this.userView.dispose();
+        });
+        
+        // save
+        this.userView.addSaveBtnListener(new AddUserRecord());
     }
     
+    /**
+     * Search for users
+     * @param context the context
+     * @param usersView the view
+     */
     public ProfileControl( AppContext context, FilterUsersGUI usersView ) { //SearchView
         this.context = context;
         this.usersView = usersView;
         userDAO = context.getUserDao();
         
-        this.usersView.addNewUserBtnListener( new ProfileControl.AddUserRecord() );
+//        this.usersView.addNewUserBtnListener( new ProfileControl.AddUserRecord() );
         this.usersView.addSearchBtnListener( new SearchUsers() );
         if (context.getCurrentUser().getRole().equals("Customer")) {
             return;
@@ -67,7 +86,7 @@ public class ProfileControl {
             addView.getSelectionRole().setSelectedItem("Customer");
             addView.getSelectionRole().setEnabled(context.getCurrentUser().getRole().equals("Admin")); // only admin can make any user, agents can only make customers
             addView.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            ProfileControl uc = new ProfileControl(context, addView);
+            ProfileControl pc = new ProfileControl(context, addView);
             addView.setVisible(true);
         });
         
@@ -136,6 +155,11 @@ public class ProfileControl {
         // get current customer
         Customer currentCustomer = customerDAO.getCustomerFromUserID(this.currentUser.getUserID());
         
+        if (currentCustomer == null) {
+            currentCustomer = new Customer(this.currentUser.getUserID()); // make employee object if it does not exist in the database
+            customerDAO.addNewCustomer(this.currentUser); // add it to the database
+        }
+        
         // set fields on form
         editCustomerView.getInputEmergencyContactName().setText(currentCustomer.getEmergencyContactName()); // emergency contact
         editCustomerView.getInputEmergencyContactPhone().setText(currentCustomer.getEmergencyContactPhone()); // emergency contact
@@ -144,29 +168,8 @@ public class ProfileControl {
         editCustomerView.addSaveBtnListener(new CustomerSaver(editCustomerView, currentCustomer, customerDAO));
         
         // delete account button listener
-        editCustomerView.addDeleteAccountBtnListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // confirm before delete
-                int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this account? This action cannot be undone.", "Delete Account", JOptionPane.YES_NO_OPTION);
-                if (result != JOptionPane.YES_OPTION) {
-                    return;
-                }
-                
-                customerDAO.deleteCustomer(currentCustomer.getCustomerID()); // delete customer first
-                userDAO.deleteUser(currentUser.getUserID()); // then delete user
-                
-                JOptionPane.showMessageDialog(null, "Account deleted");
-                
-                // dispose view
-                editCustomerView.dispose();
-                
-                // if user deleted is current user, log out
-                if (currentUser.getUserID() == context.getCurrentUser().getUserID()) {
-                    dc.logoutUser();
-                }
-            }
-        });
+        editCustomerView.addDeleteAccountBtnListener(new DeleteCustomer(currentCustomer, customerDAO, editCustomerView, dc));
+
     }
     
     /**
@@ -185,6 +188,11 @@ public class ProfileControl {
         // get current employee
         Employee currentEmployee = employeeDAO.getEmployeeFromUserID(this.currentUser.getUserID());
         
+        if (currentEmployee == null) {
+            currentEmployee = new Employee(this.currentUser.getUserID()); // make employee object if it does not exist in the database
+            employeeDAO.addNewEmployee(this.currentUser); // add it to the database
+        }
+        
         // set fields on form
         editEmployeeView.getInputHireDate().setText((currentEmployee.getHireDate() == null) ? "" : currentEmployee.getHireDate().toString()); // hire date
         editEmployeeView.getInputJobTitle().setText(currentEmployee.getJobTitle()); // job title
@@ -193,29 +201,7 @@ public class ProfileControl {
         editEmployeeView.addSaveBtnListener(new EmployeeSaver(editEmployeeView, currentEmployee, employeeDAO));
         
         // delete account button listener
-        editEmployeeView.addDeleteAccountBtnListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // confirm before delete
-                int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this account? This action cannot be undone.", "Delete Account", JOptionPane.YES_NO_OPTION);
-                if (result != JOptionPane.YES_OPTION) {
-                    return;
-                }
-                
-                employeeDAO.deleteEmployee(currentEmployee.getEmployeeID()); // delete employee first
-                userDAO.deleteUser(currentUser.getUserID()); // then delete user
-                
-                JOptionPane.showMessageDialog(null, "Account deleted");
-                
-                // dispose view
-                editEmployeeView.dispose();
-                
-                // if user deleted is current user, log out
-                if (currentUser.getUserID() == context.getCurrentUser().getUserID()) {
-                    dc.logoutUser();
-                }
-            }
-        });
+        editEmployeeView.addDeleteAccountBtnListener(new DeleteEmployee(currentEmployee, employeeDAO, editEmployeeView, dc));
     }
     private ProfileControl(AbstractEditUserView editProfileView, AppContext context, User user) {
         this.editProfileView = editProfileView;
@@ -285,13 +271,21 @@ public class ProfileControl {
         public void actionPerformed(ActionEvent e) {
             // account and personal info
             username = editProfileView.getInputUsername().getText();
-            password = editProfileView.getInputPassword().getText();
+            char[] passwordChars = editProfileView.getInputPassword().getPassword();
             firstName = editProfileView.getInputFirstName().getText();
             lastName = editProfileView.getInputLastName().getText();
             email = editProfileView.getInputEmail().getText();
             phone = editProfileView.getInputPhone().getText();
             role = editProfileView.getSelectionRole().getSelectedItem().toString();
             status = (editProfileView.getRadioStatus().isSelected()) ? "Active" : "Inactive";
+            
+            // convert password to string
+            StringBuilder sb = new StringBuilder();
+            for (char c : passwordChars) {
+                sb.append(c);
+            }
+            
+            password = sb.toString();
             
             // address
             city = editProfileView.getInputCity().getText();
@@ -396,6 +390,45 @@ public class ProfileControl {
         }
     }
     
+    class DeleteCustomer implements ActionListener {
+        
+        Customer customer;
+        
+        CustomerDAO customerDAO;
+        
+        EditCustomerGUI editCustomerView;
+        
+        DashboardControl dc;
+        
+        public DeleteCustomer(Customer customer, CustomerDAO customerDAO, EditCustomerGUI editCustomerView, DashboardControl dc) {
+            this.customer = customer;
+            this.customerDAO = customerDAO;
+            this.editCustomerView = editCustomerView;
+            this.dc = dc;
+        }
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // confirm before delete
+            int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this account? This action cannot be undone.", "Delete Account", JOptionPane.YES_NO_OPTION);
+            if (result != JOptionPane.YES_OPTION) {
+                return;
+            }
+
+            customerDAO.deleteCustomer(this.customer.getCustomerID()); // delete customer first
+            userDAO.deleteUser(currentUser.getUserID()); // then delete user
+
+            JOptionPane.showMessageDialog(null, "Account deleted");
+
+            // dispose view
+            editCustomerView.dispose();
+
+            // if user deleted is current user, log out
+            if (currentUser.getUserID() == context.getCurrentUser().getUserID()) {
+                dc.logoutUser();
+            }
+        }
+    }
+    
     class EmployeeSaver implements ActionListener {
         
         // view
@@ -432,6 +465,45 @@ public class ProfileControl {
             employeeDAO.updateEmployee(currentEmployee);
         }
     }
+    
+    class DeleteEmployee implements ActionListener {
+        
+        Employee employee;
+        
+        EmployeeDAO employeeDAO;
+        
+        EditEmployeeGUI editEmployeeView;
+        
+        DashboardControl dc;
+        
+        public DeleteEmployee(Employee employee, EmployeeDAO employeeDAO, EditEmployeeGUI editEmployeeView, DashboardControl dc) {
+            this.employee = employee;
+            this.employeeDAO = employeeDAO;
+            this.editEmployeeView = editEmployeeView;
+            this.dc = dc;
+        }
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // confirm before delete
+            int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this account? This action cannot be undone.", "Delete Account", JOptionPane.YES_NO_OPTION);
+            if (result != JOptionPane.YES_OPTION) {
+                return;
+            }
+
+            employeeDAO.deleteEmployee(this.employee.getEmployeeID()); // delete employee first
+            userDAO.deleteUser(currentUser.getUserID()); // then delete user
+
+            JOptionPane.showMessageDialog(null, "Account deleted");
+
+            // dispose view
+            editEmployeeView.dispose();
+
+            // if user deleted is current user, log out
+            if (currentUser.getUserID() == context.getCurrentUser().getUserID()) {
+                dc.logoutUser();
+            }
+        }
+    }
 
     class AddUserRecord implements ActionListener {
 
@@ -444,42 +516,74 @@ public class ProfileControl {
                 if ( user.getRole().equals( "Customer" ) ) {
                     isSuccess = newDBCustomer( user );
                     if (!isSuccess) {
+                        userView.dispose();
                         JOptionPane.showMessageDialog(null, "There was a problem making the Customer, but User was successful");
                         return;
                     }
                 } else {
                     isSuccess = newDBEmployee( user );
                     if (!isSuccess) {
+                        userView.dispose();
                         JOptionPane.showMessageDialog(null, "There was a problem making the Employee, but User was successful");
                         return;
                     }
                 }
+                
+                // success
+                userView.dispose();
                 JOptionPane.showMessageDialog(null, "User created successfully");
             } else { JOptionPane.showMessageDialog(null, "User was not created"); }    
         }
         
         public User newDBUser( ) {
             String username = userView.getInputUsername().getText();
-            String password = userView.getInputPassword().getText();
+            char[] passwordChar = userView.getInputPassword().getPassword();
             String firstName = userView.getInputFirstName().getText();
             String lastName = userView.getInputLastName().getText();
             String email = userView.getInputEmail().getText();
             String phone = userView.getInputPhone().getText();
             Object roleObj = userView.getSelectionRole().getSelectedItem();
             
-            if ( !validateUsername(username) ) { throw new IllegalArgumentException("a username is required"); }
-            if ( !validatePassword(password) ) { throw new IllegalArgumentException("Password must be at least 8 characters"); }
-            if ( !validateFirstName(firstName) ) { throw new IllegalArgumentException("a first name is required"); }
-            if ( !validateLastName(lastName) ) { throw new IllegalArgumentException("a last name is required"); }
-            if ( !validateEmail(email) ) { throw new IllegalArgumentException("Please provide a valid email number"); }
-            if ( !validatePhone(phone) ) { throw new IllegalArgumentException("Please provide a valid phone number"); }
-            if ( !validateRole(roleObj) ) { throw new IllegalArgumentException("Role must be one of Admin, Travel Agent, Tour Guide, or Customer"); }
-
-            String role = roleObj.toString();
-            User user = new User(username, password, firstName, lastName, email, role, phone);
-            user = userDAO.addNewUser(user);
+            // convert password to string
+            StringBuilder sb = new StringBuilder();
+            for (char c : passwordChar) {
+                sb.append(c);
+            }
             
-            return user;
+            String password = sb.toString();
+            try {
+                // validate username
+                if (!PropertyValidator.validateUsername(username)) {
+                    throw new InvalidAttributeValueException( "must have a valid username");
+                }
+                
+                // validate password
+                if ( !PropertyValidator.validatePassword(password) ) {
+                    throw new InvalidAttributeValueException("must have a valid password, minimum 8 characters");
+                }
+                // validate email
+                if ( !PropertyValidator.validateEmail(email) ) {
+                    throw new InvalidAttributeValueException( "must have a valid email");
+                }
+                // validate first name
+                if ( !PropertyValidator.validateFirstName(firstName) ) {
+                    throw new InvalidAttributeValueException( "must have a valid first name");
+                }
+                // validate last name
+                if ( !PropertyValidator.validateLastName(lastName) ) {
+                    throw new InvalidAttributeValueException( "must have a valid last name");
+                }
+                
+                String role = roleObj.toString();
+                User user = new User(username, password, firstName, lastName, email, role, phone);
+                user = userDAO.addNewUser(user);
+
+                return user;
+            } catch (InvalidAttributeValueException e) {
+                JOptionPane.showMessageDialog( null , e.getMessage() );
+            }
+
+            return null;
         }
     }
     

@@ -22,7 +22,7 @@ public class CustomerDAO {
     public Customer addNewCustomer(User user) {
 //        user = userDAO.addNewUser(user);
 
-        String query = "INSERT INTO customers ( user_id ) VALUES (?,?);";
+        String query = "INSERT INTO customers ( user_id ) VALUES (?);";
         
         try ( Connection link = DBConnection.getConnection(); 
             PreparedStatement p = link.prepareStatement(query, Statement.RETURN_GENERATED_KEYS); )

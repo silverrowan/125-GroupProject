@@ -257,8 +257,6 @@
                 <Property name="text" type="java.lang.String" value="Password"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="inputPassword">
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel31">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -269,6 +267,8 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="leave blank to keep current"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="inputPassword">
             </Component>
           </SubComponents>
         </Container>

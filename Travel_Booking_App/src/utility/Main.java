@@ -3,6 +3,7 @@ package utility;
 
 import view.dashboard.AppWindowAdmin;
 import controller.DashboardControl;
+import controller.LoginControl;
 import model.User;
 import view.dashboard.AppWindowAgent;
 import view.dashboard.AppWindowCust;
@@ -20,20 +21,28 @@ public class Main {
     public static void main(String[] args) {
         
         AppContext context = new AppContext();
-        Login loginView = new Login();
         
-        directToDash(context);
-    }  
+        runLogin( context );
+        
+        
+//        directToDash(context);
+    }
+    
+    public static void runLogin( AppContext context ){
+        Login loginView = new Login();
+        LoginControl loginControl = new LoginControl( context, loginView);
+        loginView.setVisible(true);
+    }
 
     public static void directToDash(AppContext context) {
         User activeUser;
         User loginUser;
-//        String username = "mzhang";           
-//        String password = "12341234";
+        String username = "mzhang";           
+        String password = "12341234";
 //        String username = "cchen";           
 //        String password = "123123123";
-        String username = "a";           
-        String password = "123123123";
+//        String username = "s";           
+//        String password = "123123123";
 
         activeUser = context.getUserDao().getUserFromUsername(username, password);
         loginUser = null;
@@ -45,8 +54,6 @@ public class Main {
         System.out.println("role: " + role);
 //        JFrame view;
         setFocusUserBypass(context);
-        
-        System.out.println("role; " + role );
         
         if ( role.equals( "Admin" ) ) {
             System.out.println("entered admin if");
@@ -90,7 +97,7 @@ public class Main {
     }
     
     public static void setFocusUserBypass( AppContext context ) {
-        String username = "m";           
+        String username = "cchen";           
         String password = "123123123";        
 
         User focusUser = context.getUserDao().getUserFromUsername(username, password);

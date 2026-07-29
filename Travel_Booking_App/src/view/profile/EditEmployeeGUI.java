@@ -8,6 +8,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JRootPane;
 import javax.swing.JTextField;
 
@@ -112,11 +113,11 @@ public class EditEmployeeGUI extends AbstractEditUserView {
     }
 
     @Override
-    public JTextField getInputPassword() {
+    public JPasswordField getInputPassword() {
         return inputPassword;
     }
 
-    public void setInputPassword(JTextField inputPassword) {
+    public void setInputPassword(JPasswordField inputPassword) {
         this.inputPassword = inputPassword;
     }
 
@@ -607,8 +608,8 @@ public class EditEmployeeGUI extends AbstractEditUserView {
         jLabel5 = new javax.swing.JLabel();
         radioStatus = new javax.swing.JCheckBox();
         jLabel30 = new javax.swing.JLabel();
-        inputPassword = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
+        inputPassword = new javax.swing.JPasswordField();
         pnlPersInfo = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -1342,7 +1343,7 @@ public class EditEmployeeGUI extends AbstractEditUserView {
     private javax.swing.JTextField inputHireDate;
     private javax.swing.JTextField inputJobTitle;
     private javax.swing.JTextField inputLastName;
-    private javax.swing.JTextField inputPassword;
+    private javax.swing.JPasswordField inputPassword;
     private javax.swing.JTextField inputPhone;
     private javax.swing.JTextField inputPost;
     private javax.swing.JTextField inputProvince;

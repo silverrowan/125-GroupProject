@@ -3,15 +3,12 @@ package controller;
 import utility.AppContext;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import model.User;
 import view.dashboard.AppWindowAdmin;
 import view.dashboard.AppWindowAgent;
 import view.Login;
 import view.dashboard.AppWindowCust;
-import utility.GenericView;
-import view.profile.EditCustomerGUI;
 
 /**
  *
@@ -31,51 +28,11 @@ public class LoginControl {
     }
     
     class LogInUser implements ActionListener {
-        private User activeUser;
-        private User loginUser;
-
         @Override
         public void actionPerformed(ActionEvent e) {
-            loginUser();                
-            getDashboard();
-
-//            AppWindowCust view = new AppWindowCust( context ); //make target window/dashboard: This is Menu AND beside contents.
-//            DashboardControl dash = new DashboardControl( context, view ); 
-//            dash.initialize();
-//            view.setVisible(true);
-                
-
-//                DashboardMenu dashboard = new DashboardMenu(); // can't use this one - MENU is an x of gradient which is of JPanel not Frame
-                    // left for now so i dont re-discover this repeatedly
-                loginView.dispose();
-    // make it visible
-//                TO DO 
-                //close login window
-            
+            loginUser();
+            loginView.dispose();           
         }
-    }
-//    class AddNewCustomer implements ActionListener {
-//
-//        @Override
-//        public void actionPerformed(ActionEvent e) {
-//            //open add new customer window
-//
-//            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//        }
-//    }
- 
-    public void clearPassArray(char[] pass) {
-        for (int i = pass.length -1 ; i >= 0 ; i--) {
-            pass[i] = 0;
-        }
-    }
-    
-    public boolean validateUsername(String username) { 
-        return !( username == null || username.isEmpty() ); 
-    }
-    
-    public boolean validatePassword(String password) { 
-        return !(password == null || password.isEmpty() || password.length() < 8);
     }
     
     public void loginUser(){
@@ -101,34 +58,56 @@ public class LoginControl {
             loginUser = null;
             activeUser.setPassword( null );
             context.getCurrentSession().setCurrentUser(activeUser);
-            System.out.println("Successful Login");        
+            System.out.println("Successful Login");
+            getDashboard();
         }
     }
 
     public void getDashboard() {
         User user = context.getCurrentUser();
+        if ( user == null ) {
+            JOptionPane.showMessageDialog( null , "No current user set");
+            return;
+        }
         String role = user.getRole();
         System.out.println("role: " + role);
-//        GenericView view;
 
-        if ( role.equals( "Admin" ) ) {
+        if ( role.equals( "Admin" ) ) { //already checked for null role in calling function.
             System.out.println("entered admin if");
-            AppWindowAdmin view = new AppWindowAdmin( context ); //make target window/dashboard: This is Menu AND beside contents.
-            DashboardControl dash = new DashboardControl( context, view ); 
+            AppWindowAdmin view = new AppWindowAdmin( context );
+            DashboardControl dash = new DashboardControl( context, view );
             view.setVisible(true); 
+            context.getCurrentSession().setDashControl( dash );
         } else if ( role.equals("Travel Agent") ) {
             System.out.println("entered Agent if");
             AppWindowAgent view = new AppWindowAgent( context );
             DashboardControl dash = new DashboardControl( context, view );
             view.setVisible(true); 
+            context.getCurrentSession().setDashControl( dash );
 //        } else if ( role.equals("Travel Guide") ) {
 //            //later
         } else {
             System.out.println("entered Cust/Other if");
-            context.getCurrentSession().setCurrentCustomer( user );
+            context.getCurrentSession().setCurrentCustomer( user ); 
             AppWindowCust view = new AppWindowCust( context );
             DashboardControl dash = new DashboardControl( context, view );
             view.setVisible(true); 
+            context.getCurrentSession().setDashControl( dash );
         }   
+    }
+    
+    //helpers
+    public void clearPassArray(char[] pass) {
+        for (int i = pass.length -1 ; i >= 0 ; i--) {
+            pass[i] = 0;
+        }
+    }
+    
+    public boolean validateUsername(String username) { 
+        return !( username == null || username.isEmpty() ); 
+    }
+    
+    public boolean validatePassword(String password) { 
+        return !(password == null || password.isEmpty() || password.length() < 8);
     }
 }

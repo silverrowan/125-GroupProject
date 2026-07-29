@@ -21,7 +21,7 @@ public class EmployeeDAO {
     public Employee addNewEmployee(User user ) {
 //        user = userDAO.addNewUser(user);
 
-        String query = "INSERT INTO employees ( user_id ) VALUES (?,?);";
+        String query = "INSERT INTO employees ( user_id ) VALUES (?);";
         
         try ( Connection link = DBConnection.getConnection(); 
             PreparedStatement p = link.prepareStatement(query, Statement.RETURN_GENERATED_KEYS); )

@@ -26,7 +26,7 @@ public class UserDAO {
                        username, password, first_name, last_name, email, 
                        role, phone
                        ) 
-                    VALUES (?,?,?,?,?,?,?);";
+                    VALUES (?,?,?,?,?,?,?);
                 """;
         try ( Connection link = DBConnection.getConnection(); 
             PreparedStatement p = link.prepareStatement(query, Statement.RETURN_GENERATED_KEYS); )
