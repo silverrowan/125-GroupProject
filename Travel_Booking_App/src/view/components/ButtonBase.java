@@ -1,4 +1,4 @@
-package view.models;
+package view.components;
 
 import java.awt.Color;
 import java.awt.Font;

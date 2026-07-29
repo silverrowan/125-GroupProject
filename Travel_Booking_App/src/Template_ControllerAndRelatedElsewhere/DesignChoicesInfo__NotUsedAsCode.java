@@ -1,4 +1,4 @@
-package view.components;
+package Template_ControllerAndRelatedElsewhere;
 
 import java.awt.Color;
 

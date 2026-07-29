@@ -1,16 +1,10 @@
 package controller;
 
-import Template_ControllerAndRelatedElsewhere.AppContextPlaceholder;
-import Template_ControllerAndRelatedElsewhere.ProductControlDemo;
-//import controller.BookingsController;
-import java.awt.Button;
 import java.awt.Font;
 import utility.AppContext;
-import utility.DuplicateTargetException;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.nio.file.AccessDeniedException;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -26,8 +20,6 @@ import view.FilterUsersGUI;
 import view.Login;
 import view.ProductsGUI;
 import view.ViewAllTripsGUI;
-import view.components.GradientPanel;
-import view.models.ButtonBase;
 import view.profile.EditCustomerGUI;
 import view.profile.EditEmployeeGUI;
 
@@ -36,59 +28,39 @@ import view.profile.EditEmployeeGUI;
  * @author Mariah Malczewska
  */
 public class DashboardControl extends GenericControl{
-    private AppContext context;
-
     private AppWindowAdmin dashAdmin;
     private AppWindowAgent dashAgent;
     private AppWindowCust dashCust;
-//    private GenericView dash;
 
-//    private GradientPanel dashDisplay;
-//    private GradientPanel dashList;
-
-//    private Button btnAdminProfile;
-//    private Button btnSearchCust;
-//    private Button btnSearchDestAdmin;
-//    private Button btnSearchProduct;
-//    private Button btnSearchPackage;
-//    private Button btnSearchTrip;
-//    private Button btnSearchBooking;
-//
-//    private Button btnAgentProfile;
-//    private Button btnClearUser;
-//
-//    private Button btnCustProfile;
-//    private Button btnSearchDest;
-//    private Button btnLatestBooking;
-//    private Button btnAllBooking;
-//
-//    private Button btnLogout;
-//    
+    private JButton focusBtn;
+    private JButton findFocusBtn;
+    private JButton clearUserBtn;
+    private JButton focusBookBtn;
+    
+    private JLabel focusLabel;
+    private JLabel userLabel;
+    private JLabel searchLabel;
+    
+    private Font headerFont;
+    
     private User user;
-//    private User cust;
-//    private User emp;
-//    private User focus;
+
 
     public DashboardControl( AppContext context, GenericView dash, int never ){
         super( context, dash );
         this.user = context.getCurrentUser();
-//        this.cust = context.getCurrentCustomerUser();
-//        this.emp = context.getCurrentSession().getCurrentEmployee();
-//        this.focus = context.getCurrentFocusUser();
-        
     }
     
 //    logged in user = Customer
     public DashboardControl( AppContext context, AppWindowCust dashCust ){ 
         this( context, dashCust, 99 );
 
-        //JLabel userLabel = dashAgent.getPnlDashAgent().getDashPanelAgent().getLblUser();
-        JLabel focusLabel = dashAgent.getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getLblUser();
-        JButton focusBtn = dashAgent.getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnCustProfile();
-        JButton findFocusBtn = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getPnlDashCust().getBtnCustSearch();
+        this.userLabel = dashAgent.getPnlDashAgent().getDashPanelAgent().getLblUser();
+        this.focusLabel = dashAgent.getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getLblUser();
+        this.focusBtn = dashAgent.getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnCustProfile();
+        this.findFocusBtn = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getPnlDashCust().getBtnCustSearch();
         
-        Font standardFont = focusLabel.getFont();
-        Font headerFont = standardFont.deriveFont(Font.BOLD, 24);
+        this.headerFont = focusLabel.getFont().deriveFont(Font.BOLD, 24);
         
         //listeners
         this.dashCust = (AppWindowCust) getView();        
@@ -99,7 +71,7 @@ public class DashboardControl extends GenericControl{
         this.dashCust.addListenerToLogoutCust( new Logout() );
         
         //adjust labels and buttons
-        changeSessionFocusObjects( focusBtn, findFocusBtn, null, null, focusLabel, headerFont );
+        refreshDash();
     }
     
     //Logged in user == agent
@@ -108,15 +80,14 @@ public class DashboardControl extends GenericControl{
         this.dashAgent = (AppWindowAgent) getView();        
 
         //get labels and buttons that need adjusting
-        JLabel userLabel = dashAgent.getPnlDashAgent().getDashPanelAgent().getLblUser();
-        JLabel focusLabel = dashAgent.getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getLblUser();
-        JButton focusBtn = dashAgent.getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnCustProfile();
-        JButton findFocusBtn = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getPnlDashCust().getBtnCustSearch();
-        JButton clearUserBtn = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getBtnClearCust();
-        JButton focusBookBtn = dashAgent.getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnViewBooking();
+        this.userLabel = dashAgent.getPnlDashAgent().getDashPanelAgent().getLblUser();
+        this.focusLabel = dashAgent.getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getLblUser();
+        this.focusBtn = dashAgent.getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnCustProfile();
+        this.findFocusBtn = dashAgent.getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnCustSearch();
+        this.clearUserBtn = dashAgent.getPnlDashAgent().getDashPanelAgent().getBtnClearCust();
+        this.focusBookBtn = dashAgent.getPnlDashAgent().getDashPanelAgent().getPnlDashCust().getBtnViewBooking();
 
-        Font standardFont = focusLabel.getFont();
-        Font headerFont = standardFont.deriveFont(Font.BOLD, 24);
+        this.headerFont = focusLabel.getFont().deriveFont(Font.BOLD, 24);
 
         //--cust section listeners--
         this.dashAgent.addListenerToBtnCustProfile( new Profile( false ) );
@@ -127,30 +98,29 @@ public class DashboardControl extends GenericControl{
         this.dashAgent.addListenerToBtnAgentProfile( new Profile( true ) );        
         this.dashAgent.addListenerToBtnSearchCust( new SearchUser( true ) );        
         this.dashAgent.addListenerToBtnLogoutAgent( new Logout() );        
-        this.dashAgent.addListenerToBtnClearCust( new ClearCust( focusBtn, findFocusBtn, focusBookBtn, clearUserBtn, focusLabel, headerFont ) );        
+        this.dashAgent.addListenerToBtnClearCust( new ClearCust( ) );        
 
         
         //adjust labels and buttons
         userLabel.setText( "Welcome " + user.getUsername() +"!" );
-        changeSessionFocusObjects( focusBtn, findFocusBtn, focusBookBtn, clearUserBtn, focusLabel, headerFont );       
+        refreshDash( );       
     }
-    
+   
 //    Loggen in user == admin
     public DashboardControl( AppContext contextOuter, AppWindowAdmin dashAdminOuter ){
         this( contextOuter, dashAdminOuter, 99 );
         this.dashAdmin = (AppWindowAdmin) getView();
         
         //Get labels and buttons to adjust
-        JLabel searchLabel = dashAdmin.getPnlDashAdmin().getPnlDashAdmin().getLblUser();
-        JLabel userLabel = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getLblUser();
-        JLabel focusLabel = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getPnlDashCust().getLblUser();
-        JButton focusBtn = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getPnlDashCust().getBtnCustProfile();
-        JButton findFocusBtn = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getPnlDashCust().getBtnCustSearch();
-        JButton clearUserBtn = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getBtnClearCust();
-        JButton focusBookBtn = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getPnlDashCust().getBtnViewBooking();
+        this.searchLabel = dashAdmin.getPnlDashAdmin().getPnlDashAdmin().getLblUser();
+        this.userLabel = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getLblUser();
+        this.focusLabel = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getPnlDashCust().getLblUser();
+        this.focusBtn = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getPnlDashCust().getBtnCustProfile();
+        this.findFocusBtn = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getPnlDashCust().getBtnCustSearch();
+        this.clearUserBtn = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getBtnClearCust();
+        this.focusBookBtn = dashAdmin.getPnlDashAdmin().getPnlDashAgent().getPnlDashCust().getBtnViewBooking();
 
-        Font standardFont = searchLabel.getFont();
-        Font headerFont = standardFont.deriveFont(Font.BOLD, 24);
+        this.headerFont = focusLabel.getFont().deriveFont(Font.BOLD, 24);
         
         //--cust section listeners--
         this.dashAdmin.addListenerToBtnCustProfile( new Profile( false ) );
@@ -161,7 +131,7 @@ public class DashboardControl extends GenericControl{
         this.dashAdmin.addListenerToBtnAdminProfile( new Profile( true ) );        
         this.dashAdmin.addListenerToBtnSearchCust( new SearchUser( true ));
         this.dashAdmin.addListenerToBtnLogoutAgent( new Logout() );        
-        this.dashAdmin.addListenerToBtnClearCust( new ClearCust( focusBtn, findFocusBtn, focusBookBtn, clearUserBtn, focusLabel, headerFont ) );
+        this.dashAdmin.addListenerToBtnClearCust( new ClearCust() );
         //--admin section listeners--
         this.dashAdmin.addListenerToBtnSearchDestAdmin( new SearchDest() );    
         this.dashAdmin.addListenerToBtnSearchTrips( new SearchTrip() );    
@@ -170,9 +140,12 @@ public class DashboardControl extends GenericControl{
         //adjust labels and buttons
         changeLabelToHeader( userLabel, headerFont, "Welcome " + user.getUsername() +"!" );
         changeLabelToHeader( searchLabel, headerFont, "Search & Edit" );
-        changeSessionFocusObjects( focusBtn, findFocusBtn, focusBookBtn, clearUserBtn, focusLabel, headerFont );
+        refreshDash( );
 
     }
+//--------------------------Listener Helper------------------------
+//-----------------------------------------------------------------------------
+    public AppContext getContext(){ return super.getAppContext(); }
     
 //--------------------------Listener Classes & Function------------------------
 //-----------------------------------------------------------------------------
@@ -184,8 +157,8 @@ public class DashboardControl extends GenericControl{
             
             @Override
             public void actionPerformed(ActionEvent e) {
-                User user = getAppContext().getCurrentUser();
-                User focusUser = getAppContext().getCurrentSession().getFocusUser();
+//                User user = getAppContext().getCurrentUser();
+                User focusUser = getContext().getCurrentSession().getFocusUser();
                 
                 if ( isSelf ) { makeViewProfile( getAppContext(), user ); }
                 else { makeViewProfile( getAppContext(), focusUser ); }
@@ -220,7 +193,7 @@ public class DashboardControl extends GenericControl{
         class SearchUser implements ActionListener {
             Boolean onlyCustomers;
             
-            public SearchUser( Boolean customerOnly ){ this.onlyCustomers = onlyCustomers; }
+            public SearchUser( Boolean customerOnly ){ this.onlyCustomers = customerOnly; }
 
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -229,56 +202,16 @@ public class DashboardControl extends GenericControl{
         }      
 
         class ClearCust implements ActionListener {
-                JButton focusBtn;
-                JButton findFocusBtn;
-                JButton clearUserBtn;
-                JButton focusBookBtn;
-                JLabel focusLabel;
-                Font headerFont;
-                
-                public ClearCust( JButton focusBtn, JButton findFocusBtn, JButton focusBookBtn, JButton clearUserBtn, JLabel focusLabel, Font headerFont ){
-                    this.focusBtn=focusBtn;
-                    this.findFocusBtn=findFocusBtn;
-                    this.focusBookBtn=focusBookBtn;
-                    this.focusLabel=focusLabel;
-                    this.headerFont=headerFont;
-                    this.clearUserBtn=clearUserBtn;
-                }
 
             @Override
             public void actionPerformed(ActionEvent e) {
 
                 getAppContext().getCurrentSession().clearFoci();
-                changeSessionFocusObjects( focusBtn, findFocusBtn, focusBookBtn, clearUserBtn, focusLabel, headerFont );
-
+                refreshDash( );
             }
         }
 
         //Admin Section
-        class SearchProduct implements ActionListener {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-            }
-        }
-
-        class SearchPackage implements ActionListener {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-            }
-        }
-
-        class SearchDestAdmin implements ActionListener {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-            }
-        }
-
         class SearchTrip implements ActionListener {
 
             @Override
@@ -297,23 +230,36 @@ public class DashboardControl extends GenericControl{
                 throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
             }
         }
-
-    private void changeSessionFocusObjects( JButton focusBtn, JButton findFocusBtn, JButton focusBookBtn, JButton chgTextBtn, JLabel focusLabel, Font headerFont ) {
-        User loggedIn = getAppContext().getCurrentSession().getCurrentUser();
+    
         
-        if ( loggedIn.getRole().equals("Customer") ) { 
-            changeCustFocusObjects( focusBtn, findFocusBtn, focusLabel, headerFont );
-        } else if ( loggedIn.getRole().equals("Agent") ) {
-            changeAgentFocusObjects( focusBtn, findFocusBtn, focusBookBtn, chgTextBtn, focusLabel, headerFont );
-        } else if ( loggedIn.getRole().equals("Admin") ) {
-            changeAdminFocusObjects( focusBtn, findFocusBtn, focusBookBtn, chgTextBtn, focusLabel, headerFont );
-        } else {
-            JOptionPane.showMessageDialog( null , "Invalid user role, contact the Administrator to fix");
-            logoutUser();
-        }        
+    public void refreshDash() {
+        //focus objects
+        changeSessionFocusObjects();
+//        everything else that might need refreshing
     }
     
-    private void changeCustFocusObjects( JButton focusBtn, JButton findFocusBtn, JLabel focusLabel, Font headerFont ) {
+    private void changeSessionFocusObjects( ) {
+        User loggedIn = getAppContext().getCurrentSession().getCurrentUser();
+        user = loggedIn;
+        
+        switch (loggedIn.getRole()) {
+            case "Customer":
+                changeCustFocusObjects( );
+                break;
+            case "Travel Agent":
+                changeAgentFocusObjects( );
+                break;
+            case "Admin":
+                changeAdminFocusObjects( );
+                break;        
+            default:
+                JOptionPane.showMessageDialog( null , "Invalid user role, contact the Administrator to fix");
+                logoutUser();
+                break;
+        }
+    }
+    
+    private void changeCustFocusObjects( ) {
             changeLabelToHeader( focusLabel, headerFont, "Welcome " + user.getUsername() );
 
             focusBtn.setVisible(true);
@@ -321,7 +267,7 @@ public class DashboardControl extends GenericControl{
             findFocusBtn.setVisible(false);                  
     }
     
-    private void changeAgentFocusObjects( JButton focusBtn, JButton findFocusBtn, JButton focusBookBtn, JButton clearBtn, JLabel focusLabel, Font headerFont ) {
+    private void changeAgentFocusObjects( ) {
         ensureValidFocus();
         User customer = getAppContext().getCurrentSession().getCurrentCustomer();
         
@@ -332,7 +278,7 @@ public class DashboardControl extends GenericControl{
 
             focusBtn.setVisible(false);
             findFocusBtn.setVisible(true);
-            clearBtn.setEnabled( false );
+            clearUserBtn.setEnabled( false );
             focusBookBtn.setEnabled( false );
         } else {
             String focusLabelText = "Customer: " + customer.getUsername();
@@ -341,12 +287,12 @@ public class DashboardControl extends GenericControl{
             focusBtn.setVisible(true);
             focusBtn.setText( customer.getUsername() + "'s Profile" );
             findFocusBtn.setVisible(false);
-            clearBtn.setEnabled( true );
+            clearUserBtn.setEnabled( true );
             focusBookBtn.setEnabled( true );            
         }
     }
     
-    private void changeAdminFocusObjects( JButton focusBtn, JButton findFocusBtn, JButton focusBookBtn, JButton clearBtn, JLabel focusLabel, Font headerFont ) {
+    private void changeAdminFocusObjects( ) {
         ensureValidFocus();
         User focus = getAppContext().getCurrentFocusUser();
         
@@ -357,7 +303,7 @@ public class DashboardControl extends GenericControl{
             focusBtn.setVisible(false);
             findFocusBtn.setText("Search for Users");
             findFocusBtn.setVisible(true);
-            clearBtn.setEnabled( false );
+            clearUserBtn.setEnabled( false );
             focusBookBtn.setText( "Focus User Bookings" );
             focusBookBtn.setEnabled( false );
         } else {
@@ -368,13 +314,13 @@ public class DashboardControl extends GenericControl{
             focusBtn.setText( focus.getUsername() + "'s Profile" );
             findFocusBtn.setVisible(false);
             focusBookBtn.setText( focus.getUsername() + "'s Bookings" );
-            changeBtnText( clearBtn, "Clear Focus User" );
-            clearBtn.setEnabled( true );
+            changeBtnText( clearUserBtn, "Clear Focus User" );
+            clearUserBtn.setEnabled( true );
             focusBookBtn.setEnabled( true );
         }      
     }
     
-    private void ensureValidFocus(){
+    private void ensureValidFocus(){ //this should be moved to the session
         User customer = getAppContext().getCurrentSession().getCurrentCustomer();
         User employee = getAppContext().getCurrentSession().getCurrentEmployee();
         
@@ -416,7 +362,7 @@ public class DashboardControl extends GenericControl{
     private void makeFindUserView( AppContext context, Boolean onlyCustomers ) {
         FilterUsersGUI view = new FilterUsersGUI( ); // views *shouldnt* need context, controller should tell it everything it needs
         view.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
-        UserControl userControl = new UserControl( context, view ); 
+        ProfileControl userControl = new ProfileControl( context, view ); 
         //Figure out how to filter
         //Apply customers only filter
         view.setVisible(true); //make it visible
@@ -431,23 +377,23 @@ public class DashboardControl extends GenericControl{
         
         String viewUserRole = viewUser.getRole();
         
-        if ( currURole.equals("Customer") || viewUserRole.equals("Customer")) { 
-            makeEditCustomerView(); 
+        if ( viewUserRole.equals("Customer")) { 
+            makeEditCustomerView( viewUser ); 
         } 
-        else { makeEditEmployeeView(); }
+        else { makeEditEmployeeView( viewUser ); }
     }
 
-    private void makeEditCustomerView() {
+    private void makeEditCustomerView( User viewUser ) {
         EditCustomerGUI viewEdit = new EditCustomerGUI();
         viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        ProfileControl pc = new ProfileControl(getAppContext(), this, getAppContext().getUserDao().getUserFromUsername(getAppContext().getCurrentUser().getUsername()), viewEdit);
+        ProfileControl pc = new ProfileControl(getAppContext(), this, viewUser , viewEdit);
         viewEdit.setVisible(true);
     }
 
-    private void makeEditEmployeeView() {
+    private void makeEditEmployeeView( User viewUser ) {
         EditEmployeeGUI viewEdit = new EditEmployeeGUI();
         viewEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        ProfileControl pc = new ProfileControl(getAppContext(), this, getAppContext().getUserDao().getUserFromUsername(getAppContext().getCurrentUser().getUsername()), viewEdit);
+        ProfileControl pc = new ProfileControl(getAppContext(), this, viewUser, viewEdit);
         viewEdit.setVisible(true);
     }
 

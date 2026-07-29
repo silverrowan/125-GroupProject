@@ -3,17 +3,9 @@ package utility;
 
 import view.dashboard.AppWindowAdmin;
 import controller.DashboardControl;
-import controller.LoginControl;
-import controller.ProfileControl;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import model.User;
 import view.dashboard.AppWindowAgent;
 import view.dashboard.AppWindowCust;
-import view.profile.EditCustomerGUI;
-import view.profile.EditEmployeeGUI;
 import view.Login;
 
 /**
@@ -88,7 +80,6 @@ public class Main {
         
 //    }
 //}
-
 //         Edit customer & employees testing code (TEMPORARY)
 //        if (context.getCurrentUser().getRole().equals("Customer")) {
 //            EditCustomerGUI viewEdit = new EditCustomerGUI();

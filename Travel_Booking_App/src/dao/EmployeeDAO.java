@@ -18,7 +18,7 @@ import utility.DBConnection;
  */
 public class EmployeeDAO {
 
-    public Employee addNewEmployee(User user, int userID) {
+    public Employee addNewEmployee(User user ) {
 //        user = userDAO.addNewUser(user);
 
         String query = "INSERT INTO employees ( user_id ) VALUES (?,?);";
@@ -34,7 +34,7 @@ public class EmployeeDAO {
                 if (rs.next()) {
                     int idGen = rs.getInt(1); // get int in column 1 of DB table
                     
-                    Employee emp = new Employee(idGen);
+                    Employee emp = new Employee(idGen, user.getUserID());
                     return emp;
                 }
             }
@@ -129,7 +129,7 @@ public class EmployeeDAO {
             ResultSet rs = p.executeQuery(); // execute query
             
             if (rs.next()) {
-                return makeEmployeeObj(rs); // make employee object and return it
+                return addNewEmployee(rs); // make employee object and return it
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -140,7 +140,7 @@ public class EmployeeDAO {
         return null;
     }
     
-    private Employee makeEmployeeObj(ResultSet rs) throws SQLException {
+    private Employee addNewEmployee(ResultSet rs) throws SQLException {
         // create new employee and set all attributes
         Employee employee = new Employee(rs.getInt("user_id"));
         employee.setEmployeeID(rs.getInt("employee_id"));
