@@ -127,12 +127,12 @@ public class ProfileControl {
                 if (role.equals("Customer")) {
                     EditCustomerGUI view = new EditCustomerGUI();
                     view.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    ProfileControl pc = new ProfileControl(context, null, user, view);
+                    ProfileControl pc = new ProfileControl(context, context.getCurrentDashControl(), user, view);
                     view.setVisible(true);
                 } else {
                     EditEmployeeGUI view = new EditEmployeeGUI();
                     view.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    ProfileControl pc = new ProfileControl(context, null, user, view);
+                    ProfileControl pc = new ProfileControl(context, context.getCurrentDashControl(), user, view);
                     view.setVisible(true);
                 }
             }
