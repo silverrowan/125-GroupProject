@@ -29,6 +29,9 @@ public class PersonDash extends javax.swing.JFrame {
     
     public JButton getBtnFindMany() { return btnFindMany; }
     public void setBtnFindMany(JButton btnFindMany) { this.btnFindMany = btnFindMany; }
+
+    public JButton getBtnLuggage() { return btnLuggage; }
+    public void setBtnLuggage(JButton btnLuggage) { this.btnLuggage = btnLuggage; }
     
     //listeners
     public void addPersonBtnListener(ActionListener addListener){
@@ -39,6 +42,9 @@ public class PersonDash extends javax.swing.JFrame {
     }
     public void findPeopleBtnListener(ActionListener findManyListener){
         btnFindMany.addActionListener(findManyListener);
+    }
+    public void findLuggageBtnListener(ActionListener findLuggageListener){
+        btnLuggage.addActionListener(findLuggageListener);
     }
     
     //helpers
@@ -58,6 +64,7 @@ public class PersonDash extends javax.swing.JFrame {
         btnAdd = new javax.swing.JButton();
         btnFind1 = new javax.swing.JButton();
         btnFindMany = new javax.swing.JButton();
+        btnLuggage = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,6 +74,9 @@ public class PersonDash extends javax.swing.JFrame {
 
         btnFindMany.setText("Find Many");
 
+        btnLuggage.setText("Luggage");
+        btnLuggage.addActionListener(this::btnLuggageActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -74,6 +84,7 @@ public class PersonDash extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(148, 148, 148)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnLuggage, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnFindMany, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnFind1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -88,16 +99,23 @@ public class PersonDash extends javax.swing.JFrame {
                 .addComponent(btnFind1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnFindMany, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnLuggage, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLuggageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuggageActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLuggageActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnFind1;
     private javax.swing.JButton btnFindMany;
+    private javax.swing.JButton btnLuggage;
     // End of variables declaration//GEN-END:variables
 }

@@ -14,6 +14,9 @@ import view.Person.PersonModel;
 import view.Person.PersonFind;
 
 import view.Person.PersonView;
+import view.Person.luggage.LuggageControl;
+import view.Person.luggage.LuggageMany;
+import view.Person.luggage.LuggageOwnerDAO;
 /**
  *
  * @author rowan
@@ -21,6 +24,7 @@ import view.Person.PersonView;
 public class PersonDashControl {
     private PersonDash dash;
     private PersonDAO dao;
+    private LuggageOwnerDAO lDao;
     
     //-------------------------------------------------------------------------
     //--------DASH DIRECT------------------------------------------------------
@@ -28,11 +32,14 @@ public class PersonDashControl {
     public PersonDashControl(PersonDash dash, PersonDAO dao) {
         this.dash = dash;
         this.dao = dao;
+        this.lDao = new LuggageOwnerDAO();
 
         dash.addPersonBtnListener(new openAddPerson());
         dash.findPersonBtnListener(new openFindPerson());
         dash.findPeopleBtnListener(new openFindPeople());
+        dash.findLuggageBtnListener(new openLuggage());
     }
+    
     class openAddPerson implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -59,6 +66,16 @@ public class PersonDashControl {
         PersonFindMany view = new PersonFindMany();
         view.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         PersonControl pc = new PersonControl( dao, view );
+        view.setVisible(true);
+        }
+    }
+    
+    class openLuggage implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        LuggageMany view = new LuggageMany();
+        view.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        LuggageControl pc = new LuggageControl( lDao, view );
         view.setVisible(true);
         }
     }

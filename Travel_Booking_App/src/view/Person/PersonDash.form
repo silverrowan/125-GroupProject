@@ -26,6 +26,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnLuggage" min="-2" pref="108" max="-2" attributes="0"/>
                   <Component id="btnFindMany" min="-2" pref="108" max="-2" attributes="0"/>
                   <Component id="btnFind1" min="-2" pref="108" max="-2" attributes="0"/>
                   <Component id="btnAdd" min="-2" pref="108" max="-2" attributes="0"/>
@@ -43,7 +44,9 @@
               <Component id="btnFind1" min="-2" pref="36" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnFindMany" min="-2" pref="36" max="-2" attributes="0"/>
-              <EmptySpace pref="104" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="btnLuggage" min="-2" pref="36" max="-2" attributes="0"/>
+              <EmptySpace pref="56" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -63,6 +66,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Find Many"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnLuggage">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Luggage"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLuggageActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
