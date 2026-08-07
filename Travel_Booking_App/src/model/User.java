@@ -23,6 +23,7 @@ public class User {
     private String role;
     private String accountStatus;
 
+
     // full constructor
     public User(String username, String password, String firstName, String lastName, String email, String phone, String streetNumber, String streetName, String city, String province, String postalCode, String country, String role, String accountStatus) {
         this(username, password, firstName, lastName, email, role);
@@ -50,7 +51,7 @@ public class User {
         this(username, password, firstName, lastName, email, role);
         this.phone = phone;
     }
-    
+       
     public User(){
        this("placeholder", "placeholder", "placeholder", "placeholder", "placeholder", "placeholder");
     }
